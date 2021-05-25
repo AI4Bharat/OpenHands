@@ -71,7 +71,7 @@ class TrainingRunner(pl.LightningModule):
         self.trainer.fit(self)
 
 if __name__ == "__main__":
-    from datasets.wlasl_video import WLASLVideoDataset
+    from datasets.isolated.wlasl_video import WLASLVideoDataset
     from models.video_3d import ClassificationModel
     
     dataset = WLASLVideoDataset("WLASL2000/splits/asl2000.json", "WLASL2000/videos")

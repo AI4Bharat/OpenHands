@@ -2,7 +2,7 @@ import torch
 import torchvision
 
 
-class Normalize(torchvision.transforms.Normalize):
+class Normalize3D(torchvision.transforms.Normalize):
     """
     Normalize the (CTHW) video clip by mean subtraction and division by standard deviation
     Args:
