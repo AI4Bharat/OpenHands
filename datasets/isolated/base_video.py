@@ -13,8 +13,8 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
     def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"], transforms="default"):
         self.data = []
         self.glosses = []
-        self.read_index_file(split_file, splits)
         self.root_dir = root_dir
+        self.read_index_file(split_file, splits)
         self.resize_dims = resize_dims
         if transforms == "default":
             albumentation_transforms = A.Compose(
@@ -28,6 +28,7 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
             self.transforms = torchvision.transforms.Compose(
                 [
                     Albumentations3D(albumentation_transforms),
+                    NumpyToTensor(),
                     THWC2TCHW(),
                     RandomTemporalSubsample(16),
                     torchvision.transforms.RandomCrop((resize_dims[0], resize_dims[1])),
@@ -114,18 +115,10 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
     
     def __getitem__(self, index):
         imgs, label = self.read_data(index)
-        # (T, H, W, C) -> (T, C, H, W)
-        # imgs = torch.tensor(imgs/255.0).permute(0, 3, 1, 2)
-        # imgs = imgs.transpose(0, 3, 1, 2)
+        # imgs shape: (T, H, W, C)
 
         if self.transforms is not None:
             imgs = self.transforms(imgs)
-        
-        # (T, C, H, W) -> (C, T, H, W)
-        # imgs = imgs.permute(1, 0, 2, 3)
-
-        # (T, H, W, C) -> (C, T, H, W)
-        # imgs = imgs.permute(3, 0, 1, 2)
 
         return {"frames": imgs, "label": torch.tensor(label, dtype=torch.long)}
     

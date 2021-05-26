@@ -25,12 +25,16 @@ class Albumentations3D:
         self.transforms = transforms
     
     def __call__(self, vid):
+        """
+        Args:
+            x (numpy.array): video tensor with shape (T, H, W, C).
+        """
         seed = random.randint(0,99999)
         aug_vid = []
         for x in vid:
             random.seed(seed)
             aug_vid.append((self.transforms(image = np.asarray(x)))['image'])
-        return torch.from_numpy(np.stack(aug_vid)/255.0)
+        return np.stack(aug_vid)
 
 
 class RandomTemporalSubsample(torch.nn.Module):
