@@ -30,6 +30,9 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
         return len(self.data)
     
     def load_frames_from_video(self, video_path, start_frame, end_frame):
+        """
+        Load the frames of the video between start and end frames.
+        """
         frames = []
         vidcap = cv2.VideoCapture(video_path)
         total_frames = vidcap.get(cv2.CAP_PROP_FRAME_COUNT)
@@ -42,6 +45,23 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
             min(int(end_frame - start_frame), int(total_frames - start_frame))
         ):
             success, img = vidcap.read()
+            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+            img = cv2.resize(img, self.resize_dims)
+            frames.append(img)
+
+        return np.asarray(frames, dtype=np.float32)
+    
+    def load_frames_from_video(self, video_path):
+        """
+        Load all frames from a video
+        """
+        frames = []
+        
+        vidcap = cv2.VideoCapture(video_path)
+        while vidcap.isOpened():
+            success, img = vidcap.read()
+            if not success:
+                break
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             img = cv2.resize(img, self.resize_dims)
             frames.append(img)
