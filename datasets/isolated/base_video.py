@@ -1,24 +1,48 @@
 import torch
 import torch.nn.functional as F
 import torchvision
+import albumentations as A
+from albumentations.pytorch import ToTensorV2
 import numpy as np
 import cv2
 from glob import glob
 from natsort import natsorted
-from .utils import Normalize3D
+from .utils import *
 
 class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
-    def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"]):
+    def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"], transforms="default"):
         self.data = []
         self.glosses = []
         self.read_index_file(split_file, splits)
         self.root_dir = root_dir
         self.resize_dims = resize_dims
-        self.transforms = torchvision.transforms.Compose(
-            [
-                # Normalize3D((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
-            ]
-        )
+        if transforms == "default":
+            albumentation_transforms = A.Compose(
+                [
+                    A.ShiftScaleRotate(shift_limit=0.05, scale_limit=0.05, rotate_limit=15, p=0.5),
+                    A.ChannelDropout(p=0.1),
+                    A.RandomRain(p=0.1),
+                    A.GridDistortion(p=0.3)
+                ]
+            )
+            self.transforms = torchvision.transforms.Compose(
+                [
+                    Albumentations3D(albumentation_transforms),
+                    THWC2TCHW(),
+                    RandomTemporalSubsample(16),
+                    torchvision.transforms.RandomCrop((resize_dims[0], resize_dims[1])),
+                    torchvision.transforms.RandomHorizontalFlip(p=0.5),
+                    # torchvision.transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
+                    TCHW2CTHW()
+                ]
+            )
+        else:
+            self.transforms = torchvision.transforms.Compose(
+                [
+                    NumpyToTensor(),
+                    THWC2CTHW(),
+                ]
+            )
     
     def num_class(self):
         return len(self.glosses)
@@ -32,6 +56,8 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
     def load_frames_from_video(self, video_path, start_frame, end_frame):
         """
         Load the frames of the video between start and end frames.
+
+        Returns: numpy array of shape (T, H, W, C)
         """
         frames = []
         vidcap = cv2.VideoCapture(video_path)
@@ -88,11 +114,18 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
     
     def __getitem__(self, index):
         imgs, label = self.read_data(index)
-        print(imgs.shape)
-        imgs = torch.tensor(imgs/255.0).permute(3, 0, 1, 2)
+        # (T, H, W, C) -> (T, C, H, W)
+        # imgs = torch.tensor(imgs/255.0).permute(0, 3, 1, 2)
+        # imgs = imgs.transpose(0, 3, 1, 2)
 
         if self.transforms is not None:
             imgs = self.transforms(imgs)
+        
+        # (T, C, H, W) -> (C, T, H, W)
+        # imgs = imgs.permute(1, 0, 2, 3)
+
+        # (T, H, W, C) -> (C, T, H, W)
+        # imgs = imgs.permute(3, 0, 1, 2)
 
         return {"frames": imgs, "label": torch.tensor(label, dtype=torch.long)}
     
