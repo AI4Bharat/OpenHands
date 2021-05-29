@@ -15,7 +15,7 @@ class LSA64Dataset(BaseVideoIsolatedDataset):
         '''
         df = pd.read_csv(index_file_path, delimiter='|', header=None)
 
-        self.glosses = sorted([df[1][i].strip() for i in range(len(df))])
+        self.glosses = [df[1][i].strip() for i in range(len(df))]
         self.sign_id2name =  {df[0][i]: df[1][i] for i in range(len(df))}
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
@@ -26,9 +26,7 @@ class LSA64Dataset(BaseVideoIsolatedDataset):
             sign_id, signer_id, repeat_id = map(int, video_name.split('_'))
             
             if (signer_id < 9 and "train" in splits) or (signer_id == 9 and "val" in splits) or (signer_id == 10 and "test" in splits):
-                sign_name = self.sign_id2name[sign_id]
-                gloss_cat = label_encoder.transform([sign_name])[0]
-                instance_entry = video_file, gloss_cat
+                instance_entry = video_file, sign_id
                 self.data.append(instance_entry)
         return
 

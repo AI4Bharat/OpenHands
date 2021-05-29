@@ -10,7 +10,7 @@ class GSLVideoDataset(BaseVideoIsolatedDataset):
         # CSV Columns: (video_path, gloss_name)
         df = pd.read_csv(index_file_path, delimiter='|', header=None)
 
-        self.glosses = sorted([df[1][i].strip() for i in range(len(df))])
+        self.glosses = [df[1][i].strip() for i in range(len(df))]
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
