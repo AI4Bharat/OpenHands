@@ -16,7 +16,6 @@ class LSA64Dataset(BaseVideoIsolatedDataset):
         df = pd.read_csv(index_file_path, delimiter='|', header=None)
 
         self.glosses = [df[1][i].strip() for i in range(len(df))]
-        self.sign_id2name =  {df[0][i]: df[1][i] for i in range(len(df))}
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
