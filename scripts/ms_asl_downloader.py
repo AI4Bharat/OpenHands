@@ -81,7 +81,7 @@ class MSASLDownloader:
 
             filtered_dataset = []
             for entry in dataset:
-                if entry["label"] > split_size:
+                if entry["label"] >= split_size:
                     continue
                 filtered_dataset.append(entry)
 
