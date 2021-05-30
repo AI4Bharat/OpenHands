@@ -44,7 +44,7 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
                     THWC2CTHW(),
                 ]
             )
-    
+    @property
     def num_class(self):
         return len(self.glosses)
     
