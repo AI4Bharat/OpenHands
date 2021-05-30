@@ -5,7 +5,18 @@ from .base_video import BaseVideoIsolatedDataset
 
 class CSLDataset(BaseVideoIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
+        """
+        Format for word-level CSL dataset:
+        1.  naming: P01_25_19_2._color.mp4
+            P01: 1, signer ID (person)
+            25_19: (25-1)*20+19=499, label ID
+            2: 2, the second time performing the sign
 
+        2.  experiment setting:
+            split: 
+                train set: signer ID, [0, 1, ..., 34, 35]
+                test set: signer ID, [36, 37, ... ,48, 49]
+        """
         self.glosses = []
         with open(index_file_path, encoding="utf-8") as f:
             for i, line in enumerate(f):
@@ -24,9 +35,11 @@ class CSLDataset(BaseVideoIsolatedDataset):
             
             for video_file in video_files:
                 gloss_id = int(video_file.replace('\\', '/').split('/')[-2])
+                signer_id = int(os.path.basename(video_file).split('_')[0].replace('P', ''))
 
-                instance_entry = video_file, gloss_id
-                self.data.append(instance_entry)
+                if (signer_id <= 35 and "train" in splits) or (signer_id > 35 and "test" in splits):
+                    instance_entry = video_file, gloss_id
+                    self.data.append(instance_entry)
         else:
             raise NotImplementedError
 

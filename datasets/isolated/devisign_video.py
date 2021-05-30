@@ -6,7 +6,10 @@ from .base_video import BaseVideoIsolatedDataset
 
 class DeviSignDataset(BaseVideoIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
-
+        """
+        Check the file "DEVISIGN Technical Report.pdf" inside `Documents\` folder
+        for dataset format (page 12) and splits (page 15)
+        """
         self.glosses = []
         df = pd.read_csv(index_file_path, delimiter='\t')
         for i in range(len(df)):
@@ -22,10 +25,13 @@ class DeviSignDataset(BaseVideoIsolatedDataset):
                 exit(f"No videos files found for: {video_files_path}")
             
             for video_file in video_files:
-                gloss_id = int(video_file.replace('\\', '/').split('/')[-2].split('_')[1])
+                naming_parts = video_file.replace('\\', '/').split('/')[-2].split('_')
+                gloss_id = int(naming_parts[2])
+                signer_id = int(naming_parts[0].replace('P', ''))
 
-                instance_entry = video_file, gloss_id
-                self.data.append(instance_entry)
+                if (signer_id <= 4 and "train" in splits) or (signer_id > 4 and "test" in splits):
+                    instance_entry = video_file, gloss_id
+                    self.data.append(instance_entry)
         else:
             raise NotImplementedError
 
