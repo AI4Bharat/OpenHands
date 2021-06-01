@@ -1,0 +1,9 @@
+encoder:
+  type: cnn3d
+  params:
+    backbone: x3d_s
+    pretrained: true
+decoder:
+  type: fc
+  params:
+    dropout_ratio: 0.2

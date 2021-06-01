@@ -1,12 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import timm
-
-# Ref: https://github.com/0aqz0/SLR/blob/a1fc68b0ab4f3198efe767bc99745b9d31a13b0c/models/Attention.py
-
 
 class AttentionBlock(nn.Module):
+    # Ref: https://github.com/0aqz0/SLR/blob/a1fc68b0ab4f3198efe767bc99745b9d31a13b0c/models/Attention.py
+
     def __init__(self, hidden_size):
         super(AttentionBlock, self).__init__()
         self.hidden_size = hidden_size
@@ -30,55 +28,46 @@ class AttentionBlock(nn.Module):
         return attention_vector
 
 
-class ConvRNNClassifier(nn.Module):
+class RNNClassifier(nn.Module):
     def __init__(
         self,
+        n_features,
         num_class,
-        backbone="resnet18",
-        pretrained=True,
         rnn_type="GRU",
-        rnn_hidden_size=512,
-        rnn_num_layers=1,
+        hidden_size=512,
+        num_layers=1,
         bidirectional=True,
         use_attention=False,
     ):
         super().__init__()
         self.use_attention = use_attention
-        self.backbone = timm.create_model(backbone, pretrained=pretrained)
-        n_out_features = self.backbone.fc.in_features
-        self.backbone.fc = nn.Identity()
 
         self.rnn = getattr(nn, rnn_type)(
-            input_size=n_out_features,
-            hidden_size=rnn_hidden_size,
-            num_layers=rnn_num_layers,
+            input_size=n_features,
+            hidden_size=hidden_size,
+            num_layers=num_layers,
             bidirectional=bidirectional,
         )
 
-        rnn_out_size = rnn_hidden_size * 2 if bidirectional else rnn_hidden_size
+        rnn_out_size = hidden_size * 2 if bidirectional else hidden_size
         if self.use_attention:
             self.attn_block = AttentionBlock(hidden_size=rnn_out_size)
         self.fc = nn.Linear(rnn_out_size, num_class)
 
     def forward(self, x):
-        b, c, t, h, w = x.shape
-        cnn_embeds = []
-        for i in range(t):
-            out = self.backbone(x[:, :, i, :, :])
-            out = out.view(out.shape[0], -1)
-            cnn_embeds.append(out)
-
-        cnn_embeds = torch.stack(cnn_embeds, dim=0)
-
+        '''
+        x.shape: (T, batch_size, n_features)
+        '''
         self.rnn.flatten_parameters()
 
         # Batch first
-        cnn_embeds = cnn_embeds.transpose(0, 1)
+        cnn_embeds = x.transpose(0, 1)
         out, _ = self.rnn(cnn_embeds)
 
         if self.use_attention:
-            out = self.fc1(self.attn_block(out))
+            out = self.fc(self.attn_block(out))
         else:
-            out = self.fc1(out[:, -1, :])
+            out = self.fc(out[:, -1, :])
 
         return out
+    

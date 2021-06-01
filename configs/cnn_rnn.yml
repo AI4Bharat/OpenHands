@@ -1,0 +1,13 @@
+encoder:
+  type: cnn2d
+  params:
+    backbone: resnet18
+    pretrained: true
+decoder:
+  type: rnn
+  params:
+    rnn_type: GRU
+    hidden_size: 512
+    num_layers: 1
+    bidirectional: true
+    use_attention: false

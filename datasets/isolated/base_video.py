@@ -10,12 +10,21 @@ from natsort import natsorted
 from .utils import *
 
 class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
-    def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"], transforms="default"):
+    def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"], transforms="default", modality="rgb"):
         self.data = []
         self.glosses = []
         self.root_dir = root_dir
         self.read_index_file(split_file, splits)
         self.resize_dims = resize_dims
+        self.modality = modality
+        if modality == "rgb":
+            self.in_channels = 3
+        elif modality == "rgbd":
+            self.in_channels = 4
+        else:
+            exit(f"ERROR: Modality `{modality}` not supported")
+        
+        
         if transforms == "default":
             albumentation_transforms = A.Compose(
                 [
@@ -37,6 +46,8 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
                     TCHW2CTHW()
                 ]
             )
+        elif transforms:
+            self.transforms = transforms
         else:
             self.transforms = torchvision.transforms.Compose(
                 [
@@ -44,6 +55,7 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
                     THWC2CTHW(),
                 ]
             )
+
     @property
     def num_class(self):
         return len(self.glosses)
