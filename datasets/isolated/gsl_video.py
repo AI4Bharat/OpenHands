@@ -20,7 +20,12 @@ class GSLVideoDataset(BaseVideoIsolatedDataset):
             self.data.append(instance_entry)
 
     def read_data(self, index):
-        video_path, label = self.data[index]
-        video_path = os.path.join(self.root_dir, video_path)
+        video_name, label = self.data[index]
+        video_path = os.path.join(self.root_dir, video_name)
         imgs = self.load_frames_from_folder(video_path)
-        return imgs, label
+        if imgs is None:
+            # Some folders don't have images in ".jpg" extension.
+            imgs = self.load_frames_from_folder(video_path, pattern="glosses*")
+            if not images:
+                exit(f"No images in {video_path}")
+        return imgs, label, video_name

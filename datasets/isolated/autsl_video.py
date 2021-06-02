@@ -35,7 +35,7 @@ class AUTSLDataset(BaseVideoIsolatedDataset):
             self.data.append(instance_entry)
 
     def read_data(self, index):
-        video_path, label = self.data[index]
-        video_path = os.path.join(self.root_dir, video_path)
+        video_name, label = self.data[index]
+        video_path = os.path.join(self.root_dir, video_name)
         imgs = self.load_frames_from_video(video_path)
-        return imgs, label
+        return imgs, label, video_name

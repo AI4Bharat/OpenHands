@@ -32,4 +32,4 @@ class WLASLVideoDataset(BaseVideoIsolatedDataset):
         video_name, label, start_frame, end_frame = self.data[index]
         video_path = os.path.join(self.root_dir, video_name + ".mp4")
         imgs = self.load_frames_from_video(video_path, start_frame, end_frame)
-        return imgs, label
+        return imgs, label, video_name

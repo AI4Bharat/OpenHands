@@ -18,5 +18,5 @@ class MSASLDataset(BaseVideoIsolatedDataset):
         label = instance_data["label"]
         video_path = os.path.join(self.root_dir, "videos", video_id+".mp4")
         imgs = self.load_frames_from_video(video_path)
-        return imgs, label
+        return imgs, label, video_id
     

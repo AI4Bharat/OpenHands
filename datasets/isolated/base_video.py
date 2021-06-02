@@ -5,6 +5,7 @@ import albumentations as A
 from albumentations.pytorch import ToTensorV2
 import numpy as np
 import cv2
+import os, sys
 from glob import glob
 from natsort import natsorted
 from .utils import *
@@ -107,10 +108,11 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
 
         return np.asarray(frames, dtype=np.float32)
     
-    def load_frames_from_folder(self, frames_folder):
-        images = natsorted(glob(f"{frames_folder}/*.jpg"))
+    def load_frames_from_folder(self, frames_folder, pattern="*.jpg"):
+        images = natsorted(glob(f"{frames_folder}/{pattern}"))
         if not images:
-            exit(f"ERROR: No frames in folder: {frames_folder}")
+            print(f"ERROR: No frames in folder: {frames_folder}", file=sys.stderr)
+            return None
         
         frames = []
         for img_path in images:
@@ -123,17 +125,17 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
 
     def read_data(self, index):
         raise NotImplementedError
-        # return imgs, label
+        # return imgs, label, video_id
     
     def __getitem__(self, index):
-        imgs, label = self.read_data(index)
+        imgs, label, video_id = self.read_data(index)
         # imgs shape: (T, H, W, C)
 
         if self.transforms is not None:
             imgs = self.transforms(imgs)
 
         return {"frames": imgs, "label": torch.tensor(label, dtype=torch.long)}
-    
+
     @staticmethod
     def collate_fn(batch_list):
         max_frames = max([x["frames"].shape[1] for x in batch_list])

@@ -12,6 +12,10 @@ N_FACE_LANDMARKS = 468
 N_BODY_LANDMARKS = 33
 N_HAND_LANDMARKS = 21
 
+import warnings
+warnings.filterwarnings("ignore")
+import logging
+logging.getLogger("tensorflow").setLevel(logging.WARNING)
 
 def process_body_landmarks(component, width, height, n_points):
     kps = np.zeros((n_points, 3))
@@ -33,13 +37,14 @@ def process_other_landmarks(component, width, height, n_points):
     return kps, conf
 
 
-def get_holistic_keypoints(frames, width, height):
+def get_holistic_keypoints(frames):
     holistic = mp_holistic.Holistic(static_image_mode=False)
 
     keypoints = []
     confs = []
+    width, height, _ = frames[0].shape
 
-    for i, frame in enumerate(tqdm(frames)):
+    for frame in frames:
         results = holistic.process(frame)
 
         body_data, body_conf = process_body_landmarks(
@@ -81,28 +86,43 @@ def load_frames_from_video(video_path):
 
 def gen_keypoints_for_video(video_path, save_path):
     frames = load_frames_from_video(video_path)
-    width, height, _ = frames[0].shape
-    kps, confs = get_holistic_keypoints(frames, width, height)
+    kps, confs = get_holistic_keypoints(frames)
     confs = np.expand_dims(confs, axis=-1)
     data = np.concatenate([kps, confs], axis=-1)
     np.save(save_path, data)
 
+def generate_pose(dataset, index, save_folder):
+    imgs, label, video_id = dataset.read_data(index)
+    keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8))
+    confs = np.expand_dims(confs, axis=-1)
+    data = np.concatenate([keypoints, confs], axis=-1)
+    save_path = os.path.join(save_folder, video_id)
+    os.makedirs(os.path.dirname(save_path), exist_ok=True)
+    np.save(save_path, data)
 
-n_cores = multiprocessing.cpu_count()
+def dump_pose_dataset(dataset, save_folder, num_workers=multiprocessing.cpu_count()):
+    os.makedirs(save_folder, exist_ok=True)
+    Parallel(n_jobs=num_workers, backend="multiprocessing")(
+        delayed(generate_pose)(dataset, i, save_folder)
+        for i in tqdm(range(len(dataset)))
+    )
 
-DIR = "AUTSL/train/"
-SAVE_DIR = "AUTSL/holistic_poses/"
+if __name__ == "__main__":
+    n_cores = multiprocessing.cpu_count()
 
-os.makedirs(SAVE_DIR, exist_ok=True)
+    DIR = "AUTSL/train/"
+    SAVE_DIR = "AUTSL/holistic_poses/"
 
-file_paths = []
-save_paths = []
-for file in os.listdir(DIR):
-    if "color" in file:
-        file_paths.append(os.path.join(DIR, file))
-        save_paths.append(os.path.join(SAVE_DIR, file.replace(".mp4", "")))
+    os.makedirs(SAVE_DIR, exist_ok=True)
 
-Parallel(n_jobs=n_cores, backend="multiprocessing")(
-    delayed(gen_keypoints_for_video)(path, save_path)
-    for path, save_path in tqdm(zip(file_paths, save_paths))
-)
+    file_paths = []
+    save_paths = []
+    for file in os.listdir(DIR):
+        if "color" in file:
+            file_paths.append(os.path.join(DIR, file))
+            save_paths.append(os.path.join(SAVE_DIR, file.replace(".mp4", "")))
+
+    Parallel(n_jobs=n_cores, backend="multiprocessing")(
+        delayed(gen_keypoints_for_video)(path, save_path)
+        for path, save_path in tqdm(zip(file_paths, save_paths))
+    )
