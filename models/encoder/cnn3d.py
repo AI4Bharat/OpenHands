@@ -3,33 +3,45 @@ import torch.nn as nn
 import pytorchvideo
 
 AVAILABLE_3D_BACKBONES = [
+    "i3d_r50",
+    "c2d_r50",
+    "csn_r101",
+    "r2plus1d_r50",
     "slow_r50",
     "slowfast_r50",
     "slowfast_r101",
+    "slowfast_16x8_r101_50_50",
     "x3d_xs",
     "x3d_s",
     "x3d_m",
+    "x3d_l",
 ]
 
 class CNN3D(nn.Module):
-    def __init__(
-        self, in_channels, backbone, pretrained=True, **kwargs
-    ):
+    def __init__(self, in_channels, backbone, pretrained=True, **kwargs):
         super().__init__()
-        self.backbone = self.get_3d_backbone(backbone, in_channels, pretrained, **kwargs)
-        self.n_out_features = 400 # list(self.backbone.modules())[-2].out_features
+        self.backbone = self.get_3d_backbone(
+            backbone, in_channels, pretrained, **kwargs
+        )
+        self.n_out_features = 400  # list(self.backbone.modules())[-2].out_features
 
     def forward(self, x):
         x = self.backbone(x)
         return x
 
-    def get_3d_backbone(self,
-        name, in_channels=3, pretrained: bool = False, progress: bool = True, **kwargs
+    def get_3d_backbone(
+        self,
+        name,
+        in_channels=3,
+        pretrained: bool = False,
+        progress: bool = True,
+        **kwargs
     ):
         assert name in AVAILABLE_3D_BACKBONES, "Please use any bonebone from " + str(
             AVAILABLE_3D_BACKBONES
         )
         import pytorchvideo.models.hub as ptv_hub
+
         model = getattr(ptv_hub, name)(
             pretrained=pretrained, progress=progress, **kwargs
         )
