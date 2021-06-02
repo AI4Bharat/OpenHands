@@ -1,10 +1,12 @@
 import cv2
 import os
+import time
 import numpy as np
 import mediapipe as mp
 from tqdm.auto import tqdm
 import multiprocessing
 from joblib import Parallel, delayed
+import math
 
 mp_holistic = mp.solutions.holistic
 
@@ -16,6 +18,20 @@ import warnings
 warnings.filterwarnings("ignore")
 import logging
 logging.getLogger("tensorflow").setLevel(logging.WARNING)
+
+class Counter(object):
+    # https://stackoverflow.com/a/47562583/
+    def __init__(self, initval=0):
+        self.val = multiprocessing.RawValue('i', initval)
+        self.lock = multiprocessing.Lock()
+
+    def increment(self):
+        with self.lock:
+            self.val.value += 1
+
+    @property
+    def value(self):
+        return self.val.value
 
 def process_body_landmarks(component, width, height, n_points):
     kps = np.zeros((n_points, 3))
@@ -37,8 +53,12 @@ def process_other_landmarks(component, width, height, n_points):
     return kps, conf
 
 
-def get_holistic_keypoints(frames):
-    holistic = mp_holistic.Holistic(static_image_mode=False)
+def get_holistic_keypoints(frames, holistic=mp_holistic.Holistic(static_image_mode=False)):
+    '''
+    For videos, it's optimal to create with `static_image_mode=False` for each video.
+    Probably also OK to create only once? Read why: (hoping tracking is lost for first frame of new videos)
+    https://google.github.io/mediapipe/solutions/holistic.html#static_image_mode
+    '''
 
     keypoints = []
     confs = []
@@ -91,21 +111,38 @@ def gen_keypoints_for_video(video_path, save_path):
     data = np.concatenate([kps, confs], axis=-1)
     np.save(save_path, data)
 
-def generate_pose(dataset, index, save_folder):
-    imgs, label, video_id = dataset.read_data(index)
-    keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8))
-    confs = np.expand_dims(confs, axis=-1)
-    data = np.concatenate([keypoints, confs], axis=-1)
-    save_path = os.path.join(save_folder, video_id)
-    os.makedirs(os.path.dirname(save_path), exist_ok=True)
-    np.save(save_path, data)
+def generate_pose(dataset, save_folder, worker_index, num_workers, counter):
+    num_splits = math.ceil(len(dataset)/num_workers)
+    holistic = mp_holistic.Holistic(static_image_mode=False, model_complexity=2)
+    end_index = min((worker_index+1)*num_splits, len(dataset))
+    for index in range(worker_index*num_splits, end_index):
+        imgs, label, video_id = dataset.read_data(index)
+        keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8), holistic)
+        confs = np.expand_dims(confs, axis=-1)
+        data = np.concatenate([keypoints, confs], axis=-1)
+        save_path = os.path.join(save_folder, video_id)
+        os.makedirs(os.path.dirname(save_path), exist_ok=True)
+        np.save(save_path, data)
+        counter.increment()
 
 def dump_pose_dataset(dataset, save_folder, num_workers=multiprocessing.cpu_count()):
     os.makedirs(save_folder, exist_ok=True)
-    Parallel(n_jobs=num_workers, backend="multiprocessing")(
-        delayed(generate_pose)(dataset, i, save_folder)
-        for i in tqdm(range(len(dataset)))
-    )
+    processes = []
+    counter = Counter()
+    for i in range(num_workers):
+        p = multiprocessing.Process(target=generate_pose, args=(dataset, save_folder, i, num_workers, counter))
+        p.start()
+        processes.append(p)
+    
+    total_samples = len(dataset)
+    with tqdm(total=total_samples) as pbar:  
+        while counter.value < total_samples:
+            pbar.update(counter.value - pbar.n)
+            time.sleep(2)
+
+    for i in range(num_workers):
+        processes[i].join()
+    print(f"Pose data successfully saved to: {save_folder}")
 
 if __name__ == "__main__":
     n_cores = multiprocessing.cpu_count()
