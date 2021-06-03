@@ -14,11 +14,6 @@ N_FACE_LANDMARKS = 468
 N_BODY_LANDMARKS = 33
 N_HAND_LANDMARKS = 21
 
-import warnings
-warnings.filterwarnings("ignore")
-import logging
-logging.getLogger("tensorflow").setLevel(logging.WARNING)
-
 class Counter(object):
     # https://stackoverflow.com/a/47562583/
     def __init__(self, initval=0):
@@ -53,7 +48,7 @@ def process_other_landmarks(component, width, height, n_points):
     return kps, conf
 
 
-def get_holistic_keypoints(frames, holistic=mp_holistic.Holistic(static_image_mode=False)):
+def get_holistic_keypoints(frames):
     '''
     For videos, it's optimal to create with `static_image_mode=False` for each video.
     Probably also OK to create only once? Read why: (hoping tracking is lost for first frame of new videos)
@@ -63,6 +58,7 @@ def get_holistic_keypoints(frames, holistic=mp_holistic.Holistic(static_image_mo
     keypoints = []
     confs = []
     width, height, _ = frames[0].shape
+    holistic = mp_holistic.Holistic(static_image_mode=False, model_complexity=2)
 
     for frame in frames:
         results = holistic.process(frame)
@@ -86,6 +82,7 @@ def get_holistic_keypoints(frames, holistic=mp_holistic.Holistic(static_image_mo
         keypoints.append(data)
         confs.append(conf)
 
+    holistic.close()
     keypoints = np.stack(keypoints)
     confs = np.stack(confs)
     return keypoints, confs
@@ -113,11 +110,10 @@ def gen_keypoints_for_video(video_path, save_path):
 
 def generate_pose(dataset, save_folder, worker_index, num_workers, counter):
     num_splits = math.ceil(len(dataset)/num_workers)
-    holistic = mp_holistic.Holistic(static_image_mode=False, model_complexity=2)
     end_index = min((worker_index+1)*num_splits, len(dataset))
     for index in range(worker_index*num_splits, end_index):
         imgs, label, video_id = dataset.read_data(index)
-        keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8), holistic)
+        keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8))
         confs = np.expand_dims(confs, axis=-1)
         data = np.concatenate([keypoints, confs], axis=-1)
         save_path = os.path.join(save_folder, video_id)

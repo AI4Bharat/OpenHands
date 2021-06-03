@@ -41,6 +41,7 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
                     NumpyToTensor(),
                     THWC2TCHW(),
                     RandomTemporalSubsample(16),
+                    torchvision.transforms.Resize((resize_dims[0], resize_dims[1])),
                     torchvision.transforms.RandomCrop((resize_dims[0], resize_dims[1])),
                     torchvision.transforms.RandomHorizontalFlip(p=0.5),
                     # torchvision.transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
@@ -86,7 +87,6 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
         ):
             success, img = vidcap.read()
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            img = cv2.resize(img, self.resize_dims)
             frames.append(img)
 
         return np.asarray(frames, dtype=np.float32)
@@ -103,7 +103,6 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
             if not success:
                 break
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            img = cv2.resize(img, self.resize_dims)
             frames.append(img)
 
         return np.asarray(frames, dtype=np.float32)
@@ -118,7 +117,6 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
         for img_path in images:
             img = cv2.imread(img_path)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            img = cv2.resize(img, self.resize_dims)
             frames.append(img)
 
         return np.asarray(frames, dtype=np.float32)
