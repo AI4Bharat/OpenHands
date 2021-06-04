@@ -4,36 +4,41 @@ import math
 import numpy as np
 import random
 
+
 class THWC2TCHW(torch.nn.Module):
     def forward(self, x):
         return x.permute(0, 3, 1, 2)
+
 
 class TCHW2CTHW(torch.nn.Module):
     def forward(self, x):
         return x.permute(1, 0, 2, 3)
 
+
 class THWC2CTHW(torch.nn.Module):
     def forward(self, x):
         return x.permute(3, 0, 1, 2)
 
+
 class NumpyToTensor(torch.nn.Module):
     def forward(self, x):
-        return torch.from_numpy(x/255.0)
+        return torch.from_numpy(x / 255.0)
+
 
 class Albumentations3D:
     def __init__(self, transforms):
         self.transforms = transforms
-    
+
     def __call__(self, vid):
         """
         Args:
             x (numpy.array): video tensor with shape (T, H, W, C).
         """
-        seed = random.randint(0,99999)
+        seed = random.randint(0, 99999)
         aug_vid = []
         for x in vid:
             random.seed(seed)
-            aug_vid.append((self.transforms(image = np.asarray(x)))['image'])
+            aug_vid.append((self.transforms(image=np.asarray(x)))["image"])
         return np.stack(aug_vid)
 
 
@@ -64,4 +69,24 @@ class RandomTemporalSubsample(torch.nn.Module):
             indices = indices[:num_samples]
 
         return torch.index_select(x, temporal_dim, indices)
-    
+
+
+class PackSlowFastPathway(torch.nn.Module):
+    def __init__(self, alpha):
+        super().__init()
+        self.alpha = alpha
+
+    def forward(self, x):
+        return self.pack_pathway(x)
+
+    def pack_pathway(self, frames):
+        fast_pathway = frames
+        slow_pathway = torch.index_select(
+            frames,
+            1,
+            torch.linspace(
+                0, frames.shape[1] - 1, frames.shape[1] // self.alpha
+            ).long(),
+        )
+        frame_list = [slow_pathway, fast_pathway]
+        return frame_list
