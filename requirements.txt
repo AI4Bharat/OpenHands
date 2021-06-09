@@ -2,6 +2,7 @@ natsort
 numpy
 opencv-python
 pandas
+python-box
 scikit-learn
 torch
 torchvision
@@ -9,3 +10,5 @@ torchvision
 albumentations
 pytorchvideo
 pytorch-lightning
+timm
+transformers
