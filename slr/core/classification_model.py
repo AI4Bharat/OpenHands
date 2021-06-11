@@ -4,6 +4,7 @@ import pytorch_lightning as pl
 from slr.models.loader import get_model
 from .data import CommonDataModule
 
+
 class ClassificationModel(pl.LightningModule):
     def __init__(self, cfg, trainer):
         super().__init__()

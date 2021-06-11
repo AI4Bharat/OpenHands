@@ -1,6 +1,6 @@
 data:
     dataset:
-        _target_:  slr.datasets.isolated.AUTSLDataset
+        _target_: slr.datasets.isolated.AUTSLDataset
         split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
         root_dir: "/datadrive/datasets/AUTSL/train"
         resize_dims: (128,128)
@@ -12,22 +12,21 @@ data:
     transforms:
         albumentations:
             - ShiftScaleRotate:
-                shift_limit: 0.05
-                scale_limit: 0.05
-                rotate_limit: 15
-                p: 0.5
+                  shift_limit: 0.05
+                  scale_limit: 0.05
+                  rotate_limit: 15
+                  p: 0.5
         video:
             - NumpyToTensor:
             - THWC2TCHW:
             - RandomTemporalSubsample:
-                num_samples: 16
+                  num_samples: 16
             - TCHW2CTHW:
-  
 
         normalization:
             mean: [0.4914, 0.4822, 0.4465]
             std: [0.247, 0.243, 0.261]
-                
+
     dataloader:
         _target_: torch.utils.data.DataLoader
         batch_size: 2
@@ -55,10 +54,10 @@ optim:
             betas: [0.8, 0.25]
             weight_decay: 0.001
     scheduler:
-      name: CosineAnnealingLR
-      params:
-        last_epoch: -1
-        T_max: 10
+        name: CosineAnnealingLR
+        params:
+            last_epoch: -1
+            T_max: 10
 
 trainer:
     max_epochs: 1

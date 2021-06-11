@@ -12,3 +12,4 @@ pytorchvideo
 pytorch-lightning
 timm
 transformers
+hydra-core
