@@ -1,5 +1,3 @@
-from box import Box
-import yaml
 
 def load_encoder(encoder_cfg, dataset):
     if encoder_cfg.type == "cnn3d":
@@ -24,9 +22,7 @@ def load_decoder(decoder_cfg, dataset, encoder):
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
-def get_model(model_cfg_file, dataset):
-    config = Box.from_yaml(filename=model_cfg_file, Loader=yaml.FullLoader)
-    
+def get_model(config, dataset):    
     encoder = load_encoder(config.encoder, dataset)
     decoder = load_decoder(config.decoder, dataset, encoder)
 

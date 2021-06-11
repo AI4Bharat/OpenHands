@@ -8,7 +8,7 @@ import cv2
 import os, sys
 from glob import glob
 from natsort import natsorted
-from .utils import *
+from slr.datasets.transforms import *
 
 class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
     def __init__(self, split_file, root_dir, resize_dims=(264, 264), splits=["train"], transforms="default", modality="rgb"):

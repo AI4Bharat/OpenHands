@@ -7,6 +7,7 @@ from tqdm.auto import tqdm
 import multiprocessing
 from joblib import Parallel, delayed
 import math
+import gc
 
 mp_holistic = mp.solutions.holistic
 
@@ -83,6 +84,8 @@ def get_holistic_keypoints(frames):
         confs.append(conf)
 
     holistic.close()
+    del holistic
+    gc.collect()
     keypoints = np.stack(keypoints)
     confs = np.stack(confs)
     return keypoints, confs
@@ -107,6 +110,8 @@ def gen_keypoints_for_video(video_path, save_path):
     confs = np.expand_dims(confs, axis=-1)
     data = np.concatenate([kps, confs], axis=-1)
     np.save(save_path, data)
+    del data
+    gc.collect()
 
 def generate_pose(dataset, save_folder, worker_index, num_workers, counter):
     num_splits = math.ceil(len(dataset)/num_workers)
