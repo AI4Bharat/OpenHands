@@ -73,3 +73,9 @@ exp_manager:
     wandb_logger_kwargs:
         name: null
         project: null
+    
+    create_checkpoint_callback: true
+    checkpoint_callback_params:
+        monitor: "val_acc"
+        mode: "min"
+        save_top_k: 3

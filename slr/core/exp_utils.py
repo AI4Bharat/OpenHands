@@ -1,6 +1,7 @@
 import os
 from pytorch_lightning.loggers import TensorBoardLogger, WandbLogger
 from pytorch_lightning.loggers.base import LoggerCollection
+from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 
 
 def experiment_manager(trainer, cfg):
@@ -23,6 +24,8 @@ def experiment_manager(trainer, cfg):
             cfg.create_wandb_logger,
             cfg.wandb_logger_kwargs,
         )
+    if cfg.create_checkpoint_callback:
+        configure_checkpointing(trainer, cfg.checkpoint_callback_params)
 
 
 def configure_loggers(
@@ -57,3 +60,8 @@ def configure_loggers(
     logger_list = LoggerCollection(logger_list)
 
     trainer.logger_connector.configure_logger(logger_list)
+
+
+def configure_checkpointing(trainer, cfg):
+    checkpoint_callback = ModelCheckpoint(**cfg)
+    trainer.callbacks.append(checkpoint_callback)
