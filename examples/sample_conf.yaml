@@ -1,3 +1,6 @@
+name: &name "x3d_s_fc"
+# resume_from: "./new.ckpt"
+
 data:
     dataset:
         _target_: slr.datasets.isolated.AUTSLDataset
@@ -61,3 +64,12 @@ optim:
 
 trainer:
     max_epochs: 1
+
+exp_manager:
+    exp_dir: "./slr_experiments"
+    name: *name
+    create_tensorboard_logger: true
+    create_wandb_logger: false
+    wandb_logger_kwargs:
+        name: null
+        project: null

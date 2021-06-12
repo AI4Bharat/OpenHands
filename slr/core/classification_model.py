@@ -72,3 +72,9 @@ class ClassificationModel(pl.LightningModule):
 
     def fit(self):
         self.trainer.fit(self, self.datamodule)
+
+    def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
+        if "resume_from" in self.cfg.keys():
+            self.load_from_checkpoint(
+                self.cfg["resume_from"], map_location=map_location
+            )
