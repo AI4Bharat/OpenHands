@@ -1,5 +1,6 @@
 import torch
 import torch.nn.functional as F
+import torchmetrics
 import pytorch_lightning as pl
 from slr.models.loader import get_model
 from .data import CommonDataModule
@@ -15,6 +16,7 @@ class ClassificationModel(pl.LightningModule):
 
         self.model = self.create_model(cfg.model)
         self.trainer = trainer
+        self.setup_metrics()
 
     def forward(self, x):
         return self.model(x)
@@ -27,7 +29,7 @@ class ClassificationModel(pl.LightningModule):
         self.log(
             "train_acc", acc, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True
         )
-        return loss
+        return {"loss": loss, "train_acc": acc}
 
     def validation_step(self, batch, batch_idx):
         y_hat = self.model(batch["frames"])
@@ -37,7 +39,7 @@ class ClassificationModel(pl.LightningModule):
         self.log(
             "val_acc", acc, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True
         )
-        return loss
+        return {"valid_loss": loss, "valid_acc": acc}
 
     def configure_optimizers(self):
         return self.get_optimizer(self.cfg.optim)
@@ -46,7 +48,10 @@ class ClassificationModel(pl.LightningModule):
         return CommonDataModule(cfg)
 
     def create_model(self, cfg):
-        return get_model(cfg, self.datamodule.dataset)
+        return get_model(cfg, self.datamodule.train_dataset)
+
+    def setup_metrics(self):
+        self.accuracy_metric = torchmetrics.functional.accuracy
 
     def get_optimizer(self, conf):
         optimizer_conf = conf["optimizer"]
@@ -74,7 +79,10 @@ class ClassificationModel(pl.LightningModule):
         self.trainer.fit(self, self.datamodule)
 
     def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
-        if "resume_from" in self.cfg.keys():
-            self.load_from_checkpoint(
-                self.cfg["resume_from"], map_location=map_location
-            )
+        if "resume_from" not in self.cfg.keys():
+            return
+
+        ckpt_path = self.cfg["resume_from"]
+        ckpt = torch.load(ckpt_path, map_location=map_location)
+        self.load_state_dict(ckpt["state_dict"], strict=False)
+        del ckpt

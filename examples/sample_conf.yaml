@@ -1,42 +1,80 @@
 name: &name "x3d_s_fc"
-# resume_from: "./new.ckpt"
+resume_from: "/home/prem/data-disk/SLR/outputs/2021-06-13/11-47-15/x3d_s_fc/0/checkpoints/epoch=0-step=9.ckpt"
 
 data:
-    dataset:
-        _target_: slr.datasets.isolated.AUTSLDataset
-        split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
-        root_dir: "/datadrive/datasets/AUTSL/train"
-        resize_dims: (128,128)
-        splits: "train"
-        transforms: "default"
-        modality: "rgb"
-        class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+    train_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.AUTSLDataset
+            split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
+            root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
+            resize_dims: (128,128)
+            splits: "train"
+            transforms: "default"
+            modality: "rgb"
+            class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
-    transforms:
-        albumentations:
-            - ShiftScaleRotate:
-                  shift_limit: 0.05
-                  scale_limit: 0.05
-                  rotate_limit: 15
-                  p: 0.5
-        video:
-            - NumpyToTensor:
-            - THWC2TCHW:
-            - RandomTemporalSubsample:
-                  num_samples: 16
-            - TCHW2CTHW:
+        transforms:
+            albumentations:
+                - ShiftScaleRotate:
+                    shift_limit: 0.05
+                    scale_limit: 0.05
+                    rotate_limit: 15
+                    p: 0.5
+            video:
+                - NumpyToTensor:
+                - THWC2TCHW:
+                - RandomTemporalSubsample:
+                    num_samples: 16
+                - TCHW2CTHW:
 
-        normalization:
-            mean: [0.4914, 0.4822, 0.4465]
-            std: [0.247, 0.243, 0.261]
+            normalization:
+                mean: [0.4914, 0.4822, 0.4465]
+                std: [0.247, 0.243, 0.261]
+        
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 2
+            shuffle: true
+            num_workers: 8
+            pin_memory: true
+            drop_last: true
 
-    dataloader:
-        _target_: torch.utils.data.DataLoader
-        batch_size: 2
-        shuffle: true
-        num_workers: 8
-        pin_memory: true
-        drop_last: true
+    valid_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.AUTSLDataset
+            split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
+            root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
+            resize_dims: (128,128)
+            splits: "train"
+            transforms: "default"
+            modality: "rgb"
+            class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+    
+        transforms:
+            albumentations:
+                - ShiftScaleRotate:
+                    shift_limit: 0.05
+                    scale_limit: 0.05
+                    rotate_limit: 15
+                    p: 0.5
+            video:
+                - NumpyToTensor:
+                - THWC2TCHW:
+                - RandomTemporalSubsample:
+                    num_samples: 16
+                - TCHW2CTHW:
+
+            normalization:
+                mean: [0.4914, 0.4822, 0.4465]
+                std: [0.247, 0.243, 0.261]
+    
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 2
+            shuffle: true
+            num_workers: 8
+            pin_memory: true
+            drop_last: true
 
 model:
     encoder:
@@ -64,6 +102,7 @@ optim:
 
 trainer:
     max_epochs: 1
+    gpus: 1
 
 exp_manager:
     exp_dir: "./slr_experiments"

@@ -8,39 +8,51 @@ from slr.datasets.transforms import Albumentations3D
 
 
 class CommonDataModule(pl.LightningDataModule):
-    # TODO: Valid, Test datasets
+    # TODO: Test datasets
     def __init__(self, data_cfg):
         super().__init__()
         self.data_cfg = data_cfg
-        self.transforms = self.create_transform()
-        self.dataset = None
 
     def prepare_data(self):
-        self._instantiate_dataset()
+        return
 
     def setup(self, stage=None):
-        self.dataset = self._instantiate_dataset()
+        self.train_dataset = self._instantiate_dataset(self.data_cfg.train_pipeline)
+        self.valid_dataset = self._instantiate_dataset(self.data_cfg.valid_pipeline)
 
     def train_dataloader(self):
         dataloader = hydra.utils.instantiate(
-            self.data_cfg.dataloader, dataset=self.dataset
+            self.data_cfg.train_pipeline.dataloader,
+            dataset=self.train_dataset,
+            collate_fn=self.train_dataset.collate_fn,
         )
         return dataloader
 
-    def create_transform(self):
+    def val_dataloader(self):
+        dataloader = hydra.utils.instantiate(
+            self.data_cfg.valid_pipeline.dataloader,
+            dataset=self.valid_dataset,
+            collate_fn=self.valid_dataset.collate_fn,
+        )
+        return dataloader
+
+    def create_transform(self, transforms_cfg):
         albu_transforms = A.Compose(
             [
-                *self.get_albumentations_transforms(),
+                *self.get_albumentations_transforms(transforms_cfg),
             ]
         )
 
         transforms = torchvision.transforms.Compose(
-            [Albumentations3D(albu_transforms), *self.get_video_transforms()]
+            [
+                Albumentations3D(albu_transforms),
+                *self.get_video_transforms(transforms_cfg),
+            ]
         )
         return transforms
 
-    def get_video_transforms(self):
-        video_transforms_config = self.data_cfg.transforms.video
+    def get_video_transforms(self, transforms_cfg):
+        video_transforms_config = transforms_cfg.video
         video_transforms_config = OmegaConf.to_container(
             video_transforms_config, resolve=True
         )
@@ -55,8 +67,8 @@ class CommonDataModule(pl.LightningDataModule):
                 video_transforms.append(new_trans)
         return video_transforms
 
-    def get_albumentations_transforms(self):
-        albu_config = self.data_cfg.transforms.albumentations
+    def get_albumentations_transforms(self, transforms_cfg):
+        albu_config = transforms_cfg.albumentations
         if not albu_config:
             return []
         albu_config = OmegaConf.to_container(albu_config, resolve=True)
@@ -75,11 +87,14 @@ class CommonDataModule(pl.LightningDataModule):
                 albu_transforms.append(transform)
         return albu_transforms
 
-    def _instantiate_dataset(self):
-        data_cfg = self.data_cfg
-        transforms = self.transforms
-        if getattr(data_cfg, "dataset", None):
-            dataset = hydra.utils.instantiate(data_cfg.dataset, transforms=transforms)
+    def _instantiate_dataset(self, pipeline_cfg):
+        transforms_cfg = pipeline_cfg.transforms
+        transforms = self.create_transform(transforms_cfg)
+        if getattr(pipeline_cfg, "dataset", None):
+            dataset = hydra.utils.instantiate(
+                pipeline_cfg.dataset, transforms=transforms
+            )
         else:
-            raise ValueError(f"{data_cfg.dataset} not found")
+            raise ValueError(f"{pipeline_cfg.dataset} not found")
+
         return dataset
