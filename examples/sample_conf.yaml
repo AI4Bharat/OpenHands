@@ -108,5 +108,12 @@ exp_manager:
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
-        mode: "min"
+        mode: "max"
         save_top_k: 3
+    
+    early_stopping_callback: true
+    early_stopping_params:
+        monitor: "val_acc"
+        patience: 10
+        verbose: true
+        mode: "max"
