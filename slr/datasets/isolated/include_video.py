@@ -17,7 +17,13 @@ class INCLUDEDataset(BaseVideoIsolatedDataset):
         for i in range(len(df)):
             gloss_cat = label_encoder.transform([df["Word"][i]])[0]
             instance_entry = df["FilePath"][i], gloss_cat
+            video_path = os.path.join(self.root_dir, df["FilePath"][i])
+            if not os.path.isfile(video_path):
+                print(f"Video not found: {video_path}")
+                continue
             self.data.append(instance_entry)
+        if not self.data:
+            exit("No data found")
 
     def read_data(self, index):
         video_name, label = self.data[index]

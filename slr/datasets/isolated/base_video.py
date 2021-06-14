@@ -39,7 +39,7 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
                 [
                     Albumentations3D(albumentation_transforms),
                     NumpyToTensor(),
-                    THWC2TCHW(),
+                    
                     RandomTemporalSubsample(16),
                     torchvision.transforms.Resize((resize_dims[0], resize_dims[1])),
                     torchvision.transforms.RandomCrop((resize_dims[0], resize_dims[1])),
@@ -54,7 +54,10 @@ class BaseVideoIsolatedDataset(torch.utils.data.Dataset):
             self.transforms = torchvision.transforms.Compose(
                 [
                     NumpyToTensor(),
-                    THWC2CTHW(),
+                    # THWC2CTHW(),
+                    THWC2TCHW(),
+                    torchvision.transforms.Resize((resize_dims[0], resize_dims[1])),
+                    TCHW2CTHW()
                 ]
             )
 

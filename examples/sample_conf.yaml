@@ -7,14 +7,15 @@ data:
             _target_: slr.datasets.isolated.AUTSLDataset
             split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
             root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
-            resize_dims: (128,128)
             splits: "train"
-            transforms: "default"
             modality: "rgb"
             class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
         transforms:
             albumentations:
+                - Resize:
+                    height: 256
+                    width: 256
                 - ShiftScaleRotate:
                     shift_limit: 0.05
                     scale_limit: 0.05
@@ -23,13 +24,12 @@ data:
             video:
                 - NumpyToTensor:
                 - THWC2TCHW:
-                - RandomTemporalSubsample:
-                    num_samples: 16
+                # - RandomTemporalSubsample:
+                #     num_samples: 16
                 - TCHW2CTHW:
-
-            normalization:
-                mean: [0.4914, 0.4822, 0.4465]
-                std: [0.247, 0.243, 0.261]
+            pytorchvideo:
+                - UniformTemporalSubsample:
+                    num_samples: 32
         
         dataloader:
             _target_: torch.utils.data.DataLoader
@@ -44,37 +44,29 @@ data:
             _target_: slr.datasets.isolated.AUTSLDataset
             split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
             root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
-            resize_dims: (128,128)
+            resize_dims: (256, 256)
             splits: "train"
-            transforms: "default"
             modality: "rgb"
             class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
     
         transforms:
             albumentations:
-                - ShiftScaleRotate:
-                    shift_limit: 0.05
-                    scale_limit: 0.05
-                    rotate_limit: 15
-                    p: 0.5
+                - Resize:
+                    height: 256
+                    width: 256
             video:
                 - NumpyToTensor:
                 - THWC2TCHW:
-                - RandomTemporalSubsample:
-                    num_samples: 16
                 - TCHW2CTHW:
-
-            normalization:
-                mean: [0.4914, 0.4822, 0.4465]
-                std: [0.247, 0.243, 0.261]
+            pytorchvideo:
     
         dataloader:
             _target_: torch.utils.data.DataLoader
             batch_size: 2
-            shuffle: true
+            shuffle: false
             num_workers: 8
             pin_memory: true
-            drop_last: true
+            drop_last: false
 
 model:
     encoder:

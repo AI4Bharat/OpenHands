@@ -1,6 +1,7 @@
 import pytorch_lightning as pl
 from omegaconf import OmegaConf
 import torchvision
+from pytorchvideo.transforms import transforms as ptv_transforms
 import albumentations as A
 import hydra
 import slr
@@ -47,21 +48,42 @@ class CommonDataModule(pl.LightningDataModule):
             [
                 Albumentations3D(albu_transforms),
                 *self.get_video_transforms(transforms_cfg),
+                *self.get_pytorchvideo_transforms(transforms_cfg),
             ]
         )
         return transforms
 
     def get_video_transforms(self, transforms_cfg):
+        video_transforms = []
         video_transforms_config = transforms_cfg.video
+        if not video_transforms_config:
+            return video_transforms
         video_transforms_config = OmegaConf.to_container(
             video_transforms_config, resolve=True
         )
-        video_transforms = []
         for transform in video_transforms_config:
             for transform_name, transform_args in transform.items():
                 if not transform_args:
                     transform_args = {}
                 new_trans = getattr(slr.datasets.transforms, transform_name)(
+                    **transform_args
+                )
+                video_transforms.append(new_trans)
+        return video_transforms
+    
+    def get_pytorchvideo_transforms(self, transforms_cfg):
+        video_transforms = []
+        video_transforms_config = transforms_cfg.pytorchvideo
+        if not video_transforms_config:
+            return video_transforms
+        video_transforms_config = OmegaConf.to_container(
+            video_transforms_config, resolve=True
+        )
+        for transform in video_transforms_config:
+            for transform_name, transform_args in transform.items():
+                if not transform_args:
+                    transform_args = {}
+                new_trans = getattr(ptv_transforms, transform_name)(
                     **transform_args
                 )
                 video_transforms.append(new_trans)
@@ -88,9 +110,14 @@ class CommonDataModule(pl.LightningDataModule):
         return albu_transforms
 
     def _instantiate_dataset(self, pipeline_cfg):
-        transforms_cfg = pipeline_cfg.transforms
-        transforms = self.create_transform(transforms_cfg)
         if getattr(pipeline_cfg, "dataset", None):
+
+            transforms_cfg = pipeline_cfg.transforms
+            if transforms_cfg:
+                transforms = self.create_transform(transforms_cfg)
+            else:
+                transforms = None
+
             dataset = hydra.utils.instantiate(
                 pipeline_cfg.dataset, transforms=transforms
             )
