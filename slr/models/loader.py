@@ -1,3 +1,4 @@
+import hydra
 
 def load_encoder(encoder_cfg, dataset):
     if encoder_cfg.type == "cnn3d":
@@ -22,9 +23,15 @@ def load_decoder(decoder_cfg, dataset, encoder):
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
-def get_model(config, dataset):    
-    encoder = load_encoder(config.encoder, dataset)
-    decoder = load_decoder(config.decoder, dataset, encoder)
+def load_graph_model(config):
+    return hydra.utils.instantiate(config.gnn_model)
 
-    from .network import Network
-    return Network(encoder, decoder)
+def get_model(config, dataset):    
+    if config.type == "cnn":
+        encoder = load_encoder(config.encoder, dataset)
+        decoder = load_decoder(config.decoder, dataset, encoder)
+
+        from .network import Network
+        return Network(encoder, decoder)
+    elif config.type == "st-gnn":
+        return load_graph_model(config.gnn_model)

@@ -1,0 +1,184 @@
+name: &name "Decoupled GCN-AUTSL"
+
+data:
+    modality: "pose"
+    train_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.AUTSLPoseDataset
+            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
+            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
+            splits: "train"
+            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+
+        transforms:
+            - PoseSelect:
+                  pose_indexes:
+                      [
+                          0,
+                          2,
+                          5,
+                          11,
+                          12,
+                          13,
+                          14,
+                          33,
+                          37,
+                          38,
+                          41,
+                          42,
+                          45,
+                          46,
+                          49,
+                          50,
+                          53,
+                          54,
+                          58,
+                          59,
+                          62,
+                          63,
+                          66,
+                          67,
+                          70,
+                          71,
+                          74,
+                      ]
+            - PoseTemporalSubsample:
+                  num_frames: 32
+            - PoseRandomShift:
+            - PoseNormalize:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 2
+            shuffle: true
+            num_workers: 1
+            pin_memory: true
+            drop_last: true
+
+    valid_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.AUTSLPoseDataset
+            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
+            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
+            splits: "train"
+            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+
+        transforms:
+            - PoseSelect:
+                  pose_indexes:
+                      [
+                          0,
+                          2,
+                          5,
+                          11,
+                          12,
+                          13,
+                          14,
+                          33,
+                          37,
+                          38,
+                          41,
+                          42,
+                          45,
+                          46,
+                          49,
+                          50,
+                          53,
+                          54,
+                          58,
+                          59,
+                          62,
+                          63,
+                          66,
+                          67,
+                          70,
+                          71,
+                          74,
+                      ]
+            - PoseTemporalSubsample:
+                  num_frames: 32
+            - PoseRandomShift:
+            - PoseNormalize:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 2
+            shuffle: true
+            num_workers: 8
+            pin_memory: true
+            drop_last: true
+
+model:
+    type: st-gnn
+    gnn_model:
+        _target_: slr.models.graph.decoupled_gcn.DecoupledGCN
+        in_channels: 4
+        graph_args:
+            num_nodes: 27
+            inward_edges:
+                [
+                    [2, 0],
+                    [1, 0],
+                    [0, 3],
+                    [0, 4],
+                    [3, 5],
+                    [4, 6],
+                    [5, 7],
+                    [6, 17],
+                    [7, 8],
+                    [7, 9],
+                    [9, 10],
+                    [7, 11],
+                    [11, 12],
+                    [7, 13],
+                    [13, 14],
+                    [7, 15],
+                    [15, 16],
+                    [17, 18],
+                    [17, 19],
+                    [19, 20],
+                    [17, 21],
+                    [21, 22],
+                    [17, 23],
+                    [23, 24],
+                    [17, 25],
+                    [25, 26],
+                ]
+
+optim:
+    optimizer:
+        name: Adam
+        params:
+            lr: 0.05
+            betas: [0.8, 0.25]
+            weight_decay: 0.001
+    scheduler:
+        name: CosineAnnealingLR
+        params:
+            last_epoch: -1
+            T_max: 10
+
+trainer:
+    max_epochs: 1
+
+exp_manager:
+    exp_dir: "./slr_experiments"
+    name: *name
+    create_tensorboard_logger: true
+    create_wandb_logger: false
+    wandb_logger_kwargs:
+        name: null
+        project: null
+
+    create_checkpoint_callback: true
+    checkpoint_callback_params:
+        monitor: "val_acc"
+        mode: "max"
+        save_top_k: 3
+
+    early_stopping_callback: true
+    early_stopping_params:
+        monitor: "val_acc"
+        patience: 10
+        verbose: true
+        mode: "max"

@@ -2,6 +2,7 @@ name: &name "x3d_s_fc"
 resume_from: "/home/prem/data-disk/SLR/outputs/2021-06-13/11-47-15/x3d_s_fc/0/checkpoints/epoch=0-step=9.ckpt"
 
 data:
+    modality: "video"
     train_pipeline:
         dataset:
             _target_: slr.datasets.isolated.AUTSLDataset
@@ -69,6 +70,7 @@ data:
             drop_last: false
 
 model:
+    type: cnn
     encoder:
         type: cnn3d
         params:

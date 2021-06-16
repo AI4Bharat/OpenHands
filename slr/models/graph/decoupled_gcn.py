@@ -4,6 +4,7 @@ import torch.nn.functional as F
 from torch.autograd import Variable
 import numpy as np
 import math
+from omegaconf import OmegaConf
 
 #https://github.com/jackyjsy/CVPR21Chal-SLR
 
@@ -358,12 +359,13 @@ class DecoupledGCN(nn.Module):
         num_point=27,
         groups=8,
         block_size=41,
-        graph=None,
         graph_args=dict(),
         in_channels=2,
     ):
         super(DecoupledGCN, self).__init__()
-        self.graph = graph
+       
+        graph_args = OmegaConf.to_container(graph_args)
+        self.graph = Graph(**graph_args)
         A = self.graph.A
         self.data_bn = nn.BatchNorm1d(in_channels * num_point)
 

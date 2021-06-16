@@ -4,7 +4,7 @@ import torchmetrics
 import pytorch_lightning as pl
 from slr.models.loader import get_model
 from .data import CommonDataModule
-
+from .pose_data import PoseDataModule
 
 class ClassificationModel(pl.LightningModule):
     def __init__(self, cfg, trainer):
@@ -45,7 +45,10 @@ class ClassificationModel(pl.LightningModule):
         return self.get_optimizer(self.cfg.optim)
 
     def create_datamodule(self, cfg):
-        return CommonDataModule(cfg)
+        if cfg.modality == "video":
+            return CommonDataModule(cfg)
+        elif cfg.modality == "pose":
+            return PoseDataModule(cfg)
 
     def create_model(self, cfg):
         return get_model(cfg, self.datamodule.train_dataset)
