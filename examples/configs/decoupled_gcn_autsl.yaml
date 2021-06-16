@@ -146,6 +146,7 @@ model:
                 ]
 
 optim:
+    loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:

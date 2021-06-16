@@ -80,8 +80,8 @@ model:
         type: fc
         params:
             dropout_ratio: 0.2
-
 optim:
+    loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:

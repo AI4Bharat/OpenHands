@@ -3,8 +3,10 @@ import torch.nn.functional as F
 import torchmetrics
 import pytorch_lightning as pl
 from slr.models.loader import get_model
+from slr.core import losses
 from .data import CommonDataModule
 from .pose_data import PoseDataModule
+
 
 class ClassificationModel(pl.LightningModule):
     def __init__(self, cfg, trainer):
@@ -17,13 +19,14 @@ class ClassificationModel(pl.LightningModule):
         self.model = self.create_model(cfg.model)
         self.trainer = trainer
         self.setup_metrics()
+        self.loss = self.setup_loss()
 
     def forward(self, x):
         return self.model(x)
 
     def training_step(self, batch, batch_idx):
         y_hat = self.model(batch["frames"])
-        loss = F.cross_entropy(y_hat, batch["labels"])
+        loss = self.loss(y_hat, batch["labels"])
         acc = self.accuracy_metric(F.softmax(y_hat, dim=-1), batch["labels"])
         self.log("train_loss", loss)
         self.log(
@@ -33,7 +36,7 @@ class ClassificationModel(pl.LightningModule):
 
     def validation_step(self, batch, batch_idx):
         y_hat = self.model(batch["frames"])
-        loss = F.cross_entropy(y_hat, batch["labels"])
+        loss = self.loss(y_hat, batch["labels"])
         acc = self.accuracy_metric(F.softmax(y_hat, dim=-1), batch["labels"])
         self.log("val_loss", loss)
         self.log(
@@ -52,6 +55,11 @@ class ClassificationModel(pl.LightningModule):
 
     def create_model(self, cfg):
         return get_model(cfg, self.datamodule.train_dataset)
+
+    def setup_loss(self, conf):
+        loss = conf.loss
+        assert loss in ["CrossEntropyLoss", "SmoothedCrossEntropyLoss"]
+        return getattr(losses, loss)
 
     def setup_metrics(self):
         self.accuracy_metric = torchmetrics.functional.accuracy
