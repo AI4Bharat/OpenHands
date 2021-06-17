@@ -28,7 +28,7 @@ def experiment_manager(trainer, cfg):
     if cfg.create_checkpoint_callback:
         configure_checkpointing(trainer, cfg.checkpoint_callback_params)
 
-    if cfg.early_stopping_callback:
+    if "early_stopping_callback" in cfg.keys() and cfg.early_stopping_callback:
         configure_early_stopping(trainer, cfg.early_stopping_params)
 
 def configure_loggers(

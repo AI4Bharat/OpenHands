@@ -19,7 +19,7 @@ class ClassificationModel(pl.LightningModule):
         self.model = self.create_model(cfg.model)
         self.trainer = trainer
         self.setup_metrics()
-        self.loss = self.setup_loss()
+        self.loss = self.setup_loss(self.cfg.optim)
 
     def forward(self, x):
         return self.model(x)
@@ -40,7 +40,7 @@ class ClassificationModel(pl.LightningModule):
         acc = self.accuracy_metric(F.softmax(y_hat, dim=-1), batch["labels"])
         self.log("val_loss", loss)
         self.log(
-            "val_acc", acc, on_step=True, on_epoch=True, prog_bar=True, sync_dist=True
+            "val_acc", acc, on_step=False, on_epoch=True, prog_bar=True
         )
         return {"valid_loss": loss, "valid_acc": acc}
 
@@ -59,7 +59,7 @@ class ClassificationModel(pl.LightningModule):
     def setup_loss(self, conf):
         loss = conf.loss
         assert loss in ["CrossEntropyLoss", "SmoothedCrossEntropyLoss"]
-        return getattr(losses, loss)
+        return getattr(losses, loss)()
 
     def setup_metrics(self):
         self.accuracy_metric = torchmetrics.functional.accuracy

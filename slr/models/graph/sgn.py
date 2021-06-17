@@ -116,8 +116,12 @@ class SGN(nn.Module):
         self.n_frames = n_frames
         self.n_joints = n_joints
 
-        self.spa_oh = self.one_hot(self.n_joints, self.n_frames)
-        self.tem_oh = self.one_hot(self.n_frames, self.n_joints)
+        self.register_buffer(
+            "spa_oh", self.one_hot(1, self.n_joints, self.n_frames).permute(0, 3, 2, 1)
+        )
+        self.register_buffer(
+            "tem_oh", self.one_hot(1, self.n_frames, self.n_joints).permute(0, 3, 1, 2)
+        )
 
         self.tem_embed = embed(
             self.n_joints, self.n_frames, 64 * 4, norm=False, bias=bias
@@ -145,22 +149,20 @@ class SGN(nn.Module):
         nn.init.constant_(self.gcn3.w.cnn.weight, 0)
 
     def forward(self, input):
+        # B, C, T, V, M
+        assert input.shape[-1] == 1, "Max of 1 persons supported"
+        input = input.squeeze(-1)
+        input = input.permute(0, 2, 3, 1)
+
         bs, step, num_joints, dim = input.size()
         input = input.permute(0, 3, 2, 1).contiguous()
         dif = input[:, :, :, 1:] - input[:, :, :, 0:-1]
         dif = torch.cat([dif.new(bs, dif.size(1), num_joints, 1).zero_(), dif], dim=-1)
         pos = self.joint_embed(input)
 
-        spa_bs = self.spa_oh.unsqueeze(0)
-        spa_bs = spa_bs.repeat(bs, 1, 1, 1)
-        spa_bs = spa_bs.permute(0, 3, 2, 1).to(input.device)
+        tem1 = self.tem_embed(self.tem_oh).repeat(bs, 1, 1, 1)
+        spa1 = self.spa_embed(self.spa_oh).repeat(bs, 1, 1, 1)
 
-        tem_bs = self.tem_oh.unsqueeze(0)
-        tem_bs = tem_bs.repeat(bs, 1, 1, 1)
-        tem_bs = tem_bs.permute(0, 3, 1, 2).to(input.device)
-
-        tem1 = self.tem_embed(tem_bs)
-        spa1 = self.spa_embed(spa_bs)
         dif = self.dif_embed(dif)
         dy = pos + dif
 
@@ -181,11 +183,11 @@ class SGN(nn.Module):
         output = self.fc(output)
         return output
 
-    def one_hot(self, spa, tem):
+    def one_hot(self, bs, spa, tem):
         y = torch.arange(spa).unsqueeze(-1)
         y_onehot = torch.FloatTensor(spa, spa)
         y_onehot.zero_()
         y_onehot.scatter_(1, y, 1)
-        y_onehot = y_onehot.unsqueeze(0)
-        y_onehot = y_onehot.repeat(tem, 1, 1)
+        y_onehot = y_onehot.unsqueeze(0).unsqueeze(0)
+        y_onehot = y_onehot.repeat(bs, tem, 1, 1)
         return y_onehot

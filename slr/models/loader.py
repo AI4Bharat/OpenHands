@@ -24,7 +24,7 @@ def load_decoder(decoder_cfg, dataset, encoder):
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
 def load_graph_model(config):
-    return hydra.utils.instantiate(config.gnn_model)
+    return hydra.utils.instantiate(config)
 
 def get_model(config, dataset):    
     if config.type == "cnn":

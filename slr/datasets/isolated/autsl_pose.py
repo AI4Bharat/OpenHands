@@ -15,6 +15,7 @@ class AUTSLPoseDataset(torch.utils.data.Dataset):
         splits=["train"],
         transforms=None,
         use_scores=True,
+        use_z_axis=False
     ):
 
         self.class_mappings_file_path = class_mappings_file_path
@@ -24,7 +25,8 @@ class AUTSLPoseDataset(torch.utils.data.Dataset):
         self.read_index_file(split_file, splits)
         self.transforms = transforms
         self.use_scores = use_scores
-
+        self.use_z_axis = use_z_axis
+        
     def read_index_file(self, index_file_path, splits):
 
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
@@ -74,6 +76,9 @@ class AUTSLPoseDataset(torch.utils.data.Dataset):
         kps = data["keypoints"]
         scores = data["confidences"]
 
+        if not self.use_z_axis:
+            kps = kps[:,:,:2]
+            
         if self.use_scores:
             kps = np.concatenate([kps, np.expand_dims(scores, axis=-1)], axis=-1)
 
@@ -94,11 +99,11 @@ class AUTSLPoseDataset(torch.utils.data.Dataset):
 
     @staticmethod
     def collate_fn(batch_list):
-        max_frames = max([i["pose_kps"].shape[0] for i in batch_list])
+        max_frames = max([i["pose_kps"].shape[1] for i in batch_list])
         kps = [
             F.pad(
                 x["pose_kps"],
-                (0, 0, 0, 0, 0, 0, 0, max_frames - x["pose_kps"].shape[0]),
+                (0, 0, 0, 0, 0, max_frames - x["pose_kps"].shape[1], 0, 0),
             )
             for i, x in enumerate(batch_list)
         ]
