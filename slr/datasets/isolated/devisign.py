@@ -2,9 +2,9 @@ import os
 from glob import glob
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
-class DeviSignDataset(BaseVideoIsolatedDataset):
+class DeviSignDataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
         """
         Check the file "DEVISIGN Technical Report.pdf" inside `Documents\` folder

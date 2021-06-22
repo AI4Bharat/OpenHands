@@ -1,15 +1,14 @@
-name: &name "Decoupled GCN-AUTSL"
+name: &name "Decoupled GCN-INCLUDE"
 
 data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLPoseDataset
-            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
-            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include50.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "train"
             modality: "pose"
-            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
         transforms:
             - PoseSelect:
@@ -43,14 +42,13 @@ data:
                           71,
                           74,
                       ]
-            - PoseTemporalSubsample:
-                  num_frames: 32
-            # - PoseRandomShift:
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
             - PoseNormalize:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: true
             num_workers: 1
             pin_memory: true
@@ -58,12 +56,11 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLPoseDataset
-            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
-            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
-            splits: "train"
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include50.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            splits: "test"
             modality: "pose"
-            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
         transforms:
             - PoseSelect:
@@ -97,14 +94,13 @@ data:
                           71,
                           74,
                       ]
-            - PoseTemporalSubsample:
-                  num_frames: 32
-            # - PoseRandomShift:
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
             - PoseNormalize:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 2
+            batch_size: 32
             shuffle: false
             num_workers: 8
             pin_memory: true
@@ -152,9 +148,8 @@ optim:
     optimizer:
         name: Adam
         params:
-            lr: 0.05
-            betas: [0.8, 0.25]
-            weight_decay: 0.001
+            lr: 1e-3
+
     scheduler:
         name: CosineAnnealingLR
         params:
@@ -162,7 +157,8 @@ optim:
             T_max: 10
 
 trainer:
-    max_epochs: 1
+    gpus: 1
+    max_epochs: 100
 
 exp_manager:
     exp_dir: "./slr_experiments"
@@ -182,6 +178,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 10
+        patience: 20
         verbose: true
         mode: "max"

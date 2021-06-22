@@ -1,9 +1,9 @@
 import os
 from glob import glob
 from sklearn.preprocessing import LabelEncoder
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
-class CSLDataset(BaseVideoIsolatedDataset):
+class CSLDataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
         """
         Format for word-level CSL dataset:

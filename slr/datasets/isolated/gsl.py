@@ -1,9 +1,9 @@
 import os
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
-class GSLVideoDataset(BaseVideoIsolatedDataset):
+class GSLDataset(BaseIsolatedDataset):
 
     def read_index_file(self, index_file_path, splits):
         # `splits` is pointless here as we pass the split-specific CSV directly

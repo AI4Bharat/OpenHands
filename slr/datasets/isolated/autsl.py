@@ -1,9 +1,9 @@
 import os
 import pandas as pd
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
 
-class AUTSLDataset(BaseVideoIsolatedDataset):
+class AUTSLDataset(BaseIsolatedDataset):
     def __init__(
         self,
         split_file,

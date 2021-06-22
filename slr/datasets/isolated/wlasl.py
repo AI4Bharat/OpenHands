@@ -1,9 +1,9 @@
 import os
 import json
 from sklearn.preprocessing import LabelEncoder
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
-class WLASLVideoDataset(BaseVideoIsolatedDataset):
+class WLASLDataset(BaseIsolatedDataset):
 
     def read_index_file(self, index_file_path, splits):
         with open(index_file_path, "r") as f:

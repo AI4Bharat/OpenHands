@@ -2,10 +2,10 @@ import os
 import pandas as pd
 from glob import glob
 from sklearn.preprocessing import LabelEncoder
-from .base_video import BaseVideoIsolatedDataset
+from .base import BaseIsolatedDataset
 
 
-class LSA64Dataset(BaseVideoIsolatedDataset):
+class LSA64Dataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
         '''
         Dataset includes 3200 videos where 10 non-expert subjects executed 5 repetitions of 64 different types of signs.

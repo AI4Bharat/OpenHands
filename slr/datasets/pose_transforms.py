@@ -24,12 +24,12 @@ class PoseNormalize:
     def __call__(self, data):
         assert "vid_shape" in data.keys(), "Video shape if needed for normalize"
         shape = data["vid_shape"]
-        kps = data["pose_kps"]
+        kps = data["frames"]
 
         kps[0, ...] /= shape[0]
         kps[1, ...] /= shape[1]
 
-        data["pose_kps"] = kps
+        data["frames"] = kps
         return data
 
 
@@ -38,27 +38,27 @@ class PoseTemporalSubsample:
         self.num_frames = num_frames
 
     def __call__(self, data):
-        x = data["pose_kps"]
+        x = data["frames"]
         C, T, V, M = x.shape
 
         t = x.shape[1]
         if t >= self.num_frames:
             start_index = random.randint(0, t - self.num_frames)
             indices = torch.arange(start_index, start_index + self.num_frames)
-            data["pose_kps"] = torch.index_select(x, 1, indices)
+            data["frames"] = torch.index_select(x, 1, indices)
 
         else:
             # Padding
             pad_len = self.num_frames - t
             pad_tensor = torch.zeros(C, pad_len, V, M)
-            data["pose_kps"] = torch.cat((x, pad_tensor), dim=1)
+            data["frames"] = torch.cat((x, pad_tensor), dim=1)
 
         return data
 
 
 class PoseRandomShift:
     def __call__(self, data):
-        x = data["pose_kps"]
+        x = data["frames"]
         C, T, V, M = x.shape
         data_shifted = torch.zeros_like(x)
         valid_frame = ((x != 0).sum(dim=3).sum(dim=2).sum(dim=0) > 0).long()
@@ -69,7 +69,7 @@ class PoseRandomShift:
         bias = random.randint(0, T - size)
         data_shifted[:, bias : bias + size, :, :] = x[:, begin:end, :, :]
 
-        data["pose_kps"] = data_shifted
+        data["frames"] = data_shifted
         return data
 
 
@@ -83,7 +83,7 @@ class PoseSelect:
 
     def __call__(self, data):
 
-        x = data["pose_kps"]
+        x = data["frames"]
         x = x[:, :, self.pose_indexes, :]
-        data["pose_kps"] = x
+        data["frames"] = x
         return data

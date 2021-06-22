@@ -23,8 +23,13 @@ def load_decoder(decoder_cfg, dataset, encoder):
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
-def load_graph_model(config):
-    return hydra.utils.instantiate(config)
+def load_graph_model(gnn_cfg, dataset):
+    if gnn_cfg.type == "decoupled-gcn":
+        from .graph.decoupled_gcn import DecoupledGCN
+        return DecoupledGCN(in_channels=dataset.in_channels, num_class=dataset.num_class, **gnn_cfg.params)
+    else:
+        exit(f"ERROR: GNN Type '{gnn_cfg.type}' not supported.")
+    # return hydra.utils.instantiate(config)
 
 def get_model(config, dataset):    
     if config.type == "cnn":
@@ -33,5 +38,5 @@ def get_model(config, dataset):
 
         from .network import Network
         return Network(encoder, decoder)
-    elif config.type == "st-gnn":
-        return load_graph_model(config.gnn_model)
+    elif config.type == "gnn":
+        return load_graph_model(config.gnn, dataset)
