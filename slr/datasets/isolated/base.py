@@ -66,8 +66,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                         NumpyToTensor(),
                         
                         RandomTemporalSubsample(16),
-                        torchvision.transforms.Resize((cv_resize_dims[0], cv_resize_dims[1])),
-                        torchvision.transforms.RandomCrop((cv_resize_dims[0], cv_resize_dims[1])),
+                        torchvision.transforms.Resize((self.cv_resize_dims[0], self.cv_resize_dims[1])),
+                        torchvision.transforms.RandomCrop((self.cv_resize_dims[0], self.cv_resize_dims[1])),
                         torchvision.transforms.RandomHorizontalFlip(p=0.5),
                         # torchvision.transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5)),
                         TCHW2CTHW()
@@ -81,7 +81,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                         NumpyToTensor(),
                         # THWC2CTHW(),
                         THWC2TCHW(),
-                        torchvision.transforms.Resize((cv_resize_dims[0], cv_resize_dims[1])),
+                        torchvision.transforms.Resize((self.cv_resize_dims[0], self.cv_resize_dims[1])),
                         TCHW2CTHW()
                     ]
                 )

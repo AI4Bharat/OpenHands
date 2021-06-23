@@ -1,5 +1,6 @@
 import torch
 import random
+import numpy as np
 
 
 class Compose:
@@ -86,4 +87,62 @@ class PoseSelect:
         x = data["frames"]
         x = x[:, :, self.pose_indexes, :]
         data["frames"] = x
+        return data
+
+
+# Adopted from: https://github.com/AmitMY/pose-format/
+class ShearTransform:
+    def __init__(self, shear_std=0.2):
+        self.shear_std = shear_std
+
+    def __call__(self, data):
+        x = data["frames"]
+        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        x = x.permute(1, 3, 2, 0)
+        shear_matrix = torch.eye(2)
+        shear_matrix[0][1] = torch.tensor(
+            np.random.normal(loc=0, scale=self.shear_std, size=1)[0]
+        )
+        res = torch.matmul(x, shear_matrix)
+        data["frames"] = res.permute(3, 0, 2, 1)
+        return data
+
+
+class RotatationTransform:
+    def __init__(self, rotation_std=0.2):
+        self.rotation_std = rotation_std
+
+    def __call__(self, data):
+        x = data["frames"]
+        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        x = x.permute(1, 3, 2, 0)
+        rotation_angle = torch.tensor(
+            np.random.normal(loc=0, scale=self.rotation_std, size=1)[0]
+        )
+        rotation_cos = torch.cos(rotation_angle)
+        rotation_sin = torch.sin(rotation_angle)
+        rotation_matrix = torch.tensor(
+            [[rotation_cos, -rotation_sin], [rotation_sin, rotation_cos]],
+            dtype=torch.float32,
+        )
+        res = torch.matmul(x, rotation_matrix)
+        data["frames"] = res.permute(3, 0, 2, 1)
+        return data
+
+
+class ScaleTransform:
+    def __init__(self, scale_std=0.2):
+        self.scale_std = scale_std
+
+    def __call__(self, data):
+        x = data["frames"]
+        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+
+        x = x.permute(1, 3, 2, 0)
+        scale_matrix = torch.eye(2)
+        scale_matrix[1][1] = torch.tensor(
+            np.random.normal(loc=0, scale=self.scale_std, size=1)[0]
+        )
+        res = torch.matmul(x, scale_matrix)
+        data["frames"] = res.permute(3, 0, 2, 1)
         return data
