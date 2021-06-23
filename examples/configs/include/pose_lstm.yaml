@@ -11,44 +11,44 @@ data:
             modality: "pose"
 
         transforms:
-            - PoseSelect:
-                  pose_indexes:
-                      [
-                          0,
-                          2,
-                          5,
-                          11,
-                          12,
-                          13,
-                          14,
-                          33,
-                          37,
-                          38,
-                          41,
-                          42,
-                          45,
-                          46,
-                          49,
-                          50,
-                          53,
-                          54,
-                          58,
-                          59,
-                          62,
-                          63,
-                          66,
-                          67,
-                          70,
-                          71,
-                          74,
-                      ]
+            # - PoseSelect:
+            #       pose_indexes:
+            #           [
+            #               0,
+            #               2,
+            #               5,
+            #               11,
+            #               12,
+            #               13,
+            #               14,
+            #               33,
+            #               37,
+            #               38,
+            #               41,
+            #               42,
+            #               45,
+            #               46,
+            #               49,
+            #               50,
+            #               53,
+            #               54,
+            #               58,
+            #               59,
+            #               62,
+            #               63,
+            #               66,
+            #               67,
+            #               70,
+            #               71,
+            #               74,
+            #           ]
             # - PoseTemporalSubsample:
             #       num_frames: 32
             - PoseNormalize:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 8
             shuffle: true
             num_workers: 1
             pin_memory: true
@@ -63,37 +63,37 @@ data:
             modality: "pose"
 
         transforms:
-            - PoseSelect:
-                  pose_indexes:
-                      [
-                          0,
-                          2,
-                          5,
-                          11,
-                          12,
-                          13,
-                          14,
-                          33,
-                          37,
-                          38,
-                          41,
-                          42,
-                          45,
-                          46,
-                          49,
-                          50,
-                          53,
-                          54,
-                          58,
-                          59,
-                          62,
-                          63,
-                          66,
-                          67,
-                          70,
-                          71,
-                          74,
-                      ]
+            # - PoseSelect:
+            #       pose_indexes:
+            #           [
+            #               0,
+            #               2,
+            #               5,
+            #               11,
+            #               12,
+            #               13,
+            #               14,
+            #               33,
+            #               37,
+            #               38,
+            #               41,
+            #               42,
+            #               45,
+            #               46,
+            #               49,
+            #               50,
+            #               53,
+            #               54,
+            #               58,
+            #               59,
+            #               62,
+            #               63,
+            #               66,
+            #               67,
+            #               70,
+            #               71,
+            #               74,
+            #           ]
             # - PoseTemporalSubsample:
             #       num_frames: 32
             - PoseNormalize:
@@ -110,22 +110,22 @@ model:
     encoder:
         type: pose-flattener
         params:
-            num_points: 27
+            num_points: 75
     decoder:
         type: rnn
         params:
             rnn_type: LSTM
-            hidden_size: 256
-            num_layers: 2
+            hidden_size: 64
+            num_layers: 4
             bidirectional: true
-            use_attention: false
+            use_attention: true
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 5e-2
+            lr: 1e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -135,7 +135,7 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 100
+    max_epochs: 1000
 
 exp_manager:
     exp_dir: "./slr_experiments"
@@ -155,6 +155,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 50
         verbose: true
         mode: "max"

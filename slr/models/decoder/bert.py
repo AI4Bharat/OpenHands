@@ -54,6 +54,7 @@ class BERT(nn.Module):
         self.l2 = nn.Linear(in_features=config.hidden_size, out_features=num_class)
 
     def forward(self, x):
+        x = x.transpose(0, 1) # TODO: Unnecessarily redundant reshaping, fix a standard shape
         x = self.l1(x)
         x = self.embedding(x)
         for layer in self.layers:

@@ -67,6 +67,7 @@ class RNNClassifier(nn.Module):
         if self.use_attention:
             out = self.fc(self.attn_block(out))
         else:
+            # out = torch.max(out, dim=1).values
             out = self.fc(out[:, -1, :])
 
         return out
