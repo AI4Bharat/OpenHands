@@ -1,0 +1,160 @@
+name: &name "LSTM-INCLUDE"
+
+data:
+    modality: "pose"
+    train_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include50.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            splits: "train"
+            modality: "pose"
+
+        transforms:
+            - PoseSelect:
+                  pose_indexes:
+                      [
+                          0,
+                          2,
+                          5,
+                          11,
+                          12,
+                          13,
+                          14,
+                          33,
+                          37,
+                          38,
+                          41,
+                          42,
+                          45,
+                          46,
+                          49,
+                          50,
+                          53,
+                          54,
+                          58,
+                          59,
+                          62,
+                          63,
+                          66,
+                          67,
+                          70,
+                          71,
+                          74,
+                      ]
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
+            - PoseNormalize:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 16
+            shuffle: true
+            num_workers: 1
+            pin_memory: true
+            drop_last: true
+
+    valid_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include50.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            splits: "test"
+            modality: "pose"
+
+        transforms:
+            - PoseSelect:
+                  pose_indexes:
+                      [
+                          0,
+                          2,
+                          5,
+                          11,
+                          12,
+                          13,
+                          14,
+                          33,
+                          37,
+                          38,
+                          41,
+                          42,
+                          45,
+                          46,
+                          49,
+                          50,
+                          53,
+                          54,
+                          58,
+                          59,
+                          62,
+                          63,
+                          66,
+                          67,
+                          70,
+                          71,
+                          74,
+                      ]
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
+            - PoseNormalize:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 32
+            shuffle: false
+            num_workers: 8
+            pin_memory: true
+            drop_last: false
+
+model:
+    encoder:
+        type: pose-flattener
+        params:
+            num_points: 27
+    decoder:
+        type: rnn
+        params:
+            rnn_type: LSTM
+            hidden_size: 256
+            num_layers: 2
+            bidirectional: true
+            use_attention: false
+
+optim:
+    loss: 'CrossEntropyLoss'
+    optimizer:
+        name: Adam
+        params:
+            lr: 5e-2
+
+    scheduler:
+        name: CosineAnnealingLR
+        params:
+            last_epoch: -1
+            T_max: 10
+
+trainer:
+    gpus: 1
+    max_epochs: 100
+
+exp_manager:
+    exp_dir: "./slr_experiments"
+    name: *name
+    create_tensorboard_logger: true
+    create_wandb_logger: false
+    wandb_logger_kwargs:
+        name: null
+        project: null
+
+    create_checkpoint_callback: true
+    checkpoint_callback_params:
+        monitor: "val_acc"
+        mode: "max"
+        save_top_k: 3
+
+    early_stopping_callback: true
+    early_stopping_params:
+        monitor: "val_acc"
+        patience: 30
+        verbose: true
+        mode: "max"

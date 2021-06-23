@@ -7,6 +7,9 @@ def load_encoder(encoder_cfg, dataset):
     elif encoder_cfg.type == "cnn2d":
         from .encoder.cnn2d import CNN2D
         return CNN2D(in_channels=dataset.in_channels, **encoder_cfg.params)
+    elif encoder_cfg.type == "pose-flattener":
+        from .encoder.graph.pose_flattener import PoseFlattener
+        return PoseFlattener(in_channels=dataset.in_channels, **encoder_cfg.params)
     elif encoder_cfg.type == "decoupled-gcn":
         from .encoder.graph.decoupled_gcn import DecoupledGCN
         return DecoupledGCN(in_channels=dataset.in_channels, **encoder_cfg.params)
