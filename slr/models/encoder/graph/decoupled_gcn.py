@@ -82,10 +82,10 @@ class DropGraphTemporal(nn.Module):
 
 
 class DropGraphSpatial(nn.Module):
-    def __init__(self, num_point, drop_size):
+    def __init__(self, num_points, drop_size):
         super(DropGraphSpatial, self).__init__()
         self.drop_size = drop_size
-        self.num_point = num_point
+        self.num_points = num_points
 
     def forward(self, x, keep_prob, A):
         self.keep_prob = keep_prob
@@ -104,7 +104,7 @@ class DropGraphSpatial(nn.Module):
         M[M > 0.001] = 1.0
         M[M < 0.5] = 0.0
 
-        mask = (1 - M).view(n, 1, 1, self.num_point)
+        mask = (1 - M).view(n, 1, 1, self.num_points)
         return x * mask * mask.numel() / mask.sum()
 
 
@@ -136,7 +136,7 @@ class TCNUnit(nn.Module):
         stride=1,
         use_drop=True,
         drop_size=1.92,
-        num_point=25,
+        num_points=25,
         block_size=41,
     ):
         super(TCNUnit, self).__init__()
@@ -156,7 +156,7 @@ class TCNUnit(nn.Module):
 
         self.use_drop = use_drop
         if use_drop:
-            self.dropS = DropGraphSpatial(num_point=num_point, drop_size=drop_size)
+            self.dropS = DropGraphSpatial(num_points=num_points, drop_size=drop_size)
             self.dropT = DropGraphTemporal(block_size=block_size)
 
     def forward(self, x, keep_prob=None, A=None):
@@ -167,9 +167,9 @@ class TCNUnit(nn.Module):
 
 
 class DecoupledGCNUnit(nn.Module):
-    def __init__(self, in_channels, out_channels, A, groups, num_point, num_subset=3):
+    def __init__(self, in_channels, out_channels, A, groups, num_points, num_subset=3):
         super(DecoupledGCNUnit, self).__init__()
-        self.num_point = num_point
+        self.num_points = num_points
         self.in_channels = in_channels
         self.out_channels = out_channels
         self.groups = groups
@@ -177,7 +177,7 @@ class DecoupledGCNUnit(nn.Module):
 
         self.decoupled_A = nn.Parameter(
             torch.tensor(
-                np.reshape(A, [3, 1, num_point, num_point]), dtype=torch.float32
+                np.reshape(A, [3, 1, num_points, num_points]), dtype=torch.float32
             ).repeat(1, groups, 1, 1),
             requires_grad=True,
         )
@@ -201,7 +201,7 @@ class DecoupledGCNUnit(nn.Module):
         )
 
         self.eye_list = nn.Parameter(
-            torch.stack([torch.eye(num_point) for _ in range(out_channels)]),
+            torch.stack([torch.eye(num_points) for _ in range(out_channels)]),
             requires_grad=False,
         )
 
@@ -219,8 +219,8 @@ class DecoupledGCNUnit(nn.Module):
 
     def norm(self, A):
         b, c, h, w = A.size()
-        A = A.view(c, self.num_point, self.num_point)
-        D_list = torch.sum(A, 1).view(c, 1, self.num_point)
+        A = A.view(c, self.num_points, self.num_points)
+        D_list = torch.sum(A, 1).view(c, 1, self.num_points)
         D_list_12 = (D_list + 0.001) ** (-1)
         D_12 = self.eye_list * D_list_12
         A = torch.bmm(A, D_12).view(b, c, h, w)
@@ -258,7 +258,7 @@ class DecoupledGCN_TCN_unit(nn.Module):
         out_channels,
         A,
         groups,
-        num_point,
+        num_points,
         block_size,
         drop_size,
         stride=1,
@@ -268,19 +268,19 @@ class DecoupledGCN_TCN_unit(nn.Module):
         super(DecoupledGCN_TCN_unit, self).__init__()
 
         num_joints = A.shape[-1]
-        self.gcn1 = DecoupledGCNUnit(in_channels, out_channels, A, groups, num_point)
+        self.gcn1 = DecoupledGCNUnit(in_channels, out_channels, A, groups, num_points)
         self.tcn1 = TCNUnit(
             out_channels,
             out_channels,
             stride=stride,
-            num_point=num_point,
+            num_points=num_points,
             drop_size=drop_size,
         )
         self.relu = nn.ReLU()
         self.A = nn.Parameter(
             torch.tensor(
                 np.sum(
-                    np.reshape(A.astype(np.float32), [3, num_point, num_point]), axis=0
+                    np.reshape(A.astype(np.float32), [3, num_points, num_points]), axis=0
                 ),
                 dtype=torch.float32,
             ),
@@ -298,7 +298,7 @@ class DecoupledGCN_TCN_unit(nn.Module):
                 in_channels, out_channels, kernel_size=1, stride=stride, use_drop=False
             )
 
-        self.drop_spatial = DropGraphSpatial(num_point=num_point, drop_size=drop_size)
+        self.drop_spatial = DropGraphSpatial(num_points=num_points, drop_size=drop_size)
         self.drop_temporal = DropGraphTemporal(block_size=block_size)
 
         self.use_attention = use_attention
@@ -355,19 +355,17 @@ class DecoupledGCN_TCN_unit(nn.Module):
 class DecoupledGCN(nn.Module):
     def __init__(
         self,
-        num_class=60,
-        num_point=27,
+        in_channels=2,
+        num_points=27,
+        inward_edges=[],
         groups=8,
         block_size=41,
-        graph_args=dict(),
-        in_channels=2,
     ):
         super(DecoupledGCN, self).__init__()
        
-        graph_args = OmegaConf.to_container(graph_args)
-        self.graph = Graph(**graph_args)
+        self.graph = Graph(num_points, inward_edges)
         A = self.graph.A
-        self.data_bn = nn.BatchNorm1d(in_channels * num_point)
+        self.data_bn = nn.BatchNorm1d(in_channels * num_points)
 
         drop_size = find_drop_size(self.graph.num_nodes, len(self.graph.inward_edges))
         self.l1 = DecoupledGCN_TCN_unit(
@@ -375,42 +373,43 @@ class DecoupledGCN(nn.Module):
             64,
             A,
             groups,
-            num_point,
+            num_points,
             block_size,
             drop_size=drop_size,
             residual=False,
         )
         self.l2 = DecoupledGCN_TCN_unit(
-            64, 64, A, groups, num_point, block_size, drop_size=drop_size
+            64, 64, A, groups, num_points, block_size, drop_size=drop_size
         )
         self.l3 = DecoupledGCN_TCN_unit(
-            64, 64, A, groups, num_point, block_size, drop_size=drop_size
+            64, 64, A, groups, num_points, block_size, drop_size=drop_size
         )
         self.l4 = DecoupledGCN_TCN_unit(
-            64, 64, A, groups, num_point, block_size, drop_size=drop_size
+            64, 64, A, groups, num_points, block_size, drop_size=drop_size
         )
         self.l5 = DecoupledGCN_TCN_unit(
-            64, 128, A, groups, num_point, block_size, drop_size=drop_size, stride=2
+            64, 128, A, groups, num_points, block_size, drop_size=drop_size, stride=2
         )
         self.l6 = DecoupledGCN_TCN_unit(
-            128, 128, A, groups, num_point, block_size, drop_size=drop_size
+            128, 128, A, groups, num_points, block_size, drop_size=drop_size
         )
         self.l7 = DecoupledGCN_TCN_unit(
-            128, 128, A, groups, num_point, block_size, drop_size=drop_size
+            128, 128, A, groups, num_points, block_size, drop_size=drop_size
         )
         self.l8 = DecoupledGCN_TCN_unit(
-            128, 256, A, groups, num_point, block_size, drop_size=drop_size, stride=2
+            128, 256, A, groups, num_points, block_size, drop_size=drop_size, stride=2
         )
         self.l9 = DecoupledGCN_TCN_unit(
-            256, 256, A, groups, num_point, block_size, drop_size=drop_size
+            256, 256, A, groups, num_points, block_size, drop_size=drop_size
         )
+        self.n_out_features = 256
         self.l10 = DecoupledGCN_TCN_unit(
-            256, 256, A, groups, num_point, block_size, drop_size=drop_size
+            256, self.n_out_features, A, groups, num_points, block_size, drop_size=drop_size
         )
 
-        self.fc = nn.Linear(256, num_class)
-        nn.init.normal_(self.fc.weight, 0, math.sqrt(2.0 / num_class))
         bn_init(self.data_bn, 1)
+        # self.fc = nn.Linear(256, num_class)
+        # nn.init.normal_(self.fc.weight, 0, math.sqrt(2.0 / num_class))
 
     def forward(self, x, keep_prob=0.9):
         if x.ndim == 4:
@@ -439,6 +438,5 @@ class DecoupledGCN(nn.Module):
 
         # x = x.view(N, M, c_new, -1)
         x = x.reshape(N, M, c_new, -1)
-        x = x.mean(3).mean(1)
-
-        return self.fc(x)
+        return x.mean(3).mean(1)
+        # return self.fc(x)

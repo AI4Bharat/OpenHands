@@ -70,7 +70,6 @@ data:
             drop_last: false
 
 model:
-    type: cnn
     encoder:
         type: cnn3d
         params:

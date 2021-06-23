@@ -7,6 +7,9 @@ def load_encoder(encoder_cfg, dataset):
     elif encoder_cfg.type == "cnn2d":
         from .encoder.cnn2d import CNN2D
         return CNN2D(in_channels=dataset.in_channels, **encoder_cfg.params)
+    elif encoder_cfg.type == "decoupled-gcn":
+        from .encoder.graph.decoupled_gcn import DecoupledGCN
+        return DecoupledGCN(in_channels=dataset.in_channels, **encoder_cfg.params)
     else:
         exit(f"ERROR: Encoder Type '{encoder_cfg.type}' not supported.")
 
@@ -23,20 +26,9 @@ def load_decoder(decoder_cfg, dataset, encoder):
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
-def load_graph_model(gnn_cfg, dataset):
-    if gnn_cfg.type == "decoupled-gcn":
-        from .graph.decoupled_gcn import DecoupledGCN
-        return DecoupledGCN(in_channels=dataset.in_channels, num_class=dataset.num_class, **gnn_cfg.params)
-    else:
-        exit(f"ERROR: GNN Type '{gnn_cfg.type}' not supported.")
-    # return hydra.utils.instantiate(config)
-
 def get_model(config, dataset):    
-    if config.type == "cnn":
-        encoder = load_encoder(config.encoder, dataset)
-        decoder = load_decoder(config.decoder, dataset, encoder)
+    encoder = load_encoder(config.encoder, dataset)
+    decoder = load_decoder(config.decoder, dataset, encoder)
 
-        from .network import Network
-        return Network(encoder, decoder)
-    elif config.type == "gnn":
-        return load_graph_model(config.gnn, dataset)
+    from .network import Network
+    return Network(encoder, decoder)
