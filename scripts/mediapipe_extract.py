@@ -160,7 +160,7 @@ if __name__ == "__main__":
             file_paths.append(os.path.join(DIR, file))
             save_paths.append(os.path.join(SAVE_DIR, file.replace(".mp4", "")))
 
-    Parallel(n_jobs=n_cores, backend="multiprocessing")(
+    Parallel(n_jobs=n_cores, backend="loky")(
         delayed(gen_keypoints_for_video)(path, save_path)
         for path, save_path in tqdm(zip(file_paths, save_paths))
     )

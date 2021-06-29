@@ -23,7 +23,7 @@ class PoseNormalize:
     """
 
     def __call__(self, data):
-        assert "vid_shape" in data.keys(), "Video shape if needed for normalize"
+        assert "vid_shape" in data.keys(), "Video shape is needed for normalize"
         shape = data["vid_shape"]
         kps = data["frames"]
 
@@ -145,4 +145,64 @@ class ScaleTransform:
         )
         res = torch.matmul(x, scale_matrix)
         data["frames"] = res.permute(3, 0, 2, 1)
+        return data
+
+
+###################################
+class ScaleNormalize:
+    def __init__(self, point_indexes_to_use, scale_factor=1):
+        """
+        point_indexes_to_use - The point indexes according to which the points will be centered and scaled.
+        shape: (p1, p2)
+        """
+        self.point_indexes_to_use = point_indexes_to_use
+        self.scale_factor = scale_factor
+
+    def __call__(self, data):
+        x = data["frames"]  # C, T, V, M
+        center, scale = self.calc_center_and_scale(x)
+        x = x - center
+        x = x * scale
+        data["frames"] = x
+        return data
+
+    def calc_center_and_scale(self, x):
+        transposed_x = x.permute(2, 3, 1, 0)
+        ind1, ind2 = self.point_indexes_to_use
+        points1 = transposed_x[ind1]
+        points2 = transposed_x[ind2]
+
+        if transposed_x.shape[1]:
+            points1 = points1[0]
+            points2 = points2[0]
+        else:
+            points1 = torch.cat(points1)
+            points2 = torch.cat(points2)
+
+        center = torch.mean((points1 + points2) / 2, dim=0)
+        mean_dist = torch.mean(torch.sqrt(((points1 - points2) ** 2).sum(-1)))
+        scale = self.scale_factor / mean_dist
+
+        return center, scale
+
+
+class RandomMove:
+    def __init__(self, move_range=(-2.5, 2.5)):
+        self.move_range = torch.arange(*move_range)
+
+    def __call__(self, data):
+        x = data["frames"]  # C, T, V, M
+        num_frames = x.shape[1]
+
+        t_x = np.random.choice(self.move_range, 2)
+        t_y = np.random.choice(self.move_range, 2)
+
+        t_x = torch.linspace(t_x[0], t_x[1], num_frames)
+        t_y = torch.linspace(t_y[0], t_y[1], num_frames)
+
+        for i_frame in range(num_frames):
+            x[0] += t_x[i_frame]
+            x[1] += t_y[i_frame]
+
+        data["frames"] = x
         return data
