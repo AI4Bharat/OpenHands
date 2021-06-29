@@ -100,48 +100,50 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: false
             num_workers: 8
             pin_memory: true
             drop_last: false
 
 model:
-    type: gnn
-    gnn:
-        type: "decoupled-gcn"
+    encoder:
+        type: decoupled-gcn
         params:
-            graph_args:
-                num_nodes: 27
-                inward_edges:
-                    [
-                        [2, 0],
-                        [1, 0],
-                        [0, 3],
-                        [0, 4],
-                        [3, 5],
-                        [4, 6],
-                        [5, 7],
-                        [6, 17],
-                        [7, 8],
-                        [7, 9],
-                        [9, 10],
-                        [7, 11],
-                        [11, 12],
-                        [7, 13],
-                        [13, 14],
-                        [7, 15],
-                        [15, 16],
-                        [17, 18],
-                        [17, 19],
-                        [19, 20],
-                        [17, 21],
-                        [21, 22],
-                        [17, 23],
-                        [23, 24],
-                        [17, 25],
-                        [25, 26],
-                    ]
+            num_points: 27
+            inward_edges:
+                [
+                    [2, 0],
+                    [1, 0],
+                    [0, 3],
+                    [0, 4],
+                    [3, 5],
+                    [4, 6],
+                    [5, 7],
+                    [6, 17],
+                    [7, 8],
+                    [7, 9],
+                    [9, 10],
+                    [7, 11],
+                    [11, 12],
+                    [7, 13],
+                    [13, 14],
+                    [7, 15],
+                    [15, 16],
+                    [17, 18],
+                    [17, 19],
+                    [19, 20],
+                    [17, 21],
+                    [21, 22],
+                    [17, 23],
+                    [23, 24],
+                    [17, 25],
+                    [25, 26],
+                ]
+    decoder:
+        type: fc
+        params:
+            dropout_ratio: 0
 
 optim:
     loss: 'CrossEntropyLoss'

@@ -5,11 +5,9 @@ class FC(nn.Module):
         self, n_features, num_class, dropout_ratio=0.2, **kwargs
     ):
         super().__init__()
-        if dropout_ratio != 0:
-            self.dropout = nn.Dropout(p=dropout_ratio)
-        else:
-            self.dropout = None
+        self.dropout = nn.Dropout(p=dropout_ratio)
         self.classifier = nn.Linear(n_features, num_class)
+        nn.init.normal_(self.classifier.weight, 0, math.sqrt(2.0 / num_class))
 
     def forward(self, x):
         x = self.dropout(x)
