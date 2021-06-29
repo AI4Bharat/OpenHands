@@ -5,53 +5,27 @@ from torch.autograd import Variable
 import numpy as np
 import math
 from omegaconf import OmegaConf
+from .graph_utils import SpatialGraph
 
 #https://github.com/jackyjsy/CVPR21Chal-SLR
 
-def edge2mat(link, num_node):
-    A = np.zeros((num_node, num_node))
-    for i, j in link:
-        A[j, i] = 1
-    return A
+def conv_init(conv):
+    nn.init.kaiming_normal_(conv.weight, mode="fan_out")
+    nn.init.constant_(conv.bias, 0)
 
 
-def normalize_digraph(A):
-    Dl = np.sum(A, 0)
-    h, w = A.shape
-    Dn = np.zeros((w, w))
-    for i in range(w):
-        if Dl[i] > 0:
-            Dn[i, i] = Dl[i] ** (-1)
-    AD = np.dot(A, Dn)
-    return AD
+def bn_init(bn, scale):
+    nn.init.constant_(bn.weight, scale)
+    nn.init.constant_(bn.bias, 0)
 
 
-def get_spatial_graph(num_node, self_link, inward, outward):
-    I = edge2mat(self_link, num_node)
-    In = normalize_digraph(edge2mat(inward, num_node))
-    Out = normalize_digraph(edge2mat(outward, num_node))
-    A = np.stack((I, In, Out))
-    return A
-
-
-class Graph:
-    def __init__(self, num_nodes, inward_edges, strategy="spatial"):
-
-        self.num_nodes = num_nodes
-        self.strategy = strategy
-        self.self_edges = [(i, i) for i in range(num_nodes)]
-        self.inward_edges = inward_edges
-        self.outward_edges = [(j, i) for (i, j) in self.inward_edges]
-        self.A = self.get_adjacency_matrix()
-
-    def get_adjacency_matrix(self):
-        if self.strategy == "spatial":
-            return get_spatial_graph(
-                self.num_nodes, self.self_edges, self.inward_edges, self.outward_edges
-            )
-        else:
-            raise ValueError()
-
+def find_drop_size(num_nodes, num_edges, K=1):
+    B_sum = 0
+    for i in range(1, K + 1):
+        B_sum += (2 * num_edges / num_nodes) * math.pow(
+            (2 * num_edges / num_nodes) - 1, i - 1
+        )
+    return B_sum
 
 class DropGraphTemporal(nn.Module):
     def __init__(self, block_size=7):
@@ -106,26 +80,6 @@ class DropGraphSpatial(nn.Module):
 
         mask = (1 - M).view(n, 1, 1, self.num_points)
         return x * mask * mask.numel() / mask.sum()
-
-
-def conv_init(conv):
-    nn.init.kaiming_normal_(conv.weight, mode="fan_out")
-    nn.init.constant_(conv.bias, 0)
-
-
-def bn_init(bn, scale):
-    nn.init.constant_(bn.weight, scale)
-    nn.init.constant_(bn.bias, 0)
-
-
-def find_drop_size(num_nodes, num_edges, K=1):
-    B_sum = 0
-    for i in range(1, K + 1):
-        B_sum += (2 * num_edges / num_nodes) * math.pow(
-            (2 * num_edges / num_nodes) - 1, i - 1
-        )
-    return B_sum
-
 
 class TCNUnit(nn.Module):
     def __init__(
@@ -363,7 +317,7 @@ class DecoupledGCN(nn.Module):
     ):
         super(DecoupledGCN, self).__init__()
        
-        self.graph = Graph(num_points, inward_edges)
+        self.graph = SpatialGraph(num_points, inward_edges)
         A = self.graph.A
         self.data_bn = nn.BatchNorm1d(in_channels * num_points)
 

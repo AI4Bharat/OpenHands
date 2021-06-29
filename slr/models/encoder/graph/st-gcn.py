@@ -3,8 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
 import numpy as np
-
-from graph_utils import Graph
+from .graph_utils import GraphWithPartition
 
 class ConvTemporalGraphical(nn.Module):
     def __init__(self,
@@ -121,7 +120,7 @@ class STGCN(nn.Module):
                  edge_importance_weighting, **kwargs):
         super().__init__()
 
-        self.graph = Graph(**graph_args)
+        self.graph = GraphWithPartition(**graph_args)
         A = torch.tensor(self.graph.A, dtype=torch.float32, requires_grad=False)
         self.register_buffer('A', A)
 
