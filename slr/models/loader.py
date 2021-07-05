@@ -13,6 +13,12 @@ def load_encoder(encoder_cfg, dataset):
     elif encoder_cfg.type == "decoupled-gcn":
         from .encoder.graph.decoupled_gcn import DecoupledGCN
         return DecoupledGCN(in_channels=dataset.in_channels, **encoder_cfg.params)
+    elif encoder_cfg.type == "st-gcn":
+        from .encoder.graph.st_gcn import STGCN
+        return STGCN(in_channels=dataset.in_channels, **encoder_cfg.params)
+    elif encoder_cfg.type == "sgn":
+        from .encoder.graph.sgn import SGN
+        return SGN(in_channels=dataset.in_channels, **encoder_cfg.params)
     else:
         exit(f"ERROR: Encoder Type '{encoder_cfg.type}' not supported.")
 

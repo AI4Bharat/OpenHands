@@ -4,12 +4,11 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLPoseDataset
-            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
-            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
-            splits: "train"
+            _target_: slr.datasets.isolated.AUTSLDataset
+            split_file: "/home/prem/data-disk/datasets/AUTSL/train_labels.csv"
+            root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/train_poses/new_train_poses"
             modality: "pose"
-            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+            class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
         transforms:
             - PoseSelect:
@@ -43,27 +42,29 @@ data:
                           71,
                           74,
                       ]
-            - PoseTemporalSubsample:
-                  num_frames: 32
-            # - PoseRandomShift:
             - PoseNormalize:
+            - ScaleNormalize:
+                  point_indexes_to_use: [3, 4]
+            - ShearTransform:
+                  shear_std: 0.1
+            - RotatationTransform:
+                  rotation_std: 0.1
 
         dataloader:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: true
-            num_workers: 1
+            num_workers: 0
             pin_memory: true
-            drop_last: true
+            drop_last: false
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLPoseDataset
-            split_file: "/datadrive/datasets/AUTSL/train_labels.csv"
-            root_dir: "/datadrive/datasets/AUTSL/new_train_poses"
-            splits: "train"
+            _target_: slr.datasets.isolated.AUTSLDataset
+            split_file: "/home/prem/data-disk/datasets/AUTSL/validation_labels.csv"
+            root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/val_poses/new_val_poses/"
             modality: "pose"
-            class_mappings_file_path: "/datadrive/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
+            class_mappings_file_path: "/home/prem/data-disk/datasets/AUTSL/SignList_ClassId_TR_EN.csv"
 
         transforms:
             - PoseSelect:
@@ -97,64 +98,64 @@ data:
                           71,
                           74,
                       ]
-            - PoseTemporalSubsample:
-                  num_frames: 32
-            # - PoseRandomShift:
             - PoseNormalize:
+            - ScaleNormalize:
+                  point_indexes_to_use: [3, 4]
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 2
+            batch_size: 32
             shuffle: false
-            num_workers: 8
+            num_workers: 0
             pin_memory: true
             drop_last: false
 
 model:
-    type: gnn
-    gnn:
-        type: "decoupled-gcn"
+    encoder:
+        type: decoupled-gcn
         params:
-            graph_args:
-                num_nodes: 27
-                inward_edges:
-                    [
-                        [2, 0],
-                        [1, 0],
-                        [0, 3],
-                        [0, 4],
-                        [3, 5],
-                        [4, 6],
-                        [5, 7],
-                        [6, 17],
-                        [7, 8],
-                        [7, 9],
-                        [9, 10],
-                        [7, 11],
-                        [11, 12],
-                        [7, 13],
-                        [13, 14],
-                        [7, 15],
-                        [15, 16],
-                        [17, 18],
-                        [17, 19],
-                        [19, 20],
-                        [17, 21],
-                        [21, 22],
-                        [17, 23],
-                        [23, 24],
-                        [17, 25],
-                        [25, 26],
-                    ]
+            num_points: 27
+            inward_edges:
+                [
+                    [2, 0],
+                    [1, 0],
+                    [0, 3],
+                    [0, 4],
+                    [3, 5],
+                    [4, 6],
+                    [5, 7],
+                    [6, 17],
+                    [7, 8],
+                    [7, 9],
+                    [9, 10],
+                    [7, 11],
+                    [11, 12],
+                    [7, 13],
+                    [13, 14],
+                    [7, 15],
+                    [15, 16],
+                    [17, 18],
+                    [17, 19],
+                    [19, 20],
+                    [17, 21],
+                    [21, 22],
+                    [17, 23],
+                    [23, 24],
+                    [17, 25],
+                    [25, 26],
+                ]
+    decoder:
+        type: fc
+        params:
+            dropout_ratio: 0.2
 
 optim:
-    loss: 'CrossEntropyLoss'
+    loss: "CrossEntropyLoss"
     optimizer:
         name: Adam
         params:
-            lr: 0.05
-            betas: [0.8, 0.25]
-            weight_decay: 0.001
+            lr: 1e-3
+
     scheduler:
         name: CosineAnnealingLR
         params:
@@ -162,7 +163,8 @@ optim:
             T_max: 10
 
 trainer:
-    max_epochs: 1
+    gpus: 1
+    max_epochs: 100
 
 exp_manager:
     exp_dir: "./slr_experiments"
@@ -182,6 +184,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 10
+        patience: 50
         verbose: true
         mode: "max"

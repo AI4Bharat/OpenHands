@@ -60,7 +60,7 @@ class GraphWithPartition:  # Unidirected, connections with hop limit
     ):
         self.num_nodes = num_nodes
         self.center = center
-        self.self_edges = [(i, i) for i in range(self.num_nodes)]
+        self.self_edges = [[i, i] for i in range(self.num_nodes)]
         self.inward_edges = inward_edges
         self.edges = self.self_edges + self.inward_edges
 

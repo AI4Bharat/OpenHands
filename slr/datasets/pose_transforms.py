@@ -160,9 +160,11 @@ class ScaleNormalize:
 
     def __call__(self, data):
         x = data["frames"]  # C, T, V, M
+        x = x.permute(3, 1, 2, 0)
         center, scale = self.calc_center_and_scale(x)
         x = x - center
         x = x * scale
+        x = x.permute(3, 1, 2, 0)
         data["frames"] = x
         return data
 

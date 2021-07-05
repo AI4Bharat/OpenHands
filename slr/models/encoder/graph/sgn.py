@@ -109,12 +109,12 @@ class SGN(nn.Module):
     Adopted from: https://github.com/microsoft/SGN
     """
 
-    def __init__(self, num_classes, n_frames, n_joints, n_channels=3, bias=True):
+    def __init__(self, n_frames, num_points, in_channels=3, bias=True):
         super(SGN, self).__init__()
 
         self.dim1 = 256
         self.n_frames = n_frames
-        self.n_joints = n_joints
+        self.n_joints = num_points
 
         self.register_buffer(
             "spa_oh", self.one_hot(1, self.n_joints, self.n_frames).permute(0, 3, 2, 1)
@@ -127,8 +127,8 @@ class SGN(nn.Module):
             self.n_joints, self.n_frames, 64 * 4, norm=False, bias=bias
         )
         self.spa_embed = embed(self.n_joints, self.n_joints, 64, norm=False, bias=bias)
-        self.joint_embed = embed(self.n_joints, n_channels, 64, norm=True, bias=bias)
-        self.dif_embed = embed(self.n_joints, n_channels, 64, norm=True, bias=bias)
+        self.joint_embed = embed(self.n_joints, in_channels, 64, norm=True, bias=bias)
+        self.dif_embed = embed(self.n_joints, in_channels, 64, norm=True, bias=bias)
 
         self.maxpool = nn.AdaptiveMaxPool2d((1, 1))
         self.cnn = local(self.dim1, self.dim1 * 2, bias=bias)
@@ -137,7 +137,8 @@ class SGN(nn.Module):
         self.gcn1 = gcn_spa(self.dim1 // 2, self.dim1 // 2, bias=bias)
         self.gcn2 = gcn_spa(self.dim1 // 2, self.dim1, bias=bias)
         self.gcn3 = gcn_spa(self.dim1, self.dim1, bias=bias)
-        self.fc = nn.Linear(self.dim1 * 2, num_classes)
+        
+        self.n_out_features = self.dim1 * 2
 
         for m in self.modules():
             if isinstance(m, nn.Conv2d):
@@ -180,7 +181,6 @@ class SGN(nn.Module):
         # Classification head
         output = self.maxpool(input)
         output = torch.flatten(output, 1)
-        output = self.fc(output)
         return output
 
     def one_hot(self, bs, spa, tem):

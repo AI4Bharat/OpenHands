@@ -1,10 +1,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from torch.autograd import Variable
 import numpy as np
 import math
-from omegaconf import OmegaConf
 from .graph_utils import SpatialGraph
 
 #https://github.com/jackyjsy/CVPR21Chal-SLR
