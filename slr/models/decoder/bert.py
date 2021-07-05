@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import transformers
-
+from .utils import AttentionBlock
 
 class PositionEmbedding(nn.Module):
     def __init__(self, config):
@@ -32,17 +32,28 @@ class PositionEmbedding(nn.Module):
 
 
 class BERT(nn.Module):
-    def __init__(self, n_features, num_class, config):
+    def __init__(self, n_features, num_class, config, cls_token=False, pooling_type="avg"): 
+        """
+        pooling_type -> ["max","avg","att","cls"]
+        """
         super().__init__()
+        self.cls_token = cls_token
+        self.pooling_type = pooling_type
+
+        if self.cls_token:
+            self.pooling_type = "cls"
+
         self.l1 = nn.Linear(
             in_features=n_features, out_features=config.hidden_size
         )
+        if self.cls_token:
+            self.cls_param = nn.Parameter(torch.randn(config.hidden_size))
+
         self.embedding = PositionEmbedding(config)
         model_config = transformers.BertConfig(
             hidden_size=config.hidden_size,
             num_attention_heads=config.num_attention_heads,
             num_hidden_layers=config.num_hidden_layers,
-            max_position_embeddings=config.max_position_embeddings,
         )
         self.layers = nn.ModuleList(
             [
@@ -50,17 +61,33 @@ class BERT(nn.Module):
                 for _ in range(config.num_hidden_layers)
             ]
         )
+        
+        if self.pooling_type == "att":
+            self.attn_block = AttentionBlock(config.hidden_size)
+
         # self.bert = transformers.BertModel(model_config)
         self.l2 = nn.Linear(in_features=config.hidden_size, out_features=num_class)
+
 
     def forward(self, x):
         x = x.transpose(0, 1) # TODO: Unnecessarily redundant reshaping, fix a standard shape
         x = self.l1(x)
+        if self.cls_token:
+            cls_embed = self.cls_param.unsqueeze(0).repeat(x.shape[0], 1, 1)
+            x = torch.cat((cls_embed, x), dim=1)
         x = self.embedding(x)
         for layer in self.layers:
             x = layer(x)[0]
-        # x = self.bert(x)
-        x = torch.max(x, dim=1).values
+        
+        if self.pooling_type == "cls":
+            x = x[:, 0]
+        elif self.pooling_type == "max":
+            x = torch.max(x, dim=1).values
+        elif self.pooling_type == "avg":
+            x = torch.mean(x, dim=1)
+        elif self.pooling_type == "att":
+            x = self.attn_block(x)
+
         x = F.dropout(x, p=0.2)
         x = self.l2(x)
         return x
