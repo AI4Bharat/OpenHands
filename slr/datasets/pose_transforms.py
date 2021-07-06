@@ -34,29 +34,6 @@ class PoseNormalize:
         return data
 
 
-class PoseTemporalSubsample:
-    def __init__(self, num_frames):
-        self.num_frames = num_frames
-
-    def __call__(self, data):
-        x = data["frames"]
-        C, T, V, M = x.shape
-
-        t = x.shape[1]
-        if t >= self.num_frames:
-            start_index = random.randint(0, t - self.num_frames)
-            indices = torch.arange(start_index, start_index + self.num_frames)
-            data["frames"] = torch.index_select(x, 1, indices)
-
-        else:
-            # Padding
-            pad_len = self.num_frames - t
-            pad_tensor = torch.zeros(C, pad_len, V, M)
-            data["frames"] = torch.cat((x, pad_tensor), dim=1)
-
-        return data
-
-
 class PoseRandomShift:
     def __call__(self, data):
         x = data["frames"]
@@ -207,4 +184,86 @@ class RandomMove:
             x[1] += t_y[i_frame]
 
         data["frames"] = x
+        return data
+
+
+####################################
+
+
+class PoseTemporalSubsample:
+    def __init__(self, num_frames):
+        self.num_frames = num_frames
+        self.temporal_dim = 1
+
+    def __call__(self, data):
+        x = data["frames"]
+        C, T, V, M = x.shape
+
+        t = x.shape[self.temporal_dim]
+        if t >= self.num_frames:
+            start_index = random.randint(0, t - self.num_frames)
+            indices = torch.arange(start_index, start_index + self.num_frames)
+            data["frames"] = torch.index_select(x, self.temporal_dim, indices)
+
+        else:
+            # Padding
+            pad_len = self.num_frames - t
+            pad_tensor = torch.zeros(C, pad_len, V, M)
+            data["frames"] = torch.cat((x, pad_tensor), dim=1)
+
+        return data
+
+
+class PoseUniformSubsampling:
+    def __init__(self, num_frames):
+        self.num_frames = num_frames
+        self.temporal_dim = 1
+
+    def __call__(self, data):
+        x = data["frames"]  # C, T, V, M
+        t = x.shape[self.temporal_dim]
+        indices = torch.linspace(0, t - 1, self.num_frames)
+        indices = torch.clamp(indices, 0, t - 1).long()
+        data["frames"] = torch.index_select(x, self.temporal_dim, indices)
+        return data
+
+
+class TemporalSample:
+    """
+    Randomly choose Uniform and Temporal subsample
+    If subsample_mode==2, randomly sub-sampling or uniform-sampling is done
+    If subsample_mode==0, only uniform-sampling (for test sets)
+    If subsample_mode==1, only sub-sampling (to reproduce results of some papers that use only subsampling)
+    """
+
+    def __init__(self, num_frames, subsample_mode=2):
+        self.subsample_mode = subsample_mode
+        self.num_frames = num_frames
+
+        self.uniform_sampler = PoseUniformSubsampling(num_frames)
+        self.random_sampler = PoseTemporalSubsample(num_frames)
+
+    def __call__(self, data):
+        if self.subsample_mode == 0:
+            return self.uniform_sampler(data)
+        elif self.subsample_mode == 1:
+            return self.random_sampler(data)
+        elif self.subsample_mode == 2:
+            rand_prob = random.random()
+            if rand_prob > 0.5:
+                return self.uniform_sampler(data)
+            else:
+                return self.random_sampler(data)
+
+
+class FrameSkipping:
+    def __init__(self, skip_range=1):
+        self.skip_range = skip_range
+        self.temporal_dim = 1
+
+    def __call__(self, data):
+        x = data["frames"]
+        t = x.shape[self.temporal_dim]
+        indices = torch.arange(0, t, self.skip_range)
+        data["frames"] = torch.index_select(x, self.temporal_dim, indices)
         return data
