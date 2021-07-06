@@ -32,13 +32,13 @@ class PositionEmbedding(nn.Module):
 
 
 class BERT(nn.Module):
-    def __init__(self, n_features, num_class, config, cls_token=False, pooling_type="avg"): 
+    def __init__(self, n_features, num_class, config): 
         """
         pooling_type -> ["max","avg","att","cls"]
         """
         super().__init__()
-        self.cls_token = cls_token
-        self.pooling_type = pooling_type
+        self.cls_token = config["cls_token"]
+        self.pooling_type = config["pooling_type"]
 
         if self.cls_token:
             self.pooling_type = "cls"

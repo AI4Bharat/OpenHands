@@ -1,4 +1,5 @@
 import hydra
+import torch.nn as nn
 
 def load_encoder(encoder_cfg, dataset):
     if encoder_cfg.type == "cnn3d":
@@ -19,19 +20,29 @@ def load_encoder(encoder_cfg, dataset):
     elif encoder_cfg.type == "sgn":
         from .encoder.graph.sgn import SGN
         return SGN(in_channels=dataset.in_channels, **encoder_cfg.params)
+    elif encoder_cfg.type == "gcn":
+        from .encoder.graph.gcn import GCNModel
+        from .encoder.graph.pose_flattener import PoseFlattener
+        return nn.Sequential(GCNModel(in_channels=dataset.in_channels, **encoder_cfg.params), PoseFlattener(in_channels=dataset.in_channels, num_points=encoder_cfg.params.num_points))
     else:
         exit(f"ERROR: Encoder Type '{encoder_cfg.type}' not supported.")
 
 def load_decoder(decoder_cfg, dataset, encoder):
+    #TODO: better way
+    if isinstance(encoder, nn.Sequential):
+        n_out_features = encoder[-1].n_out_features
+    else:
+        n_out_features = encoder.n_out_features
+
     if decoder_cfg.type == "fc":
         from .decoder.fc import FC
-        return FC(n_features=encoder.n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
+        return FC(n_features=n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
     elif decoder_cfg.type == "rnn":
         from .decoder.rnn import RNNClassifier
-        return RNNClassifier(n_features=encoder.n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
+        return RNNClassifier(n_features=n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
     elif decoder_cfg.type == "bert":
         from .decoder.bert import BERT
-        return BERT(n_features=encoder.n_out_features, num_class=dataset.num_class, config=decoder_cfg.params)
+        return BERT(n_features=n_out_features, num_class=dataset.num_class, config=decoder_cfg.params)
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 
