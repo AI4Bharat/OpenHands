@@ -19,10 +19,12 @@ class LSA64Dataset(BaseIsolatedDataset):
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
-        video_files = glob(f"{self.root_dir}/*.mp4")
+        file_format = '.pkl' if 'pose' in modality else '.mp4'
+        video_files = glob(f"{self.root_dir}/*{file_format}")
         for video_file in video_files:
-            video_name = os.path.basename(video_file).replace(".mp4", '')
+            video_name = os.path.basename(video_file).replace(file_format, '')
             sign_id, signer_id, repeat_id = map(int, video_name.split('_'))
+            sign_id -= 1
             
             if (signer_id < 9 and "train" in splits) or (signer_id == 9 and "val" in splits) or (signer_id == 10 and "test" in splits):
                 instance_entry = video_file, sign_id

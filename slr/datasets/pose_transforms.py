@@ -17,7 +17,7 @@ class Compose:
         return x
 
 
-class PoseNormalize:
+class VideoDimensionsNormalize:
     """
     Normalize pose keypoints with Width and Height
     """
@@ -35,6 +35,10 @@ class PoseNormalize:
 
 
 class PoseRandomShift:
+    """
+    Randomly distribute the zero padding at the end of a video
+    to intial and final positions
+    """
     def __call__(self, data):
         x = data["frames"]
         C, T, V, M = x.shape
@@ -55,9 +59,20 @@ class PoseSelect:
     """
     Select the given index keypoints from all keypoints
     """
+    KEYPOINT_PRESETS = {
+        "mediapipe_holistic_minimal_27": [
+            0, 2, 5, 11, 12, 13, 14,
+            33, 37, 38, 41, 42, 45, 46, 49, 50, 53, 54, 58, 59, 62, 63, 66, 67, 70, 71, 74,
+        ],
+    }
 
-    def __init__(self, pose_indexes):
-        self.pose_indexes = pose_indexes
+    def __init__(self, preset=None, pose_indexes=[]):
+        if preset:
+            self.pose_indexes = PoseSelect.KEYPOINT_PRESETS[preset]
+        elif pose_indexes:
+            self.pose_indexes = pose_indexes
+        else:
+            raise ValueError("Either pass `pose_indexes` to select or `preset` name")
 
     def __call__(self, data):
 
@@ -126,13 +141,22 @@ class ScaleTransform:
 
 
 ###################################
-class ScaleNormalize:
-    def __init__(self, point_indexes_to_use, scale_factor=1):
+class CenterAndScaleNormalize:
+    REFERENCE_PRESETS = {
+        "shoulder_mediapipe_holistic_minimal_27": [3, 4],
+        "shoulder_mediapipe_holistic_full_75": [11, 12],
+    }
+    def __init__(self, reference_points_preset=None, reference_point_indexes=[], scale_factor=1):
         """
-        point_indexes_to_use - The point indexes according to which the points will be centered and scaled.
+        reference_point_indexes - The point indexes according to which the points will be centered and scaled.
         shape: (p1, p2)
         """
-        self.point_indexes_to_use = point_indexes_to_use
+        if reference_points_preset:
+            self.reference_point_indexes = CenterAndScaleNormalize.REFERENCE_PRESETS[reference_points_preset]
+        elif reference_point_indexes:
+            self.reference_point_indexes = reference_point_indexes
+        else:
+            raise ValueError("Mention the joint with respect to which the scaling & centering must be done")
         self.scale_factor = scale_factor
 
     def __call__(self, data):
@@ -147,7 +171,7 @@ class ScaleNormalize:
 
     def calc_center_and_scale(self, x):
         transposed_x = x.permute(2, 3, 1, 0)
-        ind1, ind2 = self.point_indexes_to_use
+        ind1, ind2 = self.reference_point_indexes
         points1 = transposed_x[ind1]
         points2 = transposed_x[ind2]
 
@@ -166,8 +190,8 @@ class ScaleNormalize:
 
 
 class RandomMove:
-    def __init__(self, move_range=(-2.5, 2.5)):
-        self.move_range = torch.arange(*move_range)
+    def __init__(self, move_range=(-2.5, 2.5), move_step=0.5):
+        self.move_range = torch.arange(*move_range, move_step)
 
     def __call__(self, data):
         x = data["frames"]  # C, T, V, M

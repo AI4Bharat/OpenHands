@@ -4,13 +4,6 @@ from .base import BaseIsolatedDataset
 
 
 class AUTSLDataset(BaseIsolatedDataset):
-    def __init__(
-        self,
-        class_mappings_file_path,
-        **kwargs):
-
-        self.class_mappings_file_path = class_mappings_file_path
-        super(AUTSLDataset, self).__init__(**kwargs)
 
     def read_index_file(self, index_file_path, splits, modality):
 

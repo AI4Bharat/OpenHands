@@ -12,7 +12,7 @@ from natsort import natsorted
 from slr.datasets.transforms import *
 
 class BaseIsolatedDataset(torch.utils.data.Dataset):
-    def __init__(self, split_file, root_dir, splits=["train"], modality="rgb",
+    def __init__(self, split_file, root_dir, class_mappings_file_path=None, splits=["train"], modality="rgb",
         transforms="default",
         cv_resize_dims=(264, 264),
         pose_use_confidence_scores=False,
@@ -21,6 +21,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.data = []
         self.glosses = []
         self.root_dir = root_dir
+        self.class_mappings_file_path = class_mappings_file_path
         self.read_index_file(split_file, splits, modality)
 
         self.cv_resize_dims = cv_resize_dims

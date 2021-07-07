@@ -99,10 +99,10 @@ class ClassificationModel(pl.LightningModule):
         self.trainer.fit(self, self.datamodule)
 
     def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
-        if "resume_from" not in self.cfg.keys():
+        if "pretrained" not in self.cfg.keys():
             return
 
-        ckpt_path = self.cfg["resume_from"]
+        ckpt_path = self.cfg["pretrained"]
         ckpt = torch.load(ckpt_path, map_location=map_location)
         self.load_state_dict(ckpt["state_dict"], strict=False)
         del ckpt

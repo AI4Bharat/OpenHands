@@ -9,17 +9,10 @@ def experiment_manager(trainer, cfg):
     if cfg is None:
         return
 
-    exp_dir = cfg.exp_dir
-    log_dir = os.path.join(exp_dir, "logs")
-    os.makedirs(log_dir, exist_ok=True)
-    trainer._default_root_dir = exp_dir
-
+    trainer._default_root_dir = os.getcwd()
     if cfg.create_tensorboard_logger or cfg.create_wandb_logger:
         configure_loggers(
             trainer,
-            exp_dir,
-            cfg.name,
-            None,  # Version
             cfg.create_tensorboard_logger,
             None,  # cfg.summary_writer_kwargs,
             cfg.create_wandb_logger,
@@ -33,9 +26,6 @@ def experiment_manager(trainer, cfg):
 
 def configure_loggers(
     trainer,
-    exp_dir,
-    name,
-    version,
     create_tensorboard_logger,
     summary_writer_kwargs,
     create_wandb_logger,
@@ -47,7 +37,7 @@ def configure_loggers(
             summary_writer_kwargs = {}
 
         tensorboard_logger = TensorBoardLogger(
-            save_dir=exp_dir, name=name, version=version, **summary_writer_kwargs
+            save_dir='logs', version=None, **summary_writer_kwargs
         )
         logger_list.append(tensorboard_logger)
 
@@ -56,7 +46,7 @@ def configure_loggers(
             wandb_kwargs = {}
         if "name" not in wandb_kwargs and "project" not in wandb_kwargs:
             raise ValueError("name and project are required for wandb_logger")
-        wandb_logger = WandbLogger(save_dir=exp_dir, version=version, **wandb_kwargs)
+        wandb_logger = WandbLogger(**wandb_kwargs)
 
         logger_list.append(wandb_logger)
 
@@ -66,7 +56,7 @@ def configure_loggers(
 
 
 def configure_checkpointing(trainer, cfg):
-    checkpoint_callback = ModelCheckpoint(**cfg)
+    checkpoint_callback = ModelCheckpoint(**cfg, dirpath=trainer._default_root_dir)
     trainer.callbacks.append(checkpoint_callback)
 
 def configure_early_stopping(trainer, cfg):

@@ -38,16 +38,16 @@ class BERT(nn.Module):
         """
         super().__init__()
         self.cls_token = config["cls_token"]
-        self.pooling_type = config["pooling_type"]
 
         if self.cls_token:
             self.pooling_type = "cls"
-
+            self.cls_param = nn.Parameter(torch.randn(config.hidden_size))
+        else:
+            self.pooling_type = config["pooling_type"]
+        
         self.l1 = nn.Linear(
             in_features=n_features, out_features=config.hidden_size
-        )
-        if self.cls_token:
-            self.cls_param = nn.Parameter(torch.randn(config.hidden_size))
+        )   
 
         self.embedding = PositionEmbedding(config)
         model_config = transformers.BertConfig(
