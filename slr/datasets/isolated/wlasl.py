@@ -21,11 +21,8 @@ class WLASLDataset(BaseIsolatedDataset):
                 if instance["split"] not in splits:
                     continue
 
-                frame_end = instance["frame_end"]
-                frame_start = instance["frame_start"]
                 video_id = instance["video_id"]
-
-                instance_entry = video_id, gloss_cat, frame_start, frame_end
+                instance_entry = video_id, gloss_cat
                 self.data.append(instance_entry)
 
     def read_data(self, index):
