@@ -150,7 +150,7 @@ class CenterAndScaleNormalize:
         "shoulder_mediapipe_holistic_minimal_27": [3, 4],
         "shoulder_mediapipe_holistic_top_body_59": [11, 12],
     }
-    def __init__(self, reference_points_preset=None, reference_point_indexes=[], scale_factor=1):
+    def __init__(self, reference_points_preset=None, reference_point_indexes=[], scale_factor=1, frame_level=False):
         """
         reference_point_indexes - The point indexes according to which the points will be centered and scaled.
         shape: (p1, p2)
@@ -162,36 +162,51 @@ class CenterAndScaleNormalize:
         else:
             raise ValueError("Mention the joint with respect to which the scaling & centering must be done")
         self.scale_factor = scale_factor
-
+        self.frame_level = frame_level
+        
     def __call__(self, data):
-        x = data["frames"]  # C, T, V, M
+        x = data["frames"]  
+        C, T, V, M = x.shape
         x = x.permute(3, 1, 2, 0)
-        center, scale = self.calc_center_and_scale(x)
-        x = x - center
-        x = x * scale
+        
+        if self.frame_level:
+            temp = x.reshape(M*T, V, C)
+            for ind in range(temp.shape[0]):
+                center, scale = self.calc_center_and_scale_for_one_skeleton(temp[ind])
+                temp[ind] -= center
+                temp[ind] *= scale
+            x = temp.reshape(M,T,V,C)
+        else:    
+            center, scale = self.calc_center_and_scale(x)
+            x = x - center
+            x = x * scale
+            
         x = x.permute(3, 1, 2, 0)
         data["frames"] = x
         return data
-
+    
+    def calc_center_and_scale_for_one_skeleton(self, x):
+        ind1, ind2 = self.reference_point_indexes
+        point1, point2 = x[ind1], x[ind2]
+        center = (point1+point2)/2
+        dist = torch.sqrt(((point1 - point2) ** 2).sum(-1))
+        scale = self.scale_factor / dist
+        return center, scale
+        
     def calc_center_and_scale(self, x):
-        transposed_x = x.permute(2, 3, 1, 0)
+        transposed_x = x.permute(2, 0, 1, 3)
         ind1, ind2 = self.reference_point_indexes
         points1 = transposed_x[ind1]
         points2 = transposed_x[ind2]
-
-        if transposed_x.shape[1]:
-            points1 = points1[0]
-            points2 = points2[0]
-        else:
-            points1 = torch.cat(points1)
-            points2 = torch.cat(points2)
-
+        
+        points1 = points1.reshape(-1, points1.shape[-1])
+        points2 = points2.reshape(-1, points2.shape[-1])
+        
         center = torch.mean((points1 + points2) / 2, dim=0)
         mean_dist = torch.mean(torch.sqrt(((points1 - points2) ** 2).sum(-1)))
         scale = self.scale_factor / mean_dist
 
         return center, scale
-
 
 class RandomMove:
     def __init__(self, move_range=(-2.5, 2.5), move_step=0.5):
