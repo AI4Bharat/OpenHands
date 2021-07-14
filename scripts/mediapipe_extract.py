@@ -1,13 +1,15 @@
 import cv2
-import os
+import os, sys, gc
 import time
 import numpy as np
 import mediapipe as mp
 from tqdm.auto import tqdm
 import multiprocessing
 from joblib import Parallel, delayed
+from natsort import natsorted
+from glob import glob
 import math
-import gc
+import pickle
 
 mp_holistic = mp.solutions.holistic
 
@@ -49,17 +51,15 @@ def process_other_landmarks(component, width, height, n_points):
     return kps, conf
 
 
-def get_holistic_keypoints(frames):
+def get_holistic_keypoints(frames, holistic = mp_holistic.Holistic(static_image_mode=False, model_complexity=2)):
     '''
     For videos, it's optimal to create with `static_image_mode=False` for each video.
-    Probably also OK to create only once? Read why: (hoping tracking is lost for first frame of new videos)
     https://google.github.io/mediapipe/solutions/holistic.html#static_image_mode
     '''
 
     keypoints = []
     confs = []
-    width, height, _ = frames[0].shape
-    holistic = mp_holistic.Holistic(static_image_mode=False, model_complexity=2)
+    height, width, _ = frames[0].shape
 
     for frame in frames:
         results = holistic.process(frame)
@@ -83,13 +83,31 @@ def get_holistic_keypoints(frames):
         keypoints.append(data)
         confs.append(conf)
 
+    # TODO: Reuse the same object when this issue is fixed: https://github.com/google/mediapipe/issues/2152
     holistic.close()
     del holistic
     gc.collect()
+
     keypoints = np.stack(keypoints)
     confs = np.stack(confs)
     return keypoints, confs
 
+def gen_keypoints_for_frames(frames, save_path):
+
+    vid_shape = frames.shape[1:-1]
+    pose_kps, pose_confs = get_holistic_keypoints(frames)
+    body_kps = np.concatenate(
+            [pose_kps[:, :33, :], pose_kps[:, 501:, :]], axis=1
+        )
+    
+    confs = np.concatenate([pose_confs[:, :33], pose_confs[:, 501:]], axis=1)
+    
+    d = {"keypoints": body_kps,
+         "confidences": confs,
+         "vid_shape": vid_shape}
+
+    with open(save_path+'.pkl', 'wb') as f:
+        pickle.dump(d, f, protocol=4)
 
 def load_frames_from_video(video_path):
     frames = []
@@ -101,36 +119,53 @@ def load_frames_from_video(video_path):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         frames.append(img)
 
+    vidcap.release()
+    # cv2.destroyAllWindows()
     return np.asarray(frames)
 
 
+def load_frames_from_folder(frames_folder, patterns=["*.jpg"]):
+    images = []
+    for pattern in patterns:
+        images.extend(glob(f"{frames_folder}/{pattern}"))
+    images = natsorted(list(set(images))) # remove dupes
+    if not images:
+        exit(f"ERROR: No frames in folder: {frames_folder}")
+    
+    frames = []
+    for img_path in images:
+        img = cv2.imread(img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        frames.append(img)
+
+    return np.asarray(frames)
+
 def gen_keypoints_for_video(video_path, save_path):
+    if not os.path.isfile(video_path):
+        print('SKIPPING MISSING FILE:', video_path)
+        return
     frames = load_frames_from_video(video_path)
-    kps, confs = get_holistic_keypoints(frames)
-    confs = np.expand_dims(confs, axis=-1)
-    data = np.concatenate([kps, confs], axis=-1)
-    np.save(save_path, data)
-    del data
-    gc.collect()
+    gen_keypoints_for_frames(frames, save_path)
+
+def gen_keypoints_for_folder(folder, save_path, file_patterns):
+    frames = load_frames_from_folder(folder, file_patterns)
+    gen_keypoints_for_frames(frames, save_path)
 
 def generate_pose(dataset, save_folder, worker_index, num_workers, counter):
     num_splits = math.ceil(len(dataset)/num_workers)
     end_index = min((worker_index+1)*num_splits, len(dataset))
     for index in range(worker_index*num_splits, end_index):
         imgs, label, video_id = dataset.read_data(index)
-        keypoints, confs = get_holistic_keypoints(imgs.astype(np.uint8))
-        confs = np.expand_dims(confs, axis=-1)
-        data = np.concatenate([keypoints, confs], axis=-1)
         save_path = os.path.join(save_folder, video_id)
         os.makedirs(os.path.dirname(save_path), exist_ok=True)
-        np.save(save_path, data)
+        gen_keypoints_for_frames(imgs, save_path)
         counter.increment()
 
-def dump_pose_dataset(dataset, save_folder, num_workers=multiprocessing.cpu_count()):
+def dump_pose_for_dataset(dataset, save_folder, num_workers=multiprocessing.cpu_count()):
     os.makedirs(save_folder, exist_ok=True)
     processes = []
     counter = Counter()
-    for i in range(num_workers):
+    for i in tqdm(range(num_workers), desc="Creating sub-processes..."):
         p = multiprocessing.Process(target=generate_pose, args=(dataset, save_folder, i, num_workers, counter))
         p.start()
         processes.append(p)
