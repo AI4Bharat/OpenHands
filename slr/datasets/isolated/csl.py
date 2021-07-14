@@ -28,20 +28,24 @@ class CSLDataset(BaseIsolatedDataset):
         label_encoder.fit(self.glosses)
 
         if "rgb" in modality:
-            video_files_path = os.path.join(self.root_dir, "color", "**", "*.mp4")
-            video_files = glob(video_files_path, recursive=True)
-            if not video_files:
-                exit(f"No videos files found for: {video_files_path}")
-            
-            for video_file in video_files:
-                gloss_id = int(video_file.replace('\\', '/').split('/')[-2])
-                signer_id = int(os.path.basename(video_file).split('_')[0].replace('P', ''))
-
-                if (signer_id <= 35 and "train" in splits) or (signer_id > 35 and "test" in splits):
-                    instance_entry = video_file, gloss_id
-                    self.data.append(instance_entry)
+            format = ".mp4"
+        elif "pose" in modality:
+            format = ".pkl"
         else:
-            raise NotImplementedError
+            raise ValueError("Unsupported modality: "+ modality)
+        
+        video_files_path = os.path.join(self.root_dir, "**", "*"+format)
+        video_files = glob(video_files_path, recursive=True)
+        if not video_files:
+            exit(f"No videos files found for: {video_files_path}")
+        
+        for video_file in video_files:
+            gloss_id = int(video_file.replace('\\', '/').split('/')[-2])
+            signer_id = int(os.path.basename(video_file).split('_')[0].replace('P', ''))
+
+            if (signer_id <= 35 and "train" in splits) or (signer_id > 35 and "test" in splits):
+                instance_entry = video_file, gloss_id
+                self.data.append(instance_entry)
 
     def read_data(self, index):
         video_name, label = self.data[index]

@@ -87,7 +87,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                     ]
                 )
         elif "pose" in modality:
-            self.transforms = transforms
+            self.transforms = transforms if type(transforms) is list else None
 
     @property
     def num_class(self):
@@ -206,7 +206,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_path = pose_path+".pkl"
         pose_data = self.load_pose_from_path(pose_path)
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
-        return pose_data
+        return pose_data, pose_path
     
     def __getitem_pose(self, index):
         """
@@ -216,7 +216,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         V - num vertices
         M - num persons
         """
-        data = self.read_pose_data(index)
+        data, path = self.read_pose_data(index)
         # imgs shape: (T, V, C)
         kps = data["keypoints"]
         scores = data["confidences"]

@@ -5,7 +5,7 @@ from .base import BaseIsolatedDataset
 
 class WLASLDataset(BaseIsolatedDataset):
 
-    def read_index_file(self, index_file_path, splits):
+    def read_index_file(self, index_file_path, splits, modality="rgb"):
         with open(index_file_path, "r") as f:
             content = json.load(f)
 
@@ -24,6 +24,9 @@ class WLASLDataset(BaseIsolatedDataset):
                 video_id = instance["video_id"]
                 instance_entry = video_id, gloss_cat
                 self.data.append(instance_entry)
+        
+        if not self.data:
+            exit(f"ERROR: No {splits} data found")
 
     def read_data(self, index):
         video_name, label, start_frame, end_frame = self.data[index]

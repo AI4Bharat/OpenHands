@@ -1,4 +1,6 @@
 from slr.datasets.isolated.autsl import AUTSLDataset
+from slr.datasets.isolated.csl import CSLDataset
+from slr.datasets.isolated.devisign import DeviSignDataset
 from slr.datasets.isolated.gsl import GSLDataset
 from slr.datasets.isolated.include import INCLUDEDataset
 from slr.datasets.isolated.lsa64 import LSA64Dataset
