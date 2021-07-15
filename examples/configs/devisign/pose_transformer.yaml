@@ -1,16 +1,16 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
-
 data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
             splits: "train"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -29,7 +29,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -37,13 +37,15 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
             splits: "test"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -55,57 +57,34 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 32
             shuffle: false
-            num_workers: 1
+            num_workers: 6
             pin_memory: true
             drop_last: false
 
 model:
     encoder:
-        type: decoupled-gcn
+        type: pose-flattener
         params:
             num_points: 27
-            inward_edges:
-                [
-                    [2, 0],
-                    [1, 0],
-                    [0, 3],
-                    [0, 4],
-                    [3, 5],
-                    [4, 6],
-                    [5, 7],
-                    [6, 17],
-                    [7, 8],
-                    [7, 9],
-                    [9, 10],
-                    [7, 11],
-                    [11, 12],
-                    [7, 13],
-                    [13, 14],
-                    [7, 15],
-                    [15, 16],
-                    [17, 18],
-                    [17, 19],
-                    [19, 20],
-                    [17, 21],
-                    [21, 22],
-                    [17, 23],
-                    [23, 24],
-                    [17, 25],
-                    [25, 26],
-                ]
     decoder:
-        type: fc
+        type: bert
         params:
-            dropout_ratio: 0
+            max_position_embeddings: 256
+            layer_norm_eps: 1e-12
+            hidden_dropout_prob: 0.1
+            hidden_size: 128
+            num_attention_heads: 8
+            num_hidden_layers: 5
+            cls_token: true
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-3
+            lr: 1e-4
 
     scheduler:
         name: CosineAnnealingLR
@@ -115,8 +94,7 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    max_epochs: 1500
 
 exp_manager:
     create_tensorboard_logger: true
@@ -134,6 +112,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 50
         verbose: true
         mode: "max"

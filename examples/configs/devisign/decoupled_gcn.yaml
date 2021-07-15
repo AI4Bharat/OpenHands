@@ -1,16 +1,16 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
-
 data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
             splits: "train"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -37,13 +37,15 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
             splits: "test"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -57,7 +59,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 16
             shuffle: false
-            num_workers: 1
+            num_workers: 2
             pin_memory: true
             drop_last: false
 
@@ -134,6 +136,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 75
         verbose: true
         mode: "max"

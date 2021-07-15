@@ -4,9 +4,9 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.LSA64Dataset
+            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "train"
             modality: "pose"
 
@@ -29,7 +29,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -37,9 +37,9 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.LSA64Dataset
+            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "test"
             modality: "pose"
 
@@ -57,7 +57,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 16
             shuffle: false
-            num_workers: 1
+            num_workers: 2
             pin_memory: true
             drop_last: false
 
@@ -134,6 +134,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 75
         verbose: true
         mode: "max"

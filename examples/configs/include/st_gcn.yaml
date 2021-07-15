@@ -1,5 +1,3 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
-
 data:
     modality: "pose"
     train_pipeline:
@@ -7,25 +5,19 @@ data:
             _target_: slr.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
-            splits: "train"
             modality: "pose"
+            splits: "train"
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseTemporalSubsample:
-            #       num_frames: 32
-            # - RandomMove:
             - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
-                scale_factor: 1
             - ShearTransform:
                 shear_std: 0.1
             - RotatationTransform:
                 rotation_std: 0.1
-            # - ScaleTransform:
-            #     scale_std: 0.2
 
         dataloader:
             _target_: torch.utils.data.DataLoader
@@ -33,75 +25,76 @@ data:
             shuffle: true
             num_workers: 6
             pin_memory: true
-            drop_last: true
+            drop_last: false
 
     valid_pipeline:
         dataset:
             _target_: slr.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
-            splits: "test"
             modality: "pose"
+            splits: "test"
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseTemporalSubsample:
-            #       num_frames: 32
             - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
-                scale_factor: 1
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 32
             shuffle: false
-            num_workers: 1
+            num_workers: 0
             pin_memory: true
             drop_last: false
 
 model:
     encoder:
-        type: decoupled-gcn
+        type: st-gcn
         params:
-            num_points: 27
-            inward_edges:
-                [
-                    [2, 0],
-                    [1, 0],
-                    [0, 3],
-                    [0, 4],
-                    [3, 5],
-                    [4, 6],
-                    [5, 7],
-                    [6, 17],
-                    [7, 8],
-                    [7, 9],
-                    [9, 10],
-                    [7, 11],
-                    [11, 12],
-                    [7, 13],
-                    [13, 14],
-                    [7, 15],
-                    [15, 16],
-                    [17, 18],
-                    [17, 19],
-                    [19, 20],
-                    [17, 21],
-                    [21, 22],
-                    [17, 23],
-                    [23, 24],
-                    [17, 25],
-                    [25, 26],
-                ]
+            graph_args:
+                num_nodes: 27
+                center: 0
+                inward_edges:
+                    [
+                        [2, 0],
+                        [1, 0],
+                        [0, 3],
+                        [0, 4],
+                        [3, 5],
+                        [4, 6],
+                        [5, 7],
+                        [6, 17],
+                        [7, 8],
+                        [7, 9],
+                        [9, 10],
+                        [7, 11],
+                        [11, 12],
+                        [7, 13],
+                        [13, 14],
+                        [7, 15],
+                        [15, 16],
+                        [17, 18],
+                        [17, 19],
+                        [19, 20],
+                        [17, 21],
+                        [21, 22],
+                        [17, 23],
+                        [23, 24],
+                        [17, 25],
+                        [25, 26],
+                    ]
+            edge_importance_weighting: true
+
     decoder:
         type: fc
         params:
-            dropout_ratio: 0
+            dropout_ratio: 0.05
 
 optim:
-    loss: 'CrossEntropyLoss'
+    loss: "CrossEntropyLoss"
     optimizer:
         name: Adam
         params:
@@ -116,7 +109,6 @@ optim:
 trainer:
     gpus: 1
     max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -134,6 +126,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 80
         verbose: true
         mode: "max"

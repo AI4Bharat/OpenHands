@@ -4,13 +4,15 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.WLASLDataset
+            split_file: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/splits/all.json"
+            root_dir: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/poses_pickle"
             splits: "train"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -29,7 +31,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -37,13 +39,15 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: slr.datasets.isolated.WLASLDataset
+            split_file: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/splits/all.json"
+            root_dir: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/poses_pickle"
             splits: "test"
             modality: "pose"
 
         transforms:
+            - PoseUniformSubsampling:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
@@ -57,7 +61,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 16
             shuffle: false
-            num_workers: 1
+            num_workers: 2
             pin_memory: true
             drop_last: false
 
@@ -134,6 +138,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 30
+        patience: 75
         verbose: true
         mode: "max"

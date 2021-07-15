@@ -87,7 +87,9 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                     ]
                 )
         elif "pose" in modality:
-            self.transforms = transforms if type(transforms) is list else None
+            if transforms == "default":
+                transforms = None
+            self.transforms = transforms
 
     @property
     def num_class(self):
