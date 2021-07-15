@@ -15,7 +15,6 @@ data:
             # - PoseTemporalSubsample:
             #       num_frames: 32
             # - RandomMove:
-            - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
                 scale_factor: 1
@@ -48,7 +47,6 @@ data:
                 preset: mediapipe_holistic_minimal_27
             # - PoseTemporalSubsample:
             #       num_frames: 32
-            - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
                 scale_factor: 1

@@ -17,18 +17,19 @@ class Compose:
         return x
 
 
-class VideoDimensionsNormalize:
+class ScaleToVideoDimensions:
     """
-    Normalize pose keypoints with Width and Height
+    Scale the pose keypoints with Width and Height of frames
     """
+    def __init__(self, width: int, height: int):
+        self.width = width
+        self.height = height
 
     def __call__(self, data):
-        assert "vid_shape" in data.keys(), "Video shape is needed for normalize"
-        shape = data["vid_shape"]
         kps = data["frames"]
 
-        kps[0, ...] /= shape[0]
-        kps[1, ...] /= shape[1]
+        kps[0, ...] *= self.width
+        kps[1, ...] *= self.height
 
         data["frames"] = kps
         return data

@@ -31,22 +31,22 @@ class Counter(object):
     def value(self):
         return self.val.value
 
-def process_body_landmarks(component, width, height, n_points):
+def process_body_landmarks(component, n_points):
     kps = np.zeros((n_points, 3))
     conf = np.zeros(n_points)
     if component is not None:
         landmarks = component.landmark
-        kps = np.array([[p.x * width, p.y * height, p.z] for p in landmarks])
+        kps = np.array([[p.x, p.y, p.z] for p in landmarks])
         conf = np.array([p.visibility for p in landmarks])
     return kps, conf
 
 
-def process_other_landmarks(component, width, height, n_points):
+def process_other_landmarks(component, n_points):
     kps = np.zeros((n_points, 3))
     conf = np.zeros(n_points)
     if component is not None:
         landmarks = component.landmark
-        kps = np.array([[p.x * width, p.y * height, p.z] for p in landmarks])
+        kps = np.array([[p.x, p.y, p.z] for p in landmarks])
         conf = np.ones(n_points)
     return kps, conf
 
@@ -59,22 +59,21 @@ def get_holistic_keypoints(frames, holistic = mp_holistic.Holistic(static_image_
 
     keypoints = []
     confs = []
-    height, width, _ = frames[0].shape
 
     for frame in frames:
         results = holistic.process(frame)
 
         body_data, body_conf = process_body_landmarks(
-            results.pose_landmarks, width, height, N_BODY_LANDMARKS
+            results.pose_landmarks, N_BODY_LANDMARKS
         )
         face_data, face_conf = process_other_landmarks(
-            results.face_landmarks, width, height, N_FACE_LANDMARKS
+            results.face_landmarks, N_FACE_LANDMARKS
         )
         lh_data, lh_conf = process_other_landmarks(
-            results.left_hand_landmarks, width, height, N_HAND_LANDMARKS
+            results.left_hand_landmarks, N_HAND_LANDMARKS
         )
         rh_data, rh_conf = process_other_landmarks(
-            results.right_hand_landmarks, width, height, N_HAND_LANDMARKS
+            results.right_hand_landmarks, N_HAND_LANDMARKS
         )
 
         data = np.concatenate([body_data, face_data, lh_data, rh_data])
@@ -94,7 +93,6 @@ def get_holistic_keypoints(frames, holistic = mp_holistic.Holistic(static_image_
 
 def gen_keypoints_for_frames(frames, save_path):
 
-    vid_shape = frames.shape[1:-1]
     pose_kps, pose_confs = get_holistic_keypoints(frames)
     body_kps = np.concatenate(
             [pose_kps[:, :33, :], pose_kps[:, 501:, :]], axis=1
@@ -103,8 +101,7 @@ def gen_keypoints_for_frames(frames, save_path):
     confs = np.concatenate([pose_confs[:, :33], pose_confs[:, 501:]], axis=1)
     
     d = {"keypoints": body_kps,
-         "confidences": confs,
-         "vid_shape": vid_shape}
+         "confidences": confs}
 
     with open(save_path+'.pkl', 'wb') as f:
         pickle.dump(d, f, protocol=4)

@@ -1,5 +1,3 @@
-name: &name "SGN-AUTSL"
-
 data:
   modality: "pose"
   train_pipeline:
@@ -44,8 +42,7 @@ data:
             ]
       - PoseTemporalSubsample:
           num_frames: 64
-      - PoseNormalize:
-      - ScaleNormalize:
+      - CenterAndScaleNormalize:
           point_indexes_to_use: [3, 4]
       - ShearTransform:
           shear_std: 0.1
@@ -102,8 +99,7 @@ data:
             ]
       - PoseTemporalSubsample:
           num_frames: 64
-      - PoseNormalize:
-      - ScaleNormalize:
+      - CenterAndScaleNormalize:
           point_indexes_to_use: [3, 4]
 
     dataloader:
@@ -143,8 +139,6 @@ trainer:
   max_epochs: 100
 
 exp_manager:
-  exp_dir: "./slr_experiments"
-  name: *name
   create_tensorboard_logger: true
   create_wandb_logger: false
   wandb_logger_kwargs:

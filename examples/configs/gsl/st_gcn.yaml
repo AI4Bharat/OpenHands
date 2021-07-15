@@ -12,7 +12,6 @@ data:
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
             - ShearTransform:
@@ -40,7 +39,6 @@ data:
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - VideoDimensionsNormalize:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
