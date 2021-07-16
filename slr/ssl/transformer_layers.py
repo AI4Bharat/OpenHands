@@ -30,48 +30,52 @@ def get_activation(activation, in_dim=None, out_dim=None):
         return nn.ReLU()
     elif activation == "gelu":
         return nn.GELU()
-    elif activation == "swi_glu":
+    elif activation == "swiglu":
         return SwiGLU(in_dim, out_dim)
-    elif activation == "ge_glu":
+    elif activation == "geglu":
         return GEGLU(in_dim, out_dim)
     else:
         raise NotImplementedError()
 
 
 class LearnedPositionalEmbeddings(nn.Module):
-    def __init__(self, d_model, max_positional_embeddings=5000):
+    def __init__(self, dim, max_seq=512):
         super().__init__()
-        self.d_model = d_model
-        self.max_positional_embeddings = max_positional_embeddings
-        self.embed = nn.Embedding(max_positional_embeddings, d_model)
+        self.d_model = dim
+        self.max_seq = max_seq
+        self.embed = nn.Embedding(max_seq, dim)
         self._reset_parameters()
 
     def _reset_parameters(self):
         nn.init.normal_(self.embed.weight, std=0.02)
 
-    def forward(self, x):
-        ids = torch.arange(x.shape[1], device=x.device)
+    def forward(self, x, seq_dim=1):
+        ids = torch.arange(x.shape[seq_dim], device=x.device)
         return self.embed(ids)[None, ...]
 
 
 class SinusoidalPositionalEmbeddings(nn.Module):
-    def __init__(self, d_model, max_positional_embeddings=5000):
+    def __init__(self, dim):
         super().__init__()
+        inv_freq = 1.0 / (10000 ** (torch.arange(0, dim, 2).float() / dim))
+        self.register_buffer("inv_freq", inv_freq)
 
-        pe = torch.zeros(max_positional_embeddings, d_model)
-        position = torch.arange(
-            0, max_positional_embeddings, dtype=torch.float
-        ).unsqueeze(1)
-        div_term = torch.exp(
-            torch.arange(0, d_model, 2).float() * (-math.log(10000.0) / d_model)
-        )
-        pe[:, 0::2] = torch.sin(position * div_term)
-        pe[:, 1::2] = torch.cos(position * div_term)
-        pe = pe.unsqueeze(0).transpose(0, 1)
-        self.register_buffer("pe", pe)
+    def forward(self, x, seq_dim=1):
+        t = torch.arange(x.shape[seq_dim], device=x.device).type_as(self.inv_freq)
+        sinusoid_inp = torch.einsum("i,j->ij", t, self.inv_freq)
+        emb = torch.cat((sinusoid_inp.sin(), sinusoid_inp.cos()), dim=-1)
+        return emb[None, ...]
 
-    def forward(self, x):
-        return self.pe[: x.size(0), :]
+
+def apply_rotary_pos_emb(layer, sinusoidal_pos):
+    def rotate_half(x):
+        x = x.reshape(*x.shape[:-1], 2, -1)
+        x1, x2 = x.unbind(dim=-2)
+        return torch.cat((-x2, x1), dim=-1)
+
+    seq_len = layer.shape[-2]
+    sinusoidal_pos = sinusoidal_pos[:, :, -seq_len:]
+    return (layer * sinusoidal_pos.cos()) + (rotate_half(layer) * sinusoidal_pos.sin())
 
 
 class RelativePositionEncodingBias(nn.Module):
@@ -79,13 +83,15 @@ class RelativePositionEncodingBias(nn.Module):
     Adopted from https://github.com/huggingface/transformers/blob/master/src/transformers/models/t5/modeling_t5.py
     """
 
-    def __init__(self, n_heads=2, num_buckets=32, max_distance=128, bidirectional=True):
+    def __init__(
+        self, num_heads=2, num_buckets=32, max_distance=128, bidirectional=True
+    ):
         super().__init__()
         self.bidirectional = bidirectional
         self.num_buckets = num_buckets
         self.max_distance = max_distance
-        self.n_heads = n_heads
-        self.relative_attention_bias = nn.Embedding(self.num_buckets, self.n_heads)
+        self.num_heads = num_heads
+        self.relative_attention_bias = nn.Embedding(self.num_buckets, self.num_heads)
 
     @staticmethod
     def _relative_position_bucket(
@@ -196,7 +202,7 @@ class MultiHeadAttention(nn.Module):
         nn.init.xavier_uniform_(self.o_proj.weight)
         self.o_proj.bias.data.fill_(0)
 
-    def forward(self, x, bias=None, mask=None, return_attention=False):
+    def forward(self, x, pos_bias=None, sinusoidal_pos=None, mask=None):
         batch_size, seq_length, embed_dim = x.size()
         qkv = self.qkv_proj(x)
 
@@ -204,11 +210,15 @@ class MultiHeadAttention(nn.Module):
         qkv = qkv.permute(0, 2, 1, 3)  # [Batch, Head, SeqLen, Dims]
         q, k, v = qkv.chunk(3, dim=-1)
 
+        if sinusoidal_pos is not None:
+            q = apply_rotary_pos_emb(q, sinusoidal_pos)
+            k = apply_rotary_pos_emb(k, sinusoidal_pos)
+
         d_k = q.size()[-1]
         attn_logits = torch.matmul(q, k.transpose(-2, -1))
 
-        if bias is not None:
-            attn_logits += bias
+        if pos_bias is not None:
+            attn_logits += pos_bias
 
         attn_logits = attn_logits / math.sqrt(d_k)
 
@@ -222,10 +232,7 @@ class MultiHeadAttention(nn.Module):
         values = values.reshape(batch_size, seq_length, embed_dim)
         out = self.o_proj(values)
 
-        if return_attention:
-            return out, attention
-        else:
-            return out
+        return out
 
 
 class TransformerEncoderBlock(nn.Module):
@@ -234,7 +241,7 @@ class TransformerEncoderBlock(nn.Module):
         input_dim,
         num_heads,
         dim_feedforward,
-        dropout=0.0,
+        dropout=0.2,
         activation="gelu",
         norm_type="layernorm",
     ):
@@ -260,12 +267,14 @@ class TransformerEncoderBlock(nn.Module):
 
         self.dropout = nn.Dropout(dropout)
 
-    def forward(self, x, mask=None, pos_bias=None):
+    def forward(self, x, mask=None, pos_bias=None, sinusoidal_pos=None):
 
         # TODO: make norm position as param???
         # pre-norm
         x = self.norm1(x)
-        attn_out = self.self_attn(x, bias=pos_bias, mask=mask)
+        attn_out = self.self_attn(
+            x, pos_bias=pos_bias, sinusoidal_pos=sinusoidal_pos, mask=mask
+        )
         x = x + self.dropout(attn_out)
 
         x = self.norm2(x)
@@ -291,7 +300,7 @@ class TransformerEncoder(nn.Module):
         """
         Transformer with some mods which gives better performace
 
-        embed_type => {learned, sinusoidal, relative_bias, relative_shared_bias}
+        embed_type => {learned, sinusoidal, relative_bias, relative_shared_bias, rotary}
         norm_type => {layernorm, rmsnorm}
         """
         super().__init__()
@@ -310,14 +319,19 @@ class TransformerEncoder(nn.Module):
                 self.input_dim, max_pos_embeddings
             )
         elif self.pos_embed_type == "sinusoidal":
-            self.embed_layer = SinusoidalPositionalEmbeddings(
-                self.input_dim, max_pos_embeddings
-            )
+            self.embed_layer = SinusoidalPositionalEmbeddings(self.input_dim)
         elif (
             self.pos_embed_type == "relative_bias"
             or self.pos_embed_type == "relative_bias_shared"
         ):
             self.rel_pos = RelativePositionEncodingBias(num_heads)
+
+        elif self.pos_embed_type == "rotary":
+            self.embed_layer = SinusoidalPositionalEmbeddings(
+                self.input_dim // self.num_heads
+            )
+        else:
+            raise NotImplementedError()
 
         self.blocks_list = nn.ModuleList(
             [
@@ -339,16 +353,21 @@ class TransformerEncoder(nn.Module):
             position_embed = self.embed_layer(x)
             x = x + position_embed
 
+        sinusoidal_pos = None
+        pos_bias = None
+
         if (
             self.pos_embed_type == "relative_bias_shared"
             or self.pos_embed_type == "relative_bias"
         ):
+            # use the same bias for all layers in shared
             pos_bias = self.rel_pos(seq_length, seq_length)
-        else:
-            pos_bias = None
+
+        elif self.pos_embed_type == "rotary":
+            sinusoidal_pos = self.embed_layer(x)[None, ...]
 
         for ind, block in enumerate(self.blocks_list):
-            x = block(x, mask=mask, pos_bias=pos_bias)
+            x = block(x, mask=mask, pos_bias=pos_bias, sinusoidal_pos=sinusoidal_pos)
 
             if self.pos_embed_type == "relative_bias":
                 # change pos_bias for each block
