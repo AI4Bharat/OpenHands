@@ -170,7 +170,7 @@ class RMSNorm(nn.Module):
 
     def forward(self, x):
         norm = torch.norm(x, dim=-1, keepdim=True)
-        x_normed = x / (norm * x.shape[-1] ** 0.5 + self.eps)
+        x_normed = x / (norm * self.d_model ** -0.5 + self.eps)
         x_scaled = x_normed * self.scale
 
         if self.bias:
@@ -240,8 +240,8 @@ class TransformerEncoderBlock(nn.Module):
         self,
         input_dim,
         num_heads,
-        dim_feedforward,
-        dropout=0.2,
+        feedforward_dim,
+        dropout=0.0,
         activation="gelu",
         norm_type="layernorm",
     ):
@@ -250,10 +250,10 @@ class TransformerEncoderBlock(nn.Module):
         self.self_attn = MultiHeadAttention(input_dim, input_dim, num_heads)
 
         self.linear_layers = nn.Sequential(
-            nn.Linear(input_dim, dim_feedforward),
+            nn.Linear(input_dim, feedforward_dim),
             nn.Dropout(dropout),
-            get_activation(activation, dim_feedforward, dim_feedforward),
-            nn.Linear(dim_feedforward, input_dim),
+            get_activation(activation, feedforward_dim, feedforward_dim),
+            nn.Linear(feedforward_dim, input_dim),
         )
 
         if norm_type == "layernorm":
@@ -299,8 +299,9 @@ class TransformerEncoder(nn.Module):
     ):
         """
         Transformer with some mods which gives better performace
+        uses suggestions proposed in https://arxiv.org/pdf/2102.11972.pdf
 
-        embed_type => {learned, sinusoidal, relative_bias, relative_shared_bias, rotary}
+        embed_type => {learned, sinusoidal, relative_bias, relative_bias_shared, rotary}
         norm_type => {layernorm, rmsnorm}
         """
         super().__init__()
@@ -341,6 +342,7 @@ class TransformerEncoder(nn.Module):
                     self.feedforward_dim,
                     activation=activation,
                     norm_type=norm_type,
+                    dropout=dropout,
                 )
                 for _ in range(self.num_layers)
             ]
