@@ -3,6 +3,15 @@ from omegaconf import OmegaConf
 import hydra
 from slr.datasets import pose_transforms
 
+def create_transform(transforms_cfg):
+    all_transforms = []
+    for transform in transforms_cfg:
+        for transform_name, transform_args in transform.items():
+            if not transform_args:
+                transform_args = {}
+            new_trans = getattr(pose_transforms, transform_name)(**transform_args)
+            all_transforms.append(new_trans)
+    return pose_transforms.Compose(all_transforms)
 
 class PoseDataModule(pl.LightningDataModule):
     def __init__(self, data_cfg):
@@ -32,22 +41,12 @@ class PoseDataModule(pl.LightningDataModule):
         )
         return dataloader
 
-    def create_transform(self, transforms_cfg):
-        all_transforms = []
-        for transform in transforms_cfg:
-            for transform_name, transform_args in transform.items():
-                if not transform_args:
-                    transform_args = {}
-                new_trans = getattr(pose_transforms, transform_name)(**transform_args)
-                all_transforms.append(new_trans)
-        return pose_transforms.Compose(all_transforms)
-
     def _instantiate_dataset(self, pipeline_cfg):
         if getattr(pipeline_cfg, "dataset", None):
 
             transforms_cfg = pipeline_cfg.transforms
             if transforms_cfg:
-                transforms = self.create_transform(transforms_cfg)
+                transforms = create_transform(transforms_cfg)
             else:
                 transforms = None
 

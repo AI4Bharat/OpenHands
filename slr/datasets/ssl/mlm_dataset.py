@@ -4,15 +4,18 @@ import torch
 import copy
 import random
 import math
+import glob
+import os
 
 class PoseMLMDataset(torch.utils.data.Dataset):
     def __init__(
-        self, files_list, transforms=None, mask_type="random_spans", get_directions=True
+        self, root_dir, transforms=None, mask_type="random_spans", get_directions=True
     ):
         """
         mask_type => {"random", "random_spans", "last"}
         """
-        self.files_list = files_list
+        # List all raw files
+        self.files_list = glob.glob(os.path.join(root_dir, '**', '*.pkl'), recursive=True)
         self.transforms = transforms
         self.mask_type = mask_type
         self.get_directions = get_directions

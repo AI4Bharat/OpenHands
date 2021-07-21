@@ -4,9 +4,9 @@ from ..encoder.bert import BertModel
 
 class TransformerPreTrainingModel(nn.Module):
     def __init__(self, n_features, config, use_direction=False, d_out_classes=0):
-        super(PoseBertModel, self).__init__()
+        super().__init__()
         self.bert = BertModel(n_features, config)
-        self.mlm = BertMLMHead(config)
+        self.mlm = BertMLMHead(config, n_features)
         self.use_direction = use_direction
         if self.use_direction:
             if not d_out_classes:

@@ -1,0 +1,43 @@
+params:
+  train_data_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
+  train_transforms:
+    - PoseTemporalSubsample:
+        num_frames: 120
+    - PoseSelect:
+        preset: mediapipe_holistic_top_body_59
+    - CenterAndScaleNormalize:
+        reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+    - ShearTransform:
+        shear_std: 0.1
+    - RotatationTransform:
+        rotation_std: 0.1
+  
+  val_data_dir: /home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all/
+  valid_transforms:
+    - PoseTemporalSubsample:
+        num_frames: 120
+    - PoseSelect:
+        preset: mediapipe_holistic_top_body_59
+    - CenterAndScaleNormalize:
+        reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+  
+  lr: 2e-4
+  max_epochs: 20
+  batch_size: 2
+  num_workers: 0
+  val_sanity_checks: 0
+  output_path: "model-outputs"
+
+  input_dim: 118
+  use_direction: true
+  d_out_classes: 236
+
+model_cfg:
+  hidden_size: 96
+  max_position_embeddings: 121
+  num_hidden_layers: 6
+  num_attention_heads: 6
+  intermediate_size: 192
+  hidden_act: "gelu"
+  hidden_dropout_prob: 0.1
+  attention_probs_dropout_prob: 0.1

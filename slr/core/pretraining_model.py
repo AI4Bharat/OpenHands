@@ -4,7 +4,8 @@ import torch
 import torch.nn as nn
 
 from ..models.ssl.pretrainer import TransformerPreTrainingModel
-from ..datasets.sll.mlm_dataset import PoseMLMDataset
+from ..datasets.ssl.mlm_dataset import PoseMLMDataset
+from .pose_data import create_transform
 
 def masked_mse_loss(preds, targets, mask):
     mask = mask.bool()
@@ -28,13 +29,11 @@ class PosePretrainingModel(pl.LightningModule):
         super(PosePretrainingModel, self).__init__()
         self.params = params
         self.model_cfg = model_cfg
-        self.train_list = params.get("train_list")
-        self.valid_list = params.get("valid_list")
-        self.train_transforms = params.get("train_transforms")
-        self.valid_transforms = params.get("valid_transforms")
+        self.train_transforms = create_transform(params.get("train_transforms"))
+        self.valid_transforms = create_transform(params.get("valid_transforms"))
         
-        self.train_dataset = PoseMLMDataset(self.train_list, self.train_transforms)
-        self.val_dataset = PoseMLMDataset(self.valid_list, self.valid_transforms)
+        self.train_dataset = PoseMLMDataset(params.get("train_data_dir"), self.train_transforms)
+        self.val_dataset = PoseMLMDataset(params.get("val_data_dir"), self.valid_transforms)
         
         self.learning_rate = params.get("lr", 2e-4)
         self.max_epochs = params.get("max_epochs", 1)
