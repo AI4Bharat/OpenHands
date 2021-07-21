@@ -191,9 +191,12 @@ class CenterAndScaleNormalize:
         point1, point2 = x[ind1], x[ind2]
         center = (point1+point2)/2
         dist = torch.sqrt(((point1 - point2) ** 2).sum(-1))
+        if not dist:
+            # raise RuntimeError("Encountered 0 as joint distance, which would cause NaN. Recheck your data.")
+            return 0, 1 # Do not normalize
         scale = self.scale_factor / dist
         return center, scale
-        
+    
     def calc_center_and_scale(self, x):
         transposed_x = x.permute(2, 0, 1, 3)
         ind1, ind2 = self.reference_point_indexes

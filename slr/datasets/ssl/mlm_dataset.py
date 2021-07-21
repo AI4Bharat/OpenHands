@@ -145,6 +145,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
             return 2
         elif diff_x>=0 and diff_y<=0:
             return 3
+        raise RuntimeError('Failed to retrieve direction for: ' + str(point)) # NaN cases
     
     def get_direction_labels(self, data):
         '''

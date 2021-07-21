@@ -1,5 +1,5 @@
 params:
-  train_data_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
+  train_data_dir: /home/gokulnc/data-disk/datasets/SSL/corrected_pose_no_sub_one_min_splits
   train_transforms:
     - PoseTemporalSubsample:
         num_frames: 120
@@ -12,7 +12,7 @@ params:
     - RotatationTransform:
         rotation_std: 0.1
   
-  val_data_dir: /home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all/
+  val_data_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
   valid_transforms:
     - PoseUniformSubsampling:
         num_frames: 120
@@ -22,8 +22,8 @@ params:
         reference_points_preset: shoulder_mediapipe_holistic_top_body_59
   
   lr: 2e-4
-  max_epochs: 20
-  batch_size: 2
+  max_epochs: 2000
+  batch_size: 64
   num_workers: 0
   val_sanity_checks: 0
   output_path: "model-outputs"

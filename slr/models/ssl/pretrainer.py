@@ -21,7 +21,7 @@ class TransformerPreTrainingModel(nn.Module):
         mlm_outputs = self.mlm(x)
         mlm_outputs = mlm_outputs.permute(1, 0, 2)
         
-        d_ouputs = None
+        d_outputs = None
         #direction
         if self.use_direction:
             d_outputs = self.d_classifier(x)

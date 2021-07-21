@@ -32,8 +32,9 @@ class PosePretrainingModel(pl.LightningModule):
         self.train_transforms = create_transform(params.get("train_transforms"))
         self.valid_transforms = create_transform(params.get("valid_transforms"))
         
-        self.train_dataset = PoseMLMDataset(params.get("train_data_dir"), self.train_transforms)
-        self.val_dataset = PoseMLMDataset(params.get("val_data_dir"), self.valid_transforms, deterministic_masks=True)
+        self.use_direction_loss = params.get("use_direction", False)
+        self.train_dataset = PoseMLMDataset(params.get("train_data_dir"), self.train_transforms, get_directions=self.use_direction_loss)
+        self.val_dataset = PoseMLMDataset(params.get("val_data_dir"), self.valid_transforms, deterministic_masks=True, get_directions=self.use_direction_loss)
         
         self.learning_rate = params.get("lr", 2e-4)
         self.max_epochs = params.get("max_epochs", 1)
@@ -43,7 +44,6 @@ class PosePretrainingModel(pl.LightningModule):
         self.output_path = Path.cwd() / params.get("output_path", "model-outputs")
         self.output_path.mkdir(exist_ok=True)
 
-        self.use_direction_loss = params.get("use_direction", False)
         self.reg_loss_weight = params.get("reg_loss_weight", 1.0)
         self.dir_loss_weight = params.get("dir_loss_weight", 1.0)
         
