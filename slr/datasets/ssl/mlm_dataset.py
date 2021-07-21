@@ -6,10 +6,11 @@ import random
 import math
 import glob
 import os
+from tqdm import tqdm
 
 class PoseMLMDataset(torch.utils.data.Dataset):
     def __init__(
-        self, root_dir, transforms=None, mask_type="random_spans", get_directions=True
+        self, root_dir, transforms=None, mask_type="random_spans", get_directions=True, deterministic_masks=False,
     ):
         """
         mask_type => {"random", "random_spans", "last"}
@@ -21,6 +22,16 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         self.get_directions = get_directions
         self.DIRECTIONS = ["N", "E", "S", "W", "N"]
         self.direction_encoder = {"N": 0, "E": 1, "S": 2, "W": 3}
+
+        self.deterministic_masks = False
+        if deterministic_masks:
+            self.files_list = sorted(self.files_list)
+            self.precomputed_mask_indices = []
+            random.seed(10)
+            for i in tqdm(range(self.__len__()), desc="Generating masks"):
+                d = self.__getitem__(i)
+                self.precomputed_mask_indices.append(d["masked_indices"])
+            self.deterministic_masks = True # Set as true *finally*
 
     def __len__(self):
         return len(self.files_list)
@@ -49,7 +60,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
             data = self.transforms(data)
 
         kps = data["frames"].squeeze(-1).permute(1, 2, 0)
-        masked_kps, orig_kps, masked_indices = self.convert_kps_to_features(kps)
+        masked_kps, orig_kps, masked_indices = self.convert_kps_to_features(kps, idx)
         d = {}
         d["masked_kps"] = masked_kps
         d["orig_kps"] = orig_kps
@@ -59,7 +70,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
 
         return d
 
-    def convert_kps_to_features(self, kps):
+    def convert_kps_to_features(self, kps, idx):
         '''
         kps.shape: (T, V, C)
         '''
@@ -68,6 +79,12 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         kps = torch.cat([torch.ones(1, *emb_dim), kps])
 
         data = copy.deepcopy(kps) # Masked input data for model
+
+        if self.deterministic_masks:
+            masked_indices = self.precomputed_mask_indices[idx]
+            data[masked_indices] = torch.zeros(*emb_dim)
+            return data, kps, masked_indices
+        
         masked_indices = torch.zeros(data.shape[0])
 
         if self.mask_type == "random":
@@ -111,6 +128,9 @@ class PoseMLMDataset(torch.utils.data.Dataset):
 
             data[-mask_num:] = torch.zeros(*emb_dim)
             masked_indices[-mask_num:] = 1
+        
+        else:
+            raise ValueError("Unsupported mask_type: " + self.mask_type)
 
         return data, kps, masked_indices
 

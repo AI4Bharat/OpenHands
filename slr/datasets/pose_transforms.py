@@ -265,10 +265,18 @@ class PoseUniformSubsampling:
 
     def __call__(self, data):
         x = data["frames"]  # C, T, V, M
+        C, T, V, M = x.shape
         t = x.shape[self.temporal_dim]
         indices = torch.linspace(0, t - 1, self.num_frames)
         indices = torch.clamp(indices, 0, t - 1).long()
-        data["frames"] = torch.index_select(x, self.temporal_dim, indices)
+        x = torch.index_select(x, self.temporal_dim, indices)
+        if x.shape[self.temporal_dim] < self.num_frames:
+            # Pad
+            pad_len = self.num_frames - x.shape[self.temporal_dim]
+            pad_tensor = torch.zeros(C, pad_len, V, M)
+            data["frames"] = torch.cat((x, pad_tensor), dim=self.temporal_dim)
+        else:
+            data["frames"] = x
         return data
 
 

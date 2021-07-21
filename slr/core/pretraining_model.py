@@ -33,7 +33,7 @@ class PosePretrainingModel(pl.LightningModule):
         self.valid_transforms = create_transform(params.get("valid_transforms"))
         
         self.train_dataset = PoseMLMDataset(params.get("train_data_dir"), self.train_transforms)
-        self.val_dataset = PoseMLMDataset(params.get("val_data_dir"), self.valid_transforms)
+        self.val_dataset = PoseMLMDataset(params.get("val_data_dir"), self.valid_transforms, deterministic_masks=True)
         
         self.learning_rate = params.get("lr", 2e-4)
         self.max_epochs = params.get("max_epochs", 1)
@@ -73,7 +73,7 @@ class PosePretrainingModel(pl.LightningModule):
 
     def val_dataloader(self):
         return torch.utils.data.DataLoader(
-            self.val_dataset, batch_size=self.batch_size, num_workers=self.num_workers
+            self.val_dataset, batch_size=self.batch_size, num_workers=0 if self.val_dataset.deterministic_masks else self.num_workers
         )
 
     def configure_optimizers(self):

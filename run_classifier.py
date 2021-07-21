@@ -1,5 +1,4 @@
 import hydra
-from dataclasses import dataclass
 import pytorch_lightning as pl
 from slr.core.classification_model import ClassificationModel
 from slr.core.exp_utils import experiment_manager
