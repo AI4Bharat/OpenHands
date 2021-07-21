@@ -78,7 +78,7 @@ class GraphWithPartition:  # Unidirected, connections with hop limit
         normalize_adjacency = normalize_digraph(adjacency)
 
         if strategy == "uniform":
-            A = np.zeros((1, self.num_node, self.num_node))
+            A = np.zeros((1, self.num_nodes, self.num_nodes))
             A[0] = normalize_adjacency
             self.A = A
         elif strategy == "distance":
@@ -92,8 +92,8 @@ class GraphWithPartition:  # Unidirected, connections with hop limit
                 a_root = np.zeros((self.num_nodes, self.num_nodes))
                 a_close = np.zeros((self.num_nodes, self.num_nodes))
                 a_further = np.zeros((self.num_nodes, self.num_nodes))
-                for i in range(self.num_node):
-                    for j in range(self.num_node):
+                for i in range(self.num_nodes):
+                    for j in range(self.num_nodes):
                         if self.hop_dis[j, i] == hop:
                             if (
                                 self.hop_dis[j, self.center]
