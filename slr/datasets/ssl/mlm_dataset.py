@@ -30,7 +30,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
             random.seed(10)
             for i in tqdm(range(self.__len__()), desc="Generating masks"):
                 d = self.__getitem__(i)
-                self.precomputed_mask_indices.append(d["masked_indices"])
+                self.precomputed_mask_indices.append(d["masked_indices"].bool())
             self.deterministic_masks = True # Set as true *finally*
 
     def __len__(self):

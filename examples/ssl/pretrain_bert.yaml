@@ -29,7 +29,9 @@ params:
   output_path: "model-outputs"
 
   input_dim: 118
+  reg_loss_weight: 1
   use_direction: true
+  dir_loss_weight: 1
   d_out_classes: 236
 
 model_cfg:

@@ -42,8 +42,12 @@ class PosePretrainingModel(pl.LightningModule):
         
         self.output_path = Path.cwd() / params.get("output_path", "model-outputs")
         self.output_path.mkdir(exist_ok=True)
+
+        self.use_direction_loss = params.get("use_direction", False)
+        self.reg_loss_weight = params.get("reg_loss_weight", 1.0)
+        self.dir_loss_weight = params.get("dir_loss_weight", 1.0)
         
-        self.model = TransformerPreTrainingModel(params['input_dim'], self.model_cfg, params.get("use_direction", False), params.get("d_out_classes", 0))
+        self.model = TransformerPreTrainingModel(params['input_dim'], self.model_cfg, self.use_direction_loss, params.get("d_out_classes", 0))
         
     def forward(self, x):
         return self.model(x)
@@ -51,18 +55,30 @@ class PosePretrainingModel(pl.LightningModule):
     def training_step(self, batch, batch_idx):
         mask_preds, direction_preds = self.model(batch["masked_kps"])
         reg_loss = masked_mse_loss(mask_preds, batch["orig_kps"], batch["masked_indices"])
-        class_loss = masked_ce_loss(direction_preds, batch["direction_labels"], batch["masked_indices"])
-            
-        loss = class_loss + reg_loss
+        
+        loss = self.reg_loss_weight * reg_loss
+        if self.use_direction_loss:
+            dir_loss = masked_ce_loss(direction_preds, batch["direction_labels"], batch["masked_indices"])
+            loss += self.dir_loss_weight * dir_loss
+
+            self.log("train_reg_loss", reg_loss)
+            self.log("train_dir_loss", dir_loss)
+        
         self.log("train_loss", loss)
         return {"loss": loss}
 
     def validation_step(self, batch, batch_idx):
         mask_preds, direction_preds = self.model(batch["masked_kps"])
         reg_loss = masked_mse_loss(mask_preds, batch["orig_kps"], batch["masked_indices"])
-        class_loss = masked_ce_loss(direction_preds, batch["direction_labels"], batch["masked_indices"])
-            
-        loss = class_loss + reg_loss
+
+        loss = self.reg_loss_weight * reg_loss
+        if self.use_direction_loss:
+            dir_loss = masked_ce_loss(direction_preds, batch["direction_labels"], batch["masked_indices"])
+            loss += self.dir_loss_weight * dir_loss
+
+            self.log("val_reg_loss", reg_loss)
+            self.log("val_dir_loss", dir_loss)
+        
         self.log("val_loss", loss)
         return {"val_loss": loss}
     
