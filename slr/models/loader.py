@@ -43,7 +43,7 @@ def load_decoder(decoder_cfg, dataset, encoder):
         from .decoder.rnn import RNNClassifier
         return RNNClassifier(n_features=n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
     elif decoder_cfg.type == "bert":
-        from .decoder.bert import BERT
+        from .decoder.bert_hf import BERT
         return BERT(n_features=n_out_features, num_class=dataset.num_class, config=decoder_cfg.params)
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
