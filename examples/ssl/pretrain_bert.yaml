@@ -1,16 +1,17 @@
 params:
-  train_data_dir: /home/gokulnc/data-disk/datasets/SSL/corrected_pose_no_sub_one_min_splits
+  train_data_dir: /home/gokulnc/data-disk/datasets/SSL/
   train_transforms:
     - PoseTemporalSubsample:
         num_frames: 120
     - PoseSelect:
         preset: mediapipe_holistic_top_body_59
-    - CenterAndScaleNormalize:
-        reference_points_preset: shoulder_mediapipe_holistic_top_body_59
-    - ShearTransform:
-        shear_std: 0.1
-    - RotatationTransform:
-        rotation_std: 0.1
+    # - CenterAndScaleNormalize:
+    #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+    # - ShearTransform:
+    #     shear_std: 0.1
+    # - RotatationTransform:
+    #     rotation_std: 0.1
+    - AddClsToken:
   
   val_data_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
   valid_transforms:
@@ -18,8 +19,9 @@ params:
         num_frames: 120
     - PoseSelect:
         preset: mediapipe_holistic_top_body_59
-    - CenterAndScaleNormalize:
-        reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+    # - CenterAndScaleNormalize:
+    #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+    - AddClsToken:
   
   lr: 2e-4
   max_epochs: 2000
@@ -30,16 +32,18 @@ params:
 
   input_dim: 118
   reg_loss_weight: 1
-  use_direction: true
+  use_direction: false
   dir_loss_weight: 1
   d_out_classes: 236
 
-model_cfg:
-  hidden_size: 96
-  max_position_embeddings: 121
-  num_hidden_layers: 6
-  num_attention_heads: 6
-  intermediate_size: 192
-  hidden_act: "gelu"
-  hidden_dropout_prob: 0.1
-  attention_probs_dropout_prob: 0.1
+model:
+  type: bert
+  config:
+    hidden_size: 96
+    max_position_embeddings: 121
+    num_hidden_layers: 6
+    num_attention_heads: 6
+    intermediate_size: 192
+    hidden_act: "gelu"
+    hidden_dropout_prob: 0.1
+    attention_probs_dropout_prob: 0.1

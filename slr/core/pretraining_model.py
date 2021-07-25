@@ -3,7 +3,7 @@ import pytorch_lightning as pl
 import torch
 import torch.nn as nn
 
-from ..models.ssl.pretrainer import TransformerPreTrainingModel
+from ..models.ssl.pretrainer import PreTrainingModel
 from ..datasets.ssl.mlm_dataset import PoseMLMDataset
 from .pose_data import create_transform
 
@@ -27,14 +27,32 @@ def masked_ce_loss(preds, targets, mask):
 
 
 class PosePretrainingModel(pl.LightningModule):
-    def __init__(self, model_cfg, params):
-        super(PosePretrainingModel, self).__init__()
+    def __init__(self, model_cfg, params, create_model_only=False):
+        super().__init__()
+
+        self.use_direction_loss = params.get("use_direction", False)
+        
+        if model_cfg.type == 'bert':
+            from ..models.encoder.bert import BertModel
+            base_encoder = BertModel(params["input_dim"], model_cfg.config)
+        else:
+            raise NotImplementedError(f"Model-type: {model_cfg.type} not supported")
+        
+        self.model = PreTrainingModel(
+            base_encoder,
+            params["input_dim"],
+            model_cfg.config,
+            self.use_direction_loss,
+            params.get("d_out_classes", 0),
+        )
+
+        if create_model_only:
+            return None
+        
         self.params = params
-        self.model_cfg = model_cfg
         self.train_transforms = create_transform(params.get("train_transforms"))
         self.valid_transforms = create_transform(params.get("valid_transforms"))
 
-        self.use_direction_loss = params.get("use_direction", False)
         self.train_dataset = PoseMLMDataset(
             params.get("train_data_dir"),
             self.train_transforms,
@@ -57,20 +75,6 @@ class PosePretrainingModel(pl.LightningModule):
 
         self.reg_loss_weight = params.get("reg_loss_weight", 1.0)
         self.dir_loss_weight = params.get("dir_loss_weight", 1.0)
-
-        self.model = TransformerPreTrainingModel(
-            params["input_dim"],
-            self.model_cfg,
-            self.use_direction_loss,
-            params.get("d_out_classes", 0),
-        )
-        self.checkpoint_callback = pl.callbacks.ModelCheckpoint(
-            dirpath=self.output_path,
-            monitor="val_loss",
-            save_top_k=3,
-            mode="min",
-            verbose=True,
-        )
 
     def forward(self, x):
         return self.model(x)
@@ -136,13 +140,26 @@ class PosePretrainingModel(pl.LightningModule):
         return [optimizer], [lr_scheduler]
 
     def fit(self):
+        
+        self.checkpoint_callback = pl.callbacks.ModelCheckpoint(
+            dirpath=self.output_path,
+            monitor="val_loss",
+            save_top_k=3,
+            mode="min",
+            verbose=True,
+        )
+
         self.trainer = pl.Trainer(
             #             gpus=1,
             #             precision=16,
             max_epochs=self.max_epochs,
             default_root_dir=self.output_path,
-            logger=self.logger,
+            # logger=self.logger,
+            logger=pl.loggers.WandbLogger(),
             gradient_clip_val=self.hparams.get("gradient_clip_val", 1),
-            callbacks=[self.checkpoint_callback],
+            callbacks=[
+                self.checkpoint_callback,
+                pl.callbacks.LearningRateMonitor(logging_interval='step'),
+            ],
         )
         self.trainer.fit(self)

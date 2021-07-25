@@ -1,4 +1,4 @@
-import hydra
+import omegaconf
 import torch.nn as nn
 
 def load_encoder(encoder_cfg, dataset):
@@ -26,6 +26,12 @@ def load_encoder(encoder_cfg, dataset):
         from .encoder.graph.gcn import GCNModel
         from .encoder.graph.pose_flattener import PoseFlattener
         return nn.Sequential(GCNModel(in_channels=dataset.in_channels, **encoder_cfg.params), PoseFlattener(in_channels=dataset.in_channels, num_points=encoder_cfg.params.num_points))
+    elif encoder_cfg.type == "pretrained_encoder":
+        # TODO: Directly load from .ssl.pretrainer
+        from ..core.pretraining_model import PosePretrainingModel
+        cfg = omegaconf.OmegaConf.load(encoder_cfg.params.cfg_file)
+        pretrainer = PosePretrainingModel.load_from_checkpoint(encoder_cfg.params.ckpt, model_cfg=cfg.model, params=cfg.params, create_model_only=True)
+        return pretrainer.model.bert
     else:
         exit(f"ERROR: Encoder Type '{encoder_cfg.type}' not supported.")
 
@@ -45,6 +51,9 @@ def load_decoder(decoder_cfg, dataset, encoder):
     elif decoder_cfg.type == "bert":
         from .decoder.bert_hf import BERT
         return BERT(n_features=n_out_features, num_class=dataset.num_class, config=decoder_cfg.params)
+    elif decoder_cfg.type == "fine_tuner":
+        from .decoder.fine_tuner import FineTuner
+        return FineTuner(n_features=n_out_features, num_class=dataset.num_class, **decoder_cfg.params)
     else:
         exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
 

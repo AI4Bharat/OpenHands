@@ -1,0 +1,95 @@
+data:
+    modality: "pose"
+    train_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            splits: "train"
+            modality: "pose"
+
+        transforms:
+            - PoseUniformSubsampling:
+                num_frames: 120
+            - PoseSelect:
+                preset: mediapipe_holistic_top_body_59
+            - AddClsToken:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 64
+            shuffle: true
+            num_workers: 1
+            pin_memory: true
+            drop_last: true
+
+    valid_pipeline:
+        dataset:
+            _target_: slr.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            splits: "test"
+            modality: "pose"
+
+        transforms:
+            - PoseUniformSubsampling:
+                num_frames: 120
+            - PoseSelect:
+                preset: mediapipe_holistic_top_body_59
+            - AddClsToken:
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 32
+            shuffle: false
+            num_workers: 8
+            pin_memory: true
+            drop_last: false
+
+model:
+    encoder:
+        type: pretrained_encoder
+        params:
+            cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_bert.yaml
+            ckpt: /home/gokulnc/SLR/outputs/2021-07-22/08-15-26/model-outputs/epoch=108-step=80986.ckpt
+    decoder:
+        type: fine_tuner
+        params:
+            pooling_type: cls
+
+optim:
+    loss: 'CrossEntropyLoss'
+    optimizer:
+        name: Adam
+        params:
+            lr: 1e-4
+
+    scheduler:
+        name: CosineAnnealingLR
+        params:
+            last_epoch: -1
+            T_max: 10
+
+trainer:
+    gpus: 1
+    max_epochs: 1500
+
+exp_manager:
+    create_tensorboard_logger: true
+    create_wandb_logger: false
+    wandb_logger_kwargs:
+        name: null
+        project: null
+
+    create_checkpoint_callback: true
+    checkpoint_callback_params:
+        monitor: "val_acc"
+        mode: "max"
+        save_top_k: 3
+
+    early_stopping_callback: true
+    early_stopping_params:
+        monitor: "val_acc"
+        patience: 100
+        verbose: true
+        mode: "max"

@@ -44,17 +44,24 @@ class BertModel(nn.Module):
                 dim_feedforward=config.intermediate_size,
                 dropout=config.attention_probs_dropout_prob,
                 activation=config.hidden_act,
+                batch_first=True,
             ),
             num_layers=config.num_hidden_layers,
         )
+        self.n_out_features = config.hidden_size
 
     def forward(self, input_):
-
+        if len(input_.shape) == 5:
+            B, C, T, V, M = input_.shape
+            # Convert to B,T,V*C
+            input_ = input_.permute(0, 2, 1, 3, 4).reshape(B,T,C*V*M)
+            # TODO: Generalize the format for all encoders
+        
         coordinate_embeddings = self.embed_layer(input_)
         embeddings = self.position_embeddings(coordinate_embeddings) 
         
         embeddings = self.embedding_layer_norm(embeddings)
         embeddings = self.embedding_dropout(embeddings)
         
-        encoder_outputs = self.encoders(embeddings.permute(1, 0, 2))
+        encoder_outputs = self.encoders(embeddings)
         return encoder_outputs

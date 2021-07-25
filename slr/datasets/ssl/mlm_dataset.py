@@ -7,6 +7,7 @@ import math
 import glob
 import os
 from tqdm import tqdm
+import logging
 
 class PoseMLMDataset(torch.utils.data.Dataset):
     def __init__(
@@ -17,6 +18,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         """
         # List all raw files
         self.files_list = glob.glob(os.path.join(root_dir, '**', '*.pkl'), recursive=True)
+        logging.info(f"Found {len(self.files_list)} files in {root_dir}")
         self.transforms = transforms
         self.mask_type = mask_type
         self.get_directions = get_directions
@@ -75,9 +77,6 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         kps.shape: (T, V, C)
         '''
         emb_dim = kps.shape[-2:]
-        # Add [CLS]
-        kps = torch.cat([torch.ones(1, *emb_dim), kps])
-
         data = copy.deepcopy(kps) # Masked input data for model
 
         if self.deterministic_masks:

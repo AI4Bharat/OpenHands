@@ -236,7 +236,6 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         kps = np.asarray(kps, dtype=np.float32)
         data = {
             "frames": torch.tensor(kps).permute(2, 0, 1, 3),  # (C, T, V, M )
-            "vid_shape": data["vid_shape"],
             "label": data["label"],
         }
 

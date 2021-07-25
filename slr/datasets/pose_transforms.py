@@ -191,10 +191,9 @@ class CenterAndScaleNormalize:
         point1, point2 = x[ind1], x[ind2]
         center = (point1+point2)/2
         dist = torch.sqrt(((point1 - point2) ** 2).sum(-1))
-        if not dist:
-            # raise RuntimeError("Encountered 0 as joint distance, which would cause NaN. Recheck your data.")
-            return 0, 1 # Do not normalize
         scale = self.scale_factor / dist
+        if torch.isinf(scale).any():
+            return 0, 1 # Do not normalize
         return center, scale
     
     def calc_center_and_scale(self, x):
@@ -209,6 +208,8 @@ class CenterAndScaleNormalize:
         center = torch.mean((points1 + points2) / 2, dim=0)
         mean_dist = torch.mean(torch.sqrt(((points1 - points2) ** 2).sum(-1)))
         scale = self.scale_factor / mean_dist
+        if torch.isinf(scale).any():
+            return 0, 1 # Do not normalize
 
         return center, scale
 
@@ -321,4 +322,13 @@ class FrameSkipping:
         t = x.shape[self.temporal_dim]
         indices = torch.arange(0, t, self.skip_range)
         data["frames"] = torch.index_select(x, self.temporal_dim, indices)
+        return data
+
+class AddClsToken:
+    # Warning: Do not add any transforms after this
+    def __call__(self, data):
+        x = data["frames"]
+        C, T, V, M = x.shape
+        x = torch.cat([torch.ones(C, 1, V, M), x], dim=1)
+        data["frames"] = x
         return data
