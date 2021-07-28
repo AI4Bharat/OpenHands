@@ -8,26 +8,105 @@ import glob
 import os
 from tqdm import tqdm
 import logging
+from ...core.pose_data import create_transform
+
+class TemporalSubsample:
+    def __init__(self, num_frames, num_channels=2):
+        self.num_frames = num_frames
+        self.num_channels = num_channels
+
+    def __call__(self, x):
+        t = x.shape[0]
+        if t >= self.num_frames:
+            start_index = random.randint(0, t - self.num_frames)
+            return x[start_index : start_index + self.num_frames, :, :self.num_channels]
+        else:
+            # Padding
+            x = x[:, :, :self.num_channels]
+            T, V, C = x.shape
+            pad_len = self.num_frames - T
+            pad_tensor = np.zeros((pad_len, V, C))
+            return np.concatenate((x, pad_tensor), axis=0)
+        
+
+class UniformSubsample:
+    def __init__(self, num_frames, num_channels=2):
+        self.num_frames = num_frames
+        self.num_channels = num_channels
+        self.temporal_dim = 0
+
+    def __call__(self, x):
+        t = x.shape[self.temporal_dim]
+        indices = torch.linspace(0, t - 1, self.num_frames)
+        indices = torch.clamp(indices, 0, t - 1).long()
+        x = torch.index_select(x, self.temporal_dim, indices)
+        if x.shape[self.temporal_dim] < self.num_frames:
+            # Pad
+            T, V, C = x.shape
+            pad_len = self.num_frames - T
+            pad_tensor = torch.zeros(pad_len, V, C)
+            x = torch.cat((x, pad_tensor), dim=self.temporal_dim)
+        return x[:, :, :self.num_channels]
 
 class PoseMLMDataset(torch.utils.data.Dataset):
     def __init__(
-        self, root_dir, transforms=None, mask_type="random_spans", get_directions=True, deterministic_masks=False,
+        self, root_dir, file_format="h5", transforms=None,
+        mask_type="random_spans", deterministic_masks=False, mask_ratio=0.2,
+        num_channels=2, max_frames=128, subsampling_method="random",
+        get_directions=False,
     ):
         """
         mask_type => {"random", "random_spans", "last"}
         """
+        self.file_format = file_format
+
         # List all raw files
-        self.files_list = glob.glob(os.path.join(root_dir, '**', '*.pkl'), recursive=True)
-        logging.info(f"Found {len(self.files_list)} files in {root_dir}")
-        self.transforms = transforms
+        if file_format == 'pkl':
+            self.load_keypoints = self.load_pose_from_pkl
+
+            self.data_list = glob.glob(os.path.join(root_dir, '**', '*.pkl'), recursive=True)
+            logging.info(f"Found {len(self.data_list)} pkl files in {root_dir}")
+        elif file_format == 'h5':
+            self.load_keypoints = self.load_pose_from_h5
+
+            import h5py
+            self.hdf5_files = []
+            self.data_list = []
+
+            h5_files = glob.glob(os.path.join(root_dir, '**', '*.h5'), recursive=True)
+            logging.info(f"Found {len(h5_files)} hdf5 files in {root_dir}")
+
+            for h5_index, h5_file in enumerate(h5_files):
+                hf = h5py.File(h5_file, 'r')
+                self.hdf5_files.append(hf)
+
+                for data_name in list(hf['keypoints'].keys()):
+                    self.data_list.append((h5_index, data_name))
+            logging.info(f"Found {len(self.data_list)} data items")
+        else:
+            raise ValueError(f"file_format: {file_format} not supported!")
+        
+        if subsampling_method == "random":
+            self.subsampler = TemporalSubsample(max_frames, num_channels)
+        elif subsampling_method == "uniform":
+            self.subsampler = UniformSubsample(max_frames, num_channels)
+        else:
+            raise ValueError(f"Unknown sub-sampling method: {subsampling_method}")
+        
+        self.max_seq_len = max_frames + 1 # Including [CLS]
+        self.num_channels = num_channels
+
+        self.transforms = create_transform(transforms)
         self.mask_type = mask_type
         self.get_directions = get_directions
         self.DIRECTIONS = ["N", "E", "S", "W", "N"]
         self.direction_encoder = {"N": 0, "E": 1, "S": 2, "W": 3}
 
+        self.mask_ratio = mask_ratio
         self.deterministic_masks = False
         if deterministic_masks:
-            self.files_list = sorted(self.files_list)
+            assert file_format == 'pkl'
+            self.data_list = sorted(self.data_list)
             self.precomputed_mask_indices = []
             random.seed(10)
             for i in tqdm(range(self.__len__()), desc="Generating masks"):
@@ -36,19 +115,22 @@ class PoseMLMDataset(torch.utils.data.Dataset):
             self.deterministic_masks = True # Set as true *finally*
 
     def __len__(self):
-        return len(self.files_list)
+        return len(self.data_list)
 
-    def load_pose_from_path(self, path):
-        pose_data = pickle.load(open(path, "rb"))
-        return pose_data
+    def load_pose_from_pkl(self, idx):
+        file_path = self.data_list[idx]
+        pose_data = pickle.load(open(file_path, "rb"))
+        kps = pose_data['keypoints']
+        return torch.tensor(kps)
+
+    def load_pose_from_h5(self, idx):
+        h5_index, data_name = self.data_list[idx]
+        return self.hdf5_files[h5_index]['keypoints'][data_name]
 
     def __getitem__(self, idx):
-        file_path = self.files_list[idx]
-        data = self.load_pose_from_path(file_path)
-
-        kps = data["keypoints"]
-        scores = data["confidences"]
-        kps = kps[:, :, :2]  # Skip z
+        
+        kps = self.load_keypoints(idx)
+        kps = self.subsampler(kps)
 
         if kps.ndim == 3:
             kps = np.expand_dims(kps, axis=-1)
@@ -88,15 +170,14 @@ class PoseMLMDataset(torch.utils.data.Dataset):
 
         if self.mask_type == "random":
             for pos in range(1, data.shape[0]):
-                if random.random() < 0.2:  # 20%
+                if random.random() < self.mask_ratio:
                     data[pos] = torch.zeros(*emb_dim)
                     masked_indices[pos] = 1
 
         elif self.mask_type == "random_spans":
             seq_len = data.shape[0]
-            mask_ratio = 0.2
-            min_rand, max_rand = 0.02, 0.1
-            mask_num = math.ceil(seq_len * mask_ratio)
+            min_rand, max_rand = self.mask_ratio/8, self.mask_ratio/2
+            mask_num = math.ceil(seq_len * self.mask_ratio)
 
             masked_cnt = 0
             outer_loop_counter = 0
@@ -122,8 +203,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
 
         elif self.mask_type == "last":
             seq_len = data.shape[0]
-            mask_ratio = 0.2
-            mask_num = math.ceil(seq_len * mask_ratio)
+            mask_num = math.ceil(seq_len * self.mask_ratio)
 
             data[-mask_num:] = torch.zeros(*emb_dim)
             masked_indices[-mask_num:] = 1

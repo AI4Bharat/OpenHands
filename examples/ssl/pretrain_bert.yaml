@@ -1,32 +1,44 @@
 params:
-  train_data_dir: /home/gokulnc/data-disk/datasets/SSL/
-  train_transforms:
-    - PoseTemporalSubsample:
-        num_frames: 120
-    - PoseSelect:
-        preset: mediapipe_holistic_top_body_59
-    # - CenterAndScaleNormalize:
-    #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
-    # - ShearTransform:
-    #     shear_std: 0.1
-    # - RotatationTransform:
-    #     rotation_std: 0.1
-    - AddClsToken:
+  train_dataset:
+    root_dir: /home/gokulnc/data-disk/datasets/SSL/
+    file_format: h5
+    mask_type: random_spans
+    mask_ratio: 0.4
+    deterministic_masks: false
+    num_channels: 2
+    max_frames: 120
+    subsampling_method: random
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_top_body_59
+      # - CenterAndScaleNormalize:
+      #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+      # - ShearTransform:
+      #     shear_std: 0.1
+      # - RotatationTransform:
+      #     rotation_std: 0.1
+      - AddClsToken:
   
-  val_data_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
-  valid_transforms:
-    - PoseUniformSubsampling:
-        num_frames: 120
-    - PoseSelect:
-        preset: mediapipe_holistic_top_body_59
-    # - CenterAndScaleNormalize:
-    #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
-    - AddClsToken:
+  val_dataset:
+    root_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
+    file_format: pkl
+    mask_type: random_spans
+    mask_ratio: 0.4
+    deterministic_masks: true
+    num_channels: 2
+    max_frames: 120
+    subsampling_method: uniform
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_top_body_59
+      # - CenterAndScaleNormalize:
+      #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+      - AddClsToken:
   
-  lr: 2e-4
+  lr: 5e-4
   max_epochs: 2000
-  batch_size: 64
-  num_workers: 0
+  batch_size: 128
+  num_workers: 6
   val_sanity_checks: 0
   output_path: "model-outputs"
 

@@ -5,7 +5,6 @@ import torch.nn as nn
 
 from ..models.ssl.pretrainer import PreTrainingModel
 from ..datasets.ssl.mlm_dataset import PoseMLMDataset
-from .pose_data import create_transform
 
 
 def masked_mse_loss(preds, targets, mask):
@@ -50,18 +49,13 @@ class PosePretrainingModel(pl.LightningModule):
             return None
         
         self.params = params
-        self.train_transforms = create_transform(params.get("train_transforms"))
-        self.valid_transforms = create_transform(params.get("valid_transforms"))
 
         self.train_dataset = PoseMLMDataset(
-            params.get("train_data_dir"),
-            self.train_transforms,
+            **params.train_dataset,
             get_directions=self.use_direction_loss,
         )
         self.val_dataset = PoseMLMDataset(
-            params.get("val_data_dir"),
-            self.valid_transforms,
-            deterministic_masks=True,
+            **params.val_dataset,
             get_directions=self.use_direction_loss,
         )
 
@@ -123,6 +117,7 @@ class PosePretrainingModel(pl.LightningModule):
             batch_size=self.batch_size,
             num_workers=self.num_workers,
             shuffle=True,
+            pin_memory=True,
         )
 
     def val_dataloader(self):
@@ -130,6 +125,7 @@ class PosePretrainingModel(pl.LightningModule):
             self.val_dataset,
             batch_size=self.batch_size,
             num_workers=0 if self.val_dataset.deterministic_masks else self.num_workers,
+            pin_memory=True,
         )
 
     def configure_optimizers(self):
@@ -150,8 +146,8 @@ class PosePretrainingModel(pl.LightningModule):
         )
 
         self.trainer = pl.Trainer(
-            #             gpus=1,
-            #             precision=16,
+            gpus=1,
+            # precision=16,
             max_epochs=self.max_epochs,
             default_root_dir=self.output_path,
             # logger=self.logger,

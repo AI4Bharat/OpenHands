@@ -10,7 +10,7 @@ class INCLUDEDataset(BaseIsolatedDataset):
         # `splits` is not used here as we pass the split-specific CSV directly
         df = pd.read_csv(index_file_path)
 
-        self.glosses = sorted([df["Word"][i].strip() for i in range(len(df))])
+        self.glosses = sorted({ df["Word"][i].strip() for i in range(len(df)) })
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
