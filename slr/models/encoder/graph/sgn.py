@@ -137,7 +137,7 @@ class SGN(nn.Module):
         self.gcn1 = gcn_spa(self.dim1 // 2, self.dim1 // 2, bias=bias)
         self.gcn2 = gcn_spa(self.dim1 // 2, self.dim1, bias=bias)
         self.gcn3 = gcn_spa(self.dim1, self.dim1, bias=bias)
-        
+
         self.n_out_features = self.dim1 * 2
 
         for m in self.modules():

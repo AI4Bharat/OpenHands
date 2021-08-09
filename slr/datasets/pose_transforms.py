@@ -21,6 +21,7 @@ class ScaleToVideoDimensions:
     """
     Scale the pose keypoints with Width and Height of frames
     """
+
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
@@ -40,6 +41,7 @@ class PoseRandomShift:
     Randomly distribute the zero padding at the end of a video
     to intial and final positions
     """
+
     def __call__(self, data):
         x = data["frames"]
         C, T, V, M = x.shape
@@ -60,14 +62,97 @@ class PoseSelect:
     """
     Select the given index keypoints from all keypoints
     """
+
     KEYPOINT_PRESETS = {
         "mediapipe_holistic_minimal_27": [
-            0, 2, 5, 11, 12, 13, 14,
-            33, 37, 38, 41, 42, 45, 46, 49, 50, 53, 54, 58, 59, 62, 63, 66, 67, 70, 71, 74,
+            0,
+            2,
+            5,
+            11,
+            12,
+            13,
+            14,
+            33,
+            37,
+            38,
+            41,
+            42,
+            45,
+            46,
+            49,
+            50,
+            53,
+            54,
+            58,
+            59,
+            62,
+            63,
+            66,
+            67,
+            70,
+            71,
+            74,
         ],
         "mediapipe_holistic_top_body_59": [
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 
-            23, 24, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            23,
+            24,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47,
+            48,
+            49,
+            50,
+            51,
+            52,
+            53,
+            54,
+            55,
+            56,
+            57,
+            58,
+            59,
+            60,
+            61,
+            62,
+            63,
+            64,
+            65,
+            66,
+            67,
+            68,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
         ],
     }
 
@@ -151,67 +236,79 @@ class CenterAndScaleNormalize:
         "shoulder_mediapipe_holistic_minimal_27": [3, 4],
         "shoulder_mediapipe_holistic_top_body_59": [11, 12],
     }
-    def __init__(self, reference_points_preset=None, reference_point_indexes=[], scale_factor=1, frame_level=False):
+
+    def __init__(
+        self,
+        reference_points_preset=None,
+        reference_point_indexes=[],
+        scale_factor=1,
+        frame_level=False,
+    ):
         """
         reference_point_indexes - The point indexes according to which the points will be centered and scaled.
         shape: (p1, p2)
         """
         if reference_points_preset:
-            self.reference_point_indexes = CenterAndScaleNormalize.REFERENCE_PRESETS[reference_points_preset]
+            self.reference_point_indexes = CenterAndScaleNormalize.REFERENCE_PRESETS[
+                reference_points_preset
+            ]
         elif reference_point_indexes:
             self.reference_point_indexes = reference_point_indexes
         else:
-            raise ValueError("Mention the joint with respect to which the scaling & centering must be done")
+            raise ValueError(
+                "Mention the joint with respect to which the scaling & centering must be done"
+            )
         self.scale_factor = scale_factor
         self.frame_level = frame_level
-        
+
     def __call__(self, data):
-        x = data["frames"]  
+        x = data["frames"]
         C, T, V, M = x.shape
         x = x.permute(3, 1, 2, 0)
-        
+
         if self.frame_level:
-            temp = x.reshape(M*T, V, C)
+            temp = x.reshape(M * T, V, C)
             for ind in range(temp.shape[0]):
                 center, scale = self.calc_center_and_scale_for_one_skeleton(temp[ind])
                 temp[ind] -= center
                 temp[ind] *= scale
-            x = temp.reshape(M,T,V,C)
-        else:    
+            x = temp.reshape(M, T, V, C)
+        else:
             center, scale = self.calc_center_and_scale(x)
             x = x - center
             x = x * scale
-            
+
         x = x.permute(3, 1, 2, 0)
         data["frames"] = x
         return data
-    
+
     def calc_center_and_scale_for_one_skeleton(self, x):
         ind1, ind2 = self.reference_point_indexes
         point1, point2 = x[ind1], x[ind2]
-        center = (point1+point2)/2
+        center = (point1 + point2) / 2
         dist = torch.sqrt(((point1 - point2) ** 2).sum(-1))
         scale = self.scale_factor / dist
         if torch.isinf(scale).any():
-            return 0, 1 # Do not normalize
+            return 0, 1  # Do not normalize
         return center, scale
-    
+
     def calc_center_and_scale(self, x):
         transposed_x = x.permute(2, 0, 1, 3)
         ind1, ind2 = self.reference_point_indexes
         points1 = transposed_x[ind1]
         points2 = transposed_x[ind2]
-        
+
         points1 = points1.reshape(-1, points1.shape[-1])
         points2 = points2.reshape(-1, points2.shape[-1])
-        
+
         center = torch.mean((points1 + points2) / 2, dim=0)
         mean_dist = torch.mean(torch.sqrt(((points1 - points2) ** 2).sum(-1)))
         scale = self.scale_factor / mean_dist
         if torch.isinf(scale).any():
-            return 0, 1 # Do not normalize
+            return 0, 1  # Do not normalize
 
         return center, scale
+
 
 class RandomMove:
     def __init__(self, move_range=(-2.5, 2.5), move_step=0.5):
@@ -323,6 +420,7 @@ class FrameSkipping:
         indices = torch.arange(0, t, self.skip_range)
         data["frames"] = torch.index_select(x, self.temporal_dim, indices)
         return data
+
 
 class AddClsToken:
     # Warning: Do not add any transforms after this

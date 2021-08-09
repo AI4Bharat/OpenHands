@@ -7,6 +7,7 @@ class ExtractHandCrops:
     """
     Extracts hands given the pose and image
     """
+
     SHOULDER_DIST_EPSILON = 1.2
     WRIST_DELTA = 0.15
 

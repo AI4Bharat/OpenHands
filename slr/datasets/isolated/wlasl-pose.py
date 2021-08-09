@@ -4,6 +4,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 import os
 import numpy as np
 
+
 class KeypointsDataset(torch.utils.data.Dataset):
     def __init__(
         self, index_file_path, split, pose_root, max_frames=300, test_index_file=None

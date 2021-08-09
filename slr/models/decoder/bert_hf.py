@@ -4,13 +4,16 @@ import torch.nn.functional as F
 import transformers
 from .utils import AttentionBlock
 
+
 class PositionEmbedding(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.position_embeddings = nn.Embedding(
             config.max_position_embeddings, config.hidden_size
         )
-        self.LayerNorm = nn.LayerNorm(config.hidden_size, eps=float(config.layer_norm_eps))
+        self.LayerNorm = nn.LayerNorm(
+            config.hidden_size, eps=float(config.layer_norm_eps)
+        )
         self.dropout = nn.Dropout(config.hidden_dropout_prob)
         self.register_buffer(
             "position_ids", torch.arange(config.max_position_embeddings).expand((1, -1))
@@ -32,7 +35,7 @@ class PositionEmbedding(nn.Module):
 
 
 class BERT(nn.Module):
-    def __init__(self, n_features, num_class, config): 
+    def __init__(self, n_features, num_class, config):
         """
         pooling_type -> ["max","avg","att","cls"]
         """
@@ -44,10 +47,8 @@ class BERT(nn.Module):
             self.cls_param = nn.Parameter(torch.randn(config.hidden_size))
         else:
             self.pooling_type = config["pooling_type"]
-        
-        self.l1 = nn.Linear(
-            in_features=n_features, out_features=config.hidden_size
-        )   
+
+        self.l1 = nn.Linear(in_features=n_features, out_features=config.hidden_size)
 
         self.embedding = PositionEmbedding(config)
         model_config = transformers.BertConfig(
@@ -61,16 +62,17 @@ class BERT(nn.Module):
                 for _ in range(config.num_hidden_layers)
             ]
         )
-        
+
         if self.pooling_type == "att":
             self.attn_block = AttentionBlock(config.hidden_size)
 
         # self.bert = transformers.BertModel(model_config)
         self.l2 = nn.Linear(in_features=config.hidden_size, out_features=num_class)
 
-
     def forward(self, x):
-        x = x.transpose(0, 1) # TODO: Unnecessarily redundant reshaping, fix a standard shape
+        x = x.transpose(
+            0, 1
+        )  # TODO: Unnecessarily redundant reshaping, fix a standard shape
         x = self.l1(x)
         if self.cls_token:
             cls_embed = self.cls_param.unsqueeze(0).repeat(x.shape[0], 1, 1)
@@ -78,7 +80,7 @@ class BERT(nn.Module):
         x = self.embedding(x)
         for layer in self.layers:
             x = layer(x)[0]
-        
+
         if self.pooling_type == "cls":
             x = x[:, 0]
         elif self.pooling_type == "max":

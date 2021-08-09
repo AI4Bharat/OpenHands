@@ -30,13 +30,14 @@ class PosePretrainingModel(pl.LightningModule):
         super().__init__()
 
         self.use_direction_loss = params.get("use_direction", False)
-        
-        if model_cfg.type == 'bert':
+
+        if model_cfg.type == "bert":
             from ..models.encoder.bert import BertModel
+
             base_encoder = BertModel(params["input_dim"], model_cfg.config)
         else:
             raise NotImplementedError(f"Model-type: {model_cfg.type} not supported")
-        
+
         self.model = PreTrainingModel(
             base_encoder,
             params["input_dim"],
@@ -47,7 +48,7 @@ class PosePretrainingModel(pl.LightningModule):
 
         if create_model_only:
             return None
-        
+
         self.params = params
 
         self.train_dataset = PoseMLMDataset(
@@ -136,7 +137,7 @@ class PosePretrainingModel(pl.LightningModule):
         return [optimizer], [lr_scheduler]
 
     def fit(self):
-        
+
         self.checkpoint_callback = pl.callbacks.ModelCheckpoint(
             dirpath=self.output_path,
             monitor="val_loss",
@@ -155,7 +156,7 @@ class PosePretrainingModel(pl.LightningModule):
             gradient_clip_val=self.hparams.get("gradient_clip_val", 1),
             callbacks=[
                 self.checkpoint_callback,
-                pl.callbacks.LearningRateMonitor(logging_interval='step'),
+                pl.callbacks.LearningRateMonitor(logging_interval="step"),
             ],
         )
         self.trainer.fit(self)

@@ -4,7 +4,6 @@ from .base import BaseIsolatedDataset
 
 
 class AUTSLDataset(BaseIsolatedDataset):
-
     def read_index_file(self, index_file_path, splits, modality):
 
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
@@ -19,7 +18,7 @@ class AUTSLDataset(BaseIsolatedDataset):
             file_suffix = "color.mp4"
         elif modality == "pose":
             file_suffix = "color.pkl"
-            
+
         for i in range(len(df)):
             instance_entry = df[0][i] + "_" + file_suffix, df[1][i]
             self.data.append(instance_entry)

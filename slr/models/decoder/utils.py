@@ -1,7 +1,7 @@
-
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+
 
 class AttentionBlock(nn.Module):
     # Ref: https://github.com/0aqz0/SLR/blob/a1fc68b0ab4f3198efe767bc99745b9d31a13b0c/models/Attention.py

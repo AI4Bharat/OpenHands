@@ -3,6 +3,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from .utils import AttentionBlock
 
+
 class RNNClassifier(nn.Module):
     def __init__(
         self,
@@ -30,9 +31,9 @@ class RNNClassifier(nn.Module):
         self.fc = nn.Linear(rnn_out_size, num_class)
 
     def forward(self, x):
-        '''
+        """
         x.shape: (T, batch_size, n_features)
-        '''
+        """
         self.rnn.flatten_parameters()
 
         # Batch first
@@ -46,4 +47,3 @@ class RNNClassifier(nn.Module):
             out = self.fc(out[:, -1, :])
 
         return out
-    

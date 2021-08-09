@@ -5,6 +5,7 @@ import torch.nn.functional as F
 
 CrossEntropyLoss = nn.CrossEntropyLoss
 
+
 class SmoothedCrossEntropyLoss(nn.Module):
     def __init__(self, smooth_factor=0.1):
         super(SmoothedCrossEntropyLoss, self).__init__()

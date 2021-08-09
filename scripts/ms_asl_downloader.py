@@ -90,5 +90,8 @@ class MSASLDownloader:
                 for entry in tqdm(filtered_dataset, desc=data_type)
             )
 
-downloader = MSASLDownloader("MS-ASL/MSASL_train.json", "MS-ASL/MSASL_val.json", "MS-ASL/MSASL_test.json")
+
+downloader = MSASLDownloader(
+    "MS-ASL/MSASL_train.json", "MS-ASL/MSASL_val.json", "MS-ASL/MSASL_test.json"
+)
 downloader.download_split(100)

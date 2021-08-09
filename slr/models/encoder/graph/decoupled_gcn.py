@@ -5,7 +5,8 @@ import numpy as np
 import math
 from .graph_utils import SpatialGraph
 
-#https://github.com/jackyjsy/CVPR21Chal-SLR
+# https://github.com/jackyjsy/CVPR21Chal-SLR
+
 
 def conv_init(conv):
     nn.init.kaiming_normal_(conv.weight, mode="fan_out")
@@ -24,6 +25,7 @@ def find_drop_size(num_nodes, num_edges, K=1):
             (2 * num_edges / num_nodes) - 1, i - 1
         )
     return B_sum
+
 
 class DropGraphTemporal(nn.Module):
     def __init__(self, block_size=7):
@@ -78,6 +80,7 @@ class DropGraphSpatial(nn.Module):
 
         mask = (1 - M).view(n, 1, 1, self.num_points)
         return x * mask * mask.numel() / mask.sum()
+
 
 class TCNUnit(nn.Module):
     def __init__(
@@ -232,7 +235,8 @@ class DecoupledGCN_TCN_unit(nn.Module):
         self.A = nn.Parameter(
             torch.tensor(
                 np.sum(
-                    np.reshape(A.astype(np.float32), [3, num_points, num_points]), axis=0
+                    np.reshape(A.astype(np.float32), [3, num_points, num_points]),
+                    axis=0,
                 ),
                 dtype=torch.float32,
             ),
@@ -314,7 +318,7 @@ class DecoupledGCN(nn.Module):
         block_size=41,
     ):
         super(DecoupledGCN, self).__init__()
-       
+
         self.graph = SpatialGraph(num_points, inward_edges)
         A = self.graph.A
         self.data_bn = nn.BatchNorm1d(in_channels * num_points)
@@ -356,7 +360,13 @@ class DecoupledGCN(nn.Module):
         )
         self.n_out_features = 256
         self.l10 = DecoupledGCN_TCN_unit(
-            256, self.n_out_features, A, groups, num_points, block_size, drop_size=drop_size
+            256,
+            self.n_out_features,
+            A,
+            groups,
+            num_points,
+            block_size,
+            drop_size=drop_size,
         )
 
         bn_init(self.data_bn, 1)

@@ -29,9 +29,7 @@ class ClassificationModel(pl.LightningModule):
         loss = self.loss(y_hat, batch["labels"])
         acc = self.accuracy_metric(F.softmax(y_hat, dim=-1), batch["labels"])
         self.log("train_loss", loss)
-        self.log(
-            "train_acc", acc, on_step=False, on_epoch=True, prog_bar=True
-        )
+        self.log("train_acc", acc, on_step=False, on_epoch=True, prog_bar=True)
         return {"loss": loss, "train_acc": acc}
 
     def validation_step(self, batch, batch_idx):
@@ -42,15 +40,9 @@ class ClassificationModel(pl.LightningModule):
         acc_top3 = self.accuracy_metric(preds, batch["labels"], top_k=3)
         acc_top5 = self.accuracy_metric(preds, batch["labels"], top_k=5)
         self.log("val_loss", loss)
-        self.log(
-            "val_acc", acc_top1, on_step=False, on_epoch=True, prog_bar=True
-        )
-        self.log(
-            "val_acc_top3", acc_top3, on_step=False, on_epoch=True, prog_bar=True
-        )
-        self.log(
-            "val_acc_top5", acc_top5, on_step=False, on_epoch=True, prog_bar=True
-        )
+        self.log("val_acc", acc_top1, on_step=False, on_epoch=True, prog_bar=True)
+        self.log("val_acc_top3", acc_top3, on_step=False, on_epoch=True, prog_bar=True)
+        self.log("val_acc_top5", acc_top5, on_step=False, on_epoch=True, prog_bar=True)
         return {"valid_loss": loss, "valid_acc": acc_top1}
 
     def configure_optimizers(self):

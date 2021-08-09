@@ -3,18 +3,22 @@ import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
 
-class GSLDataset(BaseIsolatedDataset):
 
+class GSLDataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
 
         # Read list of classes
-        self.glosses = [gloss.strip() for gloss in open(self.class_mappings_file_path, encoding="utf-8") if gloss.strip()]
+        self.glosses = [
+            gloss.strip()
+            for gloss in open(self.class_mappings_file_path, encoding="utf-8")
+            if gloss.strip()
+        ]
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
         # `splits` is pointless here as we pass the split-specific CSV directly
         # CSV Columns: (video_path, gloss_name)
-        df = pd.read_csv(index_file_path, delimiter='|', header=None)
+        df = pd.read_csv(index_file_path, delimiter="|", header=None)
 
         for i in range(len(df)):
             gloss_cat = label_encoder.transform([df[1][i]])[0]

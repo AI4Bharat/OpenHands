@@ -3,6 +3,7 @@ from glob import glob
 from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
 
+
 class CSLDataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits, modality="rgb"):
         """
@@ -13,7 +14,7 @@ class CSLDataset(BaseIsolatedDataset):
             2: 2, the second time performing the sign
 
         2.  experiment setting:
-            split: 
+            split:
                 train set: signer ID, [0, 1, ..., 34, 35]
                 test set: signer ID, [36, 37, ... ,48, 49]
         """
@@ -23,7 +24,7 @@ class CSLDataset(BaseIsolatedDataset):
                 self.glosses.append(line.strip())
         if not self.glosses:
             exit(f"ERROR: {index_file_path} is empty")
-        
+
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
@@ -32,18 +33,20 @@ class CSLDataset(BaseIsolatedDataset):
         elif "pose" in modality:
             format = ".pkl"
         else:
-            raise ValueError("Unsupported modality: "+ modality)
-        
-        video_files_path = os.path.join(self.root_dir, "**", "*"+format)
+            raise ValueError("Unsupported modality: " + modality)
+
+        video_files_path = os.path.join(self.root_dir, "**", "*" + format)
         video_files = glob(video_files_path, recursive=True)
         if not video_files:
             exit(f"No videos files found for: {video_files_path}")
-        
-        for video_file in video_files:
-            gloss_id = int(video_file.replace('\\', '/').split('/')[-2])
-            signer_id = int(os.path.basename(video_file).split('_')[0].replace('P', ''))
 
-            if (signer_id <= 35 and "train" in splits) or (signer_id > 35 and "test" in splits):
+        for video_file in video_files:
+            gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
+            signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
+
+            if (signer_id <= 35 and "train" in splits) or (
+                signer_id > 35 and "test" in splits
+            ):
                 instance_entry = video_file, gloss_id
                 self.data.append(instance_entry)
 

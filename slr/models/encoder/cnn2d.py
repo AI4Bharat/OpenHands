@@ -2,13 +2,9 @@ import torch
 import torch.nn as nn
 import timm
 
+
 class CNN2D(nn.Module):
-    def __init__(
-        self,
-        in_channels=3,
-        backbone="resnet18",
-        pretrained=True
-    ):
+    def __init__(self, in_channels=3, backbone="resnet18", pretrained=True):
         super().__init__()
         assert in_channels == 3
         self.backbone = timm.create_model(backbone, pretrained=pretrained)

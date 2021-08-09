@@ -70,7 +70,7 @@ class CommonDataModule(pl.LightningDataModule):
                 )
                 video_transforms.append(new_trans)
         return video_transforms
-    
+
     def get_pytorchvideo_transforms(self, transforms_cfg):
         video_transforms = []
         video_transforms_config = transforms_cfg.pytorchvideo
@@ -83,9 +83,7 @@ class CommonDataModule(pl.LightningDataModule):
             for transform_name, transform_args in transform.items():
                 if not transform_args:
                     transform_args = {}
-                new_trans = getattr(ptv_transforms, transform_name)(
-                    **transform_args
-                )
+                new_trans = getattr(ptv_transforms, transform_name)(**transform_args)
                 video_transforms.append(new_trans)
         return video_transforms
 

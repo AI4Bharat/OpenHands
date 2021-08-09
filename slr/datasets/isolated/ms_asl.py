@@ -2,6 +2,7 @@ import os
 import json
 from .base import BaseIsolatedDataset
 
+
 class MSASLDataset(BaseIsolatedDataset):
     def read_index_file(self, index_file_path, splits):
         self.metadata = []
@@ -9,12 +10,12 @@ class MSASLDataset(BaseIsolatedDataset):
             path = os.path.join(index_file_path, file)
             metadatum = json.load(open(path))[0]
             metadata.append(metadatum)
-            instance = metadatum["video_id"]+".mp4", metadatum["label"]
+            instance = metadatum["video_id"] + ".mp4", metadatum["label"]
             self.data.append(instance)
-        
+
         self.glosses = list(set(sorted(i["text"] for i in metadata)))
-        self.id_to_glosses = {i["label"]:i["text"] for i in metadata}
-        
+        self.id_to_glosses = {i["label"]: i["text"] for i in metadata}
+
     def read_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, "videos", video_name)

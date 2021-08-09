@@ -17,6 +17,7 @@ AVAILABLE_3D_BACKBONES = [
     "x3d_l",
 ]
 
+
 class CNN3D(nn.Module):
     def __init__(self, in_channels, backbone, pretrained=True, **kwargs):
         super().__init__()
