@@ -1,0 +1,64 @@
+from glob import glob
+import pickle
+import cv2
+import numpy as np
+from natsort import natsorted
+
+
+def load_frames_from_folder(frames_folder, pattern="*.jpg"):
+    images = natsorted(glob(f"{frames_folder}/{pattern}"))
+    if len(images) == 0:
+        raise ValueError(
+            f"Expected variable images to be non empty. {frames_folder} does not contain any frames"
+        )
+
+    frames = []
+    for img_path in images:
+        img = cv2.imread(img_path)
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        frames.append(img)
+
+    return np.asarray(frames, dtype=np.float32)
+
+
+def load_pose_from_path(path):
+    """
+    Load dumped pose keypoints.
+    Should contain: {
+        "keypoints" of shape (T, V, C),
+        "confidences" of shape (T, V),
+        "vid_shape" of shape (W, H)
+    }
+    """
+    pose_data = pickle.load(open(path, "rb"))
+    return pose_data
+
+
+def load_frames_from_video(video_path, start_frame=None, end_frame=None):
+    """
+    Load the frames of the video
+    Returns: numpy array of shape (T, H, W, C)
+    """
+    frames = []
+    vidcap = cv2.VideoCapture(video_path)
+    total_frames = vidcap.get(cv2.CAP_PROP_FRAME_COUNT)
+
+    if start_frame is None:
+        start_frame = 0
+    if end_frame is None:
+        end_frame = total_frames
+
+    # TODO: Update temporary fix
+    if total_frames < start_frame:
+        start_frame = 0
+    vidcap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+    for _ in range(
+        min(int(end_frame - start_frame), int(total_frames - start_frame))
+    ):
+        success, img = vidcap.read()
+        if not success:
+            break
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        frames.append(img)
+
+    return np.asarray(frames, dtype=np.float32)

@@ -120,7 +120,6 @@ def load_frames_from_video(video_path):
         frames.append(img)
 
     vidcap.release()
-    # cv2.destroyAllWindows()
     return np.asarray(frames)
 
 

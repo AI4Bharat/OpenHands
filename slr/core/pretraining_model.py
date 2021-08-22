@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 
 from ..models.ssl.pretrainer import PreTrainingModel
-from ..datasets.ssl.mlm_dataset import PoseMLMDataset
+from ..datasets.ssl import PoseMLMDataset
 
 
 def masked_mse_loss(preds, targets, mask):
@@ -148,10 +148,8 @@ class PosePretrainingModel(pl.LightningModule):
 
         self.trainer = pl.Trainer(
             gpus=1,
-            # precision=16,
             max_epochs=self.max_epochs,
             default_root_dir=self.output_path,
-            # logger=self.logger,
             logger=pl.loggers.WandbLogger(),
             gradient_clip_val=self.hparams.get("gradient_clip_val", 1),
             callbacks=[

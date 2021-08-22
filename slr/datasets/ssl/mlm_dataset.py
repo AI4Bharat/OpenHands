@@ -24,7 +24,6 @@ class TemporalSubsample:
                 start_index : start_index + self.num_frames, :, : self.num_channels
             ]
         else:
-            # Padding
             x = x[:, :, : self.num_channels]
             T, V, C = x.shape
             pad_len = self.num_frames - T
@@ -44,7 +43,6 @@ class UniformSubsample:
         indices = torch.clamp(indices, 0, t - 1).long()
         x = torch.index_select(x, self.temporal_dim, indices)
         if x.shape[self.temporal_dim] < self.num_frames:
-            # Pad
             T, V, C = x.shape
             pad_len = self.num_frames - T
             pad_tensor = torch.zeros(pad_len, V, C)
@@ -71,12 +69,11 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         """
         self.file_format = file_format
 
-        # List all raw files
         if file_format == "pkl":
             self.load_keypoints = self.load_pose_from_pkl
 
             self.data_list = glob.glob(
-                os.path.join(root_dir, "**", "*.pkl"), recursive=True
+                os.path.join(root_dir, "*", "*.pkl"), recursive=True
             )
             logging.info(f"Found {len(self.data_list)} pkl files in {root_dir}")
         elif file_format == "h5":

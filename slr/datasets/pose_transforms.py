@@ -158,7 +158,7 @@ class PoseSelect:
 
     def __init__(self, preset=None, pose_indexes=[]):
         if preset:
-            self.pose_indexes = PoseSelect.KEYPOINT_PRESETS[preset]
+            self.pose_indexes = self.KEYPOINT_PRESETS[preset]
         elif pose_indexes:
             self.pose_indexes = pose_indexes
         else:
@@ -179,7 +179,7 @@ class ShearTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for ShearTransform"
         x = x.permute(1, 3, 2, 0)
         shear_matrix = torch.eye(2)
         shear_matrix[0][1] = torch.tensor(
@@ -196,7 +196,7 @@ class RotatationTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for RotationTransform"
         x = x.permute(1, 3, 2, 0)
         rotation_angle = torch.tensor(
             np.random.normal(loc=0, scale=self.rotation_std, size=1)[0]
@@ -218,7 +218,7 @@ class ScaleTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for ScaleTransform"
 
         x = x.permute(1, 3, 2, 0)
         scale_matrix = torch.eye(2)
@@ -230,7 +230,6 @@ class ScaleTransform:
         return data
 
 
-###################################
 class CenterAndScaleNormalize:
     REFERENCE_PRESETS = {
         "shoulder_mediapipe_holistic_minimal_27": [3, 4],
@@ -332,9 +331,6 @@ class RandomMove:
         return data
 
 
-####################################
-
-
 class PoseTemporalSubsample:
     def __init__(self, num_frames):
         self.num_frames = num_frames
@@ -351,7 +347,6 @@ class PoseTemporalSubsample:
             data["frames"] = torch.index_select(x, self.temporal_dim, indices)
 
         else:
-            # Padding
             pad_len = self.num_frames - t
             pad_tensor = torch.zeros(C, pad_len, V, M)
             data["frames"] = torch.cat((x, pad_tensor), dim=1)
@@ -365,7 +360,7 @@ class PoseUniformSubsampling:
         self.temporal_dim = 1
 
     def __call__(self, data):
-        x = data["frames"]  # C, T, V, M
+        x = data["frames"]
         C, T, V, M = x.shape
         t = x.shape[self.temporal_dim]
         indices = torch.linspace(0, t - 1, self.num_frames)
@@ -423,7 +418,6 @@ class FrameSkipping:
 
 
 class AddClsToken:
-    # Warning: Do not add any transforms after this
     def __call__(self, data):
         x = data["frames"]
         C, T, V, M = x.shape

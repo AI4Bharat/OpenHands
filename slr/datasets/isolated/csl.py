@@ -1,11 +1,12 @@
 import os
 from glob import glob
 from sklearn.preprocessing import LabelEncoder
-from .base import BaseIsolatedDataset
+from .video_isolated_dataset import VideoIsolatedDataset
+from .data_readers import load_frames_from_video
 
 
-class CSLDataset(BaseIsolatedDataset):
-    def read_index_file(self, index_file_path, splits, modality="rgb"):
+class CSLDataset(VideoIsolatedDataset):
+    def read_index_file(self):
         """
         Format for word-level CSL dataset:
         1.  naming: P01_25_19_2._color.mp4
@@ -19,39 +20,37 @@ class CSLDataset(BaseIsolatedDataset):
                 test set: signer ID, [36, 37, ... ,48, 49]
         """
         self.glosses = []
-        with open(index_file_path, encoding="utf-8") as f:
-            for i, line in enumerate(f):
+        with open(self.split_file, encoding="utf-8") as f:
+            for line in f:
                 self.glosses.append(line.strip())
         if not self.glosses:
-            exit(f"ERROR: {index_file_path} is empty")
+            raise ValueError(
+                f"Expected variable glosses to be non-empty. {self.split_file} is empty"
+            )
 
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
-        if "rgb" in modality:
-            format = ".mp4"
-        elif "pose" in modality:
-            format = ".pkl"
-        else:
-            raise ValueError("Unsupported modality: " + modality)
-
-        video_files_path = os.path.join(self.root_dir, "**", "*" + format)
+        file_extension = ".pkl" if "pose" in self.modality else ".mp4"
+        video_files_path = os.path.join(self.root_dir, "*", "*" + file_extension)
         video_files = glob(video_files_path, recursive=True)
         if not video_files:
-            exit(f"No videos files found for: {video_files_path}")
+            raise ValueError(
+                f"Expected variable video_files to be non-empty. {video_files_path} is empty"
+            )
 
         for video_file in video_files:
             gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
             signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
 
-            if (signer_id <= 35 and "train" in splits) or (
-                signer_id > 35 and "test" in splits
+            if (signer_id <= 35 and "train" in self.splits) or (
+                signer_id > 35 and "test" in self.splits
             ):
                 instance_entry = video_file, gloss_id
                 self.data.append(instance_entry)
 
-    def read_data(self, index):
+    def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
-        imgs = self.load_frames_from_video(video_path)
+        imgs = load_frames_from_video(video_path)
         return imgs, label, video_name

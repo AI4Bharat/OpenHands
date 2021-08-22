@@ -1,11 +1,9 @@
 import pytorch_lightning as pl
 from omegaconf import OmegaConf
-import torchvision
 from pytorchvideo.transforms import transforms as ptv_transforms
 import albumentations as A
 import hydra
-import slr
-from slr.datasets.transforms import Albumentations3D
+from ..datasets import video_transforms
 
 
 class CommonDataModule(pl.LightningDataModule):
@@ -13,9 +11,6 @@ class CommonDataModule(pl.LightningDataModule):
     def __init__(self, data_cfg):
         super().__init__()
         self.data_cfg = data_cfg
-
-    def prepare_data(self):
-        return
 
     def setup(self, stage=None):
         self.train_dataset = self._instantiate_dataset(self.data_cfg.train_pipeline)
@@ -38,15 +33,15 @@ class CommonDataModule(pl.LightningDataModule):
         return dataloader
 
     def create_transform(self, transforms_cfg):
-        albu_transforms = A.Compose(
+        albumentation_transforms = A.Compose(
             [
                 *self.get_albumentations_transforms(transforms_cfg),
             ]
         )
 
-        transforms = torchvision.transforms.Compose(
+        transforms = video_transforms.Compose(
             [
-                Albumentations3D(albu_transforms),
+                video_transforms.Albumentations2DTo3D(albumentation_transforms),
                 *self.get_video_transforms(transforms_cfg),
                 *self.get_pytorchvideo_transforms(transforms_cfg),
             ]
@@ -54,10 +49,10 @@ class CommonDataModule(pl.LightningDataModule):
         return transforms
 
     def get_video_transforms(self, transforms_cfg):
-        video_transforms = []
+        transforms = []
         video_transforms_config = transforms_cfg.video
         if not video_transforms_config:
-            return video_transforms
+            return transforms
         video_transforms_config = OmegaConf.to_container(
             video_transforms_config, resolve=True
         )
@@ -65,17 +60,15 @@ class CommonDataModule(pl.LightningDataModule):
             for transform_name, transform_args in transform.items():
                 if not transform_args:
                     transform_args = {}
-                new_trans = getattr(slr.datasets.transforms, transform_name)(
-                    **transform_args
-                )
-                video_transforms.append(new_trans)
-        return video_transforms
+                new_trans = getattr(video_transforms, transform_name)(**transform_args)
+                transforms.append(new_trans)
+        return transforms
 
     def get_pytorchvideo_transforms(self, transforms_cfg):
-        video_transforms = []
+        transforms = []
         video_transforms_config = transforms_cfg.pytorchvideo
         if not video_transforms_config:
-            return video_transforms
+            return transforms
         video_transforms_config = OmegaConf.to_container(
             video_transforms_config, resolve=True
         )
@@ -84,15 +77,16 @@ class CommonDataModule(pl.LightningDataModule):
                 if not transform_args:
                     transform_args = {}
                 new_trans = getattr(ptv_transforms, transform_name)(**transform_args)
-                video_transforms.append(new_trans)
-        return video_transforms
+                transforms.append(new_trans)
+        return transforms
 
     def get_albumentations_transforms(self, transforms_cfg):
+        transforms = []
         albu_config = transforms_cfg.albumentations
         if not albu_config:
-            return []
+            return transforms
         albu_config = OmegaConf.to_container(albu_config, resolve=True)
-        albu_transforms = []
+        transforms = []
         for transform in albu_config:
             for transform_name, transform_args in transform.items():
                 transform = A.from_dict(
@@ -104,22 +98,19 @@ class CommonDataModule(pl.LightningDataModule):
                         }
                     }
                 )
-                albu_transforms.append(transform)
-        return albu_transforms
+                transforms.append(transform)
+        return transforms
 
     def _instantiate_dataset(self, pipeline_cfg):
-        if getattr(pipeline_cfg, "dataset", None):
-
-            transforms_cfg = pipeline_cfg.transforms
-            if transforms_cfg:
-                transforms = self.create_transform(transforms_cfg)
-            else:
-                transforms = None
-
-            dataset = hydra.utils.instantiate(
-                pipeline_cfg.dataset, transforms=transforms
-            )
+        transforms_cfg = pipeline_cfg.transforms
+        if transforms_cfg:
+            transforms = self.create_transform(transforms_cfg)
         else:
-            raise ValueError(f"{pipeline_cfg.dataset} not found")
+            transforms = None
 
+        dataset_cfg = getattr(pipeline_cfg, "dataset", None)
+        if dataset_cfg is None:
+            raise ValueError(f"{dataset_cfg} not found")
+
+        dataset = hydra.utils.instantiate(dataset_cfg, transforms=transforms)
         return dataset

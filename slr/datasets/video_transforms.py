@@ -5,6 +5,16 @@ import numpy as np
 import random
 
 
+class Compose:
+    def __init__(self, transforms):
+        self.transforms = transforms
+
+    def __call__(self, video):
+        for transform in self.transforms:
+            video = transform(video)
+        return video
+
+
 class THWC2TCHW(torch.nn.Module):
     def forward(self, x):
         return x.permute(0, 3, 1, 2)
@@ -25,7 +35,7 @@ class NumpyToTensor(torch.nn.Module):
         return torch.from_numpy(x / 255.0)
 
 
-class Albumentations3D:
+class Albumentations2DTo3D:
     def __init__(self, transforms):
         self.transforms = transforms
 

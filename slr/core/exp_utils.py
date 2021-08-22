@@ -14,7 +14,7 @@ def experiment_manager(trainer, cfg):
         configure_loggers(
             trainer,
             cfg.create_tensorboard_logger,
-            None,  # cfg.summary_writer_kwargs,
+            None,
             cfg.create_wandb_logger,
             cfg.wandb_logger_kwargs,
         )
