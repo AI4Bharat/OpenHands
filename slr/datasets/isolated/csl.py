@@ -2,10 +2,10 @@ import os
 from glob import glob
 from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
-
+from .data_readers import load_frames_from_video
 
 class CSLDataset(BaseIsolatedDataset):
-    def read_index_file(self, index_file_path, splits, modality="rgb"):
+    def read_index_file(self):
         """
         Format for word-level CSL dataset:
         1.  naming: P01_25_19_2._color.mp4
@@ -19,18 +19,18 @@ class CSLDataset(BaseIsolatedDataset):
                 test set: signer ID, [36, 37, ... ,48, 49]
         """
         self.glosses = []
-        with open(index_file_path, encoding="utf-8") as f:
+        with open(self.split_file, encoding="utf-8") as f:
             for i, line in enumerate(f):
                 self.glosses.append(line.strip())
         if not self.glosses:
-            exit(f"ERROR: {index_file_path} is empty")
+            exit(f"ERROR: {self.split_file} is empty")
 
         label_encoder = LabelEncoder()
         label_encoder.fit(self.glosses)
 
-        if "rgb" in modality:
+        if "rgb" in self.modality:
             format = ".mp4"
-        elif "pose" in modality:
+        elif "pose" in self.modality:
             format = ".pkl"
         else:
             raise ValueError("Unsupported modality: " + modality)
@@ -44,8 +44,8 @@ class CSLDataset(BaseIsolatedDataset):
             gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
             signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
 
-            if (signer_id <= 35 and "train" in splits) or (
-                signer_id > 35 and "test" in splits
+            if (signer_id <= 35 and "train" in self.splits) or (
+                signer_id > 35 and "test" in self.splits
             ):
                 instance_entry = video_file, gloss_id
                 self.data.append(instance_entry)
@@ -53,5 +53,5 @@ class CSLDataset(BaseIsolatedDataset):
     def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
-        imgs = self.load_frames_from_video(video_path)
+        imgs = load_frames_from_video(video_path)
         return imgs, label, video_name

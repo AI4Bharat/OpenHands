@@ -2,10 +2,10 @@ import os
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
-
+from .data_readers import load_frames_from_folder
 
 class GSLDataset(BaseIsolatedDataset):
-    def read_index_file(self, index_file_path, splits, modality="rgb"):
+    def read_index_file(self):
 
         # Read list of classes
         self.glosses = [
@@ -18,7 +18,7 @@ class GSLDataset(BaseIsolatedDataset):
 
         # `splits` is pointless here as we pass the split-specific CSV directly
         # CSV Columns: (video_path, gloss_name)
-        df = pd.read_csv(index_file_path, delimiter="|", header=None)
+        df = pd.read_csv(self.split_file, delimiter="|", header=None)
 
         for i in range(len(df)):
             gloss_cat = label_encoder.transform([df[1][i]])[0]
@@ -31,7 +31,7 @@ class GSLDataset(BaseIsolatedDataset):
         imgs = self.load_frames_from_folder(video_path)
         if imgs is None:
             # Some folders don't have images in ".jpg" extension.
-            imgs = self.load_frames_from_folder(video_path, pattern="glosses*")
+            imgs = load_frames_from_folder(video_path, pattern="glosses*")
             if not images:
                 exit(f"No images in {video_path}")
         return imgs, label, video_name

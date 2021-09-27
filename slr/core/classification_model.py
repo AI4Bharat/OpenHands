@@ -2,8 +2,8 @@ import torch
 import torch.nn.functional as F
 import torchmetrics
 import pytorch_lightning as pl
-from slr.models.loader import get_model
-from slr.core import losses
+from ..models.loader import get_model
+from .losses import CrossEntropyLoss, SmoothedCrossEntropyLoss
 from .data import CommonDataModule
 from .pose_data import PoseDataModule
 
@@ -59,7 +59,9 @@ class ClassificationModel(pl.LightningModule):
     def setup_loss(self, conf):
         loss = conf.loss
         assert loss in ["CrossEntropyLoss", "SmoothedCrossEntropyLoss"]
-        return getattr(losses, loss)()
+        if loss == "CrossEntropyLoss":
+            return CrossEntropyLoss
+        return SmoothedCrossEntropyLoss
 
     def setup_metrics(self):
         self.accuracy_metric = torchmetrics.functional.accuracy

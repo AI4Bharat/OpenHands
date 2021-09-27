@@ -4,7 +4,7 @@ import torch
 import torch.nn as nn
 
 from ..models.ssl.pretrainer import PreTrainingModel
-from ..datasets.ssl.mlm_dataset import PoseMLMDataset
+from ..datasets.ssl import PoseMLMDataset
 
 
 def masked_mse_loss(preds, targets, mask):

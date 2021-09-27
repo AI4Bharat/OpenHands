@@ -9,7 +9,7 @@ import cv2
 import os, sys
 from glob import glob
 from natsort import natsorted
-from slr.datasets.transforms import *
+from slr.datasets.video_transforms import *
 
 
 class BaseIsolatedDataset(torch.utils.data.Dataset):
@@ -25,18 +25,21 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
     ):
+        super().__init__()
 
         self.data = []
         self.glosses = []
+        self.split_file = split_file
         self.root_dir = root_dir
         self.class_mappings_file_path = class_mappings_file_path
-        self.read_index_file(split_file, splits, modality)
+        self.splits = splits
+        self.modality = modality
+        self.read_index_file()
 
         self.cv_resize_dims = cv_resize_dims
         self.pose_use_confidence_scores = pose_use_confidence_scores
         self.pose_use_z_axis = pose_use_z_axis
 
-        self.modality = modality
         if "rgb" in modality:
             self.in_channels = 3
             if modality == "rgbd":
@@ -73,7 +76,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                 )
                 self.transforms = torchvision.transforms.Compose(
                     [
-                        Albumentations3D(albumentation_transforms),
+                        Albumentations2DTo3D(albumentation_transforms),
                         NumpyToTensor(),
                         RandomTemporalSubsample(16),
                         torchvision.transforms.Resize(
@@ -119,59 +122,6 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
 
     def __len__(self):
         return len(self.data)
-
-    def load_frames_from_video(self, video_path, start_frame, end_frame):
-        """
-        Load the frames of the video between start and end frames.
-
-        Returns: numpy array of shape (T, H, W, C)
-        """
-        frames = []
-        vidcap = cv2.VideoCapture(video_path)
-        total_frames = vidcap.get(cv2.CAP_PROP_FRAME_COUNT)
-
-        # Temp fix
-        if total_frames < start_frame:
-            start_frame = 0
-        vidcap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
-        for offset in range(
-            min(int(end_frame - start_frame), int(total_frames - start_frame))
-        ):
-            success, img = vidcap.read()
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            frames.append(img)
-
-        return np.asarray(frames, dtype=np.float32)
-
-    def load_frames_from_video(self, video_path):
-        """
-        Load all frames from a video
-        """
-        frames = []
-
-        vidcap = cv2.VideoCapture(video_path)
-        while vidcap.isOpened():
-            success, img = vidcap.read()
-            if not success:
-                break
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            frames.append(img)
-
-        return np.asarray(frames, dtype=np.float32)
-
-    def load_frames_from_folder(self, frames_folder, pattern="*.jpg"):
-        images = natsorted(glob(f"{frames_folder}/{pattern}"))
-        if not images:
-            print(f"ERROR: No frames in folder: {frames_folder}", file=sys.stderr)
-            return None
-
-        frames = []
-        for img_path in images:
-            img = cv2.imread(img_path)
-            img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            frames.append(img)
-
-        return np.asarray(frames, dtype=np.float32)
 
     def load_pose_from_path(self, path):
         """

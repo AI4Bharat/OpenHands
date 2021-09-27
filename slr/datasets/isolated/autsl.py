@@ -1,10 +1,10 @@
 import os
 import pandas as pd
 from .base import BaseIsolatedDataset
-
+from .data_readers import load_frames_from_video
 
 class AUTSLDataset(BaseIsolatedDataset):
-    def read_index_file(self, index_file_path, splits, modality):
+    def read_index_file(self):
 
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
         self.id_to_glosses = dict(
@@ -12,11 +12,11 @@ class AUTSLDataset(BaseIsolatedDataset):
         )
         self.glosses = sorted(self.id_to_glosses.values())
 
-        df = pd.read_csv(index_file_path, header=None)
+        df = pd.read_csv(self.split_file, header=None)
 
-        if modality == "rgb":
+        if self.modality == "rgb":
             file_suffix = "color.mp4"
-        elif modality == "pose":
+        elif self.modality == "pose":
             file_suffix = "color.pkl"
 
         for i in range(len(df)):
@@ -26,5 +26,5 @@ class AUTSLDataset(BaseIsolatedDataset):
     def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
-        imgs = self.load_frames_from_video(video_path)
+        imgs = load_frames_from_video(video_path)
         return imgs, label, video_name

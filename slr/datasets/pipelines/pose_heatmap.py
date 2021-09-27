@@ -1,18 +1,21 @@
 import numpy as np
 
 
-class PoseSelect:
-    def __init__(self, pose_indexes=None):
-        self.pose_indexes = pose_indexes
+def select_posepoints(poses, confs):
+    body_kps = np.concatenate(
+        [poses[:, :15, :], poses[:, 501:, :]], axis=1
+    )  # Removing leg and face mesh points
+    confs = np.concatenate([confs[:, :15], confs[:, 501:]], axis=1)
+    # TODO: Add support for filter by frames, keypoints
+    return body_kps, confs
 
-    def __call__(self, poses, confs):
-        body_kps = np.concatenate(
-            [poses[:, :15, :], poses[:, 501:, :]], axis=1
-        )  # Removing leg and face mesh points
-        confs = np.concatenate([confs[:, :15], confs[:, 501:]], axis=1)
-        # TODO: Add support for filter by frames, keypoints
-        return body_kps, confs
 
+def resize_keypoints(data, shape=(64, 64)):
+    img_w, img_h = data["img_shape"]
+    scale_factor = (shape[0] / img_w, shape[1] / img_h)
+    data["img_shape"] = shape
+    data["keypoint"] = data["keypoint"] * scale_factor
+    return data
 
 class GeneratePoseHeatMap:
     """Generate pseudo heatmaps based on joint coordinates and confidence.
@@ -68,7 +71,9 @@ class GeneratePoseHeatMap:
         self.right_kp = right_kp
         self.skeletons = skeletons
 
-    def generate_a_heatmap(self, img_h, img_w, centers, sigma, max_values):
+    def generate_heatmap_for_single_frame_single_keypoint(
+        self, img_h, img_w, centers, sigma, max_values
+    ):
         """Generate pseudo heatmap for one keypoint in one frame.
         Args:
             img_h (int): The height of the heatmap.
@@ -108,7 +113,7 @@ class GeneratePoseHeatMap:
 
         return heatmap
 
-    def generate_a_limb_heatmap(
+    def generate_limb_heatmap_for_single_frame(
         self, img_h, img_w, starts, ends, sigma, start_values, end_values
     ):
         """Generate pseudo heatmap for one limb in one frame.
@@ -165,7 +170,7 @@ class GeneratePoseHeatMap:
             d2_ab = (start[0] - end[0]) ** 2 + (start[1] - end[1]) ** 2
 
             if d2_ab < 1:
-                full_map = self.generate_a_heatmap(
+                full_map = self.generate_heatmap_for_single_frame_single_keypoint(
                     img_h, img_w, [start], sigma, [start_value]
                 )
                 heatmap = np.maximum(heatmap, full_map)
@@ -194,7 +199,7 @@ class GeneratePoseHeatMap:
 
         return heatmap
 
-    def generate_heatmap(self, img_h, img_w, kps, sigma, max_values):
+    def generate_heatmap_for_single_frame(self, img_h, img_w, kps, sigma, max_values):
         """Generate pseudo heatmap for all keypoints and limbs in one frame (if
         needed).
         Args:
@@ -211,7 +216,7 @@ class GeneratePoseHeatMap:
         if self.with_kp:
             num_kp = kps.shape[1]
             for i in range(num_kp):
-                heatmap = self.generate_a_heatmap(
+                heatmap = self.generate_heatmap_for_single_frame_single_keypoint(
                     img_h, img_w, kps[:, i], sigma, max_values[:, i]
                 )
                 heatmaps.append(heatmap)
@@ -224,14 +229,14 @@ class GeneratePoseHeatMap:
 
                 start_values = max_values[:, start_idx]
                 end_values = max_values[:, end_idx]
-                heatmap = self.generate_a_limb_heatmap(
+                heatmap = self.generate_limb_heatmap_for_single_frame(
                     img_h, img_w, starts, ends, sigma, start_values, end_values
                 )
                 heatmaps.append(heatmap)
 
         return np.stack(heatmaps, axis=-1)
 
-    def gen_an_aug(self, results):
+    def generate_heatmap(self, results):
         """Generate pseudo heatmaps for all frames.
         Args:
             results (dict): The dictionary that contains all info of a sample.
@@ -260,40 +265,29 @@ class GeneratePoseHeatMap:
             if self.use_score:
                 max_values = kpscores
 
-            hmap = self.generate_heatmap(img_h, img_w, kps, sigma, max_values)
+            hmap = self.generate_heatmap_for_single_frame(
+                img_h, img_w, kps, sigma, max_values
+            )
             imgs.append(hmap)
 
         return imgs
 
     def __call__(self, results):
-        results["imgs"] = np.stack(self.gen_an_aug(results))
+        results["imgs"] = np.stack(self.generate_heatmap(results))
         return results
-
-
-class ResizeKPS:
-    def __init__(self, shape=(64, 64)):
-        self.shape = shape
-
-    def __call__(self, data):
-        img_w, img_h = data["img_shape"]
-        scale_factor = (self.shape[0] / img_w, self.shape[1] / img_h)
-        data["img_shape"] = self.shape
-        data["keypoint"] = data["keypoint"] * scale_factor
-        return data
 
 
 if __name__ == "__main__":
     path = "datasets/AUTSL/train_poses/signer0_sample1000_color.npy"
     poses = np.load(path)
     poses, confs = poses[:, :, :2], poses[:, :, 3]
-    pose_selected = PoseSelect()(poses, confs)
+    pose_selected = select_posepoints(poses, confs)
     sel_kps, sel_cfs = pose_selected
-    d = {}
-    d["keypoint"] = np.expand_dims(sel_kps, 0)
-    d["keypoint_score"] = np.expand_dims(sel_cfs, 0)
-    d["img_shape"] = (512, 512)
-    resizer = ResizeKPS()
-    out = resizer(d)
+    data = {}
+    data["keypoint"] = np.expand_dims(sel_kps, 0)
+    data["keypoint_score"] = np.expand_dims(sel_cfs, 0)
+    data["img_shape"] = (512, 512)
+    resizer = resize_keypoints(data)
     skeleton_conn = (
         (
             (0, 4),
@@ -354,5 +348,5 @@ if __name__ == "__main__":
             (34, 35),
         ),
     )
-    generator = GeneratePoseHeatMap(skeleton=skeleton_conn, with_limb=True)
-    out = generator(d)
+    generator = GeneratePoseHeatMap(skeletons=skeleton_conn, with_limb=True)
+    out = generator(data)

@@ -158,7 +158,7 @@ class PoseSelect:
 
     def __init__(self, preset=None, pose_indexes=[]):
         if preset:
-            self.pose_indexes = PoseSelect.KEYPOINT_PRESETS[preset]
+            self.pose_indexes = self.KEYPOINT_PRESETS[preset]
         elif pose_indexes:
             self.pose_indexes = pose_indexes
         else:
@@ -179,7 +179,7 @@ class ShearTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for ShearTransform"
         x = x.permute(1, 2, 0) #CTV->TVC
         shear_matrix = torch.eye(2)
         shear_matrix[0][1] = torch.tensor(
@@ -196,7 +196,7 @@ class RotatationTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for RotationTransform"
         x = x.permute(1, 2, 0) #CTV->TVC
         rotation_angle = torch.tensor(
             np.random.normal(loc=0, scale=self.rotation_std, size=1)[0]
@@ -218,7 +218,7 @@ class ScaleTransform:
 
     def __call__(self, data):
         x = data["frames"]
-        assert x.shape[0] == 2, "Only 2 channels inputs supported"
+        assert x.shape[0] == 2, "Only 2 channels inputs supported for ScaleTransform"
 
         x = x.permute(1, 2, 0) #CTV->TVC
         scale_matrix = torch.eye(2)
@@ -230,7 +230,6 @@ class ScaleTransform:
         return data
 
 
-###################################
 class CenterAndScaleNormalize:
     REFERENCE_PRESETS = {
         "shoulder_mediapipe_holistic_minimal_27": [3, 4],
@@ -327,9 +326,6 @@ class RandomMove:
 
         data["frames"] = x
         return data
-
-
-####################################
 
 
 class PoseTemporalSubsample:
