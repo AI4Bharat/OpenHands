@@ -13,7 +13,6 @@ class ClassificationModel(pl.LightningModule):
         super().__init__()
         self.cfg = cfg
         self.datamodule = self.create_datamodule(cfg.data)
-        self.datamodule.prepare_data()
         self.datamodule.setup()
 
         self.model = self.create_model(cfg.model)
@@ -51,11 +50,11 @@ class ClassificationModel(pl.LightningModule):
     def create_datamodule(self, cfg):
         if cfg.modality == "video":
             return CommonDataModule(cfg)
-        elif cfg.modality == "pose":
+        if cfg.modality == "pose":
             return PoseDataModule(cfg)
 
     def create_model(self, cfg):
-        return get_model(cfg, self.datamodule.train_dataset)
+        return get_model(cfg, self.datamodule.train_dataset.in_channels, self.datamodule.train_dataset.num_class)
 
     def setup_loss(self, conf):
         loss = conf.loss
@@ -95,6 +94,7 @@ class ClassificationModel(pl.LightningModule):
             return
 
         ckpt_path = self.cfg["pretrained"]
+        print(f"Loading checkpoint from: {ckpt_path}")
         ckpt = torch.load(ckpt_path, map_location=map_location)
         self.load_state_dict(ckpt["state_dict"], strict=False)
         del ckpt

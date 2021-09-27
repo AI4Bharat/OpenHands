@@ -16,7 +16,7 @@ class MSASLDataset(BaseIsolatedDataset):
         self.glosses = list(set(sorted(i["text"] for i in metadata)))
         self.id_to_glosses = {i["label"]: i["text"] for i in metadata}
 
-    def read_data(self, index):
+    def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, "videos", video_name)
         imgs = self.load_frames_from_video(video_path)

@@ -70,9 +70,9 @@ class BERT(nn.Module):
         self.l2 = nn.Linear(in_features=config.hidden_size, out_features=num_class)
 
     def forward(self, x):
-        x = x.transpose(
-            0, 1
-        )  # TODO: Unnecessarily redundant reshaping, fix a standard shape
+        """
+        x.shape: (batch_size, T, n_features)
+        """
         x = self.l1(x)
         if self.cls_token:
             cls_embed = self.cls_param.unsqueeze(0).repeat(x.shape[0], 1, 1)

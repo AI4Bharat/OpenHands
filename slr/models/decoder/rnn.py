@@ -32,13 +32,11 @@ class RNNClassifier(nn.Module):
 
     def forward(self, x):
         """
-        x.shape: (T, batch_size, n_features)
+        x.shape: (batch_size, T, n_features)
         """
         self.rnn.flatten_parameters()
 
-        # Batch first
-        cnn_embeds = x.transpose(0, 1)
-        out, _ = self.rnn(cnn_embeds)
+        out, _ = self.rnn(x)
 
         if self.use_attention:
             out = self.fc(self.attn_block(out))

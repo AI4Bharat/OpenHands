@@ -28,7 +28,7 @@ class CNN3D(nn.Module):
 
     def forward(self, x):
         x = self.backbone(x)
-        return x
+        return x.transpose(0, 1) # Batch-first
 
     def get_3d_backbone(
         self,

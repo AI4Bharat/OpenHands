@@ -14,9 +14,6 @@ class CommonDataModule(pl.LightningDataModule):
         super().__init__()
         self.data_cfg = data_cfg
 
-    def prepare_data(self):
-        return
-
     def setup(self, stage=None):
         self.train_dataset = self._instantiate_dataset(self.data_cfg.train_pipeline)
         self.valid_dataset = self._instantiate_dataset(self.data_cfg.valid_pipeline)

@@ -138,20 +138,16 @@ class STGCN(nn.Module):
             self.edge_importance = [1] * len(self.st_gcn_networks)
 
     def forward(self, x):
-        if x.ndim == 4:
-            x = x.unsqueeze(-1)
-
-        N, C, T, V, M = x.size()
-        x = x.permute(0, 4, 3, 1, 2).contiguous()
-        x = x.view(N * M, V * C, T)
+        N, C, T, V = x.size()
+        x = x.permute(0, 3, 1, 2).contiguous() # NCTV -> NVCT
+        x = x.view(N, V * C, T)
         x = self.data_bn(x)
-        x = x.view(N, M, V, C, T)
-        x = x.permute(0, 1, 3, 4, 2).contiguous()
-        x = x.view(N * M, C, T, V)
+        x = x.view(N, V, C, T)
+        x = x.permute(0, 2, 3, 1).contiguous() # NVCT -> NCTV
 
         for gcn, importance in zip(self.st_gcn_networks, self.edge_importance):
             x, _ = gcn(x, self.A * importance)
 
         x = F.avg_pool2d(x, x.size()[2:])
-        x = x.view(N, M, -1).mean(dim=1)
+        x = x.view(N, -1)
         return x

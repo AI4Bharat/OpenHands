@@ -150,9 +150,7 @@ class SGN(nn.Module):
         nn.init.constant_(self.gcn3.w.cnn.weight, 0)
 
     def forward(self, input):
-        # B, C, T, V, M
-        assert input.shape[-1] == 1, "Max of 1 persons supported"
-        input = input.squeeze(-1)
+        # B, C, T, V
         input = input.permute(0, 2, 3, 1)
 
         bs, step, num_joints, dim = input.size()

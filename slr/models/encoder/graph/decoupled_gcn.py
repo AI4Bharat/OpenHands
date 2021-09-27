@@ -370,20 +370,15 @@ class DecoupledGCN(nn.Module):
         )
 
         bn_init(self.data_bn, 1)
-        # self.fc = nn.Linear(256, num_class)
-        # nn.init.normal_(self.fc.weight, 0, math.sqrt(2.0 / num_class))
 
     def forward(self, x, keep_prob=0.9):
-        if x.ndim == 4:
-            x = x.unsqueeze(-1)
-        N, C, T, V, M = x.size()
-        x = x.permute(0, 4, 3, 1, 2).contiguous().view(N, M * V * C, T)
+        N, C, T, V = x.size()
+        x = x.permute(0, 3, 1, 2).contiguous().view(N, V * C, T)
         x = self.data_bn(x)
         x = (
-            x.view(N, M, V, C, T)
-            .permute(0, 1, 3, 4, 2)
+            x.view(N, V, C, T)
+            .permute(0, 2, 3, 1) # NVCT -> NCTV
             .contiguous()
-            .view(N * M, C, T, V)
         )
         x = self.l1(x, 1.0)
         x = self.l2(x, 1.0)
@@ -395,10 +390,8 @@ class DecoupledGCN(nn.Module):
         x = self.l8(x, keep_prob)
         x = self.l9(x, keep_prob)
         x = self.l10(x, keep_prob)
-        # N*M,C,T,V
+        # x.shape: (N,C,T,V)
         c_new = x.size(1)
 
-        # x = x.view(N, M, c_new, -1)
-        x = x.reshape(N, M, c_new, -1)
-        return x.mean(3).mean(1)
-        # return self.fc(x)
+        x = x.reshape(N, c_new, -1)
+        return x.mean(2)

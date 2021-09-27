@@ -29,7 +29,7 @@ class INCLUDEDataset(BaseIsolatedDataset):
         if not self.data:
             exit("No data found")
 
-    def read_data(self, index):
+    def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
         imgs = self.load_frames_from_video(video_path)

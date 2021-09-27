@@ -174,6 +174,9 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         """
         kps.shape: (T, V, C)
         """
+        
+        if self.mask_ratio == 0.0:
+            return 0, kps, 0
         emb_dim = kps.shape[-2:]
         data = copy.deepcopy(kps)  # Masked input data for model
 

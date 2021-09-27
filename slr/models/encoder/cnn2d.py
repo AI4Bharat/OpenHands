@@ -19,4 +19,4 @@ class CNN2D(nn.Module):
             out = out.view(out.shape[0], -1)
             cnn_embeds.append(out)
 
-        return torch.stack(cnn_embeds, dim=0)
+        return torch.stack(cnn_embeds, dim=0).transpose(0, 1) # Batch-first

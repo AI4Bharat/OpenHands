@@ -28,7 +28,7 @@ class WLASLDataset(BaseIsolatedDataset):
         if not self.data:
             exit(f"ERROR: No {splits} data found")
 
-    def read_data(self, index):
+    def read_video_data(self, index):
         video_name, label, start_frame, end_frame = self.data[index]
         video_path = os.path.join(self.root_dir, video_name + ".mp4")
         imgs = self.load_frames_from_video(video_path, start_frame, end_frame)

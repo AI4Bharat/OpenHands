@@ -10,6 +10,9 @@ class FC(nn.Module):
         nn.init.normal_(self.classifier.weight, 0, math.sqrt(2.0 / num_class))
 
     def forward(self, x):
+        '''
+        x.shape: (batch_size, n_features)
+        '''
         x = self.dropout(x)
         x = self.classifier(x)
         return x

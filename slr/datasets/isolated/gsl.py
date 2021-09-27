@@ -25,7 +25,7 @@ class GSLDataset(BaseIsolatedDataset):
             instance_entry = df[0][i], gloss_cat
             self.data.append(instance_entry)
 
-    def read_data(self, index):
+    def read_video_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
         imgs = self.load_frames_from_folder(video_path)

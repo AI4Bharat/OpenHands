@@ -44,15 +44,15 @@ class PoseRandomShift:
 
     def __call__(self, data):
         x = data["frames"]
-        C, T, V, M = x.shape
+        C, T, V = x.shape
         data_shifted = torch.zeros_like(x)
-        valid_frame = ((x != 0).sum(dim=3).sum(dim=2).sum(dim=0) > 0).long()
+        valid_frame = ((x != 0).sum(dim=2).sum(dim=0) > 0).long()
         begin = valid_frame.argmax()
         end = len(valid_frame) - torch.flip(valid_frame, dims=[0]).argmax()
 
         size = end - begin
         bias = random.randint(0, T - size)
-        data_shifted[:, bias : bias + size, :, :] = x[:, begin:end, :, :]
+        data_shifted[:, bias : bias + size, :] = x[:, begin:end, :]
 
         data["frames"] = data_shifted
         return data
@@ -167,7 +167,7 @@ class PoseSelect:
     def __call__(self, data):
 
         x = data["frames"]
-        x = x[:, :, self.pose_indexes, :]
+        x = x[:, :, self.pose_indexes]
         data["frames"] = x
         return data
 
@@ -180,13 +180,13 @@ class ShearTransform:
     def __call__(self, data):
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported"
-        x = x.permute(1, 3, 2, 0)
+        x = x.permute(1, 2, 0) #CTV->TVC
         shear_matrix = torch.eye(2)
         shear_matrix[0][1] = torch.tensor(
             np.random.normal(loc=0, scale=self.shear_std, size=1)[0]
         )
         res = torch.matmul(x, shear_matrix)
-        data["frames"] = res.permute(3, 0, 2, 1)
+        data["frames"] = res.permute(2, 0, 1) #TVC->CTV
         return data
 
 
@@ -197,7 +197,7 @@ class RotatationTransform:
     def __call__(self, data):
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported"
-        x = x.permute(1, 3, 2, 0)
+        x = x.permute(1, 2, 0) #CTV->TVC
         rotation_angle = torch.tensor(
             np.random.normal(loc=0, scale=self.rotation_std, size=1)[0]
         )
@@ -208,7 +208,7 @@ class RotatationTransform:
             dtype=torch.float32,
         )
         res = torch.matmul(x, rotation_matrix)
-        data["frames"] = res.permute(3, 0, 2, 1)
+        data["frames"] = res.permute(2, 0, 1) #TVC->CTV
         return data
 
 
@@ -220,13 +220,13 @@ class ScaleTransform:
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported"
 
-        x = x.permute(1, 3, 2, 0)
+        x = x.permute(1, 2, 0) #CTV->TVC
         scale_matrix = torch.eye(2)
         scale_matrix[1][1] = torch.tensor(
             np.random.normal(loc=0, scale=self.scale_std, size=1)[0]
         )
         res = torch.matmul(x, scale_matrix)
-        data["frames"] = res.permute(3, 0, 2, 1)
+        data["frames"] = res.permute(2, 0, 1) #TVC->CTV
         return data
 
 
@@ -263,23 +263,20 @@ class CenterAndScaleNormalize:
 
     def __call__(self, data):
         x = data["frames"]
-        C, T, V, M = x.shape
-        x = x.permute(3, 1, 2, 0)
+        C, T, V = x.shape
+        x = x.permute(1, 2, 0) #CTV->TVC
 
         if self.frame_level:
-            temp = x.reshape(M * T, V, C)
-            for ind in range(temp.shape[0]):
-                center, scale = self.calc_center_and_scale_for_one_skeleton(temp[ind])
-                temp[ind] -= center
-                temp[ind] *= scale
-            x = temp.reshape(M, T, V, C)
+            for ind in range(x.shape[0]):
+                center, scale = self.calc_center_and_scale_for_one_skeleton(x[ind])
+                x[ind] -= center
+                x[ind] *= scale
         else:
             center, scale = self.calc_center_and_scale(x)
             x = x - center
             x = x * scale
 
-        x = x.permute(3, 1, 2, 0)
-        data["frames"] = x
+        data["frames"] = x.permute(2, 0, 1) #TVC->CTV
         return data
 
     def calc_center_and_scale_for_one_skeleton(self, x):
@@ -293,7 +290,7 @@ class CenterAndScaleNormalize:
         return center, scale
 
     def calc_center_and_scale(self, x):
-        transposed_x = x.permute(2, 0, 1, 3)
+        transposed_x = x.permute(1, 0, 2) # TVC -> VTC
         ind1, ind2 = self.reference_point_indexes
         points1 = transposed_x[ind1]
         points2 = transposed_x[ind2]
@@ -315,7 +312,7 @@ class RandomMove:
         self.move_range = torch.arange(*move_range, move_step)
 
     def __call__(self, data):
-        x = data["frames"]  # C, T, V, M
+        x = data["frames"]  # C, T, V
         num_frames = x.shape[1]
 
         t_x = np.random.choice(self.move_range, 2)
@@ -342,7 +339,7 @@ class PoseTemporalSubsample:
 
     def __call__(self, data):
         x = data["frames"]
-        C, T, V, M = x.shape
+        C, T, V = x.shape
 
         t = x.shape[self.temporal_dim]
         if t >= self.num_frames:
@@ -353,7 +350,7 @@ class PoseTemporalSubsample:
         else:
             # Padding
             pad_len = self.num_frames - t
-            pad_tensor = torch.zeros(C, pad_len, V, M)
+            pad_tensor = torch.zeros(C, pad_len, V)
             data["frames"] = torch.cat((x, pad_tensor), dim=1)
 
         return data
@@ -365,8 +362,8 @@ class PoseUniformSubsampling:
         self.temporal_dim = 1
 
     def __call__(self, data):
-        x = data["frames"]  # C, T, V, M
-        C, T, V, M = x.shape
+        x = data["frames"]
+        C, T, V = x.shape
         t = x.shape[self.temporal_dim]
         indices = torch.linspace(0, t - 1, self.num_frames)
         indices = torch.clamp(indices, 0, t - 1).long()
@@ -374,7 +371,7 @@ class PoseUniformSubsampling:
         if x.shape[self.temporal_dim] < self.num_frames:
             # Pad
             pad_len = self.num_frames - x.shape[self.temporal_dim]
-            pad_tensor = torch.zeros(C, pad_len, V, M)
+            pad_tensor = torch.zeros(C, pad_len, V)
             data["frames"] = torch.cat((x, pad_tensor), dim=self.temporal_dim)
         else:
             data["frames"] = x
@@ -426,7 +423,7 @@ class AddClsToken:
     # Warning: Do not add any transforms after this
     def __call__(self, data):
         x = data["frames"]
-        C, T, V, M = x.shape
-        x = torch.cat([torch.ones(C, 1, V, M), x], dim=1)
+        C, T, V = x.shape
+        x = torch.cat([torch.ones(C, 1, V), x], dim=1)
         data["frames"] = x
         return data

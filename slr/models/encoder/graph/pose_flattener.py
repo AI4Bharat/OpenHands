@@ -3,16 +3,16 @@ import torch.nn as nn
 
 
 class PoseFlattener(nn.Module):
-    def __init__(self, in_channels=3, num_points=27, num_persons=1):
+    def __init__(self, in_channels=3, num_points=27):
         super().__init__()
-        self.n_out_features = in_channels * num_points * num_persons
+        self.n_out_features = in_channels * num_points
 
     def forward(self, x):
         """
-        x.shape: (B, C, T, V, M)
+        x.shape: (B, C, T, V)
 
         Returns:
-        out.shape: (T, B, C*V*M)
+        out.shape: (B, T, C*V)
         """
-        x = x.permute(2, 0, 1, 3, 4)
+        x = x.permute(0, 2, 1, 3)
         return torch.flatten(x, start_dim=2)

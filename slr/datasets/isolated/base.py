@@ -185,13 +185,12 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_data = pickle.load(open(path, "rb"))
         return pose_data
 
-    def read_data(self, index):
-        # TODO: Rename as read_video_data() ?
+    def read_video_data(self, index):
         raise NotImplementedError
         # return imgs, label, video_id
 
     def __getitem_video(self, index):
-        imgs, label, video_id = self.read_data(index)
+        imgs, label, video_id = self.read_video_data(index)
         # imgs shape: (T, H, W, C)
 
         if self.transforms is not None:
@@ -202,9 +201,10 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
     @staticmethod
     def collate_fn(batch_list):
         max_frames = max([x["frames"].shape[1] for x in batch_list])
-
+        
+        # Pad the temporal dimension to `max_frames` for all videos
         frames = [
-            F.pad(x["frames"], (0, 0, 0, 0, 0, max_frames - x["frames"].shape[1], 0, 0))
+            F.pad(x["frames"], (0, 0, 0, max_frames - x["frames"].shape[1], 0, 0))
             for i, x in enumerate(batch_list)
         ]
 
@@ -217,6 +217,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
     def read_pose_data(self, index):
         video_name, label = self.data[index]
         video_path = os.path.join(self.root_dir, video_name)
+        # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
+        # Otherwise, just remove the video extension
         pose_path = (
             video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
         )
@@ -231,7 +233,6 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         C - num channels
         T - num frames
         V - num vertices
-        M - num persons
         """
         data, path = self.read_pose_data(index)
         # imgs shape: (T, V, C)
@@ -244,13 +245,9 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         if self.pose_use_confidence_scores:
             kps = np.concatenate([kps, np.expand_dims(scores, axis=-1)], axis=-1)
 
-        # Expand to 4 dim for person dim
-        if kps.ndim == 3:
-            kps = np.expand_dims(kps, axis=-1)
-
         kps = np.asarray(kps, dtype=np.float32)
         data = {
-            "frames": torch.tensor(kps).permute(2, 0, 1, 3),  # (C, T, V, M )
+            "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
         }
 

@@ -20,12 +20,11 @@ class PoseDataModule(pl.LightningDataModule):
         super().__init__()
         self.data_cfg = data_cfg
 
-    def prepare_data(self):
-        return
-
     def setup(self, stage=None):
         self.train_dataset = self._instantiate_dataset(self.data_cfg.train_pipeline)
         self.valid_dataset = self._instantiate_dataset(self.data_cfg.valid_pipeline)
+        print("Train set size:", len(self.train_dataset))
+        print("Valid set size:", len(self.valid_dataset))
 
     def train_dataloader(self):
         dataloader = hydra.utils.instantiate(
@@ -56,6 +55,6 @@ class PoseDataModule(pl.LightningDataModule):
                 pipeline_cfg.dataset, transforms=transforms
             )
         else:
-            raise ValueError(f"{pipeline_cfg.dataset} not found")
+            raise ValueError(f"`dataset` section missing in pipeline config")
 
         return dataset
