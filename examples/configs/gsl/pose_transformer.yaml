@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.GSLDataset
+            _target_: openhands.datasets.isolated.GSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/train_greek_iso.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
             class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/iso_classes.csv"
@@ -35,7 +35,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.GSLDataset
+            _target_: openhands.datasets.isolated.GSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/test_greek_iso.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
             class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/iso_classes.csv"

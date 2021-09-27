@@ -9,7 +9,7 @@ import cv2
 import os, sys
 from glob import glob
 from natsort import natsorted
-from slr.datasets.video_transforms import *
+from ..video_transforms import *
 
 
 class BaseIsolatedDataset(torch.utils.data.Dataset):

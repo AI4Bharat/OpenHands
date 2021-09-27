@@ -2,9 +2,9 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
-            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             modality: "pose"
             splits: "train"
 
@@ -28,9 +28,9 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
-            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             modality: "pose"
             splits: "test"
 

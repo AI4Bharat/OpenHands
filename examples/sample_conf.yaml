@@ -5,7 +5,7 @@ data:
     modality: "video"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLDataset
+            _target_: openhands.datasets.isolated.AUTSLDataset
             split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
             root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
             splits: "train"
@@ -42,7 +42,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.AUTSLDataset
+            _target_: openhands.datasets.isolated.AUTSLDataset
             split_file: "/home/prem/data-disk/datasets/AUTSL/small_train_labels.csv"
             root_dir: "/home/prem/data-disk/datasets/AUTSL/train"
             cv_resize_dims: (256, 256)

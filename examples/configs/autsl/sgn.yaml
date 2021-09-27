@@ -2,7 +2,7 @@ data:
   modality: "pose"
   train_pipeline:
     dataset:
-      _target_: slr.datasets.isolated.AUTSLDataset
+      _target_: openhands.datasets.isolated.AUTSLDataset
       split_file: "/home/prem/data-disk/datasets/AUTSL/train_labels.csv"
       root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/train_poses/new_train_poses"
       modality: "pose"
@@ -59,7 +59,7 @@ data:
 
   valid_pipeline:
     dataset:
-      _target_: slr.datasets.isolated.AUTSLDataset
+      _target_: openhands.datasets.isolated.AUTSLDataset
       split_file: "/home/prem/data-disk/datasets/AUTSL/validation_labels.csv"
       root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/val_poses/new_val_poses/"
       modality: "pose"

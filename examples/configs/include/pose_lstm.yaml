@@ -2,13 +2,15 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include50.csv"
+            _target_: openhands.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "train"
             modality: "pose"
 
         transforms:
+            - PoseSelect:
+                preset: mediapipe_holistic_minimal_27
             # - PoseSelect:
             #       pose_indexes:
             #           [
@@ -62,13 +64,15 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include50.csv"
+            _target_: openhands.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "test"
             modality: "pose"
 
         transforms:
+            - PoseSelect:
+                preset: mediapipe_holistic_minimal_27
             # - PoseSelect:
             #       pose_indexes:
             #           [
@@ -118,7 +122,7 @@ model:
     encoder:
         type: pose-flattener
         params:
-            num_points: 75
+            num_points: 27
     decoder:
         type: rnn
         params:

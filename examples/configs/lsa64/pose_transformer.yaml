@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.LSA64Dataset
+            _target_: openhands.datasets.isolated.LSA64Dataset
             split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "train"
@@ -34,7 +34,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.LSA64Dataset
+            _target_: openhands.datasets.isolated.LSA64Dataset
             split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "test"

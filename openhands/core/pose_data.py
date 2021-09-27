@@ -1,7 +1,7 @@
 import pytorch_lightning as pl
 from omegaconf import OmegaConf
 import hydra
-from slr.datasets import pose_transforms
+from ..datasets import pose_transforms
 
 
 def create_transform(transforms_cfg):

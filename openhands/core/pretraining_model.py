@@ -132,7 +132,7 @@ class PosePretrainingModel(pl.LightningModule):
     def configure_optimizers(self):
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.learning_rate)
         lr_scheduler = {
-            "scheduler": torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=10)
+            "scheduler": torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=25)
         }
         return [optimizer], [lr_scheduler]
 
@@ -152,6 +152,7 @@ class PosePretrainingModel(pl.LightningModule):
             max_epochs=self.max_epochs,
             default_root_dir=self.output_path,
             # logger=self.logger,
+            # resume_from_checkpoint="/home/gokulnc/SLR/outputs/2021-07-27/05-56-56/model-outputs/epoch=33-step=21011.ckpt",
             logger=pl.loggers.WandbLogger(),
             gradient_clip_val=self.hparams.get("gradient_clip_val", 1),
             callbacks=[

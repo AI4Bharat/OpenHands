@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
+            _target_: openhands.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include50.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             modality: "pose"
@@ -28,7 +28,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
+            _target_: openhands.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include50.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             modality: "pose"

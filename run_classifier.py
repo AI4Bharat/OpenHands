@@ -1,7 +1,7 @@
 import hydra
 import pytorch_lightning as pl
-from slr.core.classification_model import ClassificationModel
-from slr.core.exp_utils import experiment_manager
+from openhands.core.classification_model import ClassificationModel
+from openhands.core.exp_utils import experiment_manager
 
 
 @hydra.main(config_path="./", config_name="sample_conf")

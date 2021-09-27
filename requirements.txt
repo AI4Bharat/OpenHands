@@ -4,7 +4,7 @@ opencv-python
 pandas
 python-box
 scikit-learn
-torch
+torch>=1.7.1
 torchvision
 
 albumentations
@@ -13,3 +13,4 @@ pytorch-lightning
 timm
 transformers
 hydra-core
+h5py>=3.2.0

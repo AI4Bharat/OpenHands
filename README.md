@@ -1,4 +1,4 @@
-# Sign Language Recognition Library
+## 👐OpenHands: Sign Language Recognition Library
 
 - Currently supports only Isolated (Word-level) SLR
 

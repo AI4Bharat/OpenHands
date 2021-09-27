@@ -4,9 +4,9 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.WLASLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/splits/all.json"
-            root_dir: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/poses_pickle"
+            _target_: openhands.datasets.isolated.WLASLDataset
+            split_file: /home/gokulnc/data-disk/datasets/American/WLASL2000/splits/asl2000.json
+            root_dir: /home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle
             splits: "train"
             modality: "pose"
 
@@ -38,9 +38,9 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.WLASLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/splits/all.json"
-            root_dir: "/home/gokulnc/data-disk/datasets/American/WL-ASL/WLASL2000/poses_pickle"
+            _target_: openhands.datasets.isolated.WLASLDataset
+            split_file: /home/gokulnc/data-disk/datasets/American/WLASL2000/splits/asl2000.json
+            root_dir: /home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle
             splits: "test"
             modality: "pose"
 

@@ -1,5 +1,5 @@
 import hydra
-from slr.core.pretraining_model import PosePretrainingModel
+from openhands.core.pretraining_model import PosePretrainingModel
 
 
 @hydra.main(config_path="./", config_name="pretrain_bert")

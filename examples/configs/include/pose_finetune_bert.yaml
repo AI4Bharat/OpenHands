@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
+            _target_: openhands.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "train"
@@ -25,7 +25,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.INCLUDEDataset
+            _target_: openhands.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "test"
@@ -48,10 +48,10 @@ data:
 
 model:
     encoder:
-        type: pretrained_encoder
+        type: pretrained_bert
         params:
-            cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_bert.yaml
-            ckpt: /home/gokulnc/SLR/outputs/2021-07-22/08-15-26/model-outputs/epoch=108-step=80986.ckpt
+            cfg_file: /home/gokulnc/openhands/examples/ssl/pretrain_bert.yaml
+            ckpt: /home/gokulnc/openhands/outputs/2021-07-28/14-54-23/model-outputs/epoch=1300-step=804017.ckpt
     decoder:
         type: fine_tuner
         params:

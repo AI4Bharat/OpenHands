@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.CSLDataset
+            _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
             splits: "train"
@@ -36,7 +36,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: slr.datasets.isolated.CSLDataset
+            _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
             splits: "test"
