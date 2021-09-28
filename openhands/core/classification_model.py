@@ -1,27 +1,18 @@
 import torch
 import torch.nn.functional as F
 import torchmetrics
-import pytorch_lightning as pl
 from ..models.loader import get_model
 from .losses import CrossEntropyLoss, SmoothedCrossEntropyLoss
-from .data import CommonDataModule
-from .pose_data import PoseDataModule
+from .data import DataModule
+from .inference import InferenceModel
 
-
-class ClassificationModel(pl.LightningModule):
+class ClassificationModel(InferenceModel):
     def __init__(self, cfg, trainer):
-        super().__init__()
-        self.cfg = cfg
-        self.datamodule = self.create_datamodule(cfg.data)
-        self.datamodule.setup()
+        super().__init__(cfg, stage="train")
 
-        self.model = self.create_model(cfg.model)
         self.trainer = trainer
         self.setup_metrics()
         self.loss = self.setup_loss(self.cfg.optim)
-
-    def forward(self, x):
-        return self.model(x)
 
     def training_step(self, batch, batch_idx):
         y_hat = self.model(batch["frames"])
@@ -46,15 +37,6 @@ class ClassificationModel(pl.LightningModule):
 
     def configure_optimizers(self):
         return self.get_optimizer(self.cfg.optim)
-
-    def create_datamodule(self, cfg):
-        if cfg.modality == "video":
-            return CommonDataModule(cfg)
-        if cfg.modality == "pose":
-            return PoseDataModule(cfg)
-
-    def create_model(self, cfg):
-        return get_model(cfg, self.datamodule.train_dataset.in_channels, self.datamodule.train_dataset.num_class)
 
     def setup_loss(self, conf):
         loss = conf.loss
@@ -90,13 +72,3 @@ class ClassificationModel(pl.LightningModule):
 
     def fit(self):
         self.trainer.fit(self, self.datamodule)
-
-    def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
-        if "pretrained" not in self.cfg.keys():
-            return
-
-        ckpt_path = self.cfg["pretrained"]
-        print(f"Loading checkpoint from: {ckpt_path}")
-        ckpt = torch.load(ckpt_path, map_location=map_location)
-        self.load_state_dict(ckpt["state_dict"], strict=False)
-        del ckpt

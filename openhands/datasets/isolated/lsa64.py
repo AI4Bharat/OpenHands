@@ -1,23 +1,21 @@
 import os
 import pandas as pd
 from glob import glob
-from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
-from .data_readers import load_frames_from_video
+from ..data_readers import load_frames_from_video
 
 class LSA64Dataset(BaseIsolatedDataset):
-    def read_index_file(self):
+    def read_glosses(self):
+        df = pd.read_csv(self.class_mappings_file_path, delimiter="|", header=None)
+        self.glosses = [df[1][i].strip() for i in range(len(df))]
+
+    def read_original_dataset(self):
         """
         Dataset includes 3200 videos where 10 non-expert subjects executed 5 repetitions of 64 different types of signs.
 
         For train-set, we use signers 1-8.
         Val-set & Test-set: Signer-9 & Signer-10
         """
-        df = pd.read_csv(self.split_file, delimiter="|", header=None)
-
-        self.glosses = [df[1][i].strip() for i in range(len(df))]
-        label_encoder = LabelEncoder()
-        label_encoder.fit(self.glosses)
 
         file_format = ".pkl" if "pose" in self.modality else ".mp4"
         video_files = glob(f"{self.root_dir}/*{file_format}")

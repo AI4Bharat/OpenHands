@@ -1,17 +1,17 @@
 import os
 import pandas as pd
 from .base import BaseIsolatedDataset
-from .data_readers import load_frames_from_video
+from ..data_readers import load_frames_from_video
 
 class AUTSLDataset(BaseIsolatedDataset):
-    def read_index_file(self):
-
+    def read_glosses(self):
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
         self.id_to_glosses = dict(
             zip(class_mappings_df["ClassId"], class_mappings_df["TR"])
         )
         self.glosses = sorted(self.id_to_glosses.values())
-
+    
+    def read_original_dataset(self):
         df = pd.read_csv(self.split_file, header=None)
 
         if self.modality == "rgb":

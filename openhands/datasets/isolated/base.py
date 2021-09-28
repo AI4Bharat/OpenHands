@@ -3,20 +3,20 @@ import torch.nn.functional as F
 import torchvision
 import pickle
 import albumentations as A
-from albumentations.pytorch import ToTensorV2
+from sklearn.preprocessing import LabelEncoder
 import numpy as np
-import cv2
-import os, sys
-from glob import glob
-from natsort import natsorted
+import os, warnings
 from ..video_transforms import *
-
+from ..data_readers import *
 
 class BaseIsolatedDataset(torch.utils.data.Dataset):
+    """
+    Do not instantiate this class
+    """
     def __init__(
         self,
-        split_file,
         root_dir,
+        split_file=None,
         class_mappings_file_path=None,
         splits=["train"],
         modality="rgb",
@@ -24,17 +24,32 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         cv_resize_dims=(264, 264),
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
+        inference_mode=False,
     ):
         super().__init__()
 
-        self.data = []
-        self.glosses = []
         self.split_file = split_file
         self.root_dir = root_dir
         self.class_mappings_file_path = class_mappings_file_path
         self.splits = splits
         self.modality = modality
-        self.read_index_file()
+        
+        self.glosses = []
+        self.read_glosses()
+        if not self.glosses:
+            raise RuntimeError("Unable to read glosses list")
+        self.label_encoder = LabelEncoder()
+        self.label_encoder.fit(self.glosses)
+
+        self.data = []
+        self.inference_mode = inference_mode
+        if inference_mode:
+            # Will have null labels
+            self.enumerate_data_files(self.root_dir)
+        else:
+            self.read_original_dataset()
+        if not self.data:
+            raise RuntimeError("No data found")
 
         self.cv_resize_dims = cv_resize_dims
         self.pose_use_confidence_scores = pose_use_confidence_scores
@@ -113,12 +128,55 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
     def num_class(self):
         return len(self.glosses)
 
-    def read_index_file(self, splits):
+    def read_glosses(self):
+        """
+        Implement this method to construct `self.glosses[]`
+        """
+        raise NotImplementedError
+    
+    def read_original_dataset(self):
         """
         Implement this method to read (video_name/video_folder, classification_label)
         into self.data[]
         """
         raise NotImplementedError
+    
+    def enumerate_data_files(self, dir):
+        """
+        Lists the video files from given directory.
+        - If pose modality, generate `.pkl` files for all videos in folder.
+          - If no videos present, check if some `.pkl` files already exist
+        """
+        files = list_all_videos(dir)
+
+        if self.modality == "pose":
+            holistic = None
+            pose_files = []
+
+            for video_file in files:
+                pose_file = os.path.splitext(video_file)[0] + ".pkl"
+                if not os.path.isfile(pose_file):
+                    # If pose is not cached, generate and store it.
+                    if not holistic:
+                        # Create MediaPipe instance
+                        from ..pipelines.generate_pose import MediaPipePoseGenerator
+                        holistic = MediaPipePoseGenerator()
+                    # Dump keypoints
+                    frames = load_frames_from_video(video_file)
+                    holistic.generate_keypoints_for_frames(frames, pose_file)
+                    
+                pose_files.append(pose_file)
+            
+            if not pose_files:
+                pose_files = list_all_files(dir, extensions=[".pkl"])
+            
+            files = pose_files
+        
+        if not files:
+            raise RuntimeError(f"No files found in {dir}")
+        
+        self.data = [(f, -1) for f in files]
+        # -1 means invalid label_id
 
     def __len__(self):
         return len(self.data)
@@ -128,31 +186,43 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         Load dumped pose keypoints.
         Should contain: {
             "keypoints" of shape (T, V, C),
-            "confidences" of shape (T, V),
-            "vid_shape" of shape (W, H)
+            "confidences" of shape (T, V)
         }
         """
         pose_data = pickle.load(open(path, "rb"))
         return pose_data
 
     def read_video_data(self, index):
-        raise NotImplementedError
-        # return imgs, label, video_id
+        """
+        Extend this method for dataset-specific formats
+        """
+        video_path, label = self.data[index]
+        imgs = load_frames_from_video(video_path)
+        return imgs, label, video_name
 
     def __getitem_video(self, index):
-        imgs, label, video_id = self.read_video_data(index)
+        if self.inference_mode:
+            imgs, label, video_id = super().read_video_data(index)
+        else:
+            imgs, label, video_id = self.read_video_data(index)
         # imgs shape: (T, H, W, C)
 
         if self.transforms is not None:
             imgs = self.transforms(imgs)
 
-        return {"frames": imgs, "label": torch.tensor(label, dtype=torch.long)}
+        return {
+            "frames": imgs,
+            "label": torch.tensor(label, dtype=torch.long),
+            "file": video_id,
+        }
 
     @staticmethod
     def collate_fn(batch_list):
         max_frames = max([x["frames"].shape[1] for x in batch_list])
         
         # Pad the temporal dimension to `max_frames` for all videos
+        # Assumes each instance of shape: (C, T, V) 
+        # TODO: Handle videos (C,T,H,W)
         frames = [
             F.pad(x["frames"], (0, 0, 0, max_frames - x["frames"].shape[1], 0, 0))
             for i, x in enumerate(batch_list)
@@ -162,17 +232,20 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         labels = [x["label"] for i, x in enumerate(batch_list)]
         labels = torch.stack(labels, dim=0)
 
-        return dict(frames=frames, labels=labels)
+        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list])
 
     def read_pose_data(self, index):
-        video_name, label = self.data[index]
-        video_path = os.path.join(self.root_dir, video_name)
-        # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
-        # Otherwise, just remove the video extension
-        pose_path = (
-            video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
-        )
-        pose_path = pose_path + ".pkl"
+        if self.inference_mode:
+            pose_path, label = self.data[index]
+        else:
+            video_name, label = self.data[index]
+            video_path = os.path.join(self.root_dir, video_name)
+            # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
+            # Otherwise, just remove the video extension
+            pose_path = (
+                video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
+            )
+            pose_path = pose_path + ".pkl"
         pose_data = self.load_pose_from_path(pose_path)
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
         return pose_data, pose_path
@@ -199,6 +272,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         data = {
             "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
+            "file": path,
         }
 
         if self.transforms is not None:

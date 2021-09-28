@@ -1,11 +1,11 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+# pretrained: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 data:
     modality: "pose"
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.LSA64Dataset
-            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "train"
             modality: "pose"
@@ -37,7 +37,7 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.LSA64Dataset
-            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             splits: "test"
             modality: "pose"
@@ -114,7 +114,7 @@ optim:
 trainer:
     gpus: 1
     max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    # resume_from_checkpoint: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true

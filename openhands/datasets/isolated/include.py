@@ -1,18 +1,18 @@
 import os
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
-from .data_readers import load_frames_from_video
+from ..data_readers import load_frames_from_video
 
 class INCLUDEDataset(BaseIsolatedDataset):
-    def read_index_file(self):
-        df = pd.read_csv(self.split_file
+    def read_glosses(self):
+        # TODO: Separate the classes into a separate file?
+        df = pd.read_csv(self.split_file)
         self.glosses = sorted({df["Word"][i].strip() for i in range(len(df))})
-        label_encoder = LabelEncoder()
-        label_encoder.fit(self.glosses)
 
+    def read_original_dataset(self):
+        df = pd.read_csv(self.split_file)
         for i in range(len(df)):
-            gloss_cat = label_encoder.transform([df["Word"][i]])[0]
+            gloss_cat = self.label_encoder.transform([df["Word"][i]])[0]
             instance_entry = df["FilePath"][i], gloss_cat
 
             video_path = os.path.join(self.root_dir, df["FilePath"][i])
@@ -25,8 +25,6 @@ class INCLUDEDataset(BaseIsolatedDataset):
                 continue
 
             self.data.append(instance_entry)
-        if not self.data:
-            exit("No data found")
 
     def read_video_data(self, index):
         video_name, label = self.data[index]

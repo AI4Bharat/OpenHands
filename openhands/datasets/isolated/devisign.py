@@ -3,14 +3,10 @@ from glob import glob
 import pandas as pd
 from sklearn.preprocessing import LabelEncoder
 from .base import BaseIsolatedDataset
-from .data_readers import load_frames_from_video
+from ..data_readers import load_frames_from_video
 
 class DeviSignDataset(BaseIsolatedDataset):
-    def read_index_file(self):
-        """
-        Check the file "DEVISIGN Technical Report.pdf" inside `Documents\` folder
-        for dataset format (page 12) and splits (page 15)
-        """
+    def read_glosses(self):
         self.glosses = []
         df = pd.read_csv(self.split_file, delimiter="\t", encoding="utf-8")
         for i in range(len(df)):
@@ -24,6 +20,12 @@ class DeviSignDataset(BaseIsolatedDataset):
         # print(len(label_encoder.classes_))
         # exit()
 
+    def read_original_dataset(self):
+        """
+        Check the file "DEVISIGN Technical Report.pdf" inside `Documents\` folder
+        for dataset format (page 12) and splits (page 15)
+        """
+
         if "rgb" in self.modality:
             common_filename = "color.avi"
         elif "pose" in self.modality:
@@ -36,11 +38,9 @@ class DeviSignDataset(BaseIsolatedDataset):
         if not video_files:
             exit(f"No videos files found for: {video_files_path}")
 
-        signs = set()
         for video_file in video_files:
             naming_parts = video_file.replace("\\", "/").split("/")[-2].split("_")
             gloss_id = int(naming_parts[1])
-            signs.add(gloss_id)
             signer_id = int(naming_parts[0].replace("P", ""))
 
             if (signer_id <= 4 and "train" in self.splits) or (

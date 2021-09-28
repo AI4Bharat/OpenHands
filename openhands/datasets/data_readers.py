@@ -1,3 +1,4 @@
+import os
 from glob import glob
 import pickle
 import cv2
@@ -37,6 +38,7 @@ def load_frames_from_video(video_path, start_frame=None, end_frame=None):
     if total_frames < start_frame:
         start_frame = 0
     vidcap.set(cv2.CAP_PROP_POS_FRAMES, start_frame)
+    
     for _ in range(
         min(int(end_frame - start_frame), int(total_frames - start_frame))
     ):
@@ -47,3 +49,16 @@ def load_frames_from_video(video_path, start_frame=None, end_frame=None):
         frames.append(img)
 
     return np.asarray(frames, dtype=np.float32)
+
+def list_all_files(dir, extensions=[]):
+    if not extensions:
+        files = glob(os.path.join(dir, '*'))
+        return [f for f in files if os.path.isfile(f)]
+    
+    files = []
+    for extension in extensions:
+        files.extend(glob(os.path.join(dir, '*'+extension)))
+    return files
+
+def list_all_videos(dir):
+    return list_all_files(dir, extensions=[".mp4", ".avi", ".MOV"])

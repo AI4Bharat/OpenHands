@@ -3,32 +3,25 @@ import pytorch_lightning as pl
 from tqdm import tqdm
 import time
 
-from .data import CommonDataModule
-from .pose_data import PoseDataModule
-
+from .data import DataModule
 from ..models.loader import get_model
-from .pose_data import create_transform
 
-class Inference(pl.LightningModule):
-    # TODO: Make this a base class for the trainer class?
-
-    def __init__(self, cfg):
+class InferenceModel(pl.LightningModule):
+    def __init__(self, cfg, stage="test"):
         super().__init__()
         self.cfg = cfg
-        # TODO: Do not load train_pipeline if `inference_mode`
-        self.datamodule = self.create_datamodule(cfg.data)
-        self.datamodule.setup()
-        self.model = self.create_model(cfg.model).to('cpu')
-        self.model.eval()
-    
-    def create_datamodule(self, cfg):
-        if cfg.modality == "video":
-            return CommonDataModule(cfg)
-        elif cfg.modality == "pose":
-            return PoseDataModule(cfg)
+        self.datamodule = DataModule(cfg.data)
+        self.datamodule.setup(stage=stage)
+
+        self.model = self.create_model(cfg.model)
+        if stage == "test":
+            self.model.to('cpu').eval()
     
     def create_model(self, cfg):
-        return get_model(cfg, self.datamodule.train_dataset.in_channels, self.datamodule.train_dataset.num_class)
+        return get_model(cfg, self.datamodule.in_channels, self.datamodule.num_class)
+    
+    def forward(self, x):
+        return self.model(x)
     
     def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
         if "pretrained" not in self.cfg.keys():
@@ -39,16 +32,35 @@ class Inference(pl.LightningModule):
         ckpt = torch.load(ckpt_path, map_location=map_location)
         self.load_state_dict(ckpt["state_dict"], strict=False)
         del ckpt
-
-    def infer_valset(self):
+    
+    def test_inference(self):
         # TODO: Write output to a csv
-        dataloader = self.datamodule.val_dataloader()
+        dataloader = self.datamodule.test_dataloader()
         total_time_taken, num_steps = 0.0, 0
-        for batch_idx, batch in tqdm(enumerate(dataloader)):
+
+        for batch in dataloader:
             start_time = time.time()
             y_hat = self.model(batch["frames"])
+
             class_indices = torch.argmax(y_hat, dim=-1)
+            class_labels = self.datamodule.test_dataset.label_encoder.inverse_transform(class_indices)
+            for filename, label in zip(batch["files"], class_labels):
+                print(f"{label}:\t{filename}")
+            
             total_time_taken += time.time() - start_time
             num_steps += 1
         
         print(f"Avg time per iteration: {total_time_taken*1000.0/num_steps} ms")
+
+    def compute_test_accuracy(self):
+        # Ensure labels are loaded
+        assert not self.datamodule.test_dataset.inference_mode
+        # TODO: Write output to a csv
+        dataloader = self.datamodule.test_dataloader()
+        scores = []
+        for batch_idx, batch in tqdm(enumerate(dataloader), unit="batch"):
+            y_hat = self.model(batch["frames"])
+            class_indices = torch.argmax(y_hat, dim=-1)
+            for pred_index, gt_index in zip(class_indices, batch["labels"]):
+                scores.append(pred_index == gt_index)
+        print(f"Accuracy for {len(scores)} samples: {100*sum(scores)/len(scores)}%")

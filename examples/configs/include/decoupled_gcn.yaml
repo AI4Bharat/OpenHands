@@ -1,4 +1,4 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+# pretrained: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 data:
     modality: "pose"
@@ -53,9 +53,35 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 32
             shuffle: false
-            num_workers: 1
+            num_workers: 6
+            pin_memory: true
+            drop_last: false
+    
+    test_pipeline:
+        dataset:
+            _target_: openhands.datasets.isolated.INCLUDEDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
+            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/Animals/1. Dog"
+            splits: "test"
+            modality: "pose"
+            inference_mode: true
+
+        transforms:
+            - PoseSelect:
+                preset: mediapipe_holistic_minimal_27
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+                scale_factor: 1
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 1
+            shuffle: false
+            num_workers: 0
             pin_memory: true
             drop_last: false
 
@@ -114,7 +140,7 @@ optim:
 trainer:
     gpus: 1
     max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    # resume_from_checkpoint: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true

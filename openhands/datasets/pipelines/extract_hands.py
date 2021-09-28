@@ -66,38 +66,38 @@ class ExtractHandCrops:
         keypoints_all = data["keypoints"]
 
         left_hand_crop, missing_wrist_left = crop_hand(
-                frame_,
-                keypoints,
-                self.LEFT_WRIST_IDX,
-                self.LEFT_ELBOW_IDX,
-                shoulder_dist,
-                self.WRIST_DELTA,
-            )
-            if missing_wrist_left:
-                missing_wrists_left.append(len(left_hand_crops) + 1)
+            frame_,
+            keypoints,
+            self.LEFT_WRIST_IDX,
+            self.LEFT_ELBOW_IDX,
+            shoulder_dist,
+            self.WRIST_DELTA,
+        )
+        if missing_wrist_left:
+            missing_wrists_left.append(len(left_hand_crops) + 1)
 
-            left_hand_crops.append(
-                torchvision.transforms.functional.resize(
-                    Image.fromarray(left_hand_crop), self.resize_dims
-                )
+        left_hand_crops.append(
+            torchvision.transforms.functional.resize(
+                Image.fromarray(left_hand_crop), self.resize_dims
             )
+        )
 
-            right_hand_crop, missing_wrist_right = crop_hand(
-                frame_,
-                keypoints,
-                self.RIGHT_WRIST_IDX,
-                self.RIGHT_ELBOW_IDX,
-                shoulder_dist,
-                self.WRIST_DELTA,
-            )
-            if missing_wrist_right:
-                missing_wrists_right.append(len(right_hand_crops) + 1)
+        right_hand_crop, missing_wrist_right = crop_hand(
+            frame_,
+            keypoints,
+            self.RIGHT_WRIST_IDX,
+            self.RIGHT_ELBOW_IDX,
+            shoulder_dist,
+            self.WRIST_DELTA,
+        )
+        if missing_wrist_right:
+            missing_wrists_right.append(len(right_hand_crops) + 1)
 
-            right_hand_crops.append(
-                torchvision.transforms.functional.resize(
-                    Image.fromarray(right_hand_crop), self.resize_dims
-                )
+        right_hand_crops.append(
+            torchvision.transforms.functional.resize(
+                Image.fromarray(right_hand_crop), self.resize_dims
             )
+        )
 
         ## imputation
         for clip_index in range(len(left_hand_crops)):

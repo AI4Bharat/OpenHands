@@ -3,7 +3,7 @@ data:
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.LSA64Dataset
-            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             modality: "pose"
             splits: "train"
@@ -29,7 +29,7 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.LSA64Dataset
-            split_file: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
+            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64_signs.md"
             root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
             modality: "pose"
             splits: "test"

@@ -1,5 +1,5 @@
 from .classification_model import ClassificationModel
-from .data import CommonDataModule
+from .data import DataModule
 from .exp_utils import (
     experiment_manager,
     configure_loggers,
@@ -7,5 +7,4 @@ from .exp_utils import (
     configure_checkpointing,
 )
 from .losses import CrossEntropyLoss, SmoothedCrossEntropyLoss
-from .pose_data import PoseDataModule, create_transform
-from .pretraining_model import PosePretrainingModel
+# from .pretraining_model import PosePretrainingModel
