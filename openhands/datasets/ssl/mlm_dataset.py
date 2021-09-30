@@ -8,7 +8,7 @@ import glob
 import os
 from tqdm import tqdm
 import logging
-from ...core.pose_data import create_transform
+from ...core.data import create_pose_transforms
 
 
 class TemporalSubsample:
@@ -110,7 +110,7 @@ class PoseMLMDataset(torch.utils.data.Dataset):
         self.max_seq_len = max_frames + 1  # Including [CLS]
         self.num_channels = num_channels
 
-        self.transforms = create_transform(transforms)
+        self.transforms = create_pose_transforms(transforms)
         self.mask_type = mask_type
         self.get_directions = get_directions
         self.DIRECTIONS = ["N", "E", "S", "W", "N"]

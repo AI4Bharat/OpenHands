@@ -48,7 +48,7 @@ def load_frames_from_video(video_path, start_frame=None, end_frame=None):
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         frames.append(img)
 
-    return np.asarray(frames, dtype=np.float32)
+    return np.asarray(frames)#, dtype=np.float32)
 
 def list_all_files(dir, extensions=[]):
     if not extensions:

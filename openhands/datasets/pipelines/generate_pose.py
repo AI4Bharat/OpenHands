@@ -72,13 +72,13 @@ class MediaPipePoseGenerator:
         confs = np.stack(confs)
         return keypoints, confs
 
-    def generate_keypoints_for_frames(self, frames, save_path):
+    def generate_keypoints_for_frames(self, frames, save_as):
         pose_kps, pose_confs = self.get_holistic_keypoints(frames)
 
         body_kps = np.concatenate([pose_kps[:, :33, :], pose_kps[:, 501:, :]], axis=1)
         confs = np.concatenate([pose_confs[:, :33], pose_confs[:, 501:]], axis=1)
         d = {"keypoints": body_kps, "confidences": confs}
 
-        with open(save_path + ".pkl", "wb") as f:
+        with open(save_as, "wb") as f:
             pickle.dump(d, f, protocol=4)
 

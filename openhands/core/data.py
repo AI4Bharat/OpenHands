@@ -5,6 +5,16 @@ import albumentations as A
 import hydra
 from ..datasets import pose_transforms
 
+def create_pose_transforms(transforms_cfg):
+    all_transforms = []
+    for transform in transforms_cfg:
+        for transform_name, transform_args in transform.items():
+            if not transform_args:
+                transform_args = {}
+            new_trans = getattr(pose_transforms, transform_name)(**transform_args)
+            all_transforms.append(new_trans)
+    return pose_transforms.Compose(all_transforms)
+
 class DataModule(pl.LightningDataModule):
     def __init__(self, data_cfg):
         super().__init__()
@@ -52,16 +62,6 @@ class DataModule(pl.LightningDataModule):
             collate_fn=self.test_dataset.collate_fn,
         )
         return dataloader
-    
-    def create_pose_transforms(self, transforms_cfg):
-        all_transforms = []
-        for transform in transforms_cfg:
-            for transform_name, transform_args in transform.items():
-                if not transform_args:
-                    transform_args = {}
-                new_trans = getattr(pose_transforms, transform_name)(**transform_args)
-                all_transforms.append(new_trans)
-        return pose_transforms.Compose(all_transforms)
 
     def create_video_transforms(self, transforms_cfg):
         albumentation_transforms = A.Compose(
@@ -138,7 +138,7 @@ class DataModule(pl.LightningDataModule):
             if self.data_cfg.modality == "video":
                 transforms = self.create_video_transforms(transforms_cfg)
             elif self.data_cfg.modality == "pose":
-                transforms = self.create_pose_transforms(transforms_cfg)
+                transforms = create_pose_transforms(transforms_cfg)
             else:
                 raise ValueError(f"{self.data_cfg.modality} modality not supported")
         else:

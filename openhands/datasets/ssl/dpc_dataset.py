@@ -1,0 +1,194 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+import glob
+import os
+import h5py
+import pickle
+import numpy as np
+
+from ...core.data import create_pose_transforms
+
+class WindowedDatasetHDF5(torch.utils.data.DataLoader):
+    def __init__(
+        self,
+        root_dir,
+        file_format='h5',
+        transforms=None,
+        seq_len=10,
+        num_seq=7,
+        downsample=3,
+        num_channels=2,
+    ):
+
+        self.seq_len = seq_len
+        self.num_seq = num_seq
+        self.downsample = downsample
+
+        self.transforms = create_pose_transforms(transforms)
+
+        self.hdf5_files = []
+        self.data_list = []
+
+        h5_files = glob.glob(os.path.join(root_dir, "**", f"*.{file_format}"), recursive=True)
+
+        self.h5_indexes = []
+        for h5_index, h5_file in enumerate(h5_files):
+            hf = h5py.File(h5_file, "r")
+            self.hdf5_files.append(hf)
+
+            for data_name in list(hf["keypoints"].keys()):
+                self.data_list.append((h5_index, data_name))
+                self.h5_indexes.append(h5_index)
+
+    def __len__(self):
+        return len(self.data_list)
+
+    def load_pose_from_h5(self, idx):
+        h5_index, data_name = self.data_list[idx]
+        return self.hdf5_files[h5_index]["keypoints"][data_name]
+
+    def idx_sampler(self, vlen):
+        if vlen - self.num_seq * self.seq_len * self.downsample <= 0:
+            return None
+        n = 1
+        start_idx = np.random.choice(
+            range(vlen - self.num_seq * self.seq_len * self.downsample), n
+        )
+        seq_idx = (
+            np.expand_dims(np.arange(self.num_seq), -1) * self.downsample * self.seq_len
+            + start_idx
+        )
+        seq_idx_block = (
+            seq_idx + np.expand_dims(np.arange(self.seq_len), 0) * self.downsample
+        )
+        return [seq_idx_block]
+
+    def __getitem__(self, idx):
+        kps = self.load_pose_from_h5(idx)
+        seq_len = kps.shape[0]
+        items = self.idx_sampler(seq_len)
+        if items is None:
+            return None
+
+        data_list = []
+        for item in items[0]:
+            curr_data = kps[item, ...]
+            curr_data = curr_data[..., :2]  # Skip z
+
+            curr_data = np.asarray(curr_data, dtype=np.float32)
+            data = {
+                "frames": torch.tensor(curr_data).permute(2, 0, 1),  # (C, T, V)
+            }
+
+            if self.transforms is not None:
+                data = self.transforms(data)
+
+            curr_data = data["frames"].permute(1, 2, 0)
+            data_list.append(curr_data)
+
+        T, V, C = data_list[0].shape
+        t_seq = torch.stack(data_list, 0)
+        t_seq = t_seq.view(self.num_seq, T, V, C)
+
+        return t_seq
+
+    def get_weights_for_balanced_sampling(self):
+        probs = {
+            "newshook": 0.6,
+            "sign_library_1_min": 0.2,
+            "sign_library_sub_based": 0.15,
+            "ish-sub": 0.15,
+            "ish-1_min": 0.2,
+            "nios": 0.2,
+            "mbm": 0.2,
+        }
+
+        keys_list = list(probs.values())
+        weights = [0] * len(self.h5_indexes)
+        for i, j in enumerate(self.h5_indexes):
+            weights[i] = keys_list[j]
+        return torch.DoubleTensor(weights)
+
+
+class WindowedDatasetPickle(torch.utils.data.DataLoader):
+    def __init__(
+        self,
+        root_dir,
+        file_format='pkl',
+        transforms=None,
+        seq_len=10,
+        num_seq=6,
+        downsample=1,
+        num_channels=2,
+    ):
+
+        self.seq_len = seq_len
+        self.num_seq = num_seq
+        self.downsample = downsample
+
+        self.transforms = create_pose_transforms(transforms)
+
+        files_list = glob.glob(os.path.join(root_dir, "**", f"*.{file_format}"), recursive=True)
+
+        self.data_list = []
+        for file in files_list:
+            data = pickle.load(open(file, "rb"))
+            if data["keypoints"].shape[0] > 60:
+                self.data_list.append(file)
+
+    def __len__(self):
+        return len(self.data_list)
+
+    def load_pose_from_pkl(self, idx):
+        file_path = self.data_list[idx]
+        pose_data = pickle.load(open(file_path, "rb"))
+        kps = pose_data["keypoints"]
+        return kps
+
+    def idx_sampler(self, vlen):
+        if vlen - self.num_seq * self.seq_len * self.downsample <= 0:
+            return None
+        n = 1
+        start_idx = np.random.choice(
+            range(vlen - self.num_seq * self.seq_len * self.downsample), n
+        )
+        seq_idx = (
+            np.expand_dims(np.arange(self.num_seq), -1) * self.downsample * self.seq_len
+            + start_idx
+        )
+        seq_idx_block = (
+            seq_idx + np.expand_dims(np.arange(self.seq_len), 0) * self.downsample
+        )
+        return [seq_idx_block]
+
+    def __getitem__(self, idx):
+        kps = self.load_pose_from_pkl(idx)
+        kps = kps[:, :, :2]
+
+        kps = np.asarray(kps, dtype=np.float32)
+        data = {
+            "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
+        }
+
+        if self.transforms is not None:
+            data = self.transforms(data)
+
+        kps = data["frames"].permute(1, 2, 0).numpy()
+
+        seq_len = kps.shape[0]
+        items = self.idx_sampler(seq_len)
+        if items is None:
+            return None
+
+        data_list = []
+        for item in items[0]:
+            curr_data = kps[item, ...]
+            data_list.append(torch.tensor(curr_data))
+
+        T, V, C = data_list[0].shape
+        t_seq = torch.stack(data_list, 0)
+        t_seq = t_seq.view(self.num_seq, T, V, C)
+
+        return t_seq
