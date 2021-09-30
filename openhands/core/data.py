@@ -21,7 +21,7 @@ class DataModule(pl.LightningDataModule):
         self.data_cfg = data_cfg
 
     def setup(self, stage=None):
-        if stage == "train":
+        if stage == "fit":
             self.train_dataset = self._instantiate_dataset(self.data_cfg.train_pipeline)
             self.valid_dataset = self._instantiate_dataset(self.data_cfg.valid_pipeline)
             print("Train set size:", len(self.train_dataset))

@@ -8,8 +8,7 @@ from .inference import InferenceModel
 
 class ClassificationModel(InferenceModel):
     def __init__(self, cfg, trainer):
-        super().__init__(cfg, stage="train")
-
+        super().__init__(cfg, stage="fit")
         self.trainer = trainer
         self.setup_metrics()
         self.loss = self.setup_loss(self.cfg.optim)
@@ -42,8 +41,8 @@ class ClassificationModel(InferenceModel):
         loss = conf.loss
         assert loss in ["CrossEntropyLoss", "SmoothedCrossEntropyLoss"]
         if loss == "CrossEntropyLoss":
-            return CrossEntropyLoss
-        return SmoothedCrossEntropyLoss
+            return CrossEntropyLoss()
+        return SmoothedCrossEntropyLoss()
 
     def setup_metrics(self):
         self.accuracy_metric = torchmetrics.functional.accuracy

@@ -13,8 +13,8 @@ data:
                 num_frames: 120
             - PoseSelect:
                 preset: mediapipe_holistic_top_body_59
-            # - CenterAndScaleNormalize:
-            #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_top_body_59
             - AddClsToken:
 
         dataloader:
@@ -38,8 +38,8 @@ data:
                 num_frames: 120
             - PoseSelect:
                 preset: mediapipe_holistic_top_body_59
-            # - CenterAndScaleNormalize:
-            #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_top_body_59
             - AddClsToken:
 
         dataloader:
@@ -52,10 +52,10 @@ data:
 
 model:
     encoder:
-        type: pretrained_bert
+        type: pretrained_wav2vec2
         params:
-            cfg_file: /home/gokulnc/openhands/examples/ssl/pretrain_bert.yaml
-            ckpt: /home/gokulnc/openhands/outputs/2021-07-28/14-54-23/model-outputs/epoch=1300-step=804017.ckpt
+            cfg_file: /home/gokulnc/openhands/examples/ssl/pretrain_wav2vec2.yaml
+            ckpt: /home/gokulnc/openhands/outputs/2021-08-04/18-12-33/model-outputs/epoch=577-step=714407.ckpt
     decoder:
         type: fine_tuner
         params:
@@ -66,7 +66,7 @@ optim:
     optimizer:
         name: Adam
         params:
-            lr: 2e-5
+            lr: 1e-4
 
     scheduler:
         name: CosineAnnealingLR

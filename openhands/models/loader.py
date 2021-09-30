@@ -59,8 +59,7 @@ def load_encoder(encoder_cfg, in_channels):
         pretrainer = PosePretrainingModel.load_from_checkpoint(encoder_cfg.params.ckpt, model_cfg=cfg.model, params=cfg.params, create_model_only=True)
         return pretrainer.model
     else:
-        exit(f"ERROR: Encoder Type '{encoder_cfg.type}' not supported.")
-
+        raise ValueError(f"Encoder Type '{encoder_cfg.type}' not supported.")
 
 def load_decoder(decoder_cfg, num_class, encoder):
     # # TODO: better way
@@ -98,10 +97,25 @@ def load_decoder(decoder_cfg, num_class, encoder):
             n_features=n_out_features, num_class=num_class, **decoder_cfg.params
         )
     else:
-        exit(f"ERROR: Decoder Type '{decoder_cfg.type}' not supported.")
+        raise ValueError(f"Decoder Type '{decoder_cfg.type}' not supported.")
 
+def load_ssl_backbone(cfg, in_channels, num_class):
+    if cfg.type == 'dpc':
+        from .ssl.dpc_rnn import DPC_RNN_Finetuner, load_weights_from_pretrained
+        # Create model
+        model = DPC_RNN_Finetuner(in_channels=in_channels, num_class=num_class, **cfg.params)
+        # Load weights
+        # ssl_cfg = omegaconf.OmegaConf.load(cfg.load_from.cfg_file)
+        model = load_weights_from_pretrained(model, cfg.load_from.ckpt)
+        return model
+    else:
+        raise ValueError(f"SSL Type '{cfg.type}' not supported.")
 
 def get_model(config, in_channels, num_class):
+    if config.pretrained:
+        # Load self-supervised backbone
+        return load_ssl_backbone(config.pretrained, in_channels, num_class)
+
     encoder = load_encoder(config.encoder, in_channels)
     decoder = load_decoder(config.decoder, num_class, encoder)
 

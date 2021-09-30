@@ -7,19 +7,22 @@ data:
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "train"
             modality: "pose"
+            seq_len: 10
+            num_seq: 6
 
         transforms:
-            - PoseUniformSubsampling:
-                num_frames: 120
             - PoseSelect:
-                preset: mediapipe_holistic_top_body_59
-            # - CenterAndScaleNormalize:
-            #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
-            - AddClsToken:
+                preset: mediapipe_holistic_minimal_27
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+            - ShearTransform:
+                shear_std: 0.1
+            - RotatationTransform:
+                rotation_std: 0.1
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 64
+            batch_size: 16
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -32,15 +35,14 @@ data:
             root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
             splits: "test"
             modality: "pose"
+            seq_len: 10
+            num_seq: 6
 
         transforms:
-            - PoseUniformSubsampling:
-                num_frames: 120
             - PoseSelect:
-                preset: mediapipe_holistic_top_body_59
-            # - CenterAndScaleNormalize:
-            #     reference_points_preset: shoulder_mediapipe_holistic_top_body_59
-            - AddClsToken:
+                preset: mediapipe_holistic_minimal_27
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
         dataloader:
             _target_: torch.utils.data.DataLoader
@@ -51,22 +53,20 @@ data:
             drop_last: false
 
 model:
-    encoder:
-        type: pretrained_bert
-        params:
-            cfg_file: /home/gokulnc/openhands/examples/ssl/pretrain_bert.yaml
-            ckpt: /home/gokulnc/openhands/outputs/2021-07-28/14-54-23/model-outputs/epoch=1300-step=804017.ckpt
-    decoder:
-        type: fine_tuner
-        params:
-            pooling_type: cls
+    pretrained:
+      type: dpc
+      load_from:
+        # cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_dpc.yaml
+        ckpt: /home/gokulnc/openhands/outputs/DPC-outputs-augs-new-pred-4/epoch=114-step=70954.ckpt
+      params:
+        pred_steps: 2
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 2e-5
+            lr: 1e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -76,7 +76,7 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 3000
+    max_epochs: 500
     # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
 
 exp_manager:

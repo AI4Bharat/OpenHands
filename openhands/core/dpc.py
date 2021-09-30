@@ -95,7 +95,7 @@ class PretrainingModelDPC(pl.LightningModule):
         self.loss_fn = nn.CrossEntropyLoss()
 
         self.checkpoint_callback = pl.callbacks.ModelCheckpoint(
-            dirpath=self.output_path, every_n_epochs=5
+            dirpath=self.output_path, every_n_epochs=1
         )
 
     def training_step(self, batch, batch_idx):

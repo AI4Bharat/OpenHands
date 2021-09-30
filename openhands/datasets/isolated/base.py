@@ -25,6 +25,10 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
         inference_mode=False,
+
+        # Windowing
+        seq_len=1,
+        num_seq=1,
     ):
         super().__init__()
 
@@ -33,6 +37,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.class_mappings_file_path = class_mappings_file_path
         self.splits = splits
         self.modality = modality
+        self.seq_len = seq_len
+        self.num_seq = num_seq
         
         self.glosses = []
         self.read_glosses()
@@ -218,15 +224,18 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
 
     @staticmethod
     def collate_fn(batch_list):
-        max_frames = max([x["frames"].shape[1] for x in batch_list])
-        
-        # Pad the temporal dimension to `max_frames` for all videos
-        # Assumes each instance of shape: (C, T, V) 
-        # TODO: Handle videos (C,T,H,W)
-        frames = [
-            F.pad(x["frames"], (0, 0, 0, max_frames - x["frames"].shape[1], 0, 0))
-            for i, x in enumerate(batch_list)
-        ]
+        if "num_windows" in batch_list[0]:
+            # Padding not required for windowed models
+            frames=[x["frames"] for x in batch_list]
+        else:
+            max_frames = max([x["frames"].shape[1] for x in batch_list])
+            # Pad the temporal dimension to `max_frames` for all videos
+            # Assumes each instance of shape: (C, T, V) 
+            # TODO: Handle videos (C,T,H,W)
+            frames = [
+                F.pad(x["frames"], (0, 0, 0, max_frames - x["frames"].shape[1], 0, 0))
+                for i, x in enumerate(batch_list)
+            ]
 
         frames = torch.stack(frames, dim=0)
         labels = [x["label"] for i, x in enumerate(batch_list)]
@@ -277,6 +286,29 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
 
         if self.transforms is not None:
             data = self.transforms(data)
+        
+        if self.seq_len > 1 and self.num_seq > 1:
+            data["num_windows"] = self.num_seq
+            kps = data["frames"].permute(1, 2, 0).numpy() # CTV->TVC
+            if kps.shape[0] < self.seq_len * self.num_seq:
+                pad_kps = np.zeros(
+                    ((self.seq_len * self.num_seq) - kps.shape[0], *kps.shape[1:])
+                )
+                kps = np.concatenate([pad_kps, kps])
+
+            elif kps.shape[0] > self.seq_len * self.num_seq:
+                kps = kps[: self.seq_len * self.num_seq, ...]
+
+            SL = kps.shape[0]
+            clips = []
+            i = 0
+            while i + self.seq_len <= SL:
+                clips.append(torch.tensor(kps[i : i + self.seq_len, ...], dtype=torch.float32))
+                i += self.seq_len
+
+            t_seq = torch.stack(clips, 0)
+            data["frames"] = t_seq.permute(0, 3, 1, 2) # WTVC->WCTV
+
         return data
 
     def __getitem__(self, index):

@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-import torch.functional as F
+import torch.nn.functional as F
 from .st_gcn import STModel
 
 # Adopted from: https://github.com/TengdaHan/DPC
@@ -112,3 +112,93 @@ class DPC_RNN_Pretrainer(nn.Module):
             elif "weight" in name:
                 nn.init.orthogonal_(param, 1)
 
+
+def load_weights_from_pretrained(model, pretrained_model_path):
+    ckpt = torch.load(pretrained_model_path)
+    ckpt_dict = ckpt["state_dict"].items()
+    pretrained_dict = {k.replace("model.", ""): v for k, v in ckpt_dict}
+
+    model_dict = model.state_dict()
+    tmp = {}
+    print("\n=======Check Weights Loading======")
+    print("Weights not used from pretrained file:")
+    for k, v in pretrained_dict.items():
+        if k in model_dict:
+            tmp[k] = v
+        else:
+            print(k)
+    print("---------------------------")
+    print("Weights not loaded into new model:")
+    for k, v in model_dict.items():
+        if k not in pretrained_dict:
+            print(k)
+    print("===================================\n")
+    del pretrained_dict
+    model_dict.update(tmp)
+    del tmp
+    model.load_state_dict(model_dict)
+    model.to(dtype=torch.float)
+    return model
+
+class DPC_RNN_Finetuner(nn.Module):
+    def __init__(
+        self,
+        num_class=60,
+        pred_steps=2,
+        in_channels=2,
+        hidden_channels=64,
+        hidden_dim=256,
+        dropout=0.5,
+        graph_args={"layout": "mediapipe-27", "strategy": "spatial"},
+        edge_importance_weighting=True,
+        **kwargs
+    ):
+        super().__init__()
+
+        self.pred_steps = pred_steps
+        self.num_class = num_class
+        self.conv_encoder = STModel(
+            in_channels=in_channels,
+            hidden_channels=hidden_channels,
+            hidden_dim=hidden_dim,
+            dropout=dropout,
+            graph_args=graph_args,
+            edge_importance_weighting=edge_importance_weighting,
+            **kwargs
+        )
+
+        self.feature_size = hidden_dim
+        self.agg = nn.GRU(hidden_dim, self.feature_size, batch_first=True)
+
+        self.final_bn = nn.BatchNorm1d(self.feature_size)
+        self.final_bn.weight.data.fill_(1)
+        self.final_bn.bias.data.zero_()
+
+        self.final_fc = nn.Sequential(
+            nn.Dropout(dropout), nn.Linear(self.feature_size, self.num_class)
+        )
+
+        self._initialize_weights(self.final_fc)
+
+    def forward(self, block):
+        B, N, C, T, V = block.shape
+        block = block.view(B * N, C, T, V)
+
+        feature = self.conv_encoder(block)
+        feature = F.relu(feature)
+
+        feature = feature.view(B, N, self.feature_size)
+        ### aggregate, predict future ###
+        context, hidden = self.agg(feature)
+        context = context[:, -1, :]
+        context = self.final_bn(context)
+        output = self.final_fc(context).view(B, self.num_class)
+
+        return output
+
+    def _initialize_weights(self, module):
+        for name, param in module.named_parameters():
+            if "bias" in name:
+                nn.init.constant_(param, 0.0)
+            elif "weight" in name:
+                nn.init.orthogonal_(param, 1)
