@@ -1,0 +1,5 @@
+Network,``encoder.type``,``decoder.type``
+Recurrent Neural Networks,``pose-flattener``,``rnn``
+Transformer,``pose-flattener``,``bert``
+Spatio-Temporal Graph Convolution Network,``st-gcn``,``fc``
+Sign Language GCN,``decoupled-gcn``,``fc``

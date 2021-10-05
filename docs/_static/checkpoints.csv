@@ -1,0 +1,8 @@
+Dataset,Metadata,BiLSTM,BERT,ST-GCN,SL-GCN
+:class:`~openhands.datasets.isolated.AUTSLDataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.CSLDataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.DeviSignDataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.GSLDataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.INCLUDEDataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.LSA64Dataset`,`Download <https://raw.github.com>`_
+:class:`~openhands.datasets.isolated.WLASLDataset`,`Download <https://raw.github.com>`_

@@ -14,3 +14,9 @@ timm
 transformers
 hydra-core
 h5py>=3.2.0
+
+mediapipe>=0.8.7.3
+
+sphinx
+myst-parser
+sphinx_rtd_theme

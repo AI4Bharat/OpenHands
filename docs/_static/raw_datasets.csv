@@ -1,0 +1,8 @@
+Dataset Link,Source,Size (hours)
+pose_no_sub_one_min_splits.h5,ISH News
+pose_sub_based_splits.h5,ISH News
+pose_videos_chunked_1_min.h5,MBM Vadodara
+pose_for_splitted.h5,NIOS Videos
+newshook_dataset.h5,NewsHook
+sign_library_1_min_splits.h5,Sign Library
+sign_library_sub_based.h5,Sign Library
