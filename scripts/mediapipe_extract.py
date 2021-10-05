@@ -117,6 +117,7 @@ def load_frames_from_video(video_path):
         if not success:
             break
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        # img = cv2.resize(img, (640, 480))
         frames.append(img)
 
     vidcap.release()
@@ -190,6 +191,7 @@ def dump_pose_for_dataset(
 
 
 if __name__ == "__main__":
+    # gen_keypoints_for_video("/home/gokulnc/data-disk/datasets/Chinese/CSL/word/color/000/P01_01_00_0._color.mp4", "sample.pkl")
     n_cores = multiprocessing.cpu_count()
 
     DIR = "AUTSL/train/"

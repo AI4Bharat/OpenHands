@@ -40,24 +40,6 @@ def load_encoder(encoder_cfg, in_channels):
                 num_points=encoder_cfg.params.num_points,
             ),
         )
-    elif encoder_cfg.type == "pretrained_bert":
-        # TODO: Directly load from .ssl.pretrainer
-        from ..core.pretraining_model import PosePretrainingModel
-
-        cfg = omegaconf.OmegaConf.load(encoder_cfg.params.cfg_file)
-        pretrainer = PosePretrainingModel.load_from_checkpoint(
-            encoder_cfg.params.ckpt,
-            model_cfg=cfg.model,
-            params=cfg.params,
-            create_model_only=True,
-        )
-        return pretrainer.model.bert
-    elif encoder_cfg.type == "pretrained_wav2vec2":
-        # TODO: Directly load from .ssl.pretrainer
-        from ..core.wav2vec2 import PosePretrainingModel
-        cfg = omegaconf.OmegaConf.load(encoder_cfg.params.cfg_file)
-        pretrainer = PosePretrainingModel.load_from_checkpoint(encoder_cfg.params.ckpt, model_cfg=cfg.model, params=cfg.params, create_model_only=True)
-        return pretrainer.model
     else:
         raise ValueError(f"Encoder Type '{encoder_cfg.type}' not supported.")
 
