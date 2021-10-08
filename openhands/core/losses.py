@@ -5,9 +5,14 @@ import torch.nn.functional as F
 
 CrossEntropyLoss = nn.CrossEntropyLoss
 
-
 class SmoothedCrossEntropyLoss(nn.Module):
-    def __init__(self, smooth_factor=0.1):
+    """
+    Calculates Cross-entropy loss with label smoothing.
+
+    Args:
+        smooth_factor (float): label smoothing regularization coefficient
+    """
+    def __init__(self, smooth_factor=0.01):
         super(SmoothedCrossEntropyLoss, self).__init__()
         self.smooth_factor = smooth_factor
 

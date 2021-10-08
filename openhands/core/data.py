@@ -3,7 +3,7 @@ from omegaconf import OmegaConf
 from pytorchvideo.transforms import transforms as ptv_transforms
 import albumentations as A
 import hydra
-from ..datasets import pose_transforms
+from ..datasets import pose_transforms, video_transforms
 
 def create_pose_transforms(transforms_cfg):
     all_transforms = []

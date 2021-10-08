@@ -3,10 +3,10 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import math
+from omegaconf import OmegaConf
 from .graph_utils import SpatialGraph
 
 # https://github.com/jackyjsy/CVPR21Chal-SLR
-
 
 def conv_init(conv):
     nn.init.kaiming_normal_(conv.weight, mode="fan_out")
@@ -207,6 +207,21 @@ class DecoupledGCNUnit(nn.Module):
 
 
 class DecoupledGCN_TCN_unit(nn.Module):
+    """
+    Single unit of a stack of Decoupled GCN and TCN layers.
+
+    Args:
+        in_channels (int): Number of channels in the input sequence data
+        out_channels (int): Number of channels produced by the convolution
+        A (ndarray): 2D array containing the adjacency matrix
+        groups (int): Number of Decouple groups to use
+        num_points (int): Number of spatial joints
+        block_size (int): Block size used for Temporal masking in Dropgraph
+        drop_size (int): drop size used for spatial dropgraph masking.
+        stride (int): Default 1,
+        residual (bool): To use residual connections or not. Default: ``True``
+        use_attention (bool): To use self attention layer or not. Default: ``True``
+    """
     def __init__(
         self,
         in_channels,
@@ -309,16 +324,40 @@ class DecoupledGCN_TCN_unit(nn.Module):
 
 
 class DecoupledGCN(nn.Module):
+    """
+    ST-GCN backbone with Decoupled GCN layers, Self Attention and DropGraph proposed in the paper:
+    
+    > [Skeleton Aware Multi-modal Sign Language Recognition](https://arxiv.org/pdf/2103.08833.pdf)<br>
+    
+    Args:
+        in_channels (int): Number of channels in the input data.
+        graph_cfg (dict): The arguments for building the graph.
+        groups (int): Number of Decouple groups to use. Default: 8.
+        block_size (int): Block size used for Temporal masking in Dropgraph. Default: 41.
+        n_out_features (int): Output Embedding dimension. Default: 256.
+    Shape:
+        - Input: :math:`(N, in_channels, T_{in}, V_{in})`
+        - Output: :math:`(N, n_out_features)` where
+            :math:`N` is a batch size,
+            :math:`T_{in}` is a length of input sequence,
+            :math:`V_{in}` is the number of graph nodes,
+            :math:`n_out_features` is the `n_out_features' value,
+            
+    """
     def __init__(
         self,
-        in_channels=2,
-        num_points=27,
-        inward_edges=[],
+        in_channels,
+        graph_args,
         groups=8,
         block_size=41,
+        n_out_features = 256
     ):
+        
         super(DecoupledGCN, self).__init__()
-
+        graph_args = OmegaConf.to_container(graph_args)
+        num_points = graph_args["num_points"]
+        inward_edges = graph_args["inward_edges"]
+        
         self.graph = SpatialGraph(num_points, inward_edges)
         A = self.graph.A
         self.data_bn = nn.BatchNorm1d(in_channels * num_points)
@@ -358,7 +397,7 @@ class DecoupledGCN(nn.Module):
         self.l9 = DecoupledGCN_TCN_unit(
             256, 256, A, groups, num_points, block_size, drop_size=drop_size
         )
-        self.n_out_features = 256
+        self.n_out_features = n_out_features
         self.l10 = DecoupledGCN_TCN_unit(
             256,
             self.n_out_features,

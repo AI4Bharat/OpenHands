@@ -11,6 +11,7 @@ from ..data_readers import *
 
 class BaseIsolatedDataset(torch.utils.data.Dataset):
     """
+    This module provides the datasets for Isolated Sign Language Classification.
     Do not instantiate this class
     """
     def __init__(

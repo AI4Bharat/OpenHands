@@ -6,6 +6,11 @@ from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
 
 class DeviSignDataset(BaseIsolatedDataset):
+    """
+    Chinese Isolated Sign language dataset from the paper
+    
+    > [The devisign large vocabulary of chinese sign language database and baseline evaluations]<br>
+    """
     def read_glosses(self):
         self.glosses = []
         df = pd.read_csv(self.split_file, delimiter="\t", encoding="utf-8")

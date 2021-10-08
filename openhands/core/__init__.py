@@ -1,4 +1,3 @@
-from .classification_model import ClassificationModel
 from .data import DataModule
 from .exp_utils import (
     experiment_manager,

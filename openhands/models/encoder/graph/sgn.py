@@ -3,6 +3,7 @@ from torch import nn
 
 import math
 
+#Adopted from: https://github.com/microsoft/SGN
 
 class norm_data(nn.Module):
     def __init__(self, n_joints, dim=3):
@@ -106,7 +107,6 @@ class compute_g_spa(nn.Module):
 class SGN(nn.Module):
     """
     https://arxiv.org/pdf/1904.01189.pdf
-    Adopted from: https://github.com/microsoft/SGN
     """
 
     def __init__(self, n_frames, num_points, in_channels=3, bias=True):

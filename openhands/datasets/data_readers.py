@@ -6,6 +6,9 @@ import numpy as np
 from natsort import natsorted
 
 def load_frames_from_folder(frames_folder, pattern="*.jpg"):
+    """
+    Reads images files in a directory in sorted order
+    """
     images = natsorted(glob(f"{frames_folder}/{pattern}"))
     if len(images) == 0:
         raise ValueError(
@@ -51,6 +54,9 @@ def load_frames_from_video(video_path, start_frame=None, end_frame=None):
     return np.asarray(frames)#, dtype=np.float32)
 
 def list_all_files(dir, extensions=[]):
+    """
+    List all the files of the given extension type in the given path
+    """
     if not extensions:
         files = glob(os.path.join(dir, '*'))
         return [f for f in files if os.path.isfile(f)]
@@ -61,4 +67,7 @@ def list_all_files(dir, extensions=[]):
     return files
 
 def list_all_videos(dir):
+    """
+    List all video files in the given path
+    """
     return list_all_files(dir, extensions=[".mp4", ".avi", ".MOV"])

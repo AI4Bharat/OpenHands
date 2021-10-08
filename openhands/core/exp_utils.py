@@ -5,7 +5,10 @@ from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
 from pytorch_lightning.callbacks.early_stopping import EarlyStopping
 
 
-def experiment_manager(trainer, cfg):
+def experiment_manager(trainer, cfg=None):
+    """
+    Helper to manage the folders and callbacks for the experiments.
+    """
     if cfg is None:
         return
 
@@ -32,6 +35,9 @@ def configure_loggers(
     create_wandb_logger,
     wandb_kwargs,
 ):
+    """
+    Creates TensorboardLogger and/or WandBLogger and attach them to trainer.
+    """
     logger_list = []
     if create_tensorboard_logger:
         if summary_writer_kwargs is None:
@@ -57,10 +63,16 @@ def configure_loggers(
 
 
 def configure_checkpointing(trainer, cfg):
+    """
+    Creates ModelCheckpoint callback and and attach it to the trainer.
+    """
     checkpoint_callback = ModelCheckpoint(**cfg, dirpath=trainer._default_root_dir)
     trainer.callbacks.append(checkpoint_callback)
 
 
 def configure_early_stopping(trainer, cfg):
+    """
+    Creates EarlyStopping callback and and attach it to the trainer.
+    """
     early_stopping_callback = EarlyStopping(**cfg)
     trainer.callbacks.append(early_stopping_callback)

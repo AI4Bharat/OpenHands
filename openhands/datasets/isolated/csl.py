@@ -4,6 +4,11 @@ from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
 
 class CSLDataset(BaseIsolatedDataset):
+    """
+    Chinese Isolated Sign language dataset from the paper
+    
+    > [Attention-Based 3D-CNNs for Large-Vocabulary Sign Language Recognition](https://ieeexplore.ieee.org/document/8466903)<br>
+    """
     def read_glosses(self):
         self.glosses = []
         with open(self.split_file, encoding="utf-8") as f:

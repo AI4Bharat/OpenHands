@@ -4,6 +4,11 @@ from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
 
 class AUTSLDataset(BaseIsolatedDataset):
+    """
+    Turkish Isolated Sign language dataset from the paper
+    
+    > [AUTSL: A Large Scale Multi-modal Turkish Sign Language Dataset and Baseline Methods](https://arxiv.org/abs/2008.00932)<br>
+    """
     def read_glosses(self):
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
         self.id_to_glosses = dict(

@@ -34,19 +34,28 @@ def edge2mat(link, num_node):
         A[j, i] = 1
     return A
 
+def get_spatial_graph(num_node, self_link, inward, outward):
+    I = edge2mat(self_link, num_node)
+    In = normalize_digraph(edge2mat(inward, num_node))
+    Out = normalize_digraph(edge2mat(outward, num_node))
+    A = np.stack((I, In, Out))
+    return A
 
 class GraphWithPartition:  # Unidirected, connections with hop limit
-    """The Graph to model the skeletons extracted by the openpose
+    """The Graph to model the skeletons 
     Args:
+        num_nodes (int): Number of spatial nodes in the graph.
+        center (int): Index of the center node.
+        inward_edges (list): List of spatial edges connecting the skeleton.
         strategy (string): must be one of the follow candidates
         - uniform: Uniform Labeling
         - distance: Distance Partitioning
         - spatial: Spatial Configuration
-        layout (string): must be one of the follow candidates
-        - openpose: Is consists of 18 joints.
-        - ntu-rgb+d: Is consists of 25 joints.
-        max_hop (int): the maximal distance between two connected nodes
-        dilation (int): controls the spacing between the kernel points
+        For more information, please refer to the section 'Partition
+        Strategies' in the ST-GCN paper (https://arxiv.org/abs/1801.07455).
+        
+        max_hop (int): the maximal distance between two connected nodes. Default: 1
+        dilation (int): controls the spacing between the kernel points. Default: 1
     """
 
     def __init__(
@@ -54,7 +63,7 @@ class GraphWithPartition:  # Unidirected, connections with hop limit
         num_nodes,
         center,
         inward_edges,
-        strategy="distance",
+        strategy="spatial",
         max_hop=1,
         dilation=1,
     ):
@@ -115,20 +124,16 @@ class GraphWithPartition:  # Unidirected, connections with hop limit
             A = np.stack(A)
             self.A = A
         else:
-            raise ValueError()
-
-
-def get_spatial_graph(num_node, self_link, inward, outward):
-    I = edge2mat(self_link, num_node)
-    In = normalize_digraph(edge2mat(inward, num_node))
-    Out = normalize_digraph(edge2mat(outward, num_node))
-    A = np.stack((I, In, Out))
-    return A
-
+            raise ValueError("This Graph construction strategy is not supported")
 
 class SpatialGraph:
+    """
+    Graph construction with equal weight to all the nodes.
+    Args:
+        num_nodes (int): Number of spatial nodes in the graph.
+        inward_edges (list): List of spatial edges connecting the skeleton.
+    """
     def __init__(self, num_nodes, inward_edges, strategy="spatial"):
-
         self.num_nodes = num_nodes
         self.strategy = strategy
         self.self_edges = [(i, i) for i in range(num_nodes)]
