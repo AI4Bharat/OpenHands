@@ -1,8 +1,8 @@
-Dataset,Sign Language,Download Size
-:class:`~openhands.datasets.isolated.AUTSLDataset`,`Turkish <https://chalearnlap.cvc.uab.cat/dataset/40/description/>`_,`2.1GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.CSLDataset`,`Chinese <http://home.ustc.edu.cn/~pjh/openresources/cslr-dataset-2015/index.html>`_,`11GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.DeviSignDataset`,`Chinese <http://vipl.ict.ac.cn/homepage/ksl/data.html>`_,`2.3GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.GSLDataset`,`Greek <https://vcl.iti.gr/dataset/gsl/>`_,`0.7GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.INCLUDEDataset`,`Indian <https://sign-language.ai4bharat.org/#/INCLUDE>`_,`0.6GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.LSA64Dataset`,`Argentinian <http://facundoq.github.io/datasets/lsa64/>`_,`0.2GB <https://raw.github.com>`_
-:class:`~openhands.datasets.isolated.WLASLDataset`,`American <https://dxli94.github.io/WLASL/>`_,`1GB <https://raw.github.com>`_
+Dataset,Sign Language,Download Pose Data
+:class:`~openhands.datasets.isolated.AUTSLDataset`,`Turkish <https://chalearnlap.cvc.uab.cat/dataset/40/description/>`_,`2.2GB <https://zenodo.org/record/5558854/files/AUTSL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.CSLDataset`,`Chinese <http://home.ustc.edu.cn/~pjh/openresources/cslr-dataset-2015/index.html>`_,`11.2GB <https://zenodo.org/record/5558854/files/CSL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.DeviSignDataset`,`Chinese <http://vipl.ict.ac.cn/homepage/ksl/data.html>`_,`2.4GB <https://zenodo.org/record/5558854/files/DEVISIGN.zip?download=1>`_
+:class:`~openhands.datasets.isolated.GSLDataset`,`Greek <https://vcl.iti.gr/dataset/gsl/>`_,`0.7GB <https://zenodo.org/record/5558854/files/GSL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.INCLUDEDataset`,`Indian <https://sign-language.ai4bharat.org/#/INCLUDE>`_,`0.6GB <https://zenodo.org/record/5558854/files/INCLUDE.zip?download=1>`_
+:class:`~openhands.datasets.isolated.LSA64Dataset`,`Argentinian <http://facundoq.github.io/datasets/lsa64/>`_,`0.2GB <https://zenodo.org/record/5558854/files/LSA64_Cut.zip?download=1>`_
+:class:`~openhands.datasets.isolated.WLASLDataset`,`American <https://dxli94.github.io/WLASL/>`_,`1GB <https://zenodo.org/record/5558854/files/WLASL.zip?download=1>`_
