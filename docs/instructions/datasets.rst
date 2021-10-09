@@ -28,5 +28,22 @@ You can now directly proceed to train!
 Custom Datasets
 ---------------
 
-To add support for your own dataset, follow the steps below:
+To add support for your own dataset, create a class of the following structure:
 
+.. code:: python
+
+    from .base import BaseIsolatedDataset
+
+    class MyDatasetDataset(BaseIsolatedDataset):
+        def read_glosses(self):
+            self.glosses = ... # Populate the list of all glosses
+
+        def read_original_dataset(self):
+            self.data = ... # Populate the list of all video files and gloss IDs as tuples
+
+        def read_video_data(self, index):
+            # Read the following ...
+            return imgs, label, video_name
+
+- For implementation examples, check `this folder in the source code <https://github.com/AI4Bharat/OpenHands/tree/main/openhands/datasets/isolated>`_
+- This class can now be referenced in your config file appropriately, and used for training or inference.

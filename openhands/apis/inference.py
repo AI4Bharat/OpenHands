@@ -3,7 +3,7 @@ import pytorch_lightning as pl
 from tqdm import tqdm
 import time
 
-from .data import DataModule
+from ..core.data import DataModule
 from ..models.loader import get_model
 
 class InferenceModel(pl.LightningModule):

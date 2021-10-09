@@ -12,7 +12,7 @@ def experiment_manager(trainer, cfg=None):
     if cfg is None:
         return
 
-    trainer._default_root_dir = os.getcwd()
+    # trainer._default_root_dir = cfg.output_path if cfg.output_path else os.getcwd()
     if cfg.create_tensorboard_logger or cfg.create_wandb_logger:
         configure_loggers(
             trainer,
@@ -66,7 +66,7 @@ def configure_checkpointing(trainer, cfg):
     """
     Creates ModelCheckpoint callback and and attach it to the trainer.
     """
-    checkpoint_callback = ModelCheckpoint(**cfg, dirpath=trainer._default_root_dir)
+    checkpoint_callback = ModelCheckpoint(**cfg)#, dirpath=trainer._default_root_dir)
     trainer.callbacks.append(checkpoint_callback)
 
 

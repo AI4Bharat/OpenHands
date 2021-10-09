@@ -6,31 +6,13 @@
 Welcome to 👐OpenHands's documentation!
 =======================================
 
-**👐OpenHands** is an open source toolkit to democratize sign language research by making pose-based Sign Language Recognition (SLR) more accessible to everyone.
-
-Features
---------
-
-- Easily train pose-based isolated sign language recognizers (ISLR)
-   - Currently supports 4 different models
-- Support for many run-time augmentations for pose keypoints
-   - Check for complete list of pose transforms
-- Support for efficient inference
-   - Check for more details: 
-- Easily pre-train models using monolingual SL data
-   - And fine-tune on any small ISLR dataset
-- All Training and Inference is completely config-based
-   - No-code required
-   - Check for example configs: 
-- Supports 6 sign languages out-of-the-box
-   - Check for supported datasets: 
-
-For detailed explanation, please check out our paper: `👐OpenHands: Making ... <https://arxiv.org>`_
+**👐OpenHands** is an `open source <https://github.com/AI4Bharat/OpenHands>`_ toolkit to democratize sign language research by making pose-based Sign Language Recognition (SLR) more accessible to everyone.
 
 .. toctree::
    :maxdepth: 2
    :caption: Getting Started
 
+   instructions/features
    instructions/installation
    instructions/datasets
    instructions/models
@@ -38,3 +20,9 @@ For detailed explanation, please check out our paper: `👐OpenHands: Making ...
    instructions/self_supervised
    instructions/inference
    instructions/support
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Code Documentation
+
+   api

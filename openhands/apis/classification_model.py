@@ -2,8 +2,8 @@ import torch
 import torch.nn.functional as F
 import torchmetrics
 from ..models.loader import get_model
-from .losses import CrossEntropyLoss, SmoothedCrossEntropyLoss
-from .data import DataModule
+from ..core.losses import CrossEntropyLoss, SmoothedCrossEntropyLoss
+from ..core.data import DataModule
 from .inference import InferenceModel
 
 class ClassificationModel(InferenceModel):

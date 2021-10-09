@@ -1,8 +1,6 @@
-Dataset Link,Source,Size (hours)
-pose_no_sub_one_min_splits.h5,ISH News
-pose_sub_based_splits.h5,ISH News
-pose_videos_chunked_1_min.h5,MBM Vadodara
-pose_for_splitted.h5,NIOS Videos
-newshook_dataset.h5,NewsHook
-sign_library_1_min_splits.h5,Sign Library
-sign_library_sub_based.h5,Sign Library
+Source,Total Hours,Download Size
+`ISH News <https://www.youtube.com/c/ISHNews>`_,145,`15GB <>`_
+`MBM Vadodara <https://www.youtube.com/channel/UCptUQkgBpyrvDK31d16lPmA>`_,225,`23GB <>`_
+`National Institute of Open Schooling (NIOS) <https://www.youtube.com/channel/UCXBn5q8Zv4Bz-LZXWWD7Jxw>`_,115,`11GB <>`_
+`NewzHook <https://www.youtube.com/c/NewzHookNewsforDisabledinIndia>`_,615,`58GB <>`_
+`SIGN LIBRARY <https://www.youtube.com/channel/UCaTMaFNkTiwgsSQ7FYaiaTQ/>`_,29,`2.9GB <>`_

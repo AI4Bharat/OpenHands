@@ -94,7 +94,7 @@ def load_ssl_backbone(cfg, in_channels, num_class):
         raise ValueError(f"SSL Type '{cfg.type}' not supported.")
 
 def get_model(config, in_channels, num_class):
-    if config.pretrained:
+    if "pretrained" in config:
         # Load self-supervised backbone
         return load_ssl_backbone(config.pretrained, in_channels, num_class)
 

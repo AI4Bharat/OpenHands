@@ -1,4 +1,4 @@
-Self-supervised Learning
+Self-Supervised Learning
 ========================
 
 This section is dedicated to explaining how to perform pre-training and fine-tuning using any required datasets for ISLR.
@@ -18,8 +18,8 @@ HDF5 format
 Generating HDF5 datasets
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-- See `this script <https://github.com/AI4Bharat/OpenHands/blob/main/scripts/mediapipe_extract.py>`_ to extract pose for all the given videos using MediaPipe Holistic
-- See `this script <https://github.com/AI4Bharat/OpenHands/blob/main/scripts/pkl_to_h5.py>`_ to convert all the above individual pose files (in ``.pkl``) to HDF5 format.
+- `See this script <https://github.com/AI4Bharat/OpenHands/blob/main/scripts/mediapipe_extract.py>`_ to extract pose for all the given videos using MediaPipe Holistic
+- Use `this script <https://github.com/AI4Bharat/OpenHands/blob/main/scripts/pkl_to_h5.py>`_ to convert all the above individual pose files (in ``.pkl``) to HDF5 format.
 
 Download datasets
 ^^^^^^^^^^^^^^^^^
