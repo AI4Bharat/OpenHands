@@ -1,5 +1,5 @@
 import hydra
-from openhands.core.inference import InferenceModel
+from openhands.apis.inference import InferenceModel
 
 
 @hydra.main(config_path="./", config_name="sample_conf")

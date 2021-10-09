@@ -1,7 +1,6 @@
 # 👐OpenHands: Sign Language Recognition Library
 
-## Training Example
+> _Making Sign Language Recognition Accessible_
 
-```
-python run_classifier.py --config-path=examples/configs/include/ --config-name=gcn_bert hydra.run.dir=./slr_experiments/INCLUDE50/GCN-BERT/
-```
+Check the documentation on how to use the library:  
+[ReadTheDocs: 👐OpenHands](https://openhands.readthedocs.io)

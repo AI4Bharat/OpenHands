@@ -1,5 +1,5 @@
 import hydra
-from openhands.core.dpc import PretrainingModelDPC
+from openhands.apis.dpc import PretrainingModelDPC
 
 
 @hydra.main(config_path="./", config_name="pretrain_dpc")

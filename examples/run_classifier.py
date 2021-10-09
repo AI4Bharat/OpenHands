@@ -1,6 +1,10 @@
+'''
+python run_classifier.py --config-path=examples/configs/include/ --config-name=gcn_bert hydra.run.dir=./slr_experiments/INCLUDE50/GCN-BERT/
+'''
+
 import hydra
 import pytorch_lightning as pl
-from openhands.core.classification_model import ClassificationModel
+from openhands.apis.classification_model import ClassificationModel
 from openhands.core.exp_utils import experiment_manager
 
 
