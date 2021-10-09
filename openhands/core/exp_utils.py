@@ -1,9 +1,14 @@
 import os
-from pytorch_lightning.loggers import TensorBoardLogger, WandbLogger
-from pytorch_lightning.loggers.base import LoggerCollection
-from pytorch_lightning.callbacks.model_checkpoint import ModelCheckpoint
-from pytorch_lightning.callbacks.early_stopping import EarlyStopping
+import pytorch_lightning as pl
+from pl.loggers import TensorBoardLogger, WandbLogger
+from pl.loggers.base import LoggerCollection
+from pl.callbacks.model_checkpoint import ModelCheckpoint
+from pl.callbacks.early_stopping import EarlyStopping
 
+def get_trainer(cfg):
+    trainer = pl.Trainer(**cfg.trainer)
+    experiment_manager(trainer, cfg.get("exp_manager", None))
+    return trainer
 
 def experiment_manager(trainer, cfg=None):
     """

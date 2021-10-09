@@ -24,6 +24,8 @@ Generating HDF5 datasets
 Download datasets
 ^^^^^^^^^^^^^^^^^
 
+The following are the checkpoints scraped for Indian SL for raw pretraining (as mentioned in paper):
+
 .. csv-table::
    :file: ../_static/raw_datasets.csv
    :header-rows: 1
@@ -44,7 +46,7 @@ Finally, run the following snippet to perform the pretraining:
     from openhands.core.dpc import PretrainingModelDPC
 
     cfg = omegaconf.OmegaConf.load("path/to/config.yaml")
-	trainer = PretrainingModelDPC(cfg=cfg)
+    trainer = PretrainingModelDPC(cfg=cfg)
     trainer.fit()
 
 Fine-tuning
@@ -52,3 +54,12 @@ Fine-tuning
 
 - Ensure that the model parameters and pretrained checkpoint path are specified in a new config as shown in `this fine-tuning example <https://github.com/AI4Bharat/OpenHands/blob/main/examples/configs/include/pose_finetune_dpc.yaml>`_.
 - Finally, you can perform the fine-tuning using the same snippet from the `Training` section.
+
+Checkpoints
+-----------
+
+The following are the checkpoints reported in the paper, which was pretrained using the above mentioned Indian raw SL data, and finetuned on different labeled datasets.
+
+.. csv-table::
+   :file: ../_static/ssl_checkpoints.csv
+   :header-rows: 1

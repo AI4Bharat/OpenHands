@@ -15,11 +15,10 @@ After you have a config ready, run the following python snippet:
     import omegaconf
     import pytorch_lightning as pl
     from openhands.core.classification_model import ClassificationModel
-    from openhands.core.exp_utils import experiment_manager
+    from openhands.core.exp_utils import get_trainer
 
     cfg = omegaconf.OmegaConf.load("path/to/config.yaml")
-	trainer = pl.Trainer(**cfg.trainer)
-    experiment_manager(trainer, cfg.get("exp_manager", None))
+    trainer = get_trainer(cfg)
     
     model = ClassificationModel(cfg=cfg, trainer=trainer)
     model.init_from_checkpoint_if_available()

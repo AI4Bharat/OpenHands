@@ -1,0 +1,6 @@
+Checkpoint,Download
+DPC pretrained model,`raw_dpc.zip <https://github.com/AI4Bharat/OpenHands/releases/download/checkpoints_v1/raw_dpc.zip>`_
+Model finetuned on DEVISIGN,`devisign_dpc.zip <https://github.com/AI4Bharat/OpenHands/releases/download/checkpoints_v1/devisign_dpc.zip>`_
+Model finetuned on INCLUDE,`include_dpc.zip <https://github.com/AI4Bharat/OpenHands/releases/download/checkpoints_v1/include_dpc.zip>`_
+Model finetuned on LSA64,`lsa64_dpc.zip <https://github.com/AI4Bharat/OpenHands/releases/download/checkpoints_v1/lsa64_dpc.zip>`_
+Model finetuned on WLASL2000,`wlasl_dpc.zip <https://github.com/AI4Bharat/OpenHands/releases/download/checkpoints_v1/wlasl_dpc.zip>`_
