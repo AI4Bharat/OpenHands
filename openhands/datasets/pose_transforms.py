@@ -5,13 +5,24 @@ import numpy as np
 
 class Compose:
     """
-    Compose a list of pose transorms
+    Compose a list of pose transforms
+    
+    Args:
+        transforms (list): List of transforms to be applied.
     """
 
     def __init__(self, transforms):
         self.transforms = transforms
 
-    def __call__(self, x):
+    def __call__(self, x: dict):
+        """Applies the given list of transforms
+
+        Args:
+            x (dict): input data
+
+        Returns:
+            dict: data after the transforms
+        """
         for transform in self.transforms:
             x = transform(x)
         return x
@@ -19,14 +30,29 @@ class Compose:
 
 class ScaleToVideoDimensions:
     """
-    Scale the pose keypoints with Width and Height of frames
+    Scale the pose keypoints to the given width and height values.
+    
+    Args:
+        width (int): Width of the frames
+        height (int): Height of the frames 
+        
     """
 
     def __init__(self, width: int, height: int):
         self.width = width
         self.height = height
 
-    def __call__(self, data):
+    def __call__(self, data: dict):
+        """
+        Applies the scaling to the input keypoints data.
+
+        Args:
+            data (dict): given data
+
+        Returns:
+            dict: data after scaling
+        """
+        
         kps = data["frames"]
 
         kps[0, ...] *= self.width
@@ -39,10 +65,18 @@ class ScaleToVideoDimensions:
 class PoseRandomShift:
     """
     Randomly distribute the zero padding at the end of a video
-    to intial and final positions
+    to initial and final positions
     """
+    def __call__(self, data:dict):
+        """
+        Applies the random shift to the given input data
 
-    def __call__(self, data):
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after applying random shift
+        """
         x = data["frames"]
         C, T, V = x.shape
         data_shifted = torch.zeros_like(x)
@@ -60,7 +94,12 @@ class PoseRandomShift:
 
 class PoseSelect:
     """
-    Select the given index keypoints from all keypoints
+    Select the given index keypoints from all keypoints. 
+    Args:
+        preset (str | None, optional): can be used to specify existing presets - `mediapipe_holistic_minimal_27` or `mediapipe_holistic_top_body_59`
+        If None, then the `pose_indexes` argument indexes will be used to select. Default: ``None``
+        
+        pose_indexes: List of indexes to select.
     """
     # fmt: off
     KEYPOINT_PRESETS = {
@@ -69,7 +108,7 @@ class PoseSelect:
     }
     # fmt: on
     
-    def __init__(self, preset=None, pose_indexes=[]):
+    def __init__(self, preset=None, pose_indexes: list=[]):
         if preset:
             self.pose_indexes = self.KEYPOINT_PRESETS[preset]
         elif pose_indexes:
@@ -77,8 +116,16 @@ class PoseSelect:
         else:
             raise ValueError("Either pass `pose_indexes` to select or `preset` name")
 
-    def __call__(self, data):
+    def __call__(self, data:dict):
+        """
+        Apply selection of keypoints based on the given indexes.
 
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict : transformed data
+        """
         x = data["frames"]
         x = x[:, :, self.pose_indexes]
         data["frames"] = x
@@ -87,10 +134,26 @@ class PoseSelect:
 
 # Adopted from: https://github.com/AmitMY/pose-format/
 class ShearTransform:
-    def __init__(self, shear_std=0.2):
+    """
+    Applies [2D shear transform](https://en.wikipedia.org/wiki/Shear_matrix)
+    
+    Args:
+        shear_std (float): std to use for shear transformation. Default: 0.2
+    """
+    def __init__(self, shear_std: float=0.2):
         self.shear_std = shear_std
 
-    def __call__(self, data):
+    def __call__(self, data:dict):
+        """
+        Applies shear transformation to the given data.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after shear transformation
+        """
+        
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported for ShearTransform"
         x = x.permute(1, 2, 0) #CTV->TVC
@@ -104,10 +167,25 @@ class ShearTransform:
 
 
 class RotatationTransform:
-    def __init__(self, rotation_std=0.2):
+    """
+    Applies [2D rotation transformation](https://en.wikipedia.org/wiki/Rotation_matrix).
+    
+    Args:
+        rotation_std (float): std to use for rotation transformation. Default: 0.2
+    """
+    def __init__(self, rotation_std: float=0.2):
         self.rotation_std = rotation_std
 
     def __call__(self, data):
+        """
+        Applies rotation transformation to the given data.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after rotation transformation
+        """
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported for RotationTransform"
         x = x.permute(1, 2, 0) #CTV->TVC
@@ -126,10 +204,24 @@ class RotatationTransform:
 
 
 class ScaleTransform:
+    """
+    Applies [Scaling](https://en.wikipedia.org/wiki/Scaling_(geometry)) transformation
+    Args:
+        scale_std (float): std to use for Scaling transformation. Default: 0.2
+    """
     def __init__(self, scale_std=0.2):
         self.scale_std = scale_std
 
     def __call__(self, data):
+        """
+        Applies scaling transformation to the given data.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after scaling transformation
+        """
         x = data["frames"]
         assert x.shape[0] == 2, "Only 2 channels inputs supported for ScaleTransform"
 
@@ -144,6 +236,15 @@ class ScaleTransform:
 
 
 class CenterAndScaleNormalize:
+    """
+    Centers and scales the keypoints based on the referent points given.
+
+    Args:
+        reference_points_preset (str | None, optional): can be used to specify existing presets - `mediapipe_holistic_minimal_27` or `mediapipe_holistic_top_body_59`
+        reference_point_indexes (list): shape(p1, p2); point indexes to use if preset is not given then
+        scale_factor (int): scaling factor. Default: 1
+        frame_level (bool): Whether to center and normalize at frame level or clip level. Default: ``False``
+    """
     REFERENCE_PRESETS = {
         "shoulder_mediapipe_holistic_minimal_27": [3, 4],
         "shoulder_mediapipe_holistic_top_body_59": [11, 12],
@@ -156,10 +257,7 @@ class CenterAndScaleNormalize:
         scale_factor=1,
         frame_level=False,
     ):
-        """
-        reference_point_indexes - The point indexes according to which the points will be centered and scaled.
-        shape: (p1, p2)
-        """
+
         if reference_points_preset:
             self.reference_point_indexes = CenterAndScaleNormalize.REFERENCE_PRESETS[
                 reference_points_preset
@@ -174,6 +272,15 @@ class CenterAndScaleNormalize:
         self.frame_level = frame_level
 
     def __call__(self, data):
+        """
+        Applies centering and scaling transformation to the given data.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after centering normalization
+        """
         x = data["frames"]
         C, T, V = x.shape
         x = x.permute(1, 2, 0) #CTV->TVC
@@ -192,6 +299,15 @@ class CenterAndScaleNormalize:
         return data
 
     def calc_center_and_scale_for_one_skeleton(self, x):
+        """
+        Calculates the center and scale values for one skeleton.
+
+        Args:
+            x (torch.Tensor): Spatial keypoints at a timestep
+
+        Returns:
+            [float, float]: center and scale value to normalize for the skeleton
+        """
         ind1, ind2 = self.reference_point_indexes
         point1, point2 = x[ind1], x[ind2]
         center = (point1 + point2) / 2
@@ -202,6 +318,15 @@ class CenterAndScaleNormalize:
         return center, scale
 
     def calc_center_and_scale(self, x):
+        """
+        Calculates the center and scale value based on the sequence of skeletons.
+
+        Args:
+            x (torch.Tensor): all keypoints for the video clip.
+
+        Returns:
+            [float, float]: center and scale value to normalize
+        """
         transposed_x = x.permute(1, 0, 2) # TVC -> VTC
         ind1, ind2 = self.reference_point_indexes
         points1 = transposed_x[ind1]
@@ -220,6 +345,9 @@ class CenterAndScaleNormalize:
 
 
 class RandomMove:
+    """
+    Moves all the keypoints randomly in a random direction.
+    """
     def __init__(self, move_range=(-2.5, 2.5), move_step=0.5):
         self.move_range = torch.arange(*move_range, move_step)
 
@@ -242,11 +370,28 @@ class RandomMove:
 
 
 class PoseTemporalSubsample:
-    def __init__(self, num_frames):
+    """
+    Randomly subsamples num_frames indices from the temporal dimension of the sequence of keypoints.
+    If the num_frames if larger than the length of the sequence, then the remaining frames will be padded with zeros.
+        
+    Args:
+        num_frames (int): Number of frames to subsample.
+        temporal_dim(int): dimension of temporal to perform temporal subsample.
+    """
+    def __init__(self, num_frames, temporal_dim=1):
         self.num_frames = num_frames
-        self.temporal_dim = 1
+        self.temporal_dim = temporal_dim
 
     def __call__(self, data):
+        """
+        performs random subsampling based on the number of frames needed.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after subsampling
+        """
         x = data["frames"]
         C, T, V = x.shape
 
@@ -266,11 +411,28 @@ class PoseTemporalSubsample:
 
 
 class PoseUniformSubsampling:
-    def __init__(self, num_frames):
+    """
+    Uniformly subsamples num_frames indices from the temporal dimension of the sequence of keypoints.
+    If the num_frames if larger than the length of the sequence, then the remaining frames will be padded with zeros.
+        
+    Args:
+        num_frames (int): Number of frames to subsample.
+        temporal_dim(int): dimension of temporal to perform temporal subsample.
+    """
+    def __init__(self, num_frames, temporal_dim=1):
         self.num_frames = num_frames
-        self.temporal_dim = 1
+        self.temporal_dim = temporal_dim
 
     def __call__(self, data):
+        """
+        performs uniform subsampling based on the number of frames needed.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after subsampling
+        """
         x = data["frames"]
         C, T, V = x.shape
         t = x.shape[self.temporal_dim]
@@ -293,6 +455,10 @@ class TemporalSample:
     If subsample_mode==2, randomly sub-sampling or uniform-sampling is done
     If subsample_mode==0, only uniform-sampling (for test sets)
     If subsample_mode==1, only sub-sampling (to reproduce results of some papers that use only subsampling)
+    
+    Args:
+        num_frames (int): Number of frames to subsample.
+        subsample_mode (int): Mode to choose.
     """
 
     def __init__(self, num_frames, subsample_mode=2):
@@ -303,6 +469,15 @@ class TemporalSample:
         self.random_sampler = PoseTemporalSubsample(num_frames)
 
     def __call__(self, data):
+        """
+        performs subsampling based on the mode.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after subsampling
+        """
         if self.subsample_mode == 0:
             return self.uniform_sampler(data)
         elif self.subsample_mode == 1:
@@ -316,11 +491,26 @@ class TemporalSample:
 
 
 class FrameSkipping:
+    """
+    Skips the frame based on the jump range specified.
+    
+    Args:
+        skip_range(int): The skip range.
+    """
     def __init__(self, skip_range=1):
         self.skip_range = skip_range
         self.temporal_dim = 1
 
     def __call__(self, data):
+        """
+        performs frame skipping.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict: data after skipping frames based on the jump range.
+        """
         x = data["frames"]
         t = x.shape[self.temporal_dim]
         indices = torch.arange(0, t, self.skip_range)

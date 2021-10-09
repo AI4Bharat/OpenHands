@@ -17,6 +17,21 @@ class SmoothedCrossEntropyLoss(nn.Module):
         self.smooth_factor = smooth_factor
 
     def forward(self, input, target):
+        """
+        Calculate label smoothed cross entropy loss
+
+        Args:
+            input (torch.Tensor):  :math:`(N, C)` 
+            target (torch.Tensor): :math:`(N)` 
+
+            where 
+            :math:`N` = Batch Size,
+            :math:`C` = number of classes.
+            
+            
+        Returns:
+            torch.Tensor: Calulated cross entropy loss with label smoothing.
+        """
         log_probs = F.log_softmax(input, dim=-1)
         nll_loss = -log_probs.gather(dim=-1, index=target.unsqueeze(1)).squeeze(1)
         smooth_loss = -log_probs.mean(dim=-1)

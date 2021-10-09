@@ -298,8 +298,7 @@ class TransformerEncoder(nn.Module):
         max_pos_embeddings=512,
     ):
         """
-        Transformer with some mods which gives better performace
-        uses suggestions proposed in https://arxiv.org/pdf/2102.11972.pdf
+        Transformer layer with suggestions proposed in https://arxiv.org/pdf/2102.11972.pdf
 
         embed_type => {learned, sinusoidal, relative_bias, relative_bias_shared, rotary}
         norm_type => {layernorm, rmsnorm}

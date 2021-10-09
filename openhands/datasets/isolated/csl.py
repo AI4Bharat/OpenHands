@@ -34,7 +34,7 @@ class CSLDataset(BaseIsolatedDataset):
         elif "pose" in self.modality:
             format = ".pkl"
         else:
-            raise ValueError("Unsupported modality: " + modality)
+            raise ValueError("Unsupported modality: " + self.modality)
 
         video_files_path = os.path.join(self.root_dir, "**", "*" + format)
         video_files = glob(video_files_path, recursive=True)

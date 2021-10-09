@@ -88,7 +88,7 @@ class STGCN_BLOCK(nn.Module):
         - Input[0]: Input graph sequence in :math:`(N, in_channels, T_{in}, V)`
             format
         - Input[1]: Input graph adjacency matrix in :math:`(K, V, V)` format
-        - Output[0]: Outpu graph sequence in :math:`(N, out_channels, T_{out},
+        - Output[0]: Output graph sequence in :math:`(N, out_channels, T_{out},
             V)` format
         - Output[1]: Graph adjacency matrix for output data in :math:`(K, V,
             V)` format
