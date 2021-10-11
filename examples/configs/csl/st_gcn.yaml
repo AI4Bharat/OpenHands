@@ -4,7 +4,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             modality: "pose"
             splits: "train"
 
@@ -24,7 +24,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: true
-            num_workers: 0
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -32,7 +32,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             modality: "pose"
             splits: "test"
 
@@ -46,9 +46,9 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 128
             shuffle: false
-            num_workers: 0
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -124,6 +124,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/csl/st_gcn/"
 
     early_stopping_callback: true
     early_stopping_params:

@@ -1,3 +1,5 @@
+# pretrained: "/home/gokulnc/openhands/openhands_experiments/INCLUDE/ST-GCN/default/0/checkpoints/epoch=173-step=18965.ckpt"
+
 data:
     modality: "pose"
     train_pipeline:
@@ -22,7 +24,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: true
-            num_workers: 6
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -42,9 +44,9 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: false
-            num_workers: 0
+            num_workers: 1
             pin_memory: true
             drop_last: false
 
@@ -120,6 +122,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/include/st_gcn/"
 
     early_stopping_callback: true
     early_stopping_params:

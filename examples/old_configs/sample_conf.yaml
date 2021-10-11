@@ -1,5 +1,5 @@
 name: &name "x3d_s_fc"
-pretrained: "/home/prem/data-disk/SLR/outputs/2021-06-13/11-47-15/x3d_s_fc/0/checkpoints/epoch=0-step=9.ckpt"
+pretrained: "/home/prem/data-disk/openhands/outputs/2021-06-13/11-47-15/x3d_s_fc/0/checkpoints/epoch=0-step=9.ckpt"
 
 data:
     modality: "video"
@@ -98,7 +98,7 @@ trainer:
     gpus: 1
 
 exp_manager:
-    exp_dir: "./slr_experiments"
+    exp_dir: "./openhands_experiments"
     name: *name
     create_tensorboard_logger: true
     create_wandb_logger: false

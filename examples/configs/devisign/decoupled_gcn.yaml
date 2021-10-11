@@ -3,8 +3,8 @@ data:
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
-            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             splits: "train"
             modality: "pose"
 
@@ -37,8 +37,8 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk-chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
-            root_dir: "/home/gokulnc/data-disk-chinese/DEVISIGN/poses_pickled"
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             splits: "test"
             modality: "pose"
 
@@ -116,7 +116,7 @@ optim:
 trainer:
     gpus: 1
     max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    # resume_from_checkpoint: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -125,6 +125,7 @@ exp_manager:
         name: null
         project: null
 
+    output_path: "experiments/devisign/sl_gcn/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"

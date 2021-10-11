@@ -63,7 +63,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.INCLUDEDataset
             split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/Animals/1. Dog"
+            root_dir: "/home/gokulnc/samples/"
             splits: "test"
             modality: "pose"
             inference_mode: true
@@ -149,6 +149,7 @@ exp_manager:
         name: null
         project: null
 
+    output_path: "experiments/include/sl_gcn/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"

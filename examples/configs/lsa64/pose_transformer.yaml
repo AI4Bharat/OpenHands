@@ -97,6 +97,7 @@ exp_manager:
         name: null
         project: null
 
+    output_path: "experiments/lsa64/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"

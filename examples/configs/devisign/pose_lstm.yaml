@@ -2,19 +2,17 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             splits: "train"
             modality: "pose"
 
         transforms:
-        # Pre-processing, normalization, adding [CLS]
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - PoseUniformSubsampling:
-                num_frames: 120
-            # - RandomMove:
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
             - ShearTransform:
@@ -26,25 +24,25 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 64
+            batch_size: 32
             shuffle: true
-            num_workers: 6
+            num_workers: 1
             pin_memory: true
-            # drop_last: true
+            drop_last: true
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             splits: "test"
             modality: "pose"
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - PoseUniformSubsampling:
-                num_frames: 120
+            # - PoseTemporalSubsample:
+            #       num_frames: 32
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
@@ -52,7 +50,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 64
             shuffle: false
-            num_workers: 6
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -62,22 +60,20 @@ model:
         params:
             num_points: 27
     decoder:
-        type: bert
+        type: rnn
         params:
-            max_position_embeddings: 121
-            layer_norm_eps: 1e-12
-            hidden_dropout_prob: 0.1
-            hidden_size: 96
-            num_attention_heads: 6
-            num_hidden_layers: 6
-            cls_token: true
+            rnn_type: LSTM
+            hidden_size: 128
+            num_layers: 4
+            bidirectional: true
+            use_attention: true
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-4
+            lr: 5e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -87,8 +83,8 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 1500
-    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT/epoch=312-step=16901.ckpt
+    max_epochs: 1000
+    # resume_from_checkpoint: "/home/gokulnc/SLR/experiments/include/lstm/epoch=210-step=45575.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -97,16 +93,16 @@ exp_manager:
         name: null
         project: null
 
-    output_path: "experiments/include/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/devisign/lstm/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 60
+        patience: 100
         verbose: true
         mode: "max"

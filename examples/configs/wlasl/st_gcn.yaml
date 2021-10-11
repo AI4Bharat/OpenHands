@@ -2,10 +2,9 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.GSLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/train_greek_iso.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
-            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/iso_classes.csv"
+            _target_: openhands.datasets.isolated.WLASLDataset
+            split_file: /home/gokulnc/data-disk/datasets/American/WLASL2000/splits/asl2000.json
+            root_dir: /home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle
             modality: "pose"
             splits: "train"
 
@@ -21,18 +20,17 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: true
-            num_workers: 3
+            num_workers: 6
             pin_memory: true
             drop_last: false
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.GSLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/test_greek_iso.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
-            class_mappings_file_path: "/home/gokulnc/data-disk/datasets/Greek/GSL_split/GSL_isolated/iso_classes.csv"
+            _target_: openhands.datasets.isolated.WLASLDataset
+            split_file: /home/gokulnc/data-disk/datasets/American/WLASL2000/splits/asl2000.json
+            root_dir: /home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle
             modality: "pose"
             splits: "test"
 
@@ -46,7 +44,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: false
-            num_workers: 1
+            num_workers: 0
             pin_memory: true
             drop_last: false
 
@@ -98,7 +96,7 @@ optim:
     optimizer:
         name: Adam
         params:
-            lr: 1e-3
+            lr: 2e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -122,7 +120,6 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/gsl/st_gcn/"
 
     early_stopping_callback: true
     early_stopping_params:

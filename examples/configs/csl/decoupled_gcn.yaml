@@ -1,4 +1,4 @@
-# pretrained: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+# pretrained: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 data:
     modality: "pose"
@@ -6,7 +6,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "train"
             modality: "pose"
 
@@ -40,7 +40,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "test"
             modality: "pose"
 
@@ -118,7 +118,7 @@ optim:
 trainer:
     gpus: 1
     max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    # resume_from_checkpoint: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -127,6 +127,7 @@ exp_manager:
         name: null
         project: null
 
+    output_path: "experiments/csl/sl_gcn/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"

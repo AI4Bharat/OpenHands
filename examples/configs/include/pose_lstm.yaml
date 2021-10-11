@@ -11,42 +11,10 @@ data:
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseSelect:
-            #       pose_indexes:
-            #           [
-            #               0,
-            #               2,
-            #               5,
-            #               11,
-            #               12,
-            #               13,
-            #               14,
-            #               33,
-            #               37,
-            #               38,
-            #               41,
-            #               42,
-            #               45,
-            #               46,
-            #               49,
-            #               50,
-            #               53,
-            #               54,
-            #               58,
-            #               59,
-            #               62,
-            #               63,
-            #               66,
-            #               67,
-            #               70,
-            #               71,
-            #               74,
-            #           ]
             # - PoseTemporalSubsample:
             #       num_frames: 32
             - CenterAndScaleNormalize:
-                point_indexes_to_use: [3, 4]
-                scale_factor: 1
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
             - ShearTransform:
                 shear_std: 0.1
             - RotatationTransform:
@@ -73,48 +41,16 @@ data:
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseSelect:
-            #       pose_indexes:
-            #           [
-            #               0,
-            #               2,
-            #               5,
-            #               11,
-            #               12,
-            #               13,
-            #               14,
-            #               33,
-            #               37,
-            #               38,
-            #               41,
-            #               42,
-            #               45,
-            #               46,
-            #               49,
-            #               50,
-            #               53,
-            #               54,
-            #               58,
-            #               59,
-            #               62,
-            #               63,
-            #               66,
-            #               67,
-            #               70,
-            #               71,
-            #               74,
-            #           ]
             # - PoseTemporalSubsample:
             #       num_frames: 32
             - CenterAndScaleNormalize:
-                point_indexes_to_use: [3, 4]
-                scale_factor: 1
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: false
-            num_workers: 8
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -147,8 +83,8 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 00
-    # resume_from_checkpoint: "/home/gokulnc/SLR/outputs/2021-06-30/17-55-58/LSTM-INCLUDE/0/checkpoints/epoch=971-step=45683.ckpt"
+    max_epochs: 1000
+    # resume_from_checkpoint: "/home/gokulnc/SLR/experiments/include/lstm/epoch=210-step=45575.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -162,6 +98,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/include/lstm/"
 
     early_stopping_callback: true
     early_stopping_params:

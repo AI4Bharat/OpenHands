@@ -22,7 +22,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: true
-            num_workers: 6
+            num_workers: 3
             pin_memory: true
             drop_last: false
 
@@ -42,9 +42,9 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: false
-            num_workers: 0
+            num_workers: 2
             pin_memory: true
             drop_last: false
 
@@ -120,6 +120,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/devisign/st_gcn/"
 
     early_stopping_callback: true
     early_stopping_params:

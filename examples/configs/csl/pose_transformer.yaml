@@ -4,7 +4,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "train"
             modality: "pose"
 
@@ -38,7 +38,7 @@ data:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
             split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
-            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose/"
+            root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "test"
             modality: "pose"
 
@@ -101,6 +101,7 @@ exp_manager:
         name: null
         project: null
 
+    output_path: "experiments/csl/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
@@ -110,6 +111,6 @@ exp_manager:
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 100
+        patience: 50
         verbose: true
         mode: "max"
