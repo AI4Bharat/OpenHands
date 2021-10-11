@@ -13,7 +13,6 @@ After you have a config ready, run the following python snippet:
 .. code:: python
 
     import omegaconf
-    import pytorch_lightning as pl
     from openhands.core.classification_model import ClassificationModel
     from openhands.core.exp_utils import get_trainer
 
