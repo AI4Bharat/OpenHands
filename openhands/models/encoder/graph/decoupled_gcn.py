@@ -355,7 +355,7 @@ class DecoupledGCN(nn.Module):
         
         super(DecoupledGCN, self).__init__()
         graph_args = OmegaConf.to_container(graph_args)
-        num_points = graph_args["num_points"]
+        num_points = graph_args["num_nodes"]
         inward_edges = graph_args["inward_edges"]
         
         self.graph = SpatialGraph(num_points, inward_edges)

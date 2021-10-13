@@ -1,7 +1,8 @@
 Features
 ========
 
-For detailed explanation, please check out our paper: `👐OpenHands: Making ... <https://arxiv.org>`_
+For detailed explanation, please check out our paper:  
+`👐OpenHands: Making Sign Language Recognition Accessible with Pose-based Pretrained Models across Languages <https://arxiv.org/abs/2110.05877>`_
 
 Currently supported
 -------------------

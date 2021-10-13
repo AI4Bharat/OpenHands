@@ -47,6 +47,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             raise RuntimeError("Unable to read glosses list")
         self.label_encoder = LabelEncoder()
         self.label_encoder.fit(self.glosses)
+        print(f"Found {len(self.glosses)} classes in {splits} splits")
 
         self.data = []
         self.inference_mode = inference_mode

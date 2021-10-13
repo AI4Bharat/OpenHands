@@ -9,7 +9,6 @@ data:
             modality: "pose"
 
         transforms:
-        # Pre-processing, normalization, adding [CLS]
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             - PoseUniformSubsampling:
@@ -97,12 +96,12 @@ exp_manager:
         name: null
         project: null
 
-    output_path: "experiments/include/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/include/bert/"
 
     early_stopping_callback: true
     early_stopping_params:

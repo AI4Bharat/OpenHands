@@ -6,7 +6,8 @@ This section describes how to install 👐OpenHands and ensure it is working.
 Getting the toolkit
 -------------------
 
-👐OpenHands can either be installed directly using package manager, or built from source.
+- Ensure you have Python 3.7+ installed.
+- 👐OpenHands can either be installed directly using package manager, or built from source.
 
 Installing from PyPI
 ^^^^^^^^^^^^^^^^^^^^

@@ -97,12 +97,12 @@ exp_manager:
         name: null
         project: null
 
-    output_path: "experiments/lsa64/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/lsa64/bert/"
 
     early_stopping_callback: true
     early_stopping_params:

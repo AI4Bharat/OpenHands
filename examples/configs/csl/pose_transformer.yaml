@@ -101,12 +101,12 @@ exp_manager:
         name: null
         project: null
 
-    output_path: "experiments/csl/bert/"
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/csl/bert/"
 
     early_stopping_callback: true
     early_stopping_params:
