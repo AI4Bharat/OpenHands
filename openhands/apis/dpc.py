@@ -33,8 +33,6 @@ def calc_topk_accuracy(output, target, topk=(1,)):
 
 def process_output(mask):
     """task mask as input, compute the target for contrastive loss"""
-    # dot product is computed in parallel gpus, so get less easy neg, bounded by batch size in each gpu'''
-    # mask meaning: -2: omit, -1: temporal neg (hard), 0: easy neg, 1: pos, -3: spatial neg
     (B, NP, B2, NS) = mask.size()  # [B, P, SQ, B, N, SQ]
     target = (mask == 1).float()
     target.requires_grad = False
@@ -42,6 +40,10 @@ def process_output(mask):
 
 
 def collate_without_none(batch, dataset):
+    """
+    Utility to collate the batch removing ``None`` values if any. 
+    ``None`` values will be replaced by choosing random item from the dataset.
+    """
     len_batch = len(batch)  # original batch length
     batch = list(filter(lambda x: x is not None, batch))  # filter out all the Nones
     if len_batch > len(
@@ -57,6 +59,14 @@ def collate_without_none(batch, dataset):
     return torch.utils.data.dataloader.default_collate(batch)
 
 class PretrainingModelDPC(pl.LightningModule):
+    """
+    Model for pretraining the SL-DPC architecture.
+    Paper: https://arxiv.org/abs/2110.05877
+
+    Args:
+        cfg (dict): configuration set.
+        create_model_only(bool): If ``True`` only the model object will be initialized and can't be used for running the trainer.
+    """
     def __init__(self, cfg, create_model_only=False):
         super().__init__()
         self.cfg = cfg
@@ -99,6 +109,10 @@ class PretrainingModelDPC(pl.LightningModule):
         )
 
     def training_step(self, batch, batch_idx):
+        """
+        Lightning calls this inside the training loop with the data from the training dataloader
+        passed in as `batch` and calculates the loss and the accuracy.
+        """
         input_seq = batch
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
@@ -119,6 +133,10 @@ class PretrainingModelDPC(pl.LightningModule):
         return {"loss": loss, "train_acc": top1}
 
     def validation_step(self, batch, batch_idx):
+        """
+        Lightning calls this inside the training loop with the data from the validation dataloader
+        passed in as `batch` and calculates the loss and the accuracy.
+        """
         input_seq = batch
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
@@ -141,6 +159,9 @@ class PretrainingModelDPC(pl.LightningModule):
         return {"valid_loss": loss, "valid_acc": top1}
 
     def train_dataloader(self):
+        """
+        Lightning uses the dataloader returned for train dataloader.
+        """
         return torch.utils.data.DataLoader(
             self.train_dataset,
             batch_size=self.batch_size,
@@ -152,6 +173,9 @@ class PretrainingModelDPC(pl.LightningModule):
         )
 
     def val_dataloader(self):
+        """
+        Lightning uses the dataloader returned for valid dataloader.
+        """
         return torch.utils.data.DataLoader(
             self.valid_dataset,
             batch_size=self.batch_size,
@@ -161,6 +185,9 @@ class PretrainingModelDPC(pl.LightningModule):
         )
 
     def configure_optimizers(self):
+        """
+        Returns the optimizer and the LR scheduler to be used by Lightning.
+        """
         optimizer = torch.optim.AdamW(
             self.model.parameters(), lr=self.learning_rate, weight_decay=1e-5
         )
@@ -170,6 +197,9 @@ class PretrainingModelDPC(pl.LightningModule):
         return [optimizer], [lr_scheduler]
 
     def fit(self):
+        """
+        Method to be called to start the training.
+        """
         self.trainer = pl.Trainer(
             gpus=1,
             precision=16,

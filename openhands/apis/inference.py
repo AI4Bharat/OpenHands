@@ -6,7 +6,14 @@ import time
 from ..core.data import DataModule
 from ..models.loader import get_model
 
+# merge with the corresponding modules in the future release.
 class InferenceModel(pl.LightningModule):
+    """
+    This will be the general interface for running the inference across models.
+    Args:
+        cfg (dict): configuration set.
+
+    """
     def __init__(self, cfg, stage="test"):
         super().__init__()
         self.cfg = cfg
@@ -18,12 +25,21 @@ class InferenceModel(pl.LightningModule):
             self.model.to('cpu').eval()
     
     def create_model(self, cfg):
+        """
+        Creates and returns the model object based on the config.
+        """
         return get_model(cfg, self.datamodule.in_channels, self.datamodule.num_class)
     
     def forward(self, x):
+        """
+        Forward propagates the inputs and returns the model output.
+        """
         return self.model(x)
     
     def init_from_checkpoint_if_available(self, map_location=torch.device("cpu")):
+        """
+        Intializes the pretrained weights if the ``cfg`` has ``pretrained`` parameter.
+        """
         if "pretrained" not in self.cfg.keys():
             return
 
@@ -34,6 +50,9 @@ class InferenceModel(pl.LightningModule):
         del ckpt
     
     def test_inference(self):
+        """
+        Calculates the time taken for inference for all the batches in the test dataloader.
+        """
         # TODO: Write output to a csv
         dataloader = self.datamodule.test_dataloader()
         total_time_taken, num_steps = 0.0, 0
@@ -53,6 +72,9 @@ class InferenceModel(pl.LightningModule):
         print(f"Avg time per iteration: {total_time_taken*1000.0/num_steps} ms")
 
     def compute_test_accuracy(self):
+        """
+        Computes the accuracy for the test dataloader.
+        """
         # Ensure labels are loaded
         assert not self.datamodule.test_dataset.inference_mode
         # TODO: Write output to a csv

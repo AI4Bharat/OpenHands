@@ -7,6 +7,14 @@ from ..core.data import DataModule
 from .inference import InferenceModel
 
 class ClassificationModel(InferenceModel):
+    """
+    Classification Model initializer
+
+    Args:
+        cfg (dict): configuration set.
+        trainer (object): trainer object from Pytorch Lightning.
+
+    """
     def __init__(self, cfg, trainer):
         super().__init__(cfg, stage="fit")
         self.trainer = trainer
@@ -14,6 +22,10 @@ class ClassificationModel(InferenceModel):
         self.loss = self.setup_loss(self.cfg.optim)
 
     def training_step(self, batch, batch_idx):
+        """
+        Lightning calls this inside the training loop with the data from the training dataloader
+        passed in as `batch` and calculates the loss and the accuracy.
+        """
         y_hat = self.model(batch["frames"])
         loss = self.loss(y_hat, batch["labels"])
         acc = self.accuracy_metric(F.softmax(y_hat, dim=-1), batch["labels"])
@@ -22,6 +34,10 @@ class ClassificationModel(InferenceModel):
         return {"loss": loss, "train_acc": acc}
 
     def validation_step(self, batch, batch_idx):
+        """
+        Lightning calls this inside the training loop with the data from the validation dataloader
+        passed in as `batch` and calculates the loss and the accuracy.
+        """
         y_hat = self.model(batch["frames"])
         loss = self.loss(y_hat, batch["labels"])
         preds = F.softmax(y_hat, dim=-1)
@@ -35,9 +51,15 @@ class ClassificationModel(InferenceModel):
         return {"valid_loss": loss, "valid_acc": acc_top1}
 
     def configure_optimizers(self):
+        """
+        Returns the optimizer and the LR scheduler to be used by Lightning.
+        """
         return self.get_optimizer(self.cfg.optim)
 
     def setup_loss(self, conf):
+        """
+        Initializes the loss function based on the loss parameter mentioned in the config.
+        """
         loss = conf.loss
         assert loss in ["CrossEntropyLoss", "SmoothedCrossEntropyLoss"]
         if loss == "CrossEntropyLoss":
@@ -45,9 +67,15 @@ class ClassificationModel(InferenceModel):
         return SmoothedCrossEntropyLoss()
 
     def setup_metrics(self):
+        """
+        Intializes metric to be logged. Accuracy is used here currently.
+        """
         self.accuracy_metric = torchmetrics.functional.accuracy
 
     def get_optimizer(self, conf):
+        """
+        Parses the config and creates the optimizer and the LR scheduler.
+        """
         optimizer_conf = conf["optimizer"]
         optimizer_name = optimizer_conf.get("name")
         optimizer_params = {}
@@ -70,4 +98,7 @@ class ClassificationModel(InferenceModel):
         return [optimizer], [scheduler]
 
     def fit(self):
+        """
+        Method to be called to start the training.
+        """
         self.trainer.fit(self, self.datamodule)

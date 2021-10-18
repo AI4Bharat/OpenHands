@@ -8,18 +8,17 @@ from .graph_utils import GraphWithPartition
 class ConvTemporalGraphical(nn.Module):
     """The basic module for applying a graph convolution.
     Args:
-        in_channels (int): Number of channels in the input sequence data
-        out_channels (int): Number of channels produced by the convolution
-        kernel_size (int): Size of the graph convolving kernel
-        t_kernel_size (int): Size of the temporal convolving kernel
-        t_stride (int, optional): Stride of the temporal convolution.
-            Default: 1
+        in_channels (int): Number of channels in the input sequence data.
+        out_channels (int): Number of channels produced by the convolution.
+        kernel_size (int): Size of the graph convolving kernel.
+        t_kernel_size (int): Size of the temporal convolving kernel.
+        t_stride (int, optional): Stride of the temporal convolution. Default: 1.
         t_padding (int, optional): Temporal zero-padding added to both sides
-            of the input. Default: 0
+            of the input. Default: 0.
         t_dilation (int, optional): Spacing between temporal kernel elements.
-            Default: 1
+            Default: 1.
         bias (bool, optional): If ``True``, adds a learnable bias to the
-            output. Default: ``True``
+            output. Default: ``True``.
     Shape:
         - Input[0]: Input graph sequence in :math:`(N, in_channels, T_{in}, V)`
             format
@@ -76,26 +75,24 @@ class STGCN_BLOCK(nn.Module):
     sequence.
 
     Args:
-        in_channels (int): Number of channels in the input sequence data
-        out_channels (int): Number of channels produced by the convolution
+        in_channels (int): Number of channels in the input sequence data.
+        out_channels (int): Number of channels produced by the convolution.
         kernel_size (tuple): Size of the temporal convolving kernel and
-            graph convolving kernel
-        stride (int, optional): Stride of the temporal convolution. Default: 1
-        dropout (int, optional): Dropout rate of the final output. Default: 0
-        residual (bool, optional): If ``True``, applies a residual mechanism.
-            Default: ``True``
+            graph convolving kernel.
+        stride (int, optional): Stride of the temporal convolution. Default: 1.
+        dropout (int, optional): Dropout rate of the final output. Default: 0.
+        residual (bool, optional): If ``True``, applies a residual mechanism. Default: ``True``.
     Shape:
         - Input[0]: Input graph sequence in :math:`(N, in_channels, T_{in}, V)`
-            format
+            format.
         - Input[1]: Input graph adjacency matrix in :math:`(K, V, V)` format
         - Output[0]: Output graph sequence in :math:`(N, out_channels, T_{out},
-            V)` format
+            V)` format.
         - Output[1]: Graph adjacency matrix for output data in :math:`(K, V,
-            V)` format
+            V)` format.
         where
             :math:`N` is a batch size,
-            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]
-                `,
+            :math:`K` is the spatial kernel size, as :math:`K == kernel_size[1]`,
             :math:`T_{in}/T_{out}` is a length of input/output sequence,
             :math:`V` is the number of graph nodes.
     """
@@ -148,24 +145,27 @@ class STGCN_BLOCK(nn.Module):
 
 
 class STGCN(nn.Module):
-    """Spatial temporal graph convolutional network backbone from the paper
+    """Spatial temporal graph convolutional network backbone
     
-    > [Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition](https://arxiv.org/pdf/1801.07455.pdf)<br>
-    
+    This module is proposed in
+    `Spatial Temporal Graph Convolutional Networks for Skeleton-Based Action Recognition
+    <https://arxiv.org/pdf/1801.07455.pdf>`_
+
     Args:
         in_channels (int): Number of channels in the input data.
         graph_args (dict): The arguments for building the graph.
-        edge_importance_weighting (bool): If ``True``, adds a learnable
-            importance weighting to the edges of the graph. Default: True.
-        n_out_features (int): Output Embedding dimension. Default: 256.
-        **kwargs (optional): Other parameters for graph convolution units.
+        edge_importance_weighting (bool): If ``True``, adds a learnable importance weighting to the edges of the graph. Default: True.
+        n_out_features (int): Output Embedding dimension. Default: 256. 
+        kwargs (dict): Other parameters for graph convolution units.
+
     Shape:
-        - Input: :math:`(N, in_channels, T_{in}, V_{in})`
-        - Output: :math:`(N, n_out_features)` where
+        - Input: :math:`(N, in\_channels, T_{in}, V_{in}, M_{in})`
+        
+        - Output: :math:`(N, n\_out\_features)` where
             :math:`N` is a batch size,
             :math:`T_{in}` is a length of input sequence,
             :math:`V_{in}` is the number of graph nodes,
-            :math:`n_out_features` is the `n_out_features' value,
+            :math:`n\_out\_features` is the output embedding dimension,
     """
     def __init__(self, in_channels, graph_args, edge_importance_weighting, n_out_features = 256, **kwargs):
         super().__init__()

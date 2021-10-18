@@ -28,7 +28,7 @@ author = 'AI4Bhārat'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-extensions = ['sphinx.ext.todo', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'myst_parser']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.napoleon', 'sphinx.ext.viewcode', 'sphinx.ext.autodoc', 'sphinx_copybutton', 'myst_parser']
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
