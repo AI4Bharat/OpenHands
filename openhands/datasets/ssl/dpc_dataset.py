@@ -11,6 +11,18 @@ import numpy as np
 from ...core.data import create_pose_transforms
 
 class WindowedDatasetHDF5(torch.utils.data.DataLoader):
+    """
+    Windowed dataset loader from HDF5 for SL-DPC model.
+
+    Args:
+        root_dir (str): Directory which contains the data.
+        file_format (str): File type. Default: ``h5``.
+        transforms (obj | None): Compose object with transforms or None. Default: ``None``.
+        seq_len (int): Sequence length for each window. Default: 10. 
+        num_seq (int): Total number of windows. Default: 7.
+        downsample (int): Number of frames to skip per timestep when sampling. Default: 3.
+        num_channels (int): Number of input channels. Default: 2.
+    """
     def __init__(
         self,
         root_dir,
@@ -113,13 +125,26 @@ class WindowedDatasetHDF5(torch.utils.data.DataLoader):
 
 
 class WindowedDatasetPickle(torch.utils.data.DataLoader):
+    """
+    Windowed dataset loader from HDF5 for SL-DPC model. 
+    This module is for loading finetuning datasets.
+
+    Args:
+        root_dir (str): Directory which contains the data.
+        file_format (str): File type. Default: ``pkl``.
+        transforms (obj | None): Compose object with transforms or None. Default: ``None``.
+        seq_len (int): Sequence length for each window. Default: 10. 
+        num_seq (int): Total number of windows. Default: 10.
+        downsample (int): Number of frames to skip per timestep when sampling. Default: 1.
+        num_channels (int): Number of input channels. Default: 2.
+    """
     def __init__(
         self,
         root_dir,
         file_format='pkl',
         transforms=None,
         seq_len=10,
-        num_seq=6,
+        num_seq=10,
         downsample=1,
         num_channels=2,
     ):

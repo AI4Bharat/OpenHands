@@ -5,9 +5,9 @@ from ..data_readers import load_frames_from_video
 
 class MSASLDataset(BaseIsolatedDataset):
     """
-    American Isolated Sign language dataset from the paper
+    American Isolated Sign language dataset from the paper:
     
-    > [MS-ASL: A Large-Scale Data Set and Benchmark for Understanding American Sign Language](https://arxiv.org/abs/1812.01053)<br>
+    `MS-ASL: A Large-Scale Data Set and Benchmark for Understanding American Sign Language <https://arxiv.org/abs/1812.01053>`_
     """
     def read_glosses(self):
         # TODO: Separate the classes into a separate file?

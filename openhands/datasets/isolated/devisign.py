@@ -7,9 +7,9 @@ from ..data_readers import load_frames_from_video
 
 class DeviSignDataset(BaseIsolatedDataset):
     """
-    Chinese Isolated Sign language dataset from the paper
+    Chinese Isolated Sign language dataset from the paper:
     
-    > [The devisign large vocabulary of chinese sign language database and baseline evaluations]<br>
+    `The devisign large vocabulary of chinese sign language database and baseline evaluations`
     """
     def read_glosses(self):
         self.glosses = []

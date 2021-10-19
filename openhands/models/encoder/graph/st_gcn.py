@@ -136,7 +136,6 @@ class STGCN_BLOCK(nn.Module):
         self.relu = nn.ReLU(inplace=True)
 
     def forward(self, x, A):
-
         res = self.residual(x)
         x, A = self.gcn(x, A)
         x = self.tcn(x) + res
@@ -157,15 +156,6 @@ class STGCN(nn.Module):
         edge_importance_weighting (bool): If ``True``, adds a learnable importance weighting to the edges of the graph. Default: True.
         n_out_features (int): Output Embedding dimension. Default: 256. 
         kwargs (dict): Other parameters for graph convolution units.
-
-    Shape:
-        - Input: :math:`(N, in\_channels, T_{in}, V_{in}, M_{in})`
-        
-        - Output: :math:`(N, n\_out\_features)` where
-            :math:`N` is a batch size,
-            :math:`T_{in}` is a length of input sequence,
-            :math:`V_{in}` is the number of graph nodes,
-            :math:`n\_out\_features` is the output embedding dimension,
     """
     def __init__(self, in_channels, graph_args, edge_importance_weighting, n_out_features = 256, **kwargs):
         super().__init__()
@@ -204,6 +194,20 @@ class STGCN(nn.Module):
             self.edge_importance = [1] * len(self.st_gcn_networks)
 
     def forward(self, x):
+        """
+        Args: 
+            x (torch.Tensor): Input tensor of shape :math:`(N, in\_channels, T_{in}, V_{in})`
+        
+        Returns:
+            torch.Tensor: Output embedding of shape :math:`(N, n\_out\_features)`
+
+        where
+            - :math:`N` is a batch size,
+            - :math:`T_{in}` is a length of input sequence,
+            - :math:`V_{in}` is the number of graph nodes,
+            - :math:`n\_out\_features` is the output embedding dimension.
+
+        """
         N, C, T, V = x.size()
         x = x.permute(0, 3, 1, 2).contiguous() # NCTV -> NVCT
         x = x.view(N, V * C, T)

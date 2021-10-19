@@ -22,6 +22,12 @@ Decoders
 .. automodule:: openhands.models.decoder
     :members:
 
+SSL-Models
+^^^^^^^^
+
+.. automodule:: openhands.models.ssl
+    :members:
+
 Datasets
 --------
 

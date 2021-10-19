@@ -35,6 +35,15 @@ class PositionEmbedding(nn.Module):
 
 
 class BERT(nn.Module):
+    """
+    BERT decoder module. 
+
+    Args:
+        n_features (int): Number of features in the input.
+        num_class (int): Number of class for classification.
+        config (dict): Configuration set for BERT layer.
+    
+    """
     def __init__(self, n_features, num_class, config):
         """
         pooling_type -> ["max","avg","att","cls"]
@@ -71,7 +80,11 @@ class BERT(nn.Module):
 
     def forward(self, x):
         """
-        x.shape: (batch_size, T, n_features)
+        Args:
+            x (torch.Tensor): Input tensor of shape: (batch_size, T, n_features)
+        
+        returns:
+            torch.Tensor: logits for classification.
         """
         x = self.l1(x)
         if self.cls_token:

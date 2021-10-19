@@ -326,8 +326,8 @@ class DecoupledGCN_TCN_unit(nn.Module):
 class DecoupledGCN(nn.Module):
     """
     ST-GCN backbone with Decoupled GCN layers, Self Attention and DropGraph proposed in the paper:
-    
-    > [Skeleton Aware Multi-modal Sign Language Recognition](https://arxiv.org/pdf/2103.08833.pdf)<br>
+    `Skeleton Aware Multi-modal Sign Language Recognition
+    <https://arxiv.org/pdf/2103.08833.pdf>`_
     
     Args:
         in_channels (int): Number of channels in the input data.
@@ -335,13 +335,6 @@ class DecoupledGCN(nn.Module):
         groups (int): Number of Decouple groups to use. Default: 8.
         block_size (int): Block size used for Temporal masking in Dropgraph. Default: 41.
         n_out_features (int): Output Embedding dimension. Default: 256.
-    Shape:
-        - Input: :math:`(N, in_channels, T_{in}, V_{in})`
-        - Output: :math:`(N, n_out_features)` where
-            :math:`N` is a batch size,
-            :math:`T_{in}` is a length of input sequence,
-            :math:`V_{in}` is the number of graph nodes,
-            :math:`n_out_features` is the `n_out_features' value,
             
     """
     def __init__(
@@ -411,6 +404,20 @@ class DecoupledGCN(nn.Module):
         bn_init(self.data_bn, 1)
 
     def forward(self, x, keep_prob=0.9):
+        """
+        Args:
+            x (torch.Tensor): Input graph sequence of shape :math:`(N, in\_channels, T_{in}, V_{in})`
+            keep_prob (float): The probability to keep the node. Default: 0.9.
+        
+        Returns:
+            torch.Tensor: Output embedding of shape :math:`(N, n\_out\_features)`
+
+        where:
+            - :math:`N` is a batch size,
+            - :math:`T_{in}` is a length of input sequence,
+            - :math:`V_{in}` is the number of graph nodes,
+            - :math:`n\_out\_features` is the `n\_out\_features' value.
+        """
         N, C, T, V = x.size()
         x = x.permute(0, 3, 1, 2).contiguous().view(N, V * C, T)
         x = self.data_bn(x)

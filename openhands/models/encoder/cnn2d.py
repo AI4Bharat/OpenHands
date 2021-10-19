@@ -20,6 +20,9 @@ class CNN2D(nn.Module):
         self.backbone.fc = nn.Identity()
 
     def forward(self, x):
+        """
+        forward step
+        """
         b, c, t, h, w = x.shape
         cnn_embeds = []
         for i in range(t):

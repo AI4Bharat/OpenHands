@@ -15,7 +15,7 @@ Computing accuacy using test set
 .. code:: python
 
     import omegaconf
-    from openhands.core.inference import InferenceModel
+    from openhands.apis.inference import InferenceModel
 
     cfg = omegaconf.OmegaConf.load("path/to/config.yaml")
     model = InferenceModel(cfg=cfg)

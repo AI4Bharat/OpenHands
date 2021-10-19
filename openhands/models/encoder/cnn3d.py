@@ -52,6 +52,9 @@ class CNN3D(nn.Module):
         self.n_out_features = 400  # list(self.backbone.modules())[-2].out_features
 
     def forward(self, x):
+        """
+        forward step
+        """
         x = self.backbone(x)
         return x.transpose(0, 1) # Batch-first
 

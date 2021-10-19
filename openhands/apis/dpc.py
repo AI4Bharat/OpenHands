@@ -33,7 +33,7 @@ def calc_topk_accuracy(output, target, topk=(1,)):
 
 def process_output(mask):
     """task mask as input, compute the target for contrastive loss"""
-    (B, NP, B2, NS) = mask.size()  # [B, P, SQ, B, N, SQ]
+    (B, NP, B2, NS) = mask.size()  # [B, P, B, N,]
     target = (mask == 1).float()
     target.requires_grad = False
     return target, (B, B2, NS, NP)

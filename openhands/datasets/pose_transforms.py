@@ -95,6 +95,7 @@ class PoseRandomShift:
 class PoseSelect:
     """
     Select the given index keypoints from all keypoints. 
+    
     Args:
         preset (str | None, optional): can be used to specify existing presets - `mediapipe_holistic_minimal_27` or `mediapipe_holistic_top_body_59`
         If None, then the `pose_indexes` argument indexes will be used to select. Default: ``None``
@@ -135,7 +136,7 @@ class PoseSelect:
 # Adopted from: https://github.com/AmitMY/pose-format/
 class ShearTransform:
     """
-    Applies [2D shear transform](https://en.wikipedia.org/wiki/Shear_matrix)
+    Applies `2D shear <https://en.wikipedia.org/wiki/Shear_matrix>`_ transformation
     
     Args:
         shear_std (float): std to use for shear transformation. Default: 0.2
@@ -168,7 +169,7 @@ class ShearTransform:
 
 class RotatationTransform:
     """
-    Applies [2D rotation transformation](https://en.wikipedia.org/wiki/Rotation_matrix).
+    Applies `2D rotation <https://en.wikipedia.org/wiki/Rotation_matrix>`_ transformation.
     
     Args:
         rotation_std (float): std to use for rotation transformation. Default: 0.2
@@ -205,7 +206,8 @@ class RotatationTransform:
 
 class ScaleTransform:
     """
-    Applies [Scaling](https://en.wikipedia.org/wiki/Scaling_(geometry)) transformation
+    Applies `Scaling <https://en.wikipedia.org/wiki/Scaling_(geometry)>`_ transformation
+
     Args:
         scale_std (float): std to use for Scaling transformation. Default: 0.2
     """
@@ -452,10 +454,10 @@ class PoseUniformSubsampling:
 class TemporalSample:
     """
     Randomly choose Uniform and Temporal subsample
-    If subsample_mode==2, randomly sub-sampling or uniform-sampling is done
-    If subsample_mode==0, only uniform-sampling (for test sets)
-    If subsample_mode==1, only sub-sampling (to reproduce results of some papers that use only subsampling)
-    
+        - If subsample_mode==2, randomly sub-sampling or uniform-sampling is done
+        - If subsample_mode==0, only uniform-sampling (for test sets)
+        - If subsample_mode==1, only sub-sampling (to reproduce results of some papers that use only subsampling)
+        
     Args:
         num_frames (int): Number of frames to subsample.
         subsample_mode (int): Mode to choose.

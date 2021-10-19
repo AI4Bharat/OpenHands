@@ -5,8 +5,49 @@ from .st_gcn import STModel
 
 # Adopted from: https://github.com/TengdaHan/DPC
 
+def load_weights_from_pretrained(model, pretrained_model_path):
+    ckpt = torch.load(pretrained_model_path)
+    ckpt_dict = ckpt["state_dict"].items()
+    pretrained_dict = {k.replace("model.", ""): v for k, v in ckpt_dict}
+
+    model_dict = model.state_dict()
+    tmp = {}
+    print("\n=======Check Weights Loading======")
+    print("Weights not used from pretrained file:")
+    for k, v in pretrained_dict.items():
+        if k in model_dict:
+            tmp[k] = v
+        else:
+            print(k)
+    print("---------------------------")
+    print("Weights not loaded into new model:")
+    for k, v in model_dict.items():
+        if k not in pretrained_dict:
+            print(k)
+    print("===================================\n")
+    del pretrained_dict
+    model_dict.update(tmp)
+    del tmp
+    model.load_state_dict(model_dict)
+    model.to(dtype=torch.float)
+    return model
+
 
 class DPC_RNN_Pretrainer(nn.Module):
+    """
+    ST-DPC model pretrain module.
+
+    Args:
+        pred_steps (int): Number of future prediction steps. Default: 3.
+        in_channels (int): Number of channels in the input data. Default: 2.
+        hidden_channels (int): Hidden channels for ST-GCN backbone. Default: 64.
+        hidden_dim (int): Output dimension from ST-GCN backbone. Default: 256.
+        dropout (float): Dropout ratio for ST-GCN backbone. Default: 256.
+        graph_args (dict): Parameters for Spatio-temporal graph construction.
+        edge_importance_weighting (bool): If ``True``, adds a learnable importance weighting to the edges of the graph. Default: True.
+        kwargs (dict): Other parameters for graph convolution units.
+        
+    """
     def __init__(
         self,
         pred_steps=3,
@@ -46,6 +87,17 @@ class DPC_RNN_Pretrainer(nn.Module):
         self._initialize_weights(self.network_pred)
 
     def forward(self, block):
+        """
+        Args:
+        block (torch.Tensor): Input data of shape :math:`(N, W, T, V, in_channels)`.
+        where:
+            - :math:`N` is a batch size,
+            - :math:`W` is the number of windows,
+            - :math:`T` is a length of input sequence,
+            - :math:`V` is the number of graph nodes,
+            - :math:`in\_channels` is the number of channels.
+                
+        """
         block = block.permute(0, 1, 4, 2, 3)  # B, N, T, V, C -> B, N, C, T, V
         B, N, C, T, V = block.shape
         block = block.view(B * N, C, T, V)
@@ -113,34 +165,26 @@ class DPC_RNN_Pretrainer(nn.Module):
                 nn.init.orthogonal_(param, 1)
 
 
-def load_weights_from_pretrained(model, pretrained_model_path):
-    ckpt = torch.load(pretrained_model_path)
-    ckpt_dict = ckpt["state_dict"].items()
-    pretrained_dict = {k.replace("model.", ""): v for k, v in ckpt_dict}
-
-    model_dict = model.state_dict()
-    tmp = {}
-    print("\n=======Check Weights Loading======")
-    print("Weights not used from pretrained file:")
-    for k, v in pretrained_dict.items():
-        if k in model_dict:
-            tmp[k] = v
-        else:
-            print(k)
-    print("---------------------------")
-    print("Weights not loaded into new model:")
-    for k, v in model_dict.items():
-        if k not in pretrained_dict:
-            print(k)
-    print("===================================\n")
-    del pretrained_dict
-    model_dict.update(tmp)
-    del tmp
-    model.load_state_dict(model_dict)
-    model.to(dtype=torch.float)
-    return model
-
 class DPC_RNN_Finetuner(nn.Module):
+    """
+    SL-DPC Finetune module.
+
+    This module is proposed in
+    `OpenHands: Making Sign Language Recognition Accessible with Pose-based Pretrained Models across Languages
+    <https://arxiv.org/abs/2110.05877>`_
+    
+    Args:
+        num_class (int): Number of classes to classify.
+        pred_steps (int): Number of future prediction steps. Default: 3.
+        in_channels (int): Number of channels in the input data. Default: 2.
+        hidden_channels (int): Hidden channels for ST-GCN backbone. Default: 64.
+        hidden_dim (int): Output dimension from ST-GCN backbone. Default: 256.
+        dropout (float): Dropout ratio for ST-GCN backbone. Default: 256.
+        graph_args (dict): Parameters for Spatio-temporal graph construction.
+        edge_importance_weighting (bool): If ``True``, adds a learnable importance weighting to the edges of the graph. Default: True.
+        kwargs (dict): Other parameters for graph convolution units.
+        
+    """
     def __init__(
         self,
         num_class=60,
@@ -181,6 +225,19 @@ class DPC_RNN_Finetuner(nn.Module):
         self._initialize_weights(self.final_fc)
 
     def forward(self, block):
+        """
+        Args:
+        block (torch.Tensor): Input data of shape :math:`(N, W, T, V, in_channels)`.
+        where:
+            - :math:`N` is a batch size,
+            - :math:`W` is the number of windows,
+            - :math:`T` is a length of input sequence,
+            - :math:`V` is the number of graph nodes,
+            - :math:`in\_channels` is the number of channels.
+                
+        returns:
+            torch.Tensor: logits for classification.
+        """
         B, N, C, T, V = block.shape
         block = block.view(B * N, C, T, V)
 

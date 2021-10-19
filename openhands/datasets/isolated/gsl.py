@@ -5,9 +5,9 @@ from ..data_readers import load_frames_from_folder
 
 class GSLDataset(BaseIsolatedDataset):
     """
-    Greek Isolated Sign language dataset from the paper
+    Greek Isolated Sign language dataset from the paper:
     
-    > [A Comprehensive Study on Deep Learning-based Methods for Sign Language Recognition](https://ieeexplore.ieee.org/document/8466903)<br>
+    `A Comprehensive Study on Deep Learning-based Methods for Sign Language Recognition <https://ieeexplore.ieee.org/document/8466903>`_
     """
     def read_glosses(self):
         self.glosses = [

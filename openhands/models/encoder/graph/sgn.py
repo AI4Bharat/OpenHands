@@ -106,10 +106,21 @@ class compute_g_spa(nn.Module):
 
 class SGN(nn.Module):
     """
-    https://arxiv.org/pdf/1904.01189.pdf
+    SGN model proposed in 
+    `Semantics-Guided Neural Networks for Efficient Skeleton-Based Human Action Recognition
+    <https://arxiv.org/pdf/1904.01189.pdf>`_
+
+    Note:
+        The model supports inputs only with fixed number of frames.
+
+    Args:
+        n_frames (int): Number of frames in the input sequence.
+        num_points (int): Number of spatial points in a graph.
+        in_channels (int): Number of channels in the input data. Default: 2.
+        bias (bool): Whether to use bias or not. Default: ``True``.
     """
 
-    def __init__(self, n_frames, num_points, in_channels=3, bias=True):
+    def __init__(self, n_frames, num_points, in_channels=2, bias=True):
         super(SGN, self).__init__()
 
         self.dim1 = 256
@@ -150,6 +161,21 @@ class SGN(nn.Module):
         nn.init.constant_(self.gcn3.w.cnn.weight, 0)
 
     def forward(self, input):
+        """
+        Args: 
+            input (torch.Tensor): Input tensor of shape :math:`(N, in\_channels, T_{in}, V_{in})`
+        
+        Returns:
+            torch.Tensor: Output embedding of shape :math:`(N, n\_out\_features)`
+
+        where
+            - :math:`N` is a batch size,
+            - :math:`T_{in}` is a length of input sequence,
+            - :math:`V_{in}` is the number of graph nodes,
+            - :math:`n\_out\_features` is the output embedding dimension.
+
+        """
+
         # B, C, T, V
         input = input.permute(0, 2, 3, 1)
 
@@ -182,6 +208,9 @@ class SGN(nn.Module):
         return output
 
     def one_hot(self, bs, spa, tem):
+        """
+        get one-hot encodings
+        """
         y = torch.arange(spa).unsqueeze(-1)
         y_onehot = torch.FloatTensor(spa, spa)
         y_onehot.zero_()

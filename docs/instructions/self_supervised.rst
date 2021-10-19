@@ -43,7 +43,7 @@ Finally, run the following snippet to perform the pretraining:
 .. code:: python
 
     import omegaconf
-    from openhands.core.dpc import PretrainingModelDPC
+    from openhands.apis.dpc import PretrainingModelDPC
 
     cfg = omegaconf.OmegaConf.load("path/to/config.yaml")
     trainer = PretrainingModelDPC(cfg=cfg)

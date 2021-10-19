@@ -13,7 +13,7 @@ After you have a config ready, run the following python snippet:
 .. code:: python
 
     import omegaconf
-    from openhands.core.classification_model import ClassificationModel
+    from openhands.apis.classification_model import ClassificationModel
     from openhands.core.exp_utils import get_trainer
 
     cfg = omegaconf.OmegaConf.load("path/to/config.yaml")

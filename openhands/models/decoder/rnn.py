@@ -5,6 +5,19 @@ from .utils import AttentionBlock
 
 
 class RNNClassifier(nn.Module):
+    """
+    RNN head for classification.
+    
+    Args:
+        n_features (int): Number of features in the input.
+        num_class (int): Number of class for classification.
+        rnn_type (str): GRU or LSTM. Default: ``GRU``.
+        hidden_size (str): Hidden dim to use for RNN. Default: 512.
+        num_layers (int): Number of layers of RNN to use. Default: 1.
+        bidirectional (bool): Whether to use bidirectional RNN or not. Default: ``True``.
+        use_attention (bool): Whether to use attenion for pooling or not. Default: ``False``.
+
+    """
     def __init__(
         self,
         n_features,
@@ -32,7 +45,11 @@ class RNNClassifier(nn.Module):
 
     def forward(self, x):
         """
-        x.shape: (batch_size, T, n_features)
+        Args:
+            x (torch.Tensor): Input tensor of shape: (batch_size, T, n_features)
+        
+        returns:
+            torch.Tensor: logits for classification.
         """
         self.rnn.flatten_parameters()
 

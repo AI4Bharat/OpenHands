@@ -5,9 +5,9 @@ from ..data_readers import load_frames_from_video
 
 class INCLUDEDataset(BaseIsolatedDataset):
     """
-    Indian Isolated Sign language dataset from the paper
+    Indian Isolated Sign language dataset from the paper:
     
-    > [INCLUDE: A Large Scale Dataset for Indian Sign Language Recognition](https://dl.acm.org/doi/10.1145/3394171.3413528)<br>
+    `INCLUDE: A Large Scale Dataset for Indian Sign Language Recognition <https://dl.acm.org/doi/10.1145/3394171.3413528>`_
     """
     def read_glosses(self):
         # TODO: Separate the classes into a separate file?
