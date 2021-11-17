@@ -5,6 +5,11 @@
 Check the documentation on how to use the library:  
 **[ReadTheDocs: 👐OpenHands](https://openhands.readthedocs.io)**
 
+## Installation
+
+- For stable version: `pip install --upgrade OpenHands`
+- For latest development version: `pip install git+https://github.com/AI4Bharat/OpenHands`
+
 ## License
 
 This project is released under the [Apache 2.0 license](LICENSE.txt).

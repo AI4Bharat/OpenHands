@@ -1,5 +1,5 @@
 import pathlib
-from setuptools import setup, find_packages
+import setuptools
 import pkg_resources
 
 # The directory containing this file
@@ -20,7 +20,7 @@ about = {}
 exec(open('openhands/__version.py').read(), about)
 
 # Install
-setup(
+setuptools.setup(
     name="OpenHands",
     version=about["__version__"],
     description="👐OpenHands : Making Sign Language Recognition Accessible",
@@ -34,8 +34,9 @@ setup(
         'Documentation': "https://openhands.readthedocs.io",
     },
     author="AI4Bhārat",
-    packages=["openhands"],
-    # packages=find_packages(exclude=("tests",)),
+    # packages=["openhands"],
+    packages=setuptools.find_packages(),
+    # packages=setuptools.find_packages(exclude=("tests",)),
     include_package_data=True,
     install_requires=install_requires,
     classifiers=[
