@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+preferred-citation:
+  type: article
+  message: "If you use OpenHands, please cite it as below."
+  authors:
+  - family-names: "Selvaraj"
+    given-names: "Prem"
+  - family-names: "N.C."
+    given-names: "Gokul"
+  - family-names: "Kumar"
+    given-names: "Pratyush"
+  - family-names: "Khapra"
+    given-names: "Mitesh"
+  title: "OpenHands: Making Sign Language Recognition Accessible with Pose-based Pretrained Models across Languages"
+  year: 2021
+  url: "https://openhands.ai4bharat.org"
+  archivePrefix: "arXiv"
+  eprint: "2110.05877"
+  primaryClass: "cs.CL"
