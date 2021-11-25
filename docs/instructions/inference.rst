@@ -8,6 +8,7 @@ To test using our trained models, download the required checkpoint, config, and 
 Computing accuacy using test set
 --------------------------------
 
+- Add a key called ``pretrained`` to the first line of the config, pointing to the ``.ckpt`` path
 - Add a sub-section called ``test_pipeline`` to the ``data`` section of the config.
 - This section is of same format as ``valid_pipeline`` section.
 - Finally, run the following snippet to compute accuracy for the given pose test set:
