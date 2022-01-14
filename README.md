@@ -14,6 +14,23 @@ Check the documentation on how to use the library:
 
 This project is released under the [Apache 2.0 license](LICENSE.txt).
 
+## Datasets used
+
+Please cite the respective datasets if you used them in your research. Also check the licensing terms for the dataset used.
+
+| Dataset         | Link |
+| --------------- | ----------- |
+| AUTSL           | [Link](https://chalearnlap.cvc.uab.es/dataset/40/description/)       |
+| CSL             | [Link](http://home.ustc.edu.cn/~pjh/openresources/cslr-dataset-2015/index.html)        |
+| DEVISIGN         | [Link](http://vipl.ict.ac.cn/homepage/ksl/data.html)       |
+| GSL             | [Link](https://vcl.iti.gr/dataset/gsl/)        |
+| INCLUDE         | [Link](https://sign-language.ai4bharat.org/#/INCLUDE)       |
+| LSA64           | [Link](http://facundoq.github.io/datasets/lsa64/)        |
+| WLASL           | [Link](https://dxli94.github.io/WLASL/)        |
+
+## Extraction of poses
+
+For datasets without the pose data, poses can be extracted from the videos using [this script](scripts/mediapipe_extract.py). 
 ## Citation
 
 If you find our work useful in your research, please consider citing us:
