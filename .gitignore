@@ -4,3 +4,4 @@ build/
 default/
 dist/
 *.egg-info/
+*.zip

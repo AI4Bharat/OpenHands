@@ -1,0 +1,1063 @@
+police1_signer1_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer1_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer1_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer1_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer1_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer1_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer1_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer1_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer1_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer1_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer1_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer1_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer1_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer1_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer1_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer2_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer2_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer2_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer2_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer2_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer2_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer2_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer2_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer2_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer2_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer2_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer2_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer2_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer2_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer3_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer3_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer3_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer3_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer3_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer3_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer3_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer3_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer3_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer3_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer3_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer3_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer3_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer3_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer3_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer4_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer4_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer4_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer4_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer4_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer4_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer4_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer4_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer4_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer4_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer4_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer4_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer4_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer4_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer4_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer5_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer5_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer5_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer5_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer5_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer5_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer5_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer5_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer5_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer5_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer5_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer5_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer5_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer5_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer5_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer6_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer6_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer6_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer6_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer6_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer6_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer6_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer6_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer6_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer6_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer6_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer6_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer6_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer6_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer6_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer7_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer7_rep1_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer7_rep1_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer7_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer7_rep2_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer7_rep2_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer7_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer7_rep3_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer7_rep3_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer7_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer7_rep4_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer7_rep4_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police1_signer7_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΒΟΗΘΩ
+police1_signer7_rep5_sentences/sentences0007|ΝΑΙ ΠΡΙΝ ΕΓΩ(1) ΕΣΥ_ΣΥΖΗΤΑΩ_ΑΥΤΟΝ
+police1_signer7_rep5_sentences/sentences0009|ΑΠΟΤΕΛΕΣΜΑ ΤΙΠΟΤΑ
+police2_signer1_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer1_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer1_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer1_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer1_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer1_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer1_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer1_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer1_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer1_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer2_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer2_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer2_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer2_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer2_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer2_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer2_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer2_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer2_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer2_rep5_sentences/sentences0017|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer3_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer3_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer3_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer3_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer3_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer3_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer3_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer3_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer3_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer3_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer4_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer4_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer4_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer4_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer4_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer4_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer4_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer4_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer4_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer4_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer5_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer5_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer5_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer5_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer5_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer5_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer5_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer5_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer5_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer5_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer6_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer6_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer6_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer6_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer6_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer6_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer6_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer6_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer6_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer6_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer7_rep1_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer7_rep1_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer7_rep2_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer7_rep2_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer7_rep3_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer7_rep3_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer7_rep4_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer7_rep4_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police2_signer7_rep5_sentences/sentences0004|ΕΣΥ ΠΟΥ
+police2_signer7_rep5_sentences/sentences0018|ΕΣΥ ΑΙΤΗΣΗ ΣΤΟΙΧΕΙΑ ΔΙΚΟ_ΣΟΥ ΣΥΜΠΛΗΡΩΝΩ
+police3_signer1_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer1_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer1_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer1_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer1_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer1_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer1_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer1_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer1_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer1_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer2_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer2_rep5_sentences/sentences0009|ΣΥΝ ΦΩΤΟΓΡΑΦΙΑ ΕΙΔΙΚΟ ΓΙΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ
+police3_signer2_rep5_sentences/sentences0010|ΣΦΡΑΓΙΔΑ
+police3_signer3_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer3_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer3_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer3_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer3_rep2_sentences/sentences0009|ΣΥΝ ΦΩΤΟΓΡΑΦΙΑ ΕΙΔΙΚΟ ΓΙΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ
+police3_signer3_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer3_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer3_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer3_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer3_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer4_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer4_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer4_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer4_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer4_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer4_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer4_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer4_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer4_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer4_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer5_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer5_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer5_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer5_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer5_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer5_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer5_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer5_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer5_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer5_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer6_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer6_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer6_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer6_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer6_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer6_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer6_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer6_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer6_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer6_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer7_rep1_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer7_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer7_rep2_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer7_rep3_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer7_rep3_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer7_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer7_rep4_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police3_signer7_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΚΑΙΝΟΥΡΙΟ
+police3_signer7_rep5_sentences/sentences0002|ΕΣΥ ΠΡΩΤΗ_ΦΟΡΑ ΤΑΞΙΔΙ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ
+police4_signer1_rep1_sentences/sentences0001|ΕΓΩ(1) ΤΑΥΤΟΤΗΤΑ ΤΑΥΤΟΤΗΤΑ ΕΓΩ(1) ΧΑΝΩ ΠΑ
+police4_signer1_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer1_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer1_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer1_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer1_rep3_sentences/sentences0009|ΕΣΥ ΜΑΡΤΥΡΑΣ ΧΡΕΙΑΖΟΜΑΙ
+police4_signer1_rep3_sentences/sentences0012|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer1_rep3_sentences/sentences0014|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer1_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer1_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer1_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer1_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer2_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer2_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer2_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer2_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer2_rep3_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer2_rep3_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer2_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer2_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer2_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer2_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer3_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer3_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer3_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer3_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer3_rep3_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer3_rep3_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer3_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer3_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer3_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer3_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer4_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer4_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer4_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer4_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer4_rep3_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer4_rep3_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer4_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer4_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer4_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer4_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer5_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer5_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer5_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer5_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer5_rep3_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer5_rep3_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer5_rep4_sentences/sentences0007|ΕΣΥ ΓΡΑΦΩ ΠΑ
+police4_signer5_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer5_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer5_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer5_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer6_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer6_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer6_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer6_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer6_rep3_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer6_rep3_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer6_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer6_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer6_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer6_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer7_rep1_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer7_rep1_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer7_rep2_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer7_rep2_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer7_rep3_sentences/sentences0012|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer7_rep3_sentences/sentences0014|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer7_rep4_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer7_rep4_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+police4_signer7_rep5_sentences/sentences0011|ΔΕΥΤΕΡΟΝ ΑΙΤΗΣΗ
+police4_signer7_rep5_sentences/sentences0013|ΤΕΤΑΡΤΟΝ ΜΑΡΤΥΡΑΣ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΤΟΥ
+kep1_signer1_rep1_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer1_rep2_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer1_rep4_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer1_rep5_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer1_rep6_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer2_rep1_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer2_rep1_sentences/sentences0011|ΔΕΝ_ΠΕΙΡΑΖΕΙ ΦΩΤΟΤΥΠΙΑ
+kep1_signer2_rep2_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer2_rep2_sentences/sentences0020|ΕΝΤΑΞΕΙ ΑΥΡΙΟ ΕΓΩ(1) ΠΛΗΡΩΝΩ
+kep1_signer2_rep3_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer2_rep4_sentences/sentences0014|ΕΝΤΑΞΕΙ ΑΥΡΙΟ ΕΓΩ(1) ΠΛΗΡΩΝΩ
+kep1_signer2_rep4_sentences/sentences0020|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer2_rep5_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer3_rep1_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer3_rep2_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer3_rep3_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer3_rep4_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer3_rep5_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer4_rep1_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer4_rep1_sentences/sentences0009|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer4_rep1_sentences/sentences0010|ΕΓΩ(2) ΤΑΥΤΟΤΗΤΑ ΕΧΩ ΦΩΤΟΤΥΠΙΑ ΔΕΝ_ΕΧΩ
+kep1_signer4_rep2_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer4_rep2_sentences/sentences0009|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer4_rep3_sentences/sentences0003|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer4_rep4_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer4_rep5_sentences/sentences0004|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep1_sentences/sentences0002|ΕΓΩ(2) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(2) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep1_sentences/sentences0009|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer5_rep1_sentences/sentences0010|ΕΓΩ(2) ΤΑΥΤΟΤΗΤΑ ΕΧΩ ΦΩΤΟΤΥΠΙΑ ΔΕΝ_ΕΧΩ
+kep1_signer5_rep1_sentences/sentences0022|ΚΑΛΟ ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep1_signer5_rep2_sentences/sentences0001|ΕΓΩ(2) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(2) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep2_sentences/sentences0008|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer5_rep2_sentences/sentences0009|ΕΓΩ(2) ΤΑΥΤΟΤΗΤΑ ΕΧΩ ΦΩΤΟΤΥΠΙΑ ΔΕΝ_ΕΧΩ
+kep1_signer5_rep2_sentences/sentences0021|ΚΑΛΟ ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep1_signer5_rep3_sentences/sentences0002|ΕΓΩ(2) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(2) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep3_sentences/sentences0009|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer5_rep3_sentences/sentences0022|ΚΑΛΟ ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep1_signer5_rep4_sentences/sentences0002|ΕΓΩ(2) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(2) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep5_sentences/sentences0002|ΧΡΕΙΑΖΟΜΑΙ ΒΟΗΘΩ
+kep1_signer5_rep5_sentences/sentences0003|ΕΓΩ(2) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(2) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer5_rep5_sentences/sentences0010|ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΑΥΤΟΤΗΤΑ ΔΙΚΟ_ΣΟΥ ΣΥΝ 1 ΦΩΤΟΤΥΠΙΑ
+kep1_signer6_rep1_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer6_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer6_rep3_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer6_rep4_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer6_rep4_sentences/sentences0009|ΕΓΩ(2) ΤΑΥΤΟΤΗΤΑ ΕΧΩ ΦΩΤΟΤΥΠΙΑ ΔΕΝ_ΕΧΩ
+kep1_signer6_rep5_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer7_rep2_sentences/sentences0001|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer7_rep2_sentences/sentences0020|ΕΝΤΑΞΕΙ ΑΥΡΙΟ ΕΓΩ(1) ΠΛΗΡΩΝΩ
+kep1_signer7_rep3_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer7_rep4_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer7_rep6_sentences/sentences0002|ΕΓΩ(1) ΘΕΛΩ ΑΥΤΟΚΙΝΗΤΟ ΕΓΩ(1) ΟΝΟΜΑ ΜΕΤΑΦΕΡΩ
+kep1_signer7_rep6_sentences/sentences0021|ΕΝΤΑΞΕΙ ΑΥΡΙΟ ΕΓΩ(1) ΠΛΗΡΩΝΩ
+kep1_signer7_rep6_sentences/sentences0022|ΚΑΛΟ ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep2_signer1_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer1_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer1_rep2_sentences/sentences0016|ΚΑΛΟ ΕΓΩ(2) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep2_signer1_rep3_sentences/sentences0005|ΕΓΩ(1) ΣΠΟΥΔΑΖΩ ΦΟΙΤΗΤΗΣ ΕΓΩ(1) ΕΧΩ ΒΕΒΑΙΩΣΗ ΣΠΟΥΔΑΖΩ ΦΟΙΤΗΤΗΣ ΕΧΩ
+kep2_signer1_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer1_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer2_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer2_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer2_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer2_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer2_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer3_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer3_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer3_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer3_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer3_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer4_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer4_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer4_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer4_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer4_rep6_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer5_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer5_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer5_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer5_rep4_sentences/sentences0001|ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer5_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer6_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer6_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer6_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer6_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer6_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer7_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer7_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer7_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer7_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep2_signer7_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΒΟΗΘΩ ΧΡΕΙΑΖΟΜΑΙ
+kep3_signer1_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer1_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer1_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer1_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer1_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer2_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer2_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer2_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer2_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer2_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer3_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer3_rep1_sentences/sentences0018|ΣΥΝΕΧΕΙΑ
+kep3_signer3_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer3_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer3_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer3_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer4_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer4_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer4_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer4_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer4_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer5_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer5_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer5_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer5_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer5_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer6_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer6_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer6_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer6_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer7_rep1_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer7_rep2_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer7_rep3_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer7_rep4_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep3_signer7_rep5_sentences/sentences0016|ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΤΙΠΟΤΑ
+kep4_signer1_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer1_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer1_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer1_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer1_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer1_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer1_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer1_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer1_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer1_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer2_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer2_rep1_sentences/sentences0002|ΕΣΥ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΧΑΝΩ ΠΑ
+kep4_signer2_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer2_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer2_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer2_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer2_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer2_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer2_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer2_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer2_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer3_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer3_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer3_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer3_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer3_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer3_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer3_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer3_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer3_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer3_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer4_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer4_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer4_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer4_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer4_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer4_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer4_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer4_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer4_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer4_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer5_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer5_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer5_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer5_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer5_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer5_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer5_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer5_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer5_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer5_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer6_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer6_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer6_rep2_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer6_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer6_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer6_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer6_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer6_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer6_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer6_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer7_rep1_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer7_rep1_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer7_rep2_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer7_rep3_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer7_rep3_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer7_rep4_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer7_rep4_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep4_signer7_rep5_sentences/sentences0001|ΕΓΩ(1) ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΧΑΝΩ ΠΑ
+kep4_signer7_rep5_sentences/sentences0010|ΠΡΩΤΟΝ 1 ΦΩΤΟΓΡΑΦΙΑ ΓΙΑ ΒΙΒΛΙΟ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.)
+kep5_signer1_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer1_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer1_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer1_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer1_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer1_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer1_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer1_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer1_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer1_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer1_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer1_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer1_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer1_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer1_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer1_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer1_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer1_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer1_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer1_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer2_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer2_rep1_sentences/sentences0017|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer2_rep1_sentences/sentences0025|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer2_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer2_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer2_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer2_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer2_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer2_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer2_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer2_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer2_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer2_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer2_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer2_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer2_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer2_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer2_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer2_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer3_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer3_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer3_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer3_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer3_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer3_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer3_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer3_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer3_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer3_rep3_sentences/sentences0010|ΤΕΤΑΡΤΟΝ ΧΡΕΙΑΖΟΜΑΙ ΣΥΝ ΒΕΒΑΙΩΣΗ ΓΕΝΝΩ ΕΚΕΙ ΝΟΣΟΚΟΜΕΙΟ ΓΕΝΝΩ
+kep5_signer3_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer3_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer3_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer3_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer3_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer3_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer3_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer3_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer3_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer3_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer3_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer4_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer4_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer4_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer4_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer4_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer4_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer4_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer4_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer4_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer4_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer4_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer4_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer4_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer4_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer4_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer4_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer4_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer4_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer4_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer4_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer5_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer5_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer5_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer5_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer5_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer5_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer5_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer5_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer5_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer5_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer5_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer5_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer5_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer5_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer5_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer5_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer5_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer5_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer5_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer5_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer6_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer6_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer6_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer6_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer6_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer6_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer6_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer6_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer6_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer6_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer6_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer6_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer6_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer6_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer6_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer6_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer6_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer6_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer6_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer6_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer7_rep1_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer7_rep1_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer7_rep1_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer7_rep1_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer7_rep2_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer7_rep2_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer7_rep2_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer7_rep2_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer7_rep3_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer7_rep3_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer7_rep3_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer7_rep3_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer7_rep4_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer7_rep4_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer7_rep4_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer7_rep4_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+kep5_signer7_rep5_sentences/sentences0006|ΤΡΙΤΟΝ ΑΦΕΝΤΙΚΟ ΠΡΕΠΕΙ ΑΙΤΗΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ ΔΟΥΛΕΥΩ ΕΓΩ(1) ΧΡΕΙΑΖΟΜΑΙ ΒΕΒΑΙΩΣΗ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΓΙΑ ΔΙΑΚΟΠΗ
+kep5_signer7_rep5_sentences/sentences0012|ΕΠΙΔΟΜΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΠΟΤΕ ΗΜΕΡΑ ΓΕΝΝΩ ΜΕΤΑ 60 3 ΗΜΕΡΑ
+kep5_signer7_rep5_sentences/sentences0016|ΜΗΤΕΡΑ ΣΥΝ ΗΜΕΡΑ ΜΗΝΑΣ ΔΟΥΛΕΥΩ ΔΙΑΚΟΠΗ ΣΥΜΠΛΗΡΩΝΩ
+kep5_signer7_rep5_sentences/sentences0024|ΠΑΡΑΚΑΛΩ ΓΕΙΑ
+health2_signer1_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer1_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer1_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer1_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer1_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer1_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer1_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer1_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer1_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer1_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer1_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer1_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer1_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer1_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer1_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer1_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer1_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer1_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer1_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer1_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer2_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer2_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer2_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer2_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer2_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer2_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer2_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer2_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer2_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer2_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer2_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer2_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer2_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer2_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer2_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer2_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer2_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer2_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer2_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer2_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer3_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer3_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer3_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer3_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer3_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer3_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer3_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer3_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer3_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer3_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer3_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer3_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer3_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer3_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer3_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer3_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer3_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer3_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer3_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer3_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer4_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer4_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer4_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer4_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer4_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer4_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer4_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer4_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer4_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer4_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer4_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer4_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer4_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer4_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer4_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer4_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer4_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer4_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer4_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer4_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer5_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer5_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer5_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer5_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer5_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer5_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer5_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer5_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer5_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer5_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer5_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer5_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer5_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer5_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer5_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer5_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer5_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer5_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer5_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer5_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer6_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer6_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer6_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer6_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer6_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer6_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer6_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer6_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer6_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer6_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer6_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer6_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer6_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer6_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer6_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer6_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer6_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer6_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer6_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer6_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer7_rep1_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer7_rep1_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer7_rep1_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer7_rep1_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer7_rep2_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer7_rep2_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer7_rep2_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer7_rep2_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer7_rep3_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer7_rep3_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer7_rep3_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer7_rep3_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer7_rep4_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer7_rep4_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer7_rep4_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer7_rep4_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health2_signer7_rep5_sentences/sentences0000|ΓΕΙΑ ΕΣΥ ΠΡΟΒΛΗΜΑ ΤΙ
+health2_signer7_rep5_sentences/sentences0004|ΗΜΕΡΑ_ΤΡΕΙΣ
+health2_signer7_rep5_sentences/sentences0006|ΕΓΩ(1) ΣΤΟΜΑΧΙ ΠΟΝΑΩ
+health2_signer7_rep5_sentences/sentences0008|ΝΑΙ ΣΥΝ ΕΓΩ(1) ΖΑΛΙΖΟΜΑΙ
+health3_signer1_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer1_rep2_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer1_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer1_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer1_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer2_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer2_rep2_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer2_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer2_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer2_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer3_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer3_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer3_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer3_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer4_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer4_rep2_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer4_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer4_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer4_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer5_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer5_rep2_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer5_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer5_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer5_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer6_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer6_rep2_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer6_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer6_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer6_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer7_rep1_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer7_rep3_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer7_rep4_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health3_signer7_rep5_sentences/sentences0003|ΕΣΥ ΑΥΤΟΚΙΝΗΤΟ ΒΙΒΛΙΟ ΣΦΡΑΓΙΔΑ ΕΧΩ ΠΑ
+health4_signer1_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer1_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer1_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer1_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer1_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(1) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer1_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer1_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer2_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer2_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer2_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer2_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(1) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer2_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer2_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer3_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer3_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer3_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer3_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer3_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer3_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer4_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer4_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer4_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer4_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer4_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer4_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer5_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer5_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer5_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer5_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer5_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer5_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer6_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer6_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer6_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer6_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer6_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer6_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep1_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer7_rep1_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep1_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep2_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer7_rep2_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep2_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep3_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer7_rep3_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep3_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep4_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer7_rep4_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep4_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep5_sentences/sentences0005|ΓΙΑΤΡΟΣ(2) ΙΔΙΟΚΤΗΤΗΣ
+health4_signer7_rep5_sentences/sentences0017|ΜΕΤΑ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health4_signer7_rep5_sentences/sentences0018|ΕΓΩ(1) ΧΑΡΤΙ ΔΙΚΑΙΟΛΟΓΙΑ ΕΛΕΓΧΩ ΜΕΤΑ ΕΣΥ ΧΑΡΤΙ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ
+health5_signer1_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer1_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer1_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer1_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer1_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer1_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer1_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer1_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer1_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer1_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer1_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer1_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer1_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer1_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer1_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer1_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer1_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer1_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer1_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer1_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer2_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer2_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer2_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer2_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer2_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer2_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer2_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer2_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer2_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer2_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer2_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer2_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer2_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer2_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer2_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer2_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer2_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer2_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer3_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer3_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer3_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer3_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer3_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer3_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer3_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer3_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer3_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer3_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer3_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer3_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer3_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer3_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer3_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer3_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer3_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer3_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer3_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer3_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer4_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer4_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer4_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer4_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer4_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer4_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer4_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer4_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer4_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer4_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer4_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer4_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer4_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer4_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer4_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer4_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer4_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer4_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer4_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer4_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer5_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer5_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer5_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer5_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer5_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer5_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer5_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer5_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer5_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer5_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer5_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer5_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer5_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer5_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer5_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer5_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer5_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer5_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer5_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer5_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer6_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer6_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer6_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer6_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer6_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer6_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer6_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer6_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer6_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer6_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer6_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer6_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer6_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer6_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer6_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer6_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer6_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer6_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer6_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer6_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer7_rep1_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer7_rep1_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer7_rep1_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer7_rep1_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer7_rep2_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer7_rep2_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer7_rep2_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer7_rep2_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer7_rep3_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer7_rep3_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer7_rep3_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer7_rep3_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer7_rep4_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer7_rep4_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer7_rep4_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer7_rep4_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
+health5_signer7_rep5_sentences/sentences0000|ΓΕΙΑ ΕΓΩ(1) ΜΠΟΡΩ ΕΞΥΠΗΡΕΤΩ ΠΩΣ
+health5_signer7_rep5_sentences/sentences0002|ΕΣΥ ΕΧΩ ΧΑΡΤΙ ΓΙΑΤΡΟΣ(2) ΕΝΤΟΛΗ ΕΧΩ
+health5_signer7_rep5_sentences/sentences0005|ΕΓΩ(1) ΑΣΦΑΛΕΙΑ ΕΝΣΗΜΑ ΙΚΑ(Δ.Α.) ΕΧΩ
+health5_signer7_rep5_sentences/sentences0016|ΕΣΥ ΑΙΤΗΣΗ ΑΠΟΔΕΙΞΗ ΕΓΩ_ΔΙΝΩ_ΕΣΕΝΑ ΜΕΤΑ ΕΝΗΜΕΡΩΝΩ_ΕΣΕΝΑ
