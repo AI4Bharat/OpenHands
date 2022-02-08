@@ -9,6 +9,9 @@ class MSASLDataset(BaseIsolatedDataset):
     
     `MS-ASL: A Large-Scale Data Set and Benchmark for Understanding American Sign Language <https://arxiv.org/abs/1812.01053>`_
     """
+
+    lang_code = "ase"
+
     def read_glosses(self):
         # TODO: Separate the classes into a separate file?
         self.read_original_dataset()

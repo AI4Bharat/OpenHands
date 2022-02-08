@@ -9,6 +9,9 @@ class GSLDataset(BaseIsolatedDataset):
     
     `A Comprehensive Study on Deep Learning-based Methods for Sign Language Recognition <https://ieeexplore.ieee.org/document/8466903>`_
     """
+
+    lang_code = "gss"
+
     def read_glosses(self):
         self.glosses = [
             gloss.strip()

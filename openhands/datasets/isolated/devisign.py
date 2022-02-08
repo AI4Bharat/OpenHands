@@ -11,6 +11,9 @@ class DeviSignDataset(BaseIsolatedDataset):
     
     `The devisign large vocabulary of chinese sign language database and baseline evaluations`
     """
+
+    lang_code = "csl"
+
     def read_glosses(self):
         self.glosses = []
         df = pd.read_csv(self.split_file, delimiter="\t", encoding="utf-8")

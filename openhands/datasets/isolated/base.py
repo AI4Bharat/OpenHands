@@ -14,6 +14,13 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
     This module provides the datasets for Isolated Sign Language Classification.
     Do not instantiate this class
     """
+
+    lang_code = None
+    # Get language from here:
+    # https://iso639-3.sil.org/code_tables/639/data?title=&field_iso639_cd_st_mmbrshp_639_1_tid=94671&name_3=sign+language&field_iso639_element_scope_tid=All&field_iso639_language_type_tid=All&items_per_page=200
+
+    ASSETS_FOLDER = os.path.join(os.path.dirname(os.path.dirname(__file__)), "assets")
+
     def __init__(
         self,
         root_dir,

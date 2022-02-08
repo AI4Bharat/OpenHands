@@ -9,6 +9,9 @@ class WLASLDataset(BaseIsolatedDataset):
     
     `Word-level Deep Sign Language Recognition from Video: A New Large-scale Dataset and Methods Comparison <https://arxiv.org/abs/1910.11006>`_
     """
+
+    lang_code = "ase"
+
     def read_glosses(self):
         with open(self.split_file, "r") as f:
             self.content = json.load(f)

@@ -9,6 +9,9 @@ class CSLDataset(BaseIsolatedDataset):
     
     `Attention-Based 3D-CNNs for Large-Vocabulary Sign Language Recognition <https://ieeexplore.ieee.org/document/8466903>`_
     """
+
+    lang_code = "csl"
+
     def read_glosses(self):
         self.glosses = []
         with open(self.split_file, encoding="utf-8") as f:

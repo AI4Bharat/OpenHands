@@ -9,6 +9,9 @@ class AUTSLDataset(BaseIsolatedDataset):
     
     `AUTSL: A Large Scale Multi-modal Turkish Sign Language Dataset and Baseline Methods <https://arxiv.org/abs/2008.00932>`_
     """
+
+    lang_code = "tsm"
+
     def read_glosses(self):
         class_mappings_df = pd.read_csv(self.class_mappings_file_path)
         self.id_to_glosses = dict(

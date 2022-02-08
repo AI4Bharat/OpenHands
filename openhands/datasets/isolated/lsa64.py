@@ -10,6 +10,9 @@ class LSA64Dataset(BaseIsolatedDataset):
     
     `LSA64: An Argentinian Sign Language Dataset <http://sedici.unlp.edu.ar/bitstream/handle/10915/56764/Documento_completo.pdf-PDFA.pdf>`_
     """
+
+    lang_code = "aed"
+
     def read_glosses(self):
         df = pd.read_csv(self.class_mappings_file_path, delimiter="|", header=None)
         self.glosses = [df[1][i].strip() for i in range(len(df))]

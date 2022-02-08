@@ -9,6 +9,9 @@ class INCLUDEDataset(BaseIsolatedDataset):
     
     `INCLUDE: A Large Scale Dataset for Indian Sign Language Recognition <https://dl.acm.org/doi/10.1145/3394171.3413528>`_
     """
+
+    lang_code = "ins"
+
     def read_glosses(self):
         # TODO: Separate the classes into a separate file?
         df = pd.read_csv(self.split_file)
