@@ -25,6 +25,9 @@ class DeviSignDataset(BaseIsolatedDataset):
         """
         Check the file "DEVISIGN Technical Report.pdf" inside `Documents\` folder
         for dataset format (page 12) and splits (page 15)
+
+        TODO: The train set size is 16k, and test set size is 8k (for 2k classes).
+        Should we use 4k from test set as valset, and only the other 4k for benchmarking?
         """
 
         if "rgb" in self.modality:
