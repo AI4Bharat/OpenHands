@@ -16,7 +16,7 @@ class DeviSignDataset(BaseIsolatedDataset):
 
     def read_glosses(self):
         self.glosses = []
-        df = pd.read_csv(self.split_file, delimiter="\t", encoding="utf-8")
+        df = pd.read_csv(self.class_mappings_file_path, delimiter="\t", encoding="utf-8")
         for i in range(len(df)):
             self.glosses.append(df["Meaning (Chinese)"][i].strip())
 
@@ -36,22 +36,38 @@ class DeviSignDataset(BaseIsolatedDataset):
             common_filename = "pose.pkl"
         else:
             raise NotImplementedError
+        
+        if self.split_file:
+            df = pd.read_csv(self.split_file)
+            for i in range(len(df)):
+                video_path = df["video_path"][i]
+                video_file = os.path.join(self.root_dir, video_path, common_filename)
 
-        video_files_path = os.path.join(self.root_dir, "**", common_filename)
-        video_files = glob(video_files_path, recursive=True)
-        if not video_files:
-            exit(f"No videos files found for: {video_files_path}")
+                if not os.path.isfile(video_file):
+                    raise FileNotFoundError(video_file)
 
-        for video_file in video_files:
-            naming_parts = video_file.replace("\\", "/").split("/")[-2].split("_")
-            gloss_id = int(naming_parts[1])
-            signer_id = int(naming_parts[0].replace("P", ""))
+                # gloss_name = df["class_name"][i]
+                # gloss_id = self.label_encoder.transform([gloss_name])[0]
+                gloss_id = int(video_file.replace("\\", "/").split("/")[-2].split("_")[1])
 
-            if (signer_id <= 4 and "train" in self.splits) or (
-                signer_id > 4 and "test" in self.splits
-            ):
                 instance_entry = video_file, gloss_id
                 self.data.append(instance_entry)
+        else:
+            video_files_path = os.path.join(self.root_dir, "**", common_filename)
+            video_files = glob(video_files_path, recursive=True)
+            if not video_files:
+                exit(f"No videos files found for: {video_files_path}")
+
+            for video_file in video_files:
+                naming_parts = video_file.replace("\\", "/").split("/")[-2].split("_")
+                gloss_id = int(naming_parts[1])
+                signer_id = int(naming_parts[0].replace("P", ""))
+
+                if (signer_id <= 4 and "train" in self.splits) or (
+                    signer_id > 4 and "test" in self.splits
+                ):
+                    instance_entry = video_file, gloss_id
+                    self.data.append(instance_entry)
 
     def read_video_data(self, index):
         video_name, label = self.data[index]
