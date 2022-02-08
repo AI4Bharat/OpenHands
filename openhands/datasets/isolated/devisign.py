@@ -20,13 +20,6 @@ class DeviSignDataset(BaseIsolatedDataset):
         for i in range(len(df)):
             self.glosses.append(df["Meaning (Chinese)"][i].strip())
 
-        # self.glosses = list(range(2000))
-        
-        # label_encoder = LabelEncoder()
-        # label_encoder.fit(self.glosses)
-        # TODO: There seems to be file-encoding issues, hence total glosses don't match with actual
-        # print(len(label_encoder.classes_))
-        # exit()
 
     def read_original_dataset(self):
         """

@@ -1,4 +1,4 @@
-Ori_ID  G_ID    Meaning
+Ori_ID	G_ID	Meaning
 4378	0000	0
 4379	0001	1
 4380	0002	2
