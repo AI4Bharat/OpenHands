@@ -46,8 +46,6 @@ class DeviSignDataset(BaseIsolatedDataset):
                 if not os.path.isfile(video_file):
                     raise FileNotFoundError(video_file)
 
-                # gloss_name = df["class_name"][i]
-                # gloss_id = self.label_encoder.transform([gloss_name])[0]
                 gloss_id = int(video_file.replace("\\", "/").split("/")[-2].split("_")[1])
 
                 instance_entry = video_file, gloss_id

@@ -20,8 +20,7 @@ class INCLUDEDataset(BaseIsolatedDataset):
     def read_original_dataset(self):
         df = pd.read_csv(self.split_file)
         for i in range(len(df)):
-            gloss_cat = self.label_encoder.transform([df["Word"][i]])[0]
-            instance_entry = df["FilePath"][i], gloss_cat
+            instance_entry = df["FilePath"][i], self.gloss_to_id[df["Word"][i]]
 
             video_path = os.path.join(self.root_dir, df["FilePath"][i])
             # TODO: Replace extension with pkl for pose modality?

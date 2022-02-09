@@ -3,7 +3,6 @@ import torch.nn.functional as F
 import torchvision
 import pickle
 import albumentations as A
-from sklearn.preprocessing import LabelEncoder
 import numpy as np
 import os, warnings
 from ..video_transforms import *
@@ -54,9 +53,10 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.read_glosses()
         if not self.glosses:
             raise RuntimeError("Unable to read glosses list")
-        self.label_encoder = LabelEncoder()
-        self.label_encoder.fit(self.glosses)
         print(f"Found {len(self.glosses)} classes in {splits} splits")
+
+        self.gloss_to_id = {gloss: i for i, gloss in enumerate(self.glosses)}
+        self.id_to_gloss = {i: gloss for i, gloss in enumerate(self.glosses)}
 
         self.data = []
         self.inference_mode = inference_mode

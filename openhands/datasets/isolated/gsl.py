@@ -24,8 +24,7 @@ class GSLDataset(BaseIsolatedDataset):
         df = pd.read_csv(self.split_file, delimiter="|", header=None)
 
         for i in range(len(df)):
-            gloss_cat = self.label_encoder.transform([df[1][i]])[0]
-            instance_entry = df[0][i], gloss_cat
+            instance_entry = df[0][i], self.gloss_to_id[df[1][i]]
             self.data.append(instance_entry)
 
     def read_video_data(self, index):

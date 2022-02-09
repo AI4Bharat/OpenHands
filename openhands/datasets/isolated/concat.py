@@ -31,7 +31,7 @@ class ConcatDataset(BaseIsolatedDataset):
     def read_glosses(self):
         self.glosses = []
         for dataset in self.datasets:
-            for class_name in dataset.label_encoder.classes_:
+            for class_name in dataset.glosses:
                 self.glosses.append(f"{dataset.lang_code}__{class_name}")
     
     def read_original_dataset(self):
@@ -40,8 +40,8 @@ class ConcatDataset(BaseIsolatedDataset):
 
         for dataset in self.datasets:
             for video_name, class_id in tqdm(dataset.data, desc=type(dataset).__name__):
-                class_name = dataset.label_encoder.inverse_transform([class_id])[0]
+                class_name = dataset.id_to_gloss[class_id]
                 class_name = f"{dataset.lang_code}__{class_name}"
                 
-                instance_entry = os.path.join(dataset.root_dir, video_name), self.label_encoder.transform([class_name])[0], dataset.lang_code
+                instance_entry = os.path.join(dataset.root_dir, video_name), self.gloss_to_id[class_name], dataset.lang_code
                 self.data.append(instance_entry)

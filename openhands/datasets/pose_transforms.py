@@ -155,7 +155,16 @@ class LangCodeOHE:
         Returns:
             dict : transformed data
         """
-        raise NotImplementedError
+        lang_index = self.lang_code_to_index[data["lang_code"]]
+        x = data["frames"]
+        x = x.permute(1, 2, 0) #CTV->TVC
+
+        ohe = torch.zeros(1, x.shape[1], x.shape[2])
+        ohe[0][lang_index] = 1
+
+        x = torch.cat([ohe, x])
+        data["frames"] = x.permute(2, 0, 1) #TVC->CTV
+        return data
 
 # Adopted from: https://github.com/AmitMY/pose-format/
 class ShearTransform:
