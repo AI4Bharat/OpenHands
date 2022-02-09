@@ -5,7 +5,7 @@
 05|Bright|R|
 06|Light-blue|R|
 07|Colors|R|
-08|Red|R|
+08|Red(?)|R|
 09|Women|R|
 10|Enemy|R|
 11|Son|R|
