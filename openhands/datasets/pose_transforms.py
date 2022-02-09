@@ -133,6 +133,30 @@ class PoseSelect:
         return data
 
 
+class LangCodeOHE:
+    """
+    Prepend a one-hot encoded vector based on the language of the input video.
+
+    Args:
+        lang_codes: List of sign language codes.
+    """
+
+    def __init__(self, lang_codes: list):
+        self.lang_codes = lang_codes
+        self.lang_code_to_index = {lang_code: i for i, lang_code in enumerate(lang_codes)}
+    
+    def __call__(self, data: dict):
+        """
+        Preprend lang_code OHE dynamically.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict : transformed data
+        """
+        raise NotImplementedError
+
 # Adopted from: https://github.com/AmitMY/pose-format/
 class ShearTransform:
     """

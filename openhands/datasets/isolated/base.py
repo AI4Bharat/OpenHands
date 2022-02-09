@@ -33,6 +33,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
         inference_mode=False,
+        multilingual=False,
 
         # Windowing
         seq_len=1,
@@ -45,6 +46,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.class_mappings_file_path = class_mappings_file_path
         self.splits = splits
         self.modality = modality
+        self.multilingual = multilingual
         self.seq_len = seq_len
         self.num_seq = num_seq
         
@@ -211,7 +213,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         """
         Extend this method for dataset-specific formats
         """
-        video_path, label = self.data[index]
+        video_path = self.data[index][0]
+        label = self.data[index][1]
         imgs = load_frames_from_video(video_path)
         return imgs, label, video_name
 
@@ -254,9 +257,11 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
 
     def read_pose_data(self, index):
         if self.inference_mode:
-            pose_path, label = self.data[index]
+            pose_path = self.data[index][0]
+            label = self.data[index][1]
         else:
-            video_name, label = self.data[index]
+            video_name = self.data[index][0]
+            label = self.data[index][1]
             video_path = os.path.join(self.root_dir, video_name)
             # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
             # Otherwise, just remove the video extension
@@ -266,6 +271,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             pose_path = pose_path + ".pkl"
         pose_data = self.load_pose_from_path(pose_path)
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
+        if self.multilingual:
+            pose_data["lang_code"] = self.data[index][2]
         return pose_data, pose_path
 
     def __getitem_pose(self, index):
@@ -291,6 +298,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
             "file": path,
+            "lang_code": data["lang_code"] if self.multilingual else None
         }
 
         if self.transforms is not None:

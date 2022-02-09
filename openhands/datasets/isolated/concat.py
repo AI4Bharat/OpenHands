@@ -22,7 +22,7 @@ class ConcatDataset(BaseIsolatedDataset):
             dataset_instance = globals()[dataset_cls_name](**kwargs_copy)
             self.datasets.append(dataset_instance)
 
-        super().__init__(root_dir="", **kwargs)
+        super().__init__(root_dir="", multilingual=True, **kwargs)
         del self.datasets
 
         assert self.modality == "pose", "Only pose modality is currently supported for this dataset"
@@ -43,5 +43,5 @@ class ConcatDataset(BaseIsolatedDataset):
                 class_name = dataset.label_encoder.inverse_transform([class_id])[0]
                 class_name = f"{dataset.lang_code}__{class_name}"
                 
-                instance_entry = os.path.join(dataset.root_dir, video_name), self.label_encoder.transform([class_name])[0]
+                instance_entry = os.path.join(dataset.root_dir, video_name), self.label_encoder.transform([class_name])[0], dataset.lang_code
                 self.data.append(instance_entry)
