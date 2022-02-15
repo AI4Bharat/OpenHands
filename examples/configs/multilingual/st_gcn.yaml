@@ -33,24 +33,23 @@ data:
             splits: "train"
 
         transforms:
-            - PoseUniformSubsampling:
-                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - LangCodeOHE:
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+            - ShearTransform:
+                shear_std: 0.1
+            - RotatationTransform:
+                rotation_std: 0.1
+            - PrependLangCodeOHE:
                 lang_codes:
                     - aed # Argentinian
                     - ase # American
                     - csl # Chinese
+                    - gsg # German
                     - gss # Greek
                     - ins # Indian
                     - tsm # Turkish
-            - CenterAndScaleNormalize:
-                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
-            - ShearTransform:
-                  shear_std: 0.1
-            - RotatationTransform:
-                  rotation_std: 0.1
 
         dataloader:
             _target_: torch.utils.data.DataLoader
@@ -93,20 +92,19 @@ data:
             splits: "test"
 
         transforms:
-            - PoseUniformSubsampling:
-                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            - LangCodeOHE:
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+            - PrependLangCodeOHE:
                 lang_codes:
                     - aed # Argentinian
                     - ase # American
                     - csl # Chinese
+                    - gsg # German
                     - gss # Greek
                     - ins # Indian
                     - tsm # Turkish
-            - CenterAndScaleNormalize:
-                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
         dataloader:
             _target_: torch.utils.data.DataLoader

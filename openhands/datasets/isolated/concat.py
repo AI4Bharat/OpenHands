@@ -1,5 +1,4 @@
 import os
-from tqdm import tqdm
 
 from .base import BaseIsolatedDataset
 from .autsl import AUTSLDataset
@@ -33,13 +32,16 @@ class ConcatDataset(BaseIsolatedDataset):
         for dataset in self.datasets:
             for class_name in dataset.glosses:
                 self.glosses.append(f"{dataset.lang_code}__{class_name}")
+        
+        # Make the sequence agnostic to the order in which datasets are listed
+        self.glosses = sorted(self.glosses)
     
     def read_original_dataset(self):
         print("Preparing list of data items... This might take a few minutes to complete")
         # TODO: LabelEncoder seems to be the bottleneck. Just handle using dicts
 
         for dataset in self.datasets:
-            for video_name, class_id in tqdm(dataset.data, desc=type(dataset).__name__):
+            for video_name, class_id in dataset.data:
                 class_name = dataset.id_to_gloss[class_id]
                 class_name = f"{dataset.lang_code}__{class_name}"
                 

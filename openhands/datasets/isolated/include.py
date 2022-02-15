@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
@@ -13,9 +14,13 @@ class INCLUDEDataset(BaseIsolatedDataset):
     lang_code = "ins"
 
     def read_glosses(self):
-        # TODO: Separate the classes into a separate file?
+        # TODO: Move the classes into a separate file?
         df = pd.read_csv(self.split_file)
         self.glosses = sorted({df["Word"][i].strip() for i in range(len(df))})
+
+        # Remove serial numbers from gloss names
+        # We are removing it after sorting, because the models we released have classes in the above order
+        self.glosses = [re.sub("\d+\.", '', gloss).strip().upper() for gloss in self.glosses]
 
     def read_original_dataset(self):
         df = pd.read_csv(self.split_file)

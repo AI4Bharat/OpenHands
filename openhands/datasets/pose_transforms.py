@@ -133,9 +133,10 @@ class PoseSelect:
         return data
 
 
-class LangCodeOHE:
+class PrependLangCodeOHE:
     """
     Prepend a one-hot encoded vector based on the language of the input video.
+    Ideally, it should be used finally after all other normalizations/augmentations.
 
     Args:
         lang_codes: List of sign language codes.
