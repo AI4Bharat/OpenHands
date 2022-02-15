@@ -32,6 +32,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
         inference_mode=False,
+        only_metadata=False, # Does not load data files if `True`
         multilingual=False,
 
         # Windowing
@@ -58,15 +59,19 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.gloss_to_id = {gloss: i for i, gloss in enumerate(self.glosses)}
         self.id_to_gloss = {i: gloss for i, gloss in enumerate(self.glosses)}
 
-        self.data = []
         self.inference_mode = inference_mode
-        if inference_mode:
-            # Will have null labels
-            self.enumerate_data_files(self.root_dir)
-        else:
-            self.read_original_dataset()
-        if not self.data:
-            raise RuntimeError("No data found")
+        self.only_metadata = only_metadata
+
+        if not only_metadata:
+            self.data = []
+            
+            if inference_mode:
+                # Will have null labels
+                self.enumerate_data_files(self.root_dir)
+            else:
+                self.read_original_dataset()
+            if not self.data:
+                raise RuntimeError("No data found")
 
         self.cv_resize_dims = cv_resize_dims
         self.pose_use_confidence_scores = pose_use_confidence_scores

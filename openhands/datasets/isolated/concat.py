@@ -37,10 +37,10 @@ class ConcatDataset(BaseIsolatedDataset):
         self.glosses = sorted(self.glosses)
     
     def read_original_dataset(self):
-        print("Preparing list of data items... This might take a few minutes to complete")
-        # TODO: LabelEncoder seems to be the bottleneck. Just handle using dicts
-
         for dataset in self.datasets:
+            if dataset.only_metadata:
+                continue
+            
             for video_name, class_id in dataset.data:
                 class_name = dataset.id_to_gloss[class_id]
                 class_name = f"{dataset.lang_code}__{class_name}"
