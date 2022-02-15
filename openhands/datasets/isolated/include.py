@@ -18,9 +18,10 @@ class INCLUDEDataset(BaseIsolatedDataset):
         df = pd.read_csv(self.split_file)
         self.glosses = sorted({df["Word"][i].strip() for i in range(len(df))})
 
-        # Remove serial numbers from gloss names
-        # We are removing it after sorting, because the models we released have classes in the above order
-        self.glosses = [re.sub("\d+\.", '', gloss).strip().upper() for gloss in self.glosses]
+        # # Remove serial numbers from gloss names
+        # # We are removing it after sorting, because the models we released have classes in the above order
+        # self.glosses = [re.sub("\d+\.", '', gloss).strip().upper() for gloss in self.glosses]
+        # # Nevermind, this creates issue at `read_original_dataset()`
 
     def read_original_dataset(self):
         df = pd.read_csv(self.split_file)
@@ -33,7 +34,7 @@ class INCLUDEDataset(BaseIsolatedDataset):
                 print(f"Video not found: {video_path}")
                 continue
             if "/Second (Number)/" in video_path:
-                print(f"WARNING: Skipping {video_path} assuming no present")
+                print(f"WARNING: Skipping {video_path} assuming not present")
                 continue
 
             self.data.append(instance_entry)

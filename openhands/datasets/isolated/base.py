@@ -253,7 +253,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         labels = [x["label"] for i, x in enumerate(batch_list)]
         labels = torch.stack(labels, dim=0)
 
-        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list])
+        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list], lang_codes=[x["lang_code"] for x in batch_list])
 
     def read_pose_data(self, index):
         if self.inference_mode:

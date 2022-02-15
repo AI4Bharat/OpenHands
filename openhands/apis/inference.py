@@ -79,10 +79,30 @@ class InferenceModel(pl.LightningModule):
         assert not self.datamodule.test_dataset.inference_mode
         # TODO: Write output to a csv
         dataloader = self.datamodule.test_dataloader()
-        scores = []
+        lang_scores, class_scores = {}, {}
         for batch_idx, batch in tqdm(enumerate(dataloader), unit="batch"):
             y_hat = self.model(batch["frames"])
             class_indices = torch.argmax(y_hat, dim=-1)
-            for pred_index, gt_index in zip(class_indices, batch["labels"]):
-                scores.append(pred_index == gt_index)
-        print(f"Accuracy for {len(scores)} samples: {100*sum(scores)/len(scores)}%")
+            for i, (pred_index, gt_index) in enumerate(zip(class_indices, batch["labels"])):
+
+                lang_code = batch["lang_codes"][i]
+                score = pred_index == gt_index
+                
+                if lang_code not in lang_scores:
+                    lang_scores[lang_code] = []
+                lang_scores[lang_code].append(score)
+
+                if gt_index not in class_scores:
+                    class_scores[gt_index] = []
+                class_scores[gt_index].append(score)
+        
+        
+        for lang_name, score_array in lang_scores.items():
+            lang_accuracy = sum(score_array)/len(score_array)
+            print(f"Accuracy for {len(score_array)} samples in {lang_name}: {lang_accuracy*100}%")
+
+
+        classwise_accuracies = {class_index: sum(scores)/len(scores) for class_index, scores in class_scores.items()}
+        avg_classwise_accuracies = sum(classwise_accuracies.values()) / len(classwise_accuracies)
+
+        print(f"Average of class-wise accuracies: {avg_classwise_accuracies*100}%")
