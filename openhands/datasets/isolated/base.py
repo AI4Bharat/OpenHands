@@ -4,6 +4,7 @@ import torchvision
 import pickle
 import albumentations as A
 import numpy as np
+import pandas as pd
 import os, warnings
 from ..video_transforms import *
 from ..data_readers import *
@@ -25,6 +26,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         root_dir,
         split_file=None,
         class_mappings_file_path=None,
+        normalized_class_mappings_file=None,
         splits=["train"],
         modality="rgb",
         transforms="default",
@@ -49,6 +51,11 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.multilingual = multilingual
         self.seq_len = seq_len
         self.num_seq = num_seq
+
+        self.normalized_class_mappings_file = normalized_class_mappings_file
+        if normalized_class_mappings_file:
+            df = pd.read_csv(normalized_class_mappings_file)
+            self.normalized_class_mappings = {df["actual_gloss"][i]: df["normalized_gloss"][i] for i in range(len(df))}
         
         self.glosses = []
         self.read_glosses()

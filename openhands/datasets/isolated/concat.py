@@ -10,8 +10,9 @@ from .lsa64 import LSA64Dataset
 from .wlasl import WLASLDataset
 
 class ConcatDataset(BaseIsolatedDataset):
-    def __init__(self, datasets, **kwargs):
+    def __init__(self, datasets, unify_vocabulary=False, **kwargs):
 
+        self.unify_vocabulary = unify_vocabulary
         self.datasets = []
         
         for dataset_cls_name, dataset_kwargs in datasets.items():
@@ -28,10 +29,13 @@ class ConcatDataset(BaseIsolatedDataset):
 
 
     def read_glosses(self):
-        self.glosses = []
+        self.glosses = set()
         for dataset in self.datasets:
             for class_name in dataset.glosses:
-                self.glosses.append(f"{dataset.lang_code}__{class_name}")
+                if self.unify_vocabulary:
+                    self.glosses.add(dataset.normalized_class_mappings[class_name])
+                else:
+                    self.glosses.add(f"{dataset.lang_code}__{class_name}")
         
         # Make the sequence agnostic to the order in which datasets are listed
         self.glosses = sorted(self.glosses)
@@ -43,7 +47,10 @@ class ConcatDataset(BaseIsolatedDataset):
             
             for video_name, class_id in dataset.data:
                 class_name = dataset.id_to_gloss[class_id]
-                class_name = f"{dataset.lang_code}__{class_name}"
+                if self.unify_vocabulary:
+                    class_name = dataset.normalized_class_mappings[class_name]
+                else:
+                    class_name = f"{dataset.lang_code}__{class_name}"
                 
                 instance_entry = os.path.join(dataset.root_dir, video_name), self.gloss_to_id[class_name], dataset.lang_code
                 self.data.append(instance_entry)
