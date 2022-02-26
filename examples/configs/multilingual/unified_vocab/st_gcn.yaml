@@ -1,4 +1,4 @@
-# pretrained: "/home/gokulnc/SLR/experiments/multilingual/st_gcn/epoch=132-step=170505.ckpt"
+# pretrained: "/home/gokulnc/SLR/experiments/multilingual/unified_vocab/st_gcn_6_langs/epoch=91-step=245731.ckpt"
 
 data:
     modality: "pose"
@@ -7,14 +7,18 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
-                # - AUTSLDataset:
-                #     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/train_labels.csv"
-                #     root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/train_poses/new_train_poses"
-                #     class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
-                # CSLDataset:
-                #     split_file: "openhands/datasets/assets/csl_metadata/split.train.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
-                #     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                AUTSLDataset:
+                    split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/train_labels.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/train_poses/"
+                    class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
+                    normalized_class_mappings_file: "openhands/datasets/assets/autsl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                CSLDataset:
+                    split_file: "openhands/datasets/assets/csl_metadata/split.train.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
+                    class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 # DeviSignDataset:
                 #     split_file: "openhands/datasets/assets/devisign_metadata/split.train.csv"
                 #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
@@ -35,9 +39,11 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # WLASLDataset:
-                #     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                WLASLDataset:
+                    split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                    normalized_class_mappings_file: "openhands/datasets/assets/wlasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
             modality: "pose"
             splits: "train"
 
@@ -62,9 +68,9 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: true
-            num_workers: 3
+            num_workers: 4
             pin_memory: true
             drop_last: false
 
@@ -73,14 +79,18 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
-                # - AUTSLDataset:
-                #     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/validation_labels.csv"
-                #     root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/val_poses/new_val_poses/"
-                #     class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
-                # CSLDataset:
-                #     split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
-                #     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                AUTSLDataset:
+                    split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/validation_labels.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/val_poses/"
+                    class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
+                    normalized_class_mappings_file: "openhands/datasets/assets/autsl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                CSLDataset:
+                    split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
+                    class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 # DeviSignDataset:
                 #     split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
                 #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
@@ -101,9 +111,11 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # WLASLDataset:
-                #     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                WLASLDataset:
+                    split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                    normalized_class_mappings_file: "openhands/datasets/assets/wlasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
             modality: "pose"
             splits: "test"
 
@@ -135,14 +147,18 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
-                # - AUTSLDataset:
-                #     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/validation_labels.csv"
-                #     root_dir: "/home/prem/data-disk/datasets/AUTSL/poses_pickle/val_poses/new_val_poses/"
-                #     class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
-                # CSLDataset:
-                #     split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
-                #     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                AUTSLDataset:
+                    split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/test_labels.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/test_poses/"
+                    class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
+                    normalized_class_mappings_file: "openhands/datasets/assets/autsl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                CSLDataset:
+                    split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
+                    class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 # DeviSignDataset:
                 #     split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
                 #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
@@ -163,9 +179,11 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # WLASLDataset:
-                #     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                WLASLDataset:
+                    split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/WLASL2000/poses_pickle"
+                    normalized_class_mappings_file: "openhands/datasets/assets/wlasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
             modality: "pose"
             splits: "test"
             inference_mode: false
@@ -266,11 +284,11 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/multilingual/unified_vocab/st_gcn/"
+        dirpath: "experiments/multilingual/unified_vocab/st_gcn_6_langs/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 75
+        patience: 30
         verbose: true
         mode: "max"
