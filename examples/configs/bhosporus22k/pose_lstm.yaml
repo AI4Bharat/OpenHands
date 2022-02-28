@@ -5,7 +5,6 @@ data:
             _target_: openhands.datasets.isolated.bhosporus22k.Bhosporus22kDataset
             class_mappings_file_path: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
             root_dir: "/datadrive/BosphorusSign22k/PKL_POSES"
-            split_file: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
             splits: "train"
             modality: "pose"
 
@@ -38,8 +37,7 @@ data:
             _target_: openhands.datasets.isolated.bhosporus22k.Bhosporus22kDataset
             class_mappings_file_path: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
             root_dir: "/datadrive/BosphorusSign22k/PKL_POSES"
-            split_file: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
-            splits: "val"
+            splits: "test"
             modality: "pose"
 
         transforms:
@@ -93,17 +91,17 @@ trainer:
 
 exp_manager:
     create_tensorboard_logger: true
-    create_wandb_logger: true
+    create_wandb_logger: false
     wandb_logger_kwargs:
-        name: "manideepladi"
-        project: "Bhosphorus22k"
+        name: null
+        project: null
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/bhosphrous/lstm/"
+        dirpath: "experiments/bhosphrous/pose_lstm/"
 
     early_stopping_callback: true
     early_stopping_params:
