@@ -1,16 +1,16 @@
 actual_gloss,normalized_gloss
-21,21
-22,22
-23,23
-24,24
-25,25
-26,26
-27,27
-28,28
-29,29
-30,30
-50,50
-100,100
+21,TWENTY_ONE
+22,TWENTY_TWO
+23,TWENTY_THREE
+24,TWENTY_FOUR
+25,TWENTY_FIVE
+26,TWENTY_SIX
+27,TWENTY_SEVEN
+28,TWENTY_EIGHT
+29,TWENTY_NINE
+30,THIRTY
+50,FIFTY
+100,HUNDRED
 about,ABOUT
 absent,ABSENT
 accept,ACCEPT
@@ -93,7 +93,7 @@ before,BEFORE
 believe,BELIEVE
 belt,BELT
 best friend,BEST_FRIEND
-better,BETTER
+better,GOOD
 bicycle,BICYCLE
 big,BIG
 biology,BIOLOGY
@@ -199,7 +199,7 @@ cool,COOL
 copy,COPY
 copy me,COPY_ME
 corn,CORN
-cost,COST
+cost,PRICE
 couch,COUCH
 cough,COUGH
 counselor,COUNSELOR
@@ -232,7 +232,7 @@ depressed,DEPRESS
 dessert,DESSERT
 destroy,DESTROY
 dictionary,DICTIONARY
-die,DIE
+die,DEATH
 dining room,DINING_ROOM
 dinner,DINNER
 dirty,DIRTY
@@ -605,7 +605,7 @@ musician,MUSICIAN
 mustache,MUSTACHE
 my,MY
 name,NAME
-near,NEAR
+near,CLOSE
 need,NEED
 nephew,NEPHEW
 nervous,NERVOUS
@@ -615,7 +615,7 @@ newspaper,NEWSPAPER
 next,NEXT
 next week,NEXT_WEEK
 next year,NEXT_YEAR
-nice,NICE
+nice,GOOD
 nice to meet you,NICE_TO_MEET_YOU
 niece,NIECE
 night,NIGHT
@@ -721,7 +721,7 @@ read,READ
 ready,READY
 red,RED
 refrigerator,REFRIGERATOR
-refuse,REFUSE
+refuse,DENY
 relationship,RELATIONSHIP
 remember,REMEMBER
 research,RESEARCH
@@ -950,7 +950,7 @@ waiter,WAITER
 walk,WALK
 wall,WALL
 want,WANT
-warm,WARM
+warm,HOT
 wash face,WASH_FACE
 watch,WATCH
 water,WATER
@@ -958,7 +958,7 @@ watermelon,WATERMELON
 we,WE
 weak,WEAK
 weather,WEATHER
-wedding,WEDDING
+wedding,MARRIAGE
 wednesday,WEDNESDAY
 week,WEEK
 weekend,WEEKEND
@@ -997,5 +997,5 @@ yesterday,YESTERDAY
 you,YOU
 young,YOUNG
 your,YOUR
-FALSE,FALSE
-TRUE,TRUE
+false,FALSE
+true,TRUE
