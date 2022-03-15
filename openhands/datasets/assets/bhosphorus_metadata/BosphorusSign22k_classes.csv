@@ -1,0 +1,745 @@
+SubsetID,ClassID,ClassName_tr,ClassName_eng
+Health,0001,Aci,Pain
+Finance,0002,Acik,Open
+Finance,0003,Acik Arttirma,Auction
+General,0004,Aciklamak,Explain
+Health,0005,Acil,Urgent
+Health,0006,Acil Servis,Emergency
+General,0007,Ad,Name
+Health,0008,Adet,Mensturation
+General,0009,Adres,Address
+Health,0010,Agiz,Mouth
+Health,0011,Agri,Ache
+Health,0012,Agrikesici,Painkiller
+Health,0013,Aile,Family
+Health,0014,Akciger,Lungs
+Health,0015,Akil,Mind
+General,0016,Akraba,Relative
+General,0017,Aksam,Evening
+General,0018,Aksam Yemegi,Dinner
+Health,0019,Alci,Cast
+Health,0020,Alerji,Allergy
+Finance,0021,Alim,Purchase
+Health,0022,Alin,Forehead
+Finance,0023,Alisveris,Shopping
+Health,0024,Alkol,Alcohol
+Health,0025,Alkolik,Alcoholic
+General,0026,Almak,Receive
+Finance,0027,Altin,Gold
+Health,0028,Ambulans,Ambulance
+Health,0029,Ameliyat,Operation
+Health,0030,Anestezi,Anesthesia
+General,0031,Anne,Mom
+Health,0032,Antibiyotik,Antibiotic
+Finance,0033,Araba,Car
+General,0034,Aramak,Call
+General,0035,Aramak (Telefon),Search (Phone)
+General/Finance,0036,Arkadas,Friend
+Finance,0037,Arsa,Land
+Health,0038,Asi_Igne,Vaccine_Needle
+Health,0039,Aspirin,Aspirin
+Health,0040,Astim,Asthma
+Health,0041,Ates,Fever (Temprature)
+Health,0042,Ates Dusurucu,Fever Reducer
+General,0043,Atlamak,Jump
+General,0044,Ay,Moon
+General,0045,Ayaga Kalkmak,Stand up
+Health,0046,Ayak,Foot
+Finance,0047,Aylik,Monthly
+Health,0048,Ayni,Same
+General,0049,Az,Little
+General,0050,Baba_Erkek,Father_Male
+Health,0051,Bacak,Leg
+Health,0052,Bagimli,Dependent
+General,0053,Bagirmak,Yell
+Health,0054,Bagirsak,Bowel
+Health,0055,Bakim,Maintenance
+General,0056,Bakmak,Look
+Health,0057,Balgam,Sputum
+Health,0058,Bandaj,Bandage
+Finance,0059,Banka,Bank
+Finance,0060,Bankamatik,Cash dispenser
+Health,0061,Bas,Head
+Health,0062,Bas Agrisi,Headache
+Health,0063,Bas Donmesi,Dizziness
+Health,0064,Baski,Pressure
+Finance,0065,Basvuru,Application
+Health,0066,Bayilmak,Fainting (Blackout)
+Health,0067,Bebek,Baby
+Finance,0068,Bedava,Free
+Finance,0069,Bedel,Price
+General,0070,Begenmek,Like
+Health,0071,Bekar,Single
+Finance,0072,Bekleme Salonu,Waiting room
+General,0073,Beklemek,Wait
+Health,0074,Bel,Waist
+General,0075,Benzemek,To look like
+Health,0076,Beyin,Brain
+Health,0077,Beze,Node (Wen)
+General,0078,Bikmak,To be fed up
+Health,0079,Bilek,Wrist
+Finance,0080,Bilgi,Information
+Health,0081,Bilinci Yerinde,Having Consciousness
+Health,0082,Bilincini Kaybetmis,Lost Consciousness
+General,0083,Bilmek,Know
+General,0084,Bir Hafta Once,A week ago
+General,0085,Bir Sey Degil,You are welcome
+General/Finance,0086,Biraz,Some
+Finance,0087,Birikim,Accumulation
+General,0088,Bitmek,End
+Health,0089,Bobrek,Kidney
+Health,0090,Bogaz,Throat
+Health,0091,Bogaz Sismesi,Throat swelling
+General,0092,Bogulmak,Drowning
+Finance,0093,Borc,Debt
+Finance,0094,Bordro,Payroll
+Finance,0095,Borsa,Exchange
+General,0096,Bosanmak,Divorce
+Health,0097,Boy,Size
+Health,0098,Boyun,Neck
+General,0099,Bozdurmak,Exchange
+Finance,0100,Brut,Gross
+Health,0101,Bulanti,Nausea
+General,0102,Bulmak,Find
+Health,0103,Burkma,Twist
+Health,0104,Burun,Nose
+Health,0105,Burun Kanamasi,Nose bleeding
+Finance,0106,Butce,Budget
+Health,0107,Buyuk Abdest,Defecating (Number Two)
+General,0108,Cagirmak,"Invite, call"
+General,0109,Calismak,Work
+General,0110,Calmak(Hirsizlik),Stealing (Theft)
+General,0111,Calmak(Muzik),Playing (Music)
+General,0112,Carpismak,Collide
+Health,0113,Catlak,Crack
+Finance,0114,Cek,Voucher
+General,0115,Cekmek,Pull
+General,0116,Cep,Pocket
+General,0117,Cep Telefonu,Mobile phone
+Health,0118,Cerrah,Surgeon
+General,0119,Cevirmek,Translate
+Finance,0120,Ceyrek_Yarim,Quarter_Half
+Health,0121,Cikik,Dislocation
+General/Health,0122,Cocuk,Child
+General,0123,Cocuklar,Children
+General,0124,Cok,Very
+General,0125,Cokmek,Collapse
+Health,0126,Damar,Vein
+Finance,0127,Damga Vergisi,Stamp tax
+Finance,0128,Danisma,Advice
+Health,0129,Danismak,To consult
+Finance,0130,Deger,Value
+Finance,0131,Dekont,Decent
+Health,0132,Depresyon,Depression
+Health,0133,Derece,Degree
+Health,0134,Deri,Skin
+Health,0135,Dermatolog,Dermatologist
+Finance,0136,Deste,Deck
+Finance,0137,Devir,Transfer
+General,0138,Devlet,State
+Health,0139,Dikis,Stitch
+General,0140,Dinlemek,Listen
+Health,0141,Dis,Teeth
+Health,0142,Dis Agrisi,Toothache
+Health,0143,Dis Cektirmek,Taking teeth
+Health,0144,Dis Teli,Dental braces
+General,0145,Disarida,Outside
+Health,0146,Disci,Dentist
+Health,0147,Diz,Knee
+Health,0148,Dogum,Birth
+Health,0149,Dogum Sancisi,Birth Pain
+General,0150,Dokmek,Pour
+Health,0151,Doktor,Doctor
+Health,0152,Dokunma,Touch
+General,0153,Dokunmak,Touch
+Finance,0154,Dolar,Dollar
+Health,0155,Dolasim,Circulation
+General,0156,Donmak,Freeze
+Finance,0157,Dosya Masrafi,File Cost
+Finance,0158,Doviz,Foreign currency
+General,0159,Dovmek,Beating
+General,0160,Dovusmek,Fight
+General,0161,Durmak,Stop
+Health,0162,Durust,Honest
+General,0163,Dusmek,Fall
+Health,0164,Dusuk Ates,Low Fire
+Health,0165,Dusuk Cocuk,Miscarriage
+Health,0166,Duygusal,Emotional
+Health,0167,Duyma,Hearing
+Finance,0168,Duzenli,Regular
+General,0169,E-posta,Email
+Health,0170,Eczane,Pharmacy
+Health,0171,Eklem,Joint
+Health,0172,El,Hand
+Finance,0173,Elektronik,Electronic
+Health,0174,Emar,CAT Scan
+General,0175,Emeklemek,To crawl
+Finance,0176,Emekli,Retired
+General,0177,Emekli Olmak,Be retired
+Finance,0178,Emir,Order
+Health,0179,Emzik,Pacifier
+General,0180,Emzirmek,Breastfeeding
+Health,0181,Enfeksiyon,Infection
+Finance,0182,Enflasyon,Inflation
+Health,0183,Engel,Obstacle
+Health,0184,Engelli,Disabled
+Health,0185,Enjeksiyon,Injection
+General/Health,0186,Erken,Early
+Health,0187,Erken Dogum,Early birth
+Finance,0188,Euro,Euro
+Finance,0189,Ev,Home
+General,0190,Ev Adresi,Home address
+Health,0191,Evli,The married
+Finance,0192,Faiz,Interest
+Health,0193,Farkli,Different
+Finance,0194,Fatura,Invoice
+Finance,0195,Fatura Odeme,Paying bills
+Health,0196,Felc,Paralysis
+Health,0197,Fitil,Suppository
+Finance,0198,Fiyat_Para,Price_Money
+Health,0199,Fiziksel,Physical
+Finance,0200,Fon,Fund
+Finance,0201,Fotokopi,Photocopy
+General,0202,Gecikmek_Gec,Delay_Late
+Finance,0203,Gelir,Income
+General,0204,Gelmek,Come
+Finance,0205,Getiri,Return
+General,0206,Getirmek,To bring
+Finance,0207,Gider,Expense
+General,0208,Gitmek,Go
+General,0209,Giyinmek,Dress up
+Health,0210,Giysi,Clothes
+General,0211,Gizlemek,Hide
+Health,0212,Gogus,Chest
+General,0213,Gondermek,Send
+General,0214,Gormek,See
+General,0215,Gostermek,Show
+Health,0216,Govde,Body
+Health,0217,Goz,Eye
+Health,0218,Gozluk,Glasses
+Health,0219,Grip,Flu
+Finance,0220,Gunluk,Daily
+Finance,0221,Guvenlik Gorevlisi,Security guard
+Finance,0222,Haciz,Attachment
+Health,0223,Hafiza,Memory
+Health,0224,Hafiza Kaybi,Loss of memory
+General,0225,Hafta,Week
+Finance,0226,Haftalik,Weekly
+Health,0227,Halsizlik,Weakness
+Health,0228,Hamile,Pregnant
+Health,0229,Hap,Pill
+Health,0230,Hareket,Movement
+Health,0231,Hasta,Patient
+Health,0232,Hasta Bakici,Nurse
+Health,0233,Hastalik,Disease
+Health,0234,Hastane,Hospital
+General,0235,Hatirlamak,Remember
+Health,0236,Hatirlatma,Reminder
+Finance,0237,Havale,Transfer
+General,0238,Hemen,Immediately
+Health,0239,Hemsire,Nurse
+Finance,0240,Hesap,Account
+Finance,0241,Hesap No,Account number
+Finance,0242,Hisse,Share
+General,0243,Hissetmek,Feel
+Finance,0244,Hizmet,Service
+General,0245,Icerde,Inside
+General,0246,Icmek,Drink
+Finance,0247,Icra,Executive
+Finance,0248,Iflas,Bankruptcy
+Health,0249,Igne,Needle
+Finance,0250,Ihtiyac,Need
+Finance,0251,Ikametgah,Place of residence
+Health,0252,Ilac,Medicine
+Finance,0253,Ilave,Additional
+Health,0254,Ilik,Marrow
+Health,0255,Ilkyardim,First aid
+Health,0256,Iltihap,Inflammation
+General/Finance/Health,0257,Imza,Signature
+Finance,0258,Indirim,Discount
+General,0259,Insallah,God willing
+Finance,0260,Internet,Internet
+Health,0261,Is,Business
+General,0262,Is Adresi,Business Address
+General,0263,Isaret,Mark
+Health,0264,Ishal,Diarrhea
+General/Health,0265,Isirmak,To Bite
+General,0266,Isitmak,Heat
+General,0267,Isitmek,Hearing
+Finance,0268,Isletme,Business
+Health,0269,Isteksiz,Reluctant
+General/Health,0270,Istemek,Request
+Health,0271,Istemsiz,Involuntary
+Health,0272,Istirahat,Rest
+General,0273,Iyi,Good
+Health,0274,Iyilesme,Recovery
+Health,0275,Jel,Gel
+Health,0276,Jelatin,Gelatine
+Health,0277,Kabakulak,Mumps
+Health,0278,Kabiz,Constipation
+General,0279,Kacmak,Escape
+General,0280,Kadin_Kiz,Woman_Girl
+General,0281,Kahvalti,Breakfast
+Health,0282,Kafa,Head
+Health,0283,Kafeterya,Cafeteria
+Finance,0284,Kagit,Paper
+Finance,0285,Kalem,Pen
+Finance,0286,Kamu,Public
+Health,0287,Kalp,Heart
+Health,0288,Kalp Krizi,Heart attack
+Finance,0289,Kanuni,Legal
+Health,0290,Kan,Blood
+Health,0291,Kan Almak,Draw blood
+Health,0292,Kan Gurubu,Blood type
+Health,0293,Kan Kaybi,Blood Loss
+Health,0294,Kan Tahlili,Blood analysis
+Health,0295,Kanama,Bleeding
+Health,0296,Kanser_Mikrop,Cancer_Germ
+General/Finance,0297,Kapatmak,Close
+General,0298,Kasinmak,Itch
+Finance,0299,Kapora,Down payment
+Finance,0300,Kar,Profit
+Health,0301,Karaciger,Liver
+Health,0302,Karin,Abdomen
+Finance,0303,Kart,Card
+Finance,0304,Kasa,Safe
+Finance,0305,Kase,Bowl
+General,0306,Katlamak,Fold
+Finance,0307,Kasko,Insurance
+Finance,0308,Katilim,Participation
+General,0309,Kazanmak,Win
+Finance,0310,Kayit,Record
+General,0311,Kesmek,Cut
+Finance,0312,Kefil,Guarantor
+Health,0313,Kemik,Bone
+Health,0314,Kesik,Incision
+General,0315,Kilo Almak,Gaining weight
+Health,0316,Kilo,Kilo
+General,0317,Kilo Vermek,Lose weight
+General,0318,Kimlik,ID
+General,0319,Konsantre Olmak,To concentrate
+Finance,0320,Kimlik No,Identification number
+Health,0321,Kirik,Broken
+Health,0322,Kizamik,Measles
+Health,0323,Kizariklik,Redness
+Health,0324,Koklama,Sniffing
+Health,0325,Kol,Arm
+Health,0326,Koltuk Degnegi,Crutch
+General,0327,Kosmak,Run
+Health,0328,Kontrol,Control
+Health,0329,Korku,Fear
+General,0330,Kotu,Bad
+Health,0331,Kramp,Cramp
+Health,0332,Krem,Cream
+Finance,0333,Kredi,Credit
+Finance,0334,Kredi Karti,Credit card
+Health,0335,Kriz,Crisis
+Health,0336,Kucuk Abdest,Peeing
+Health,0337,Kulak Agrisi,Earache
+General/Health,0338,Kusmak,Vomit
+Finance,0339,Kur,Exchange rate
+General,0340,Masallah,God Preserve From Evil
+Health,0341,Kuvoz,Incubator
+Health,0342,Laboratuvar,Lab
+Health,0343,Lavabo,Sink
+Health,0344,Lens,Lens
+Finance,0345,Limit,Limit
+Finance,0346,Lira,Lira
+Finance,0347,Maas,Salary
+Finance,0348,Maas Bordrosu,Payroll
+General,0349,Nasilsin,How are you
+Finance,0350,Masraf,Cost
+Health,0351,Meme,Breast
+Health,0352,Merhem,Ointment
+Health,0353,Mide,Stomach
+Health,0354,Migren,Migraine
+Finance,0355,Miras,Heritage
+Health,0356,Morluk,Bruise
+Health,0357,Muayene,Examination
+Finance,0358,Musteri,Customer
+Health,0359,Mutsuz,Unhappy
+Health,0360,Nabiz,Pulse
+Finance,0361,Nakit,Cash
+General/Finance,0362,Numara,Number
+Health,0363,Nefes,Breath
+Health,0364,Nefes Alma,Inhalation
+Health,0365,Nefes Tutma,Breath Holding
+Health,0366,Nefes Verme,Exhalation
+Health,0367,Nezle,Cold
+Health,0368,Nobetci,(someone) Who is on duty
+Finance,0369,Nufus,Population
+Finance,0370,Nufus Cuzdani,Birth certificate
+General,0371,Odemek,Pay
+Health,0372,Obezite,Obesity
+Health,0373,Obur,Glutton
+Health,0374,Oda,Room
+Finance,0375,Odeme,Payment
+General,0376,Oglan_Erkek,Boy_Male
+General,0377,Oglen,Noon
+General,0378,Oglen Yemegi,Lunch
+General,0379,Ogrenmek,Learn
+General,0380,Ogretmek,Teaching
+Health,0381,Ogun,Meal
+Health,0382,Oksuruk,Cough
+General,0383,Okul Adresi,School Address
+General,0384,Olmak,Be
+General,0385,Olmek,To Die
+Health,0386,Olum,Death
+Health,0387,Omuz,Shoulder
+Health,0388,Onay,Confirmation
+General,0389,Once,Before
+Health,0390,Oneri,Proposal
+Finance,0391,Oran,Rate
+Health,0392,Ordek,Urinal (Duck)
+Finance,0393,Ortak,Partner
+General,0394,Ortmek,Cover
+Finance,0395,Otomatik,Automatic
+Health,0396,Oturak,Seat
+General,0397,Oturmak,Sit
+General/Health,0398,Ozel,Special
+Health,0399,Ozel Hastane,Private Hospital
+Health,0400,Ozel Saglik Sigortasi,Private Health Insurance
+Health,0401,Ozel Sigorta,Private Insurance
+Health,0402,Ozur,Apology
+Health,0403,Pansuman,Dressing
+Finance,0404,Para Cekme,Withdraw money
+Finance,0405,Para Yatirma,Depositing Up
+Health,0406,Parmak,Finger
+Finance,0407,Piyasa,Market
+Health,0408,Problem,Problem
+Health,0409,Profesor,Professor
+Health,0410,Protein,Protein
+Health,0411,Psikoloji,Psychology
+Health,0412,Radyoloji,Radiological
+Health,0413,Rahat,Comfortable
+Health,0414,Randevu,Appointment
+Finance,0415,Rapor,Report
+Health,0416,Recete,Prescription
+Health,0417,Reflu,Reflux
+Health,0418,Regl,Mensturation
+Finance,0419,Risk,Risk
+Health,0420,Rontgen,X-ray
+Health,0421,Ruh Hastaligi,Mental Illness
+Health,0422,Ruh Sagligi,Mental health
+General,0423,Saat,Hour (Time)
+General,0424,Sabah,Morning
+Health,0425,Sagir,Deaf
+Health,0426,Saglik,Health
+Health,0427,Sakinlesme,Calm down
+General,0428,Saklamak,Hide
+Health,0429,Sanci,Pain
+Health,0430,Sara,Epilepsy
+Health,0431,Sargi,Dressing
+Finance,0432,Satim,Sale
+General,0433,Satmak,Sell
+Health,0434,Sedye,Stretcher
+Health,0435,Seker,Sugar
+Health,0436,Seker Hastasi,Diabetic
+Finance,0437,Senet,Bill
+Finance,0438,Senelik (Yillik),Yearly
+Health,0439,Sert,Hard
+Finance,0440,Seyahat,Travel
+Health,0441,Sezaryen,Caesarean
+Health,0442,Sicak,Hot
+Health,0443,Sigara,Cigaret
+Health,0444,Sigara Icmek,To smoke
+Health,0445,Sigorta,Insurance
+Health,0446,Sikayet,Complaint
+Health,0447,Sikinti,Trouble
+General,0448,Simdi,Now
+Health,0449,Sinirlilik,Irritability
+Finance,0450,Sira,Order
+Finance,0451,Sira Numarasi,Sequence number
+Finance,0452,Siramatik,Siramatic
+Health,0453,Siringa,Syringe
+Finance,0454,Sirket,Company
+Health,0455,Sirt,Back
+Health,0456,Sis,Fog
+Health,0457,Sizlama,Tingle
+Health,0458,Soguk Alginligi,Cold Sickness
+Health,0459,Solunum,Respiratory
+General,0460,Sonra,After
+Health,0461,Sonuc,Result
+General,0462,Sormak,Ask
+General,0463,Soru,Question
+General,0464,Soyad,Surname
+General,0465,Soylemek,Say
+General/Health,0466,Soyunmak,Undress
+General,0467,Sukretmek,Be grateful for
+Health,0468,Spor,Spore
+Health,0469,Stres,Stress
+Health,0470,Su Toplamis,Water Accumulation
+Health,0471,Surat,Face
+Health,0472,Surup,Syrup
+General/Health,0473,Susamak,Thirst
+General,0474,Susmak,Being Quiet
+General,0475,Tanmak,Know
+Finance,0476,Taban,Base
+Health,0477,Taburcu,Discharge (From hospital)
+Health,0478,Tatma,Tasting
+Health,0479,Tahlil,Assay (Analysis)
+Finance,0480,Taksit,Installment
+Finance,0481,Tam,Full
+General,0482,Tekrar,Repeat
+Health,0483,Tansiyon,Blood pressure
+Finance,0484,Tapu,Title deed
+Finance/Health,0485,Tarih,History
+Finance,0486,Tasarruf,Saving
+Finance,0487,Tavan,Ceiling
+Health,0488,Tavsiye,Advice
+Health,0489,Tecavuz,Rape
+Health,0490,Tekerlekli Sandalye,Wheelchair
+General/Finance,0491,Telefon,Telephone
+General,0492,Tesekkur,Thank
+Health,0493,Temizlik,Cleaning
+Health,0494,Terapi,Therapy
+Health,0495,Termometre,Thermometer
+General,0496,Unutmak,Forget
+Health,0497,Test,Test
+Finance,0498,Transfer,Transfer
+Health,0499,Tuvalet,Toilet
+Finance,0500,Uc Aylik,Three months
+Finance,0501,Ucret,Fee
+Health,0502,Ucuk,Cold Sore
+Health,0503,Ultrason,Ultrasound
+General/Health,0504,Usumek,Cold
+General,0505,Var,Exist
+Health,0506,Uykulu,Sleepy
+Health,0507,Uykusuz,Sleepless
+Health,0508,Uyumak,Sleep
+Health,0509,Uyusturucu,Drug
+Health,0510,Uyuyamamak,Not being able to sleep
+Health,0511,Uzgun,Sad
+Health,0512,Uzman,Expert
+Health,0513,Uzulmek,To become sad
+Finance,0514,Vade,Interest
+Finance,0515,Vadeli,With Interest
+Finance,0516,Vadesiz,Without Interest
+General,0517,Vermek,Give
+Finance,0518,Vasi Tayini(Vesayet),Assigning a Guardian (guardianship)
+Finance,0519,Vergi,Tax
+General,0520,Yakalamak,Catch
+Finance,0521,Vezne,Cashier
+Health,0522,Viral,Viral
+Health,0523,Virus,Virus
+Health,0524,Vitamin,Vitamin
+Health,0525,Vucut,Body
+Health,0526,Yag,Fat
+General,0527,Yakmak,Burn
+Finance,0528,Yakin,Near
+Health,0529,Yakin(Akraba),Close relative
+General,0530,Yanit,Response
+General,0531,Yapmak,Make
+Health,0532,Yara,Wound
+Health,0533,Yarabandi,Bandaid
+Health,0534,Yaralamak,Hurt
+Health,0535,Yardim,Help
+General/Health,0536,Yil_Yas,Year_Age
+Finance,0537,Yarim,Half
+General,0538,Yazmak,Write
+Health,0539,Yasam,Life
+Health,0540,Yasam Kalitesi,Life quality
+Health,0541,Yatak,Bed
+Health,0542,Yatak Istirahati,Bed Rest
+Finance,0543,Yatirim Fonu,Investment Fund
+Finance,0544,Yatirmak,Deposit
+Health,0545,Yatmak,Lie
+General/Health,0546,Yemek,Eat
+General,0547,Yok,Not available
+Finance,0548,Yetersiz,Insufficient
+Health,0549,Yilan,Serpent
+Health,0550,Yogun,Intensive
+Health,0551,Yogun Bakim,Intensive care
+General,0552,Yutmak,Swallow
+Health,0553,Yol,Road
+Health,0554,Yorgunluk,Fatigue
+Health,0555,Yuksek,High
+Health,0556,Yumusak,Soft
+General,0557,Zannetmek,Thinking
+Finance,0558,Zaman,Time
+General,0559,Bagirmak_2,Yell_2
+Health,0560,Zaturree,Pneumonia
+Health,0561,Zehir,Poison
+General,0562,Bakmak_2,Look_2
+General,0563,Benzemek_2,To look like_2
+General,0564,Benzemek_3,To look like_3
+General,0565,Bitmek_2,End_2
+General,0566,Bogulmak_2,Drowning_2
+General,0567,Calismak_2,Work_2
+General,0568,Cekmek_2,Pull_2
+General,0569,Cevirmek_2,Translate_2
+General,0570,Cok_2,Very_2
+General/Health,0571,Dinlemek_2,Listen_2
+General,0572,Dokunmak_2,Touch_2
+General,0573,Dokunmak_3,Touch_3
+General,0574,Dovmek_2,Beating_2
+General,0575,E-posta_2,Email_2
+General,0576,Emzirmek_2,Breastfeeding_2
+General,0577,Gondermek_2,Send_2
+General,0578,Insallah_2,God willing_2
+General,0579,Isirmak_2,To Bite_2
+General,0580,Kahvalti_2,Breakfast_2
+General,0581,Kahvalti_3,Breakfast_3
+General,0582,Kahvalti_4,Breakfast_4
+General,0583,Kilo Vermek_2,Lose weight_2
+General/Finance,0584,Numara_2,Number_2
+General,0585,Satmak_2,Sell_2
+General,0586,Sonra_2,After_2
+General,0587,Yapmak_2,Make_2
+Finance,0588,Alisveris_2,Shopping_2
+Finance,0589,Bankamatik_2,Cash dispenser_2
+Finance,0590,Bekleme Salonu_2,Waiting room_2
+Finance,0591,Bekleme Salonu_3,Waiting room_3
+Finance,0592,Borc_2,Debt_2
+Finance,0593,Butce_2,Budget_2
+Finance,0594,Cekmek_3,Pull_3
+Finance,0595,Cekmek_4,Pull_4
+Finance,0596,Damga Vergisi_2,Stamp tax_2
+Finance,0597,Danisma_2,Advice_2
+Finance,0598,Doviz_2,Foreign currency_2
+Finance,0599,Fatura Odeme_2,Paying bills_2
+Finance,0600,Iflas_2,Bankruptcy_2
+Finance,0601,Internet_2,Internet_2
+Finance,0602,Kapora_2,Down payment_2
+Finance,0603,Kart_2,Card_2
+Finance,0604,Kefil_2,Guarantor_2
+Finance,0605,Kimlik No_2,Identification number_2
+Finance,0606,Kredi_2,Credit_2
+Finance,0607,Miras_2,Heritage_2
+Finance,0608,Miras_3,Heritage_3
+Finance,0609,Odeme_2,Payment_2
+Finance,0610,Tam_2,Full_2
+Finance,0611,Tam_3,Full_3
+Finance,0612,Zaman_2,Time_2
+Health,0613,Acil Servis_2,Emergency_2
+Health,0614,Acil Servis_3,Emergency_3
+Health,0615,Adet_2,Mensturation_2
+Health,0616,Adet_3,Mensturation_3
+Health,0617,Agri_2,Ache_2
+Health,0618,Agrikesici_2,Painkiller_2
+Health,0619,Alerji_2,Allergy_2
+Health,0620,Alin_2,Forehead_2
+Health,0621,Alkol_2,Alcohol_2
+Health,0622,Alkol_3,Alcohol_3
+Health,0623,Ambulans_2,Ambulance_2
+Health,0624,Ambulans_3,Ambulance_3
+Health,0625,Antibiyotik_2,Antibiotic_2
+Health,0626,Antibiyotik_3,Antibiotic_3
+Health,0627,Ates Dusurucu_2,Fever Reducer_2
+Health,0628,Ayak_2,Foot_2
+Health,0629,Bacak_2,Leg_2
+Health,0630,Bagimli_2,Dependent_2
+Health,0631,Bagimli_3,Dependent_3
+Health,0632,Bandaj_2,Bandage_2
+Health,0633,Baski_2,Pressure_2
+Health,0634,Beze_2,Node (Wen)_2
+Health,0635,Bilek_2,Wrist_2
+Health,0636,Bobrek_2,Kidney_2
+Health,0637,Buyuk Abdest_2,Defecating (Number Two)_2
+Health,0638,Catlak_2,Crack_2
+Health,0639,Catlak_3,Crack_3
+Health,0640,Dermatolog_2,Dermatologist_2
+Health,0641,Dermatolog_3,Dermatologist_3
+Health,0642,Dikis_2,Stitch_2
+Health,0643,Dis Teli_2,Dental braces_2
+Health,0644,Dis Teli_3,Dental braces_3
+Health,0645,Dis Teli_4,Dental braces_4
+Health,0646,Dis Teli_5,Dental braces_5
+Health,0647,Dis Teli_6,Dental braces_6
+Health,0648,Disci_2,Dentist_2
+Health,0649,Disci_3,Dentist_3
+Health,0650,Diz_2,Knee_2
+Health,0651,Diz_3,Knee_3
+Health,0652,Dogum Sancisi_2,Birth Pain_2
+Health,0653,Dokunma_2,Touch_2
+Health,0654,Dusuk Ates_2,Low Fire_2
+Health,0655,Dusuk Cocuk_2,Miscarriage_2
+Health,0656,Duygusal_2,Emotional_2
+Health,0657,Eczane_2,Pharmacy_2
+Health,0658,Eklem_2,Joint_2
+Health,0659,Eklem_3,Joint_3
+Health,0660,El_2,Hand_2
+Health,0661,El_3,Hand_3
+Health,0662,Emar_2,CAT Scan_2
+Health,0663,Emar_3,CAT Scan_3
+Health,0664,Emar_4,CAT Scan_4
+Health,0665,Emzik_2,Pacifier_2
+Health,0666,Emzik_3,Pacifier_3
+Health,0667,Enfeksiyon_2,Infection_2
+Health,0668,Enfeksiyon_3,Infection_3
+Health,0669,Felc_2,Paralysis_2
+Health,0670,Fitil_2,Suppository_2
+Health,0671,Fitil_3,Suppository_3
+Health,0672,Gogus_2,Chest_2
+Health,0673,Gormek_2,See_2
+Health,0674,Gormek_3,See_3
+Health,0675,Govde_2,Body_2
+Health,0676,Grip_2,Flu_2
+Health,0677,Hafiza_2,Memory_2
+Health,0678,Halsizlik_2,Weakness_2
+Health,0679,Halsizlik_3,Weakness_3
+Health,0680,Hap_2,Pill_2
+Health,0681,Hareket_2,Movement_2
+Health,0682,Ilik_2,Marrow_2
+Health,0683,Ilkyardim_2,First aid_2
+Health,0684,Ilkyardim_3,First aid_3
+Health,0685,Iltihap_2,Inflammation_2
+Health,0686,Iltihap_3,Inflammation_3
+Health,0687,Is_2,Business_2
+Health,0688,Istirahat_2,Rest_2
+Health,0689,Istirahat_3,Rest_3
+Health,0690,Kabiz_2,Constipation_2
+Health,0691,Kabiz_3,Constipation_3
+Health,0692,Kafa_2,Head_2
+Health,0693,Kafeterya_2,Cafeteria_2
+Health,0694,Kalp_2,Heart_2
+Health,0695,Kan_2,Blood_2
+Health,0696,Kan Tahlili_2,Blood analysis_2
+Health,0697,Kanser_2,Cancer_2
+Health,0698,Kanser_3,Cancer_3
+Health,0699,Karaciger_2,Liver_2
+Health,0700,Kemik_2,Bone_2
+Health,0701,Kizamik_2,Measles_2
+Health,0702,Kol_2,Arm_2
+Health,0703,Koltuk Degnegi_2,Crutch_2
+Health,0704,Koltuk Degnegi_3,Crutch_3
+Health,0705,Koltuk Degnegi_4,Crutch_4
+Health,0706,Kramp_2,Cramp_2
+Health,0707,Kramp_3,Cramp_3
+Health,0708,Kramp_4,Cramp_4
+Health,0709,Kucuk Abdest_2,Peeing_2
+Health,0710,Kulak Agrisi_2,Earache_2
+Health,0711,Kuvoz_2,Incubator_2
+Health,0712,Lavabo_2,Sink_2
+Health,0713,Merhem_2,Ointment_2
+Health,0714,Migren_2,Migraine_2
+Health,0715,Muayene_2,Examination_2
+Health,0716,Nabiz_2,Pulse_2
+Health,0717,Nabiz_3,Pulse_3
+Health,0718,Nefes_2,Breath_2
+Health,0719,Nefes Alma_2,Inhalation_2
+Health,0720,Nefes Tutma_2,Breath Holding_2
+Health,0721,Nefes Verme_2,Exhalation_2
+Health,0722,Nobetci_2,(someone) Who is on duty_2
+Health,0723,Obezite_2,Obesity_2
+Health,0724,Ogun_2,Meal_2
+Health,0725,Oksuruk_2,Cough_2
+Health,0726,Omuz_2,Shoulder_2
+Health,0727,Ordek_2,Urinal (Duck)_2
+Health,0728,Ordek_3,Urinal (Duck)_3
+Health,0729,Radyoloji_2,Radiological_2
+Health,0730,Regl_2,Mensturation_2
+Health,0731,Rontgen_2,X-ray_2
+Health,0732,Sara_2,Epilepsy_2
+Health,0733,Sedye_2,Stretcher_2
+Health,0734,Sizlama_2,Tingle_2
+Health,0735,Soyunmak_2,Undress_2
+Health,0736,Temizlik_2,Cleaning_2
+Health,0737,Temizlik_3,Cleaning_3
+Health,0738,Termometre_2,Thermometer_2
+Health,0739,Tuvalet_2,Toilet_2
+Health,0740,Ucuk_2,Cold Sore_2
+Health,0741,Uykulu_2,Sleepy_2
+Health,0742,Uyuyamamak_2,Not being able to sleep_2
+Health,0743,Uyuyamamak_3,Not being able to sleep_3
+Health,0744,Yumusak_2,Soft_2
