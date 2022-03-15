@@ -9,20 +9,24 @@ class MSASLDataset(BaseIsolatedDataset):
     
     `MS-ASL: A Large-Scale Data Set and Benchmark for Understanding American Sign Language <https://arxiv.org/abs/1812.01053>`_
     """
+
+    lang_code = "ase"
+
     def read_glosses(self):
-        # TODO: Separate the classes into a separate file?
-        self.read_original_dataset()
-        self.glosses = list(set(sorted(i["text"] for i in self.metadata)))
-        self.id_to_glosses = {i["label"]: i["text"] for i in self.metadata}
-    
+        self.glosses = list(set( gloss['text'] for gloss in json.load(open(self.class_mappings_file_path))))
+
     def read_original_dataset(self):
-        self.metadata = []
-        for file in os.listdir(self.split_file):
-            path = os.path.join(self.split_file, file)
-            metadatum = json.load(open(path))[0]
-            self.metadata.append(metadatum)
-            instance = metadatum["video_id"] + ".mp4", metadatum["label"]
+        path = self.split_file
+        df = json.load(open(path))
+
+        files = 0
+        for m in df:
+            filename = m['clean_text'] + '/' + str(m['signer_id'])
+            gloss = m['text']
+            gloss_cat = self.label_encoder.transform([gloss])[0]
+            instance = filename,  gloss_cat
             self.data.append(instance)
+            files += 1
 
     def read_video_data(self, index):
         video_name, label = self.data[index]
