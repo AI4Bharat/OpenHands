@@ -1,132 +1,97 @@
-actual gloss,normalized gloss
-Aci,SPICY
+actual_gloss,normalized_gloss
+Aci,PAIN
 Acik,OPEN
 Acik Arttirma,AUCTION
 Aciklamak,EXPLAIN
 Acil,URGENT
 Acil Servis,EMERGENCY
-Acil Servis_2,EMERGENCY
-Acil Servis_3,EMERGENCY
 Ad,NAME
-Adet,NUMBER
-Adet_2,NUMBER
-Adet_3,NUMBER
+Adet,MENSTRUATION
 Adres,ADDRESS
 Agiz,MOUTH
 Agri,ACHE
-Agri_2,ACHE
 Agrikesici,PAINKILLER
-Agrikesici_2,PAINKILLER
 Aile,FAMILY
 Akciger,LUNG
 Akil,MIND
 Akraba,RELATIVE
 Aksam,EVENING
 Aksam Yemegi,DINNER
-Alci,PLASTER
+Alci,CAST
 Alerji,ALLERGY
-Alerji_2,ALLERGY
 Alim,PURCHASE
 Alin,FOREHEAD
-Alin_2,FOREHEAD
 Alisveris,SHOPPING
-Alisveris_2,SHOPPING
 Alkol,ALCOHOL
-Alkol_2,ALCOHOL
-Alkol_3,ALCOHOL
 Alkolik,ALCOHOLIC
 Almak,RECEIVE
 Altin,GOLD
 Ambulans,AMBULANCE
-Ambulans_2,AMBULANCE
-Ambulans_3,AMBULANCE
 Ameliyat,OPERATION
 Anestezi,ANESTHESIA
 Anne,MOTHER
 Antibiyotik,ANTIBIOTIC
-Antibiyotik_2,ANTIBIOTIC
-Antibiyotik_3,ANTIBIOTIC
 Araba,CAR
 Aramak,CALL
 Aramak (Telefon),SEARCH
 Arkadas,FRIEND
-Arsa,PLOT
-Asi_Igne,REBEL_NEEDLE
+Arsa,LAND
+Asi_Igne,VACCINE_NEEDLE
 Aspirin,ASPIRIN
 Astim,ASTHMA
-Ates,FIRE
-Ates Dusurucu,FIRE_SUPPRESSOR
-Ates Dusurucu_2,FIRE_SUPPRESSOR
+Ates,FEVER
+Ates Dusurucu,FEVER_REDUCER
 Atlamak,JUMP
 Ay,MOON
 Ayaga Kalkmak,STAND_UP
 Ayak,FOOT
-Ayak_2,FOOT
 Aylik,MONTHLY
 Ayni,SAME
 Az,SMALL
 Baba_Erkek,FATHER_MALE
 Bacak,LEG
-Bacak_2,LEG
-Bagimli,DEPENDANT
-Bagimli_2,DEPENDANT
-Bagimli_3,DEPENDANT
+Bagimli,DEPENDENT
 Bagirmak,SHOUT
-Bagirmak_2,SHOUT
 Bagirsak,BOWEL
-Bakim,CARE
+Bakim,MAINTENANCE
 Bakmak,LOOK
-Bakmak_2,LOOK
 Balgam,SPUTUM
 Bandaj,BANDAGE
-Bandaj_2,BANDAGE
 Banka,BANK
 Bankamatik,CASH_DISPENSER
-Bankamatik_2,CASH_DISPENSER
 Bas,HEAD
 Bas Agrisi,HEADACHE
-Bas Donmesi,BASS_FROST
-Baski,OPPRESSION
-Baski_2,OPPRESSION
+Bas Donmesi,DIZZINESS
+Baski,PRESSURE
 Basvuru,APPLICATION
 Bayilmak,FAINT
 Bebek,BABY
 Bedava,FREE
 Bedel,PRICE
-Begenmek,BEIGE
+Begenmek,LIKE
 Bekar,SINGLE
 Bekleme Salonu,WAITING_ROOM
-Bekleme Salonu_2,WAITING_ROOM
-Bekleme Salonu_3,WAITING_ROOM
 Beklemek,WAIT
 Bel,WAIST
 Benzemek,RESEMBLE
-Benzemek_2,RESEMBLE
-Benzemek_3,RESEMBLE
 Beyin,BRAIN
-Beze,MERINGUE
-Beze_2,BEE
-Bikmak,FUCK
+Beze,NODE
+Bikmak,TO_BE_FED_UP
 Bilek,WRIST
-Bilek_2,WRIST
 Bilgi,INFORMATION
 Bilinci Yerinde,CONSCIOUS
 Bilincini Kaybetmis,LOST_CONSCIOUSNESS
 Bilmek,KNOW
 Bir Hafta Once,A_WEEK_AGO
 Bir Sey Degil,YOU_ARE_WELCOME
-Biraz,SMALL
+Biraz,SOME
 Birikim,ACCUMULATION
-Bitmek,FINISH
-Bitmek_2,FINISH
+Bitmek,END
 Bobrek,KIDNEY
-Bobrek_2,KIDNEY
 Bogaz,THROAT
-Bogaz Sismesi,BOGAZ
-Bogulmak,BOGGLE
-Bogulmak_2,DROWN
+Bogaz Sismesi,THROAT_SWELLING
+Bogulmak,DROWN
 Borc,DEBT
-Borc_2,DEBT
 Bordro,PAYROLL
 Borsa,EXCHANGE
 Bosanmak,DIVORCE
@@ -136,155 +101,103 @@ Bozdurmak,EXCHANGE
 Brut,GROSS
 Bulanti,NAUSEA
 Bulmak,FIND
-Burkma,WRENCH
+Burkma,TWIST
 Burun,NOSE
 Burun Kanamasi,NOSE_BLEEDING
 Butce,BUDGET
-Butce_2,BUDGET
-Buyuk Abdest,GREAT_ABLUTION
-Buyuk Abdest_2,GREAT_ABLUTION
+Buyuk Abdest,DEFECATE
 Cagirmak,CALL
 Calismak,WORK
-Calismak_2,WORK
 Calmak(Hirsizlik),PLAY
 Calmak(Muzik),PLAY
-Carpismak,BUMP
+Carpismak,COLLIDE
 Catlak,CRACK
-Catlak_2,CRACK
-Catlak_3,CRACK
-Cek,CHECK
+Cek,VOUCHER
 Cekmek,PULL
-Cekmek_2,PULL
-Cekmek_3,PULL
-Cekmek_4,PULL
 Cep,POCKET
 Cep Telefonu,MOBILE_PHONE
 Cerrah,SURGEON
-Cevirmek,RESPOND
-Cevirmek_2,TURN
+Cevirmek,TRANSLATE
 Ceyrek_Yarim,QUARTER_HALF
 Cikik,DISLOCATION
 Cocuk,CHILD
-Cocuklar,KID
+Cocuklar,CHILD
 Cok,VERY
-Cok_2,VERY
 Cokmek,FALL
 Damar,VEIN
-Damga Vergisi,STAMP_DUTY
-Damga Vergisi_2,STAMP_DUTY
+Damga Vergisi,STAMP_TAX
 Danisma,ADVICE
-Danisma_2,ADVICE
 Danismak,CONSULT
 Deger,VALUE
-Dekont,RECEIPT
+Dekont,DECENT
 Depresyon,DEPRESSION
 Derece,DEGREE
 Deri,SKIN
 Dermatolog,DERMATOLOGIST
-Dermatolog_2,DERMATOLOGIST
-Dermatolog_3,DERMATOLOGIST
 Deste,DECK
 Devir,TRANSFER
 Devlet,STATE
 Dikis,STITCH
-Dikis_2,STITCH
 Dinlemek,LISTEN
-Dinlemek_2,LISTEN
-Dis,EXTERNAL
+Dis,TEETH
 Dis Agrisi,TOOTHACHE
-Dis Cektirmek,PULL_OUT
+Dis Cektirmek,TAKING_TEETH
 Dis Teli,DENTAL_BRACES
-Dis Teli_2,DENTAL_BRACES
-Dis Teli_3,DISLIKE
-Dis Teli_4,DISLIKE
-Dis Teli_5,DISLIKE
-Dis Teli_6,DISLIKE
 Disarida,OUTSIDE
 Disci,DENTIST
-Disci_2,DENTIST
-Disci_3,DENTIST
 Diz,KNEE
-Diz_2,KNEE
-Diz_3,KNEE
 Dogum,BIRTH
 Dogum Sancisi,LABOR_PAIN
-Dogum Sancisi_2,LABOR_PAIN
 Dokmek,POUR
 Doktor,DOCTOR
-Dokunma,DO_NOT_TOUCH
-Dokunma_2,TOUCH
+Dokunma,TOUCH
 Dokunmak,TOUCH
-Dokunmak_2,TOUCH
-Dokunmak_3,TOUCH
 Dolar,DOLLAR
 Dolasim,CIRCULATION
 Donmak,FREEZE
 Dosya Masrafi,FILE_COST
 Doviz,FOREIGN_CURRENCY
-Doviz_2,FOREIGN_CURRENCY
 Dovmek,BEAT
-Dovmek_2,BEAT
-Dovusmek,DOVUCES
+Dovusmek,FIGHT
 Durmak,STOP
 Durust,HONEST
 Dusmek,FALL
-Dusuk Ates,LOW_FEVER
-Dusuk Ates_2,LOW_FEVER
-Dusuk Cocuk,LOW
-Dusuk Cocuk_2,LOW_CHILD
+Dusuk Ates,LOW_FIRE
+Dusuk Cocuk,MISCARRIAGE
 Duygusal,EMOTIONAL
-Duygusal_2,EMOTIONAL
 Duyma,HEAR
 Duzenli,REGULAR
-Eczane,CHEMIST
-Eczane_2,PHARMACY
+E-posta,EMAIL
+Eczane,PHARMACY
 Eklem,JOINT
-Eklem_2,JOINT
-Eklem_3,JOINT
 El,HAND
-El_2,HAND
-El_3,HAND
 Elektronik,ELECTRONIC
-Emar,INDICATION
-Emar_2,INDICATION
-Emar_3,INDICATION
-Emar_4,INDICATION
+Emar,CAT_SCAN
 Emeklemek,CRAWL
 Emekli,RETIRED
 Emekli Olmak,RETIRED
 Emir,ORDER
 Emzik,PACIFIER
-Emzik_2,PACIFIER
-Emzik_3,PACIFIER
 Emzirmek,BREASTFEED
-Emzirmek_2,BREASTFEED
 Enfeksiyon,INFECTION
-Enfeksiyon_2,INFECTION
-Enfeksiyon_3,INFECTION
 Enflasyon,INFLATION
 Engel,OBSTACLE
 Engelli,DISABLED
 Enjeksiyon,INJECTION
-E-posta,EMAIL
-E-posta_2,EMAIL
 Erken,EARLY
 Erken Dogum,EARLY_BIRTH
 Euro,EURO
-Ev,HOUSE
+Ev,HOME
 Ev Adresi,HOME_ADDRESS
 Evli,MARRIED
 Faiz,INTEREST
 Farkli,DIFFERENT
 Fatura,INVOICE
 Fatura Odeme,PAYING_BILL
-Fatura Odeme_2,PAYING_BILL
 Felc,PARALYSIS
-Felc_2,PARALYSIS
 Fitil,SUPPOSITORY
-Fitil_2,SUPPOSITORY
-Fitil_3,SUPPOSITORY
 Fiyat_Para,PRICE_MONEY
-Fiziksel,PHYSICALLY
+Fiziksel,PHYSICAL
 Fon,FUND
 Fotokopi,PHOTOCOPY
 Gecikmek_Gec,LATE
@@ -294,49 +207,38 @@ Getiri,RETURN
 Getirmek,BRING
 Gider,EXPENSE
 Gitmek,GO
-Giyinmek,DRESSED
+Giyinmek,DRESS_UP
 Giysi,CLOTH
 Gizlemek,HIDE
 Gogus,CHEST
-Gogus_2,CHEST
 Gondermek,SEND
-Gondermek_2,SEND
 Gormek,SEE
-Gormek_2,SEE
-Gormek_3,SEE
 Gostermek,SHOW
 Govde,BODY
-Govde_2,BODY
-Goz,EYELASH
+Goz,EYE
 Gozluk,GLASS
 Grip,FLU
-Grip_2,FLU
 Gunluk,DAILY
 Guvenlik Gorevlisi,SECURITY_GUARD
 Haciz,ATTACHMENT
 Hafiza,MEMORY
 Hafiza Kaybi,LOSS_OF_MEMORY
-Hafiza_2,MEMORY
 Hafta,WEEK
 Haftalik,WEEKLY
 Halsizlik,WEAKNESS
-Halsizlik_2,WEAKNESS
-Halsizlik_3,WEAKNESS
 Hamile,PREGNANT
 Hap,PILL
-Hap_2,PILL
 Hareket,MOVEMENT
-Hareket_2,MOVEMENT
 Hasta,PATIENT
 Hasta Bakici,NURSE
-Hastalik,ILLNESS
+Hastalik,DISEASE
 Hastane,HOSPITAL
 Hatirlamak,REMEMBER
 Hatirlatma,REMIND
 Havale,TRANSFER
-Hemen,NOW
+Hemen,IMMEDIATELY
 Hemsire,NURSE
-Hesap,BILL
+Hesap,ACCOUNT
 Hesap No,ACCOUNT_NUMBER
 Hisse,SHARE
 Hissetmek,FEEL
@@ -345,223 +247,159 @@ Icerde,INSIDE
 Icmek,DRINK
 Icra,EXECUTIVE
 Iflas,BANKRUPTCY
-Iflas_2,BANKRUPTCY
 Igne,NEEDLE
 Ihtiyac,NEED
 Ikametgah,PLACE_OF_RESIDENCE
 Ilac,MEDICINE
 Ilave,ADDITIONAL
-Ilik,HOT
-Ilik_2,HOT
+Ilik,MARROW
 Ilkyardim,FIRST_AID
-Ilkyardim_2,FIRST_AID
-Ilkyardim_3,FIRST_AID
 Iltihap,INFLAMMATION
-Iltihap_2,INFLAMMATION
-Iltihap_3,INFLAMMATION
 Imza,SIGNATURE
 Indirim,DISCOUNT
-Insallah,HOPEFULLY
-Insallah_2,HOPEFULLY
+Insallah,GOD_WILLING
 Internet,INTERNET
-Internet_2,INTERNET
 Is,BUSINESS
 Is Adresi,BUSINESS_ADDRESS
-Is_2,BUSINESS
-Isaret,SIGN
+Isaret,MARK
 Ishal,DIARRHEA
 Isirmak,BITE
-Isirmak_2,BITE
-Isitmak,SACRIFICE
-Isitmek,SACRIFICE
+Isitmak,HEAT
+Isitmek,HEARING
 Isletme,BUSINESS
 Isteksiz,RELUCTANT
-Istemek,WANT
+Istemek,REQUEST
 Istemsiz,INVOLUNTARY
 Istirahat,REST
-Istirahat_2,REST
-Istirahat_3,REST
-Iyi,GOOD_MORNING_MY_BABY
-Iyilesme,IMPROVEMENT
+Iyi,GOOD
+Iyilesme,RECOVERY
 Jel,GEL
 Jelatin,GELATINE
 Kabakulak,MUMPS
 Kabiz,CONSTIPATION
-Kabiz_2,CONSTIPATION
-Kabiz_3,CONSTIPATION
 Kacmak,ESCAPE
 Kadin_Kiz,WOMAN_GIRL
-Kafa,HEAD
-Kafa_2,HEAD
-Kafeterya,CAFETERIA
-Kafeterya_2,CAFETERIA
-Kagit,PAPER
 Kahvalti,BREAKFAST
-Kahvalti_2,BREAKFAST
-Kahvalti_3,BREAKFAST
-Kahvalti_4,BREAKFAST
-Kalem,PENCIL
+Kafa,HEAD
+Kafeterya,CAFETERIA
+Kagit,PAPER
+Kalem,PEN
+Kamu,PUBLIC
 Kalp,HEART
 Kalp Krizi,HEART_ATTACK
-Kalp_2,HEART
-Kamu,PUBLIC
+Kanuni,LEGAL
 Kan,BLOOD
 Kan Almak,DRAW_BLOOD
 Kan Gurubu,BLOOD_GROUP
-Kan Kaybi,LOSS_OF_BLOOD
+Kan Kaybi,BLOOD_LOSS
 Kan Tahlili,BLOOD_ANALYSIS
-Kan Tahlili_2,BLOOD_ANALYSIS
-Kan_2,BLOOD
 Kanama,BLEEDING
-Kanser_2,CANCER
-Kanser_3,CANCER
 Kanser_Mikrop,CANCER_GERM
-Kanuni,LEGAL
 Kapatmak,CLOSE
-Kapora,DOWN_PAYMENT
-Kapora_2,DOWN_PAYMENT
-Kar,SNOW
-Karaciger,LIVER
-Karaciger_2,LIVER
-Karin,YOUR_WIFE
-Kart,CARD
-Kart_2,CARD
-Kasa,TILL
-Kase,STAMP
 Kasinmak,ITCH
+Kapora,DOWN_PAYMENT
+Kar,PROFIT
+Karaciger,LIVER
+Karin,ABDOMEN
+Kart,CARD
+Kasa,SAFE
+Kase,BOWL
+Katlamak,FOLD
 Kasko,INSURANCE
 Katilim,PARTICIPATION
-Katlamak,FOLD
-Kayit,RECORD
 Kazanmak,WIN
-Kefil,GUARANTOR
-Kefil_2,GUARANTOR
-Kemik,BONE
-Kemik_2,BONE
-Kesik,INCISION
+Kayit,RECORD
 Kesmek,CUT
-Kilo,WEIGHT
+Kefil,GUARANTOR
+Kemik,BONE
+Kesik,INCISION
 Kilo Almak,GAIN_WEIGHT
+Kilo,WEIGHT
 Kilo Vermek,LOSE_WEIGHT
-Kilo Vermek_2,LOSE_WEIGHT
 Kimlik,IDENTITY
+Konsantre Olmak,CONCENTRATE
 Kimlik No,IDENTIFICATION_NUMBER
-Kimlik No_2,IDENTIFICATION_NUMBER
 Kirik,BROKEN
 Kizamik,MEASLE
-Kizamik_2,MEASLE
-Kizariklik,PSYCHOLOGY
+Kizariklik,REDNESS
 Koklama,SNIFFING
 Kol,ARM
-Kol_2,ARM
 Koltuk Degnegi,CRUTCH
-Koltuk Degnegi_2,CRUTCH
-Koltuk Degnegi_3,CRUTCH
-Koltuk Degnegi_4,CRUTCH
-Konsantre Olmak,CONCENTRATE
+Kosmak,RUN
 Kontrol,CONTROL
 Korku,FEAR
-Kosmak,RUN
 Kotu,BAD
 Kramp,CRAMP
-Kramp_2,CRAMP
-Kramp_3,CRAMP
-Kramp_4,CRAMP
+Krem,CREAM
 Kredi,CREDIT
 Kredi Karti,CREDIT_CARD
-Kredi_2,CREDIT
-Krem,CREAM
 Kriz,CRISIS
-Kucuk Abdest,SMALL_ABLUTION
-Kucuk Abdest_2,SMALL_ABLUTION
+Kucuk Abdest,PEE
 Kulak Agrisi,EARACHE
-Kulak Agrisi_2,EARACHE
-Kur,EXCHANGE_RATE
 Kusmak,VOMIT
+Kur,EXCHANGE_RATE
+Masallah,GOD_PRESERVE_FROM_EVIL
 Kuvoz,INCUBATOR
-Kuvoz_2,INCUBATOR
 Laboratuvar,LAB
 Lavabo,SINK
-Lavabo_2,SINK
 Lens,LENS
 Limit,LIMIT
 Lira,LIRA
-Maas,WAGE
+Maas,SALARY
 Maas Bordrosu,PAYROLL
-Masallah,WONDERFUL
+Nasilsin,HOW_ARE_YOU
 Masraf,PRICE
 Meme,BREAST
 Merhem,OINTMENT
-Merhem_2,OINTMENT
 Mide,STOMACH
 Migren,MIGRAINE
-Migren_2,MIGRAINE
 Miras,HERITAGE
-Miras_2,HERITAGE
-Miras_3,HERITAGE
 Morluk,BRUISE
-Muayene,PEAK
-Muayene_2,INSPECTION
+Muayene,EXAMINATION
 Musteri,CUSTOMER
 Mutsuz,SAD
 Nabiz,PULSE
-Nabiz_2,PULSE
-Nabiz_3,PULSE
 Nakit,CASH
-Nasilsin,HOW_ARE_YOU
+Numara,NUMBER
 Nefes,BREATH
-Nefes Alma,DO_NOT_BREATHE
-Nefes Alma_2,DO_NOT_BREATHE
+Nefes Alma,INHALATION
 Nefes Tutma,BREATH_HOLD
-Nefes Tutma_2,BREATH_HOLD
 Nefes Verme,EXHALATION
-Nefes Verme_2,ENHALATION
-Nefes_2,BREATH
 Nezle,COLD
 Nobetci,GUARD
-Nobetci_2,GUARD
 Nufus,POPULATION
 Nufus Cuzdani,BIRTH_CERTIFICATE
-Numara,NUMBER
-Numara_2,NUMBER
+Odemek,PAY
 Obezite,OBESITY
-Obezite_2,OBESITY
 Obur,GLUTTON
 Oda,ROOM
 Odeme,PAYMENT
-Odeme_2,PAYMENT
-Odemek,PAY
-Oglan_Erkek,SON_MALE
-Oglen,AFTERNOON
+Oglan_Erkek,BOY_MALE
+Oglen,NOON
 Oglen Yemegi,LUNCH
 Ogrenmek,LEARN
 Ogretmek,TEACH
-Ogun,THAT_DAY
-Ogun_2,THAT_DAY
+Ogun,MEAL
 Oksuruk,COUGH
-Oksuruk_2,COUGH
 Okul Adresi,SCHOOL_ADDRESS
 Olmak,BE
 Olmek,DEATH
 Olum,DEATH
 Omuz,SHOULDER
-Omuz_2,SHOULDER
-Onay,APPROVAL
+Onay,CONFIRMATION
 Once,BEFORE
 Oneri,PROPOSAL
-Oran,RATIO
+Oran,RATE
 Ordek,DUCK
-Ordek_2,DUCK
-Ordek_3,DUCK
 Ortak,PARTNER
-Ortmek,ENCASE
+Ortmek,COVER
 Otomatik,AUTOMATIC
 Oturak,SEAT
 Oturmak,SIT
 Ozel,SPECIAL
 Ozel Hastane,PRIVATE_HOSPITAL
 Ozel Saglik Sigortasi,PRIVATE_HEALTH_INSURANCE
-Ozel Sigorta,SPECIAL_INSURANCE
+Ozel Sigorta,PRIVATE_INSURANCE
 Ozur,APOLOGY
 Pansuman,DRESSING
 Para Cekme,WITHDRAW_MONEY
@@ -573,40 +411,34 @@ Profesor,PROFESSOR
 Protein,PROTEIN
 Psikoloji,PSYCHOLOGY
 Radyoloji,RADIOLOGY
-Radyoloji_2,RADIOLOGY
 Rahat,COMFORTABLE
-Randevu,MEETING
+Randevu,APPOINTMENT
 Rapor,REPORT
 Recete,PRESCRIPTION
 Reflu,REFLUX
-Regl,PERIOD
-Regl_2,PERIOD
+Regl,MENSTRUATION
 Risk,RISK
 Rontgen,RONTGEN
-Rontgen_2,X_RAY
 Ruh Hastaligi,MENTAL_ILLNESS
 Ruh Sagligi,MENTAL_HEALTH
 Saat,HOUR
 Sabah,MORNING
 Sagir,DEAF
 Saglik,HEALTH
-Sakinlesme,QUIET
+Sakinlesme,CALM_DOWN
 Saklamak,HIDE
 Sanci,PAIN
 Sara,EPILEPSY
-Sara_2,EPILEPSY
 Sargi,DRESSING
 Satim,SALE
 Satmak,SELL
-Satmak_2,SELL
 Sedye,STRETCHER
-Sedye_2,STRETCHER
 Seker,SUGAR
 Seker Hastasi,DIABETIC
-Senelik (Yillik),ANNUAL
 Senet,BILL
+Senelik (Yillik),ANNUAL
 Sert,HARD
-Seyahat,TRIP
+Seyahat,TRAVEL
 Sezaryen,CESAREAN
 Sicak,HOT
 Sigara,CIGARET
@@ -617,129 +449,297 @@ Sikinti,PROBLEM
 Simdi,NOW
 Sinirlilik,IRRITABILITY
 Sira,ORDER
-Sira Numarasi,ROW_NUMBER
+Sira Numarasi,SEQUENCE_NUMBER
 Siramatik,SCHEMATIC
 Siringa,SYRINGE
 Sirket,COMPANY
 Sirt,BACK
 Sis,FOG
 Sizlama,TINGLE
-Sizlama_2,TINGLE
-Soguk Alginligi,COLD
+Soguk Alginligi,COLD_SICKNESS
 Solunum,RESPIRATORY
-Sonra,LATER
-Sonra_2,LATER
-Sonuc,CONCLUSION
+Sonra,AFTER
+Sonuc,RESULT
 Sormak,ASK
 Soru,QUESTION
 Soyad,SURNAME
 Soylemek,SAY
 Soyunmak,UNDRESS
-Soyunmak_2,UNDRESS
-Spor,SPORT
-Stres,STRESS
-Su Toplamis,WATER
 Sukretmek,BE_GRATEFUL_FOR
+Spor,SPORE
+Stres,STRESS
+Su Toplamis,WATER_ACCUMULATION
 Surat,FACE
 Surup,SYRUP
 Susamak,THIRST
-Susmak,SHUT_UP
+Susmak,BEING_QUIET
+Tanmak,KNOW
 Taban,BASE
 Taburcu,DISCHARGE
+Tatma,TASTING
 Tahlil,ASSAY
 Taksit,INSTALLMENT
 Tam,FULL
-Tam_2,FULL
-Tam_3,FULL
-Tanimak,KNOW
+Tekrar,REPEAT
 Tansiyon,BLOOD_PRESSURE
 Tapu,TITLE_DEED
 Tarih,HISTORY
 Tasarruf,SAVING
-Tatma,TASTING
 Tavan,CEILING
-Tavsiye,RECOMMENDATION
+Tavsiye,ADVICE
 Tecavuz,RAPE
 Tekerlekli Sandalye,WHEELCHAIR
-Tekrar,AGAIN
-Telefon,PHONE
+Telefon,TELEPHONE
+Tesekkur,THANK
 Temizlik,CLEAN
-Temizlik_2,CLEAN
-Temizlik_3,CLEAN
 Terapi,THERAPY
 Termometre,THERMOMETER
-Termometre_2,THERMOMETER
-Tesekkur,THANK
+Unutmak,FORGET
 Test,TEST
 Transfer,TRANSFER
 Tuvalet,TOILET
-Tuvalet_2,TOILET
 Uc Aylik,THREE_MONTHS
 Ucret,FEE
-Ucuk,PALE
-Ucuk_2,PALE
+Ucuk,COLD_SORE
 Ultrason,ULTRASOUND
-Unutmak,FORGET
-Usumek,FEEL_COLD
+Usumek,COLD
+Var,EXISTING
 Uykulu,SLEEPY
-Uykulu_2,SLEEPY
 Uykusuz,SLEEPLESS
 Uyumak,SLEEP
 Uyusturucu,DRUG
 Uyuyamamak,UNABLE_TO_SLEEP
-Uyuyamamak_2,UNABLE_TO_SLEEP
-Uyuyamamak_3,UNABLE_TO_SLEEP
 Uzgun,SAD
 Uzman,EXPERT
-Uzulmek,REMOVE
-Vade,MATURITY
-Vadeli,FUTURE
-Vadesiz,DEMAND
-Var,EXISTING
+Uzulmek,SAD
+Vade,INTEREST
+Vadeli,INTEREST
+Vadesiz,INTEREST
+Vermek,GIVE
 Vasi Tayini(Vesayet),APPOINTMENT_OF_GUARDIAN
 Vergi,TAX
-Vermek,GIVE
-Vezne,TELLER
+Yakalamak,CATCH
+Vezne,CASHIER
 Viral,VIRAL
 Virus,VIRUS
 Vitamin,VITAMIN
 Vucut,BODY
-Yag,OIL
-Yakalamak,CAPTURE
-Yakin,CLOSE
-Yakin(Akraba),CLOSE
+Yag,FAT
 Yakmak,BURN
+Yakin,CLOSE
+Yakin(Akraba),CLOSE_RELATIVE
 Yanit,RESPONSE
-Yapmak,DO
-Yapmak_2,DO
+Yapmak,MAKE
 Yara,WOUND
-Yarabandi,PLASTER
-Yaralamak,WOUND
+Yarabandi,BANDAID
+Yaralamak,HURT
 Yardim,HELP
-Yarim,MY_LOVE
+Yil_Yas,YEAR_AGE
+Yarim,HALF
+Yazmak,WRITE
 Yasam,LIFE
 Yasam Kalitesi,LIFE_QUALITY
 Yatak,BED
-Yatak Istirahati,REST_CURE
-Yatirim Fonu,CRITICISM
+Yatak Istirahati,BED_REST
+Yatirim Fonu,INVESTMENT_FUND
 Yatirmak,DEPOSIT
-Yatmak,LIE_DOWN
-Yazmak,WRITE
-Yemek,FOOD
+Yatmak,LIE
+Yemek,EAT
+Yok,NOT_AVAILABLE
 Yetersiz,INSUFFICIENT
-Yil_Yas,YEAR_OF_MOURNING
-Yilan,SNAKE
-Yogun,BUSY
+Yilan,SERPENT
+Yogun,INTENSIVE
 Yogun Bakim,INTENSIVE_CARE
-Yok,NO
-Yol,PATH
-Yorgunluk,TIREDNESS
-Yuksek,HIGH_SCHOOL
-Yumusak,SOFT
-Yumusak_2,SOFT
 Yutmak,SWALLOW
+Yol,ROAD
+Yorgunluk,TIREDNESS
+Yuksek,HIGH
+Yumusak,SOFT
+Zannetmek,THINK
 Zaman,TIME
-Zaman_2,TIME
-Zannetmek,PRIZE
+Bagirmak_2,SHOUT
 Zaturree,PNEUMONIA
 Zehir,POISON
+Bakmak_2,LOOK
+Benzemek_2,RESEMBLE
+Benzemek_3,RESEMBLE
+Bitmek_2,END
+Bogulmak_2,DROWN
+Calismak_2,WORK
+Cekmek_2,PULL
+Cevirmek_2,TRANSLATE
+Cok_2,VERY
+Dinlemek_2,LISTEN
+Dokunmak_2,TOUCH
+Dokunmak_3,TOUCH
+Dovmek_2,BEAT
+E-posta_2,EMAIL
+Emzirmek_2,BREASTFEED
+Gondermek_2,SEND
+Insallah_2,GOD_WILLING
+Isirmak_2,BITE
+Kahvalti_2,BREAKFAST
+Kahvalti_3,BREAKFAST
+Kahvalti_4,BREAKFAST
+Kilo Vermek_2,LOSE_WEIGHT
+Numara_2,NUMBER
+Satmak_2,SELL
+Sonra_2,AFTER
+Yapmak_2,MAKE
+Alisveris_2,SHOPPING
+Bankamatik_2,CASH_DISPENSER
+Bekleme Salonu_2,WAITING_ROOM
+Bekleme Salonu_3,WAITING_ROOM
+Borc_2,DEBT
+Butce_2,BUDGET
+Cekmek_3,PULL
+Cekmek_4,PULL
+Damga Vergisi_2,STAMP_TAX
+Danisma_2,ADVICE
+Doviz_2,FOREIGN_CURRENCY
+Fatura Odeme_2,PAYING_BILL
+Iflas_2,BANKRUPTCY
+Internet_2,INTERNET
+Kapora_2,DOWN_PAYMENT
+Kart_2,CARD
+Kefil_2,GUARANTOR
+Kimlik No_2,IDENTIFICATION_NUMBER
+Kredi_2,CREDIT
+Miras_2,HERITAGE
+Miras_3,HERITAGE
+Odeme_2,PAYMENT
+Tam_2,FULL
+Tam_3,FULL
+Zaman_2,TIME
+Acil Servis_2,EMERGENCY
+Acil Servis_3,EMERGENCY
+Adet_2,MENSTRUATION
+Adet_3,MENSTRUATION
+Agri_2,ACHE
+Agrikesici_2,PAINKILLER
+Alerji_2,ALLERGY
+Alin_2,FOREHEAD
+Alkol_2,ALCOHOL
+Alkol_3,ALCOHOL
+Ambulans_2,AMBULANCE
+Ambulans_3,AMBULANCE
+Antibiyotik_2,ANTIBIOTIC
+Antibiyotik_3,ANTIBIOTIC
+Ates Dusurucu_2,FEVER_REDUCER
+Ayak_2,FOOT
+Bacak_2,LEG
+Bagimli_2,DEPENDENT
+Bagimli_3,DEPENDENT
+Bandaj_2,BANDAGE
+Baski_2,PRESSURE
+Beze_2,NODE
+Bilek_2,WRIST
+Bobrek_2,KIDNEY
+Buyuk Abdest_2,DEFECATE
+Catlak_2,CRACK
+Catlak_3,CRACK
+Dermatolog_2,DERMATOLOGIST
+Dermatolog_3,DERMATOLOGIST
+Dikis_2,STITCH
+Dis Teli_2,DENTAL_BRACES
+Dis Teli_3,DENTAL_BRACES
+Dis Teli_4,DENTAL_BRACES
+Dis Teli_5,DENTAL_BRACES
+Dis Teli_6,DENTAL_BRACES
+Disci_2,DENTIST
+Disci_3,DENTIST
+Diz_2,KNEE
+Diz_3,KNEE
+Dogum Sancisi_2,LABOR_PAIN
+Dokunma_2,TOUCH
+Dusuk Ates_2,LOW_FIRE
+Dusuk Cocuk_2,MISCARRIAGE
+Duygusal_2,EMOTIONAL
+Eczane_2,PHARMACY
+Eklem_2,JOINT
+Eklem_3,JOINT
+El_2,HAND
+El_3,HAND
+Emar_2,CAT_SCAN
+Emar_3,CAT_SCAN
+Emar_4,CAT_SCAN
+Emzik_2,PACIFIER
+Emzik_3,PACIFIER
+Enfeksiyon_2,INFECTION
+Enfeksiyon_3,INFECTION
+Felc_2,PARALYSIS
+Fitil_2,SUPPOSITORY
+Fitil_3,SUPPOSITORY
+Gogus_2,CHEST
+Gormek_2,SEE
+Gormek_3,SEE
+Govde_2,BODY
+Grip_2,FLU
+Hafiza_2,MEMORY
+Halsizlik_2,WEAKNESS
+Halsizlik_3,WEAKNESS
+Hap_2,PILL
+Hareket_2,MOVEMENT
+Ilik_2,MARROW
+Ilkyardim_2,FIRST_AID
+Ilkyardim_3,FIRST_AID
+Iltihap_2,INFLAMMATION
+Iltihap_3,INFLAMMATION
+Is_2,BUSINESS
+Istirahat_2,REST
+Istirahat_3,REST
+Kabiz_2,CONSTIPATION
+Kabiz_3,CONSTIPATION
+Kafa_2,HEAD
+Kafeterya_2,CAFETERIA
+Kalp_2,HEART
+Kan_2,BLOOD
+Kan Tahlili_2,BLOOD_ANALYSIS
+Kanser_2,CANCER
+Kanser_3,CANCER
+Karaciger_2,LIVER
+Kemik_2,BONE
+Kizamik_2,MEASLE
+Kol_2,ARM
+Koltuk Degnegi_2,CRUTCH
+Koltuk Degnegi_3,CRUTCH
+Koltuk Degnegi_4,CRUTCH
+Kramp_2,CRAMP
+Kramp_3,CRAMP
+Kramp_4,CRAMP
+Kucuk Abdest_2,PEE
+Kulak Agrisi_2,EARACHE
+Kuvoz_2,INCUBATOR
+Lavabo_2,SINK
+Merhem_2,OINTMENT
+Migren_2,MIGRAINE
+Muayene_2,EXAMINATION
+Nabiz_2,PULSE
+Nabiz_3,PULSE
+Nefes_2,BREATH
+Nefes Alma_2,INHALATION
+Nefes Tutma_2,BREATH_HOLD
+Nefes Verme_2,ENHALATION
+Nobetci_2,GUARD
+Obezite_2,OBESITY
+Ogun_2,MEAL
+Oksuruk_2,COUGH
+Omuz_2,SHOULDER
+Ordek_2,DUCK
+Ordek_3,DUCK
+Radyoloji_2,RADIOLOGY
+Regl_2,MENSTRUATION
+Rontgen_2,X_RAY
+Sara_2,EPILEPSY
+Sedye_2,STRETCHER
+Sizlama_2,TINGLE
+Soyunmak_2,UNDRESS
+Temizlik_2,CLEAN
+Temizlik_3,CLEAN
+Termometre_2,THERMOMETER
+Tuvalet_2,TOILET
+Ucuk_2,COLD_SORE
+Uykulu_2,SLEEPY
+Uyuyamamak_2,UNABLE_TO_SLEEP
+Uyuyamamak_3,UNABLE_TO_SLEEP
+Yumusak_2,SOFT
