@@ -1,4 +1,4 @@
-# pretrained: "/home/gokulnc/SLR/experiments/multilingual/unified_vocab/st_gcn_6_langs/epoch=91-step=245731.ckpt"
+# pretrained: "/home/gokulnc/SLR/experiments/multilingual/unified_vocab/decoupled_gcn_6_langs/epoch=169-step=454069.ckpt"
 
 data:
     modality: "pose"
@@ -48,6 +48,8 @@ data:
             splits: "train"
 
         transforms:
+            - TemporalSample:
+                num_frames: 64
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             - CenterAndScaleNormalize:
@@ -70,7 +72,7 @@ data:
             _target_: torch.utils.data.DataLoader
             batch_size: 64
             shuffle: true
-            num_workers: 6
+            num_workers: 8
             pin_memory: true
             drop_last: false
 
@@ -120,6 +122,9 @@ data:
             splits: "test"
 
         transforms:
+            - TemporalSample:
+                num_frames: 64
+                subsample_mode: 0
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             - CenterAndScaleNormalize:
@@ -136,9 +141,9 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 128
+            batch_size: 64
             shuffle: false
-            num_workers: 3
+            num_workers: 6
             pin_memory: true
             drop_last: false
 
@@ -189,6 +194,9 @@ data:
             inference_mode: false
 
         transforms:
+            - TemporalSample:
+                num_frames: 64
+                subsample_mode: 0
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
             - CenterAndScaleNormalize:
@@ -205,19 +213,18 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 64
             shuffle: false
-            num_workers: 6
+            num_workers: 8
             pin_memory: true
             drop_last: false
 
 model:
     encoder:
-        type: st-gcn
+        type: decoupled-gcn
         params:
             graph_args:
                 num_nodes: 27
-                center: 0
                 inward_edges:
                     [
                         [2, 0],
@@ -247,12 +254,10 @@ model:
                         [17, 25],
                         [25, 26],
                     ]
-            edge_importance_weighting: true
-
     decoder:
         type: fc
         params:
-            dropout_ratio: 0.2
+            dropout_ratio: 0.1
 
 optim:
     loss: "CrossEntropyLoss"
@@ -269,8 +274,8 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 2000
-    # resume_from_checkpoint: "/home/gokulnc/SLR/experiments/multilingual/st_gcn/epoch=132-step=170505.ckpt"
+    max_epochs: 200
+    # resume_from_checkpoint: "/home/gokulnc/SLR/experiments/multilingual/unified_vocab/decoupled_gcn_6_langs/epoch=169-step=454069.ckpt"
 
 exp_manager:
     create_tensorboard_logger: true
@@ -284,7 +289,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/multilingual/unified_vocab/st_gcn_6_langs/"
+        dirpath: "experiments/multilingual/unified_vocab/decoupled_gcn_6_langs/"
 
     early_stopping_callback: true
     early_stopping_params:

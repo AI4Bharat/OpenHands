@@ -21,8 +21,9 @@ class InferenceModel(pl.LightningModule):
         self.datamodule.setup(stage=stage)
 
         self.model = self.create_model(cfg.model)
+        self._device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         if stage == "test":
-            self.model.to('cpu').eval()
+            self.model.to(self._device).eval()
     
     def create_model(self, cfg):
         """
@@ -59,7 +60,7 @@ class InferenceModel(pl.LightningModule):
 
         for batch in dataloader:
             start_time = time.time()
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
 
             class_indices = torch.argmax(y_hat, dim=-1)
             class_labels = self.datamodule.test_dataset.label_encoder.inverse_transform(class_indices)
@@ -81,7 +82,7 @@ class InferenceModel(pl.LightningModule):
         dataloader = self.datamodule.test_dataloader()
         lang_scores, class_scores = {}, {}
         for batch_idx, batch in tqdm(enumerate(dataloader), unit="batch"):
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
             class_indices = torch.argmax(y_hat, dim=-1)
             for i, (pred_index, gt_index) in enumerate(zip(class_indices, batch["labels"])):
 
