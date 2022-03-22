@@ -37,7 +37,7 @@ class ConcatDataset(BaseIsolatedDataset):
                 else:
                     self.glosses.add(f"{dataset.lang_code}__{class_name}")
         
-        # Make the sequence agnostic to the order in which datasets are listed
+        # TODO: Make the sequence agnostic to the order in which datasets are listed
         self.glosses = sorted(self.glosses)
     
     def read_original_dataset(self):
@@ -52,5 +52,5 @@ class ConcatDataset(BaseIsolatedDataset):
                 else:
                     class_name = f"{dataset.lang_code}__{class_name}"
                 
-                instance_entry = os.path.join(dataset.root_dir, video_name), self.gloss_to_id[class_name], dataset.lang_code
+                instance_entry = os.path.join(dataset.root_dir, video_name), self.gloss_to_id[class_name], dataset.lang_code, dataset.__class__.__name__
                 self.data.append(instance_entry)

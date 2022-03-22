@@ -19,10 +19,12 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
                     normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # DeviSignDataset:
-                #     split_file: "openhands/datasets/assets/devisign_metadata/split.train.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
-                #     class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                DeviSignDataset:
+                    split_file: "openhands/datasets/assets/devisign_metadata/split.train.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
+                    class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/devisign_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 GSLDataset:
                     split_file: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/train_greek_iso.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
@@ -93,10 +95,12 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
                     normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # DeviSignDataset:
-                #     split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
-                #     class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                DeviSignDataset:
+                    split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
+                    class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/devisign_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 GSLDataset:
                     split_file: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/test_greek_iso.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
@@ -164,10 +168,12 @@ data:
                     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
                     normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
                     # only_metadata: True
-                # DeviSignDataset:
-                #     split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
-                #     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
-                #     class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                DeviSignDataset:
+                    split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
+                    class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/devisign_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 GSLDataset:
                     split_file: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/test_greek_iso.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"

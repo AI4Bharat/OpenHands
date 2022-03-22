@@ -63,8 +63,11 @@ class InferenceModel(pl.LightningModule):
             y_hat = self.model(batch["frames"].to(self._device)).cpu()
 
             class_indices = torch.argmax(y_hat, dim=-1)
-            class_labels = self.datamodule.test_dataset.label_encoder.inverse_transform(class_indices)
-            for filename, label in zip(batch["files"], class_labels):
+
+            for i, pred_index in enumerate(class_indices):
+                # label = self.datamodule.test_dataset.id_to_gloss[pred_index]
+                label = dataloader.dataset.id_to_gloss[pred_index]
+                filename = batch["files"][i]
                 print(f"{label}:\t{filename}")
             
             total_time_taken += time.time() - start_time
@@ -80,27 +83,27 @@ class InferenceModel(pl.LightningModule):
         assert not self.datamodule.test_dataset.inference_mode
         # TODO: Write output to a csv
         dataloader = self.datamodule.test_dataloader()
-        lang_scores, class_scores = {}, {}
+        dataset_scores, class_scores = {}, {}
         for batch_idx, batch in tqdm(enumerate(dataloader), unit="batch"):
             y_hat = self.model(batch["frames"].to(self._device)).cpu()
             class_indices = torch.argmax(y_hat, dim=-1)
             for i, (pred_index, gt_index) in enumerate(zip(class_indices, batch["labels"])):
 
-                lang_code = batch["lang_codes"][i]
+                dataset_name = batch["dataset_names"][i]
                 score = pred_index == gt_index
                 
-                if lang_code not in lang_scores:
-                    lang_scores[lang_code] = []
-                lang_scores[lang_code].append(score)
+                if dataset_name not in dataset_scores:
+                    dataset_scores[dataset_name] = []
+                dataset_scores[dataset_name].append(score)
 
                 if gt_index not in class_scores:
                     class_scores[gt_index] = []
                 class_scores[gt_index].append(score)
         
         
-        for lang_name, score_array in lang_scores.items():
-            lang_accuracy = sum(score_array)/len(score_array)
-            print(f"Accuracy for {len(score_array)} samples in {lang_name}: {lang_accuracy*100}%")
+        for dataset_name, score_array in dataset_scores.items():
+            dataset_accuracy = sum(score_array)/len(score_array)
+            print(f"Accuracy for {len(score_array)} samples in {dataset_name}: {dataset_accuracy*100}%")
 
 
         classwise_accuracies = {class_index: sum(scores)/len(scores) for class_index, scores in class_scores.items()}

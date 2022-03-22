@@ -38,8 +38,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         multilingual=False,
 
         # Windowing
-        seq_len=1,
-        num_seq=1,
+        seq_len=1, # No. of frames per window
+        num_seq=1, # No. of windows
     ):
         super().__init__()
 
@@ -56,6 +56,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         if normalized_class_mappings_file:
             df = pd.read_csv(normalized_class_mappings_file)
             self.normalized_class_mappings = {df["actual_gloss"][i]: df["normalized_gloss"][i] for i in range(len(df))}
+            # TODO: Also store reverse mapping for inference in original lang
         
         self.glosses = []
         self.read_glosses()
@@ -265,15 +266,15 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         labels = [x["label"] for i, x in enumerate(batch_list)]
         labels = torch.stack(labels, dim=0)
 
-        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list], lang_codes=[x["lang_code"] for x in batch_list])
+        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list], dataset_names=[x["dataset_name"] for x in batch_list])
 
     def read_pose_data(self, index):
+        label = self.data[index][1]
         if self.inference_mode:
             pose_path = self.data[index][0]
-            label = self.data[index][1]
         else:
             video_name = self.data[index][0]
-            label = self.data[index][1]
+            
             video_path = os.path.join(self.root_dir, video_name)
             # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
             # Otherwise, just remove the video extension
@@ -284,7 +285,9 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_data = self.load_pose_from_path(pose_path)
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
         if self.multilingual:
+            # if `ConcatDataset` is used, it has extra entries for following:
             pose_data["lang_code"] = self.data[index][2]
+            pose_data["dataset_name"] = self.data[index][3]
         return pose_data, pose_path
 
     def __getitem_pose(self, index):
@@ -310,7 +313,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
             "file": path,
-            "lang_code": data["lang_code"] if self.multilingual else None
+            "lang_code": data["lang_code"] if self.multilingual else None, # Required for lang_token prepend
+            "dataset_name": data["dataset_name"] if self.multilingual else None, # Required to calc dataset-wise accuracy
         }
 
         if self.transforms is not None:
