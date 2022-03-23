@@ -13,20 +13,14 @@ class MSASLDataset(BaseIsolatedDataset):
     lang_code = "ase"
 
     def read_glosses(self):
-        self.glosses = list(set( gloss['text'] for gloss in json.load(open(self.class_mappings_file_path))))
+        self.glosses = sorted(set(gloss['text'] for gloss in json.load(open(self.class_mappings_file_path))))
 
     def read_original_dataset(self):
-        path = self.split_file
-        df = json.load(open(path))
-
-        files = 0
-        for m in df:
+        for m in json.load(open(self.split_file)):
             filename = m['clean_text'] + '/' + str(m['signer_id'])
-            gloss = m['text']
-            gloss_cat = self.label_encoder.transform([gloss])[0]
-            instance = filename,  gloss_cat
+            gloss_cat = self.gloss_to_id[m['text']]
+            instance = filename, gloss_cat
             self.data.append(instance)
-            files += 1
 
     def read_video_data(self, index):
         video_name, label = self.data[index]
