@@ -6,7 +6,7 @@ from .include import INCLUDEDataset
 from .lsa64 import LSA64Dataset
 from .wlasl import WLASLDataset
 from .msasl import MSASLDataset
-from .bhosporus22k import Bhosporus22kDataset
+from .bosphorus22k import Bosphorus22kDataset
 from .asllvd import ASLLVDDataset
 from .rwth_phoenix_weather_signer03_cutout import RWTH_Phoenix_Signer03_Dataset
 
@@ -21,7 +21,7 @@ __all__ = [
     "LSA64Dataset",
     "WLASLDataset",
     "MSASLDataset",
-    "Bhosporus22kDataset",
+    "Bosphorus22kDataset",
     "ASLLVDDataset",
     "RWTH_Phoenix_Signer03_Dataset",
     

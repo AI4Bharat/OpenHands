@@ -2,7 +2,7 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.RWTHPHOENIXSIGNER03Dataset
+            _target_: openhands.datasets.isolated.RWTH_Phoenix_Signer03_Dataset
             split_file: "rwth-phoenix-weather-signer03-cutout/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout.train.corpus"           
             root_dir: "rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout/TRAIN_POSES"
             class_mappings_file_path: "rwth-phoenix-weather-signer03-cutout/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout.test.corpus"            
@@ -33,7 +33,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.RWTHPHOENIXSIGNER03Dataset
+            _target_: openhands.datasets.isolated.RWTH_Phoenix_Signer03_Dataset
             split_file: "rwth-phoenix-weather-signer03-cutout/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout.test.corpus"
             root_dir: "rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout/TEST_POSES"
             class_mappings_file_path: "rwth-phoenix-weather-signer03-cutout/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout.train.corpus"            

@@ -7,11 +7,22 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
+                ASLLVDDataset:
+                    split_file: "openhands/datasets/assets/asllvd_metadata/train_labels.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/ASLLVD/PKL_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/asllvd_metadata/label_names.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/asllvd_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 AUTSLDataset:
                     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/train_labels.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/train_poses/"
                     class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
                     normalized_class_mappings_file: "openhands/datasets/assets/autsl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                Bosphorus22kDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/bosphorus22k_metadata/BosphorusSign22k.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/BosphorusSign22k/PKL_POSES"
+                    normalized_class_mappings_file: "openhands/datasets/assets/bosphorus22k_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 CSLDataset:
                     split_file: "openhands/datasets/assets/csl_metadata/split.train.csv"
@@ -40,6 +51,18 @@ data:
                     root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                MSASLDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_train.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/MS-ASL/MS-ASL/PKL_POSES/train"
+                    split_file: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_train.json"
+                    normalized_class_mappings_file: "openhands/datasets/assets/msasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                RWTH_Phoenix_Signer03_Dataset:
+                    split_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.train.corpus"
+                    root_dir: "/home/gokulnc/data-disk/datasets/German/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout/TRAIN_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.test.corpus"
+                    normalized_class_mappings_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 WLASLDataset:
                     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
@@ -83,11 +106,22 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
+                ASLLVDDataset:
+                    split_file: "openhands/datasets/assets/asllvd_metadata/test_labels.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/ASLLVD/PKL_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/asllvd_metadata/label_names.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/asllvd_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 AUTSLDataset:
                     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/validation_labels.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/val_poses/"
                     class_mappings_file_path: "openhands/datasets/assets/autsl_metadata/AUTSL/SignList_ClassId_TR_EN.csv"
                     normalized_class_mappings_file: "openhands/datasets/assets/autsl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                Bosphorus22kDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/bosphorus22k_metadata/BosphorusSign22k.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/BosphorusSign22k/PKL_POSES"
+                    normalized_class_mappings_file: "openhands/datasets/assets/bosphorus22k_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 CSLDataset:
                     split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
@@ -116,6 +150,18 @@ data:
                     root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                MSASLDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_train.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/MS-ASL/MS-ASL/PKL_POSES/valid"
+                    split_file: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_val.json"
+                    normalized_class_mappings_file: "openhands/datasets/assets/msasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                RWTH_Phoenix_Signer03_Dataset:
+                    split_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.test.corpus"
+                    root_dir: "/home/gokulnc/data-disk/datasets/German/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout/TEST_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.train.corpus"
+                    normalized_class_mappings_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 WLASLDataset:
                     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
@@ -156,6 +202,12 @@ data:
             _target_: openhands.datasets.isolated.ConcatDataset
             unify_vocabulary: True
             datasets:
+                ASLLVDDataset:
+                    split_file: "openhands/datasets/assets/asllvd_metadata/test_labels.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/ASLLVD/PKL_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/asllvd_metadata/label_names.txt"
+                    normalized_class_mappings_file: "openhands/datasets/assets/asllvd_metadata/normalized_glosses.csv"
+                    # only_metadata: True
                 AUTSLDataset:
                     split_file: "openhands/datasets/assets/autsl_metadata/AUTSL/test_labels.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Turkish/AUTSL/poses_pickle/test_poses/"
@@ -167,6 +219,11 @@ data:
                     root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
                     class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
                     normalized_class_mappings_file: "openhands/datasets/assets/csl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                Bosphorus22kDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/bosphorus22k_metadata/BosphorusSign22k.csv"
+                    root_dir: "/home/gokulnc/data-disk/datasets/Turkish/BosphorusSign22k/PKL_POSES"
+                    normalized_class_mappings_file: "openhands/datasets/assets/bosphorus22k_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 DeviSignDataset:
                     split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
@@ -189,6 +246,18 @@ data:
                     root_dir: "/home/gokulnc/data-disk/datasets/Argentinian/lsa64/pose_all_cut/"
                     class_mappings_file_path: "openhands/datasets/assets/lsa64_metadata/LSA64_Cut/lsa64_signs.md"
                     normalized_class_mappings_file: "openhands/datasets/assets/lsa64_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                MSASLDataset:
+                    class_mappings_file_path: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_train.json"
+                    root_dir: "/home/gokulnc/data-disk/datasets/American/MS-ASL/MS-ASL/PKL_POSES/test"
+                    split_file: "openhands/datasets/assets/msasl_metadata/MS_ASL_SI_ASL1000_test.json"
+                    normalized_class_mappings_file: "openhands/datasets/assets/msasl_metadata/normalized_glosses.csv"
+                    # only_metadata: True
+                RWTH_Phoenix_Signer03_Dataset:
+                    split_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.test.corpus"
+                    root_dir: "/home/gokulnc/data-disk/datasets/German/rwth-phoenix-weather-signer03-cutout/RWTH-PHOENIX-Weather-Signer03-cutout/TEST_POSES"
+                    class_mappings_file_path: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.train.corpus"
+                    normalized_class_mappings_file: "openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 WLASLDataset:
                     split_file: "openhands/datasets/assets/wlasl_metadata/splits/asl2000.json"
@@ -295,7 +364,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/multilingual/unified_vocab/decoupled_gcn_6_langs/"
+        dirpath: "experiments/multilingual/unified_vocab/decoupled_gcn_7_langs/"
 
     early_stopping_callback: true
     early_stopping_params:

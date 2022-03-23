@@ -23,8 +23,8 @@ class ASLLVDDataset(BaseIsolatedDataset):
         self.glosses = sorted(glosses)
 
     def read_original_dataset(self):
-        f = open(self.split_file)
-        data = json.load(f)
+        with open(self.split_file) as f:
+            data = json.load(f)
 
         for filename in data:
             gloss_cat = self.gloss_to_id[data[filename]['label'].strip('\n\t')]

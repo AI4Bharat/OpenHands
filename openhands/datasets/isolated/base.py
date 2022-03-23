@@ -54,7 +54,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
 
         self.normalized_class_mappings_file = normalized_class_mappings_file
         if normalized_class_mappings_file:
-            df = pd.read_csv(normalized_class_mappings_file)
+            df = pd.read_csv(normalized_class_mappings_file, na_filter=False) # In German, "null" means "zero"
             self.normalized_class_mappings = {df["actual_gloss"][i]: df["normalized_gloss"][i] for i in range(len(df))}
             # TODO: Also store reverse mapping for inference in original lang
         

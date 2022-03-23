@@ -1,12 +1,16 @@
 import os
 
 from .base import BaseIsolatedDataset
+from .asllvd import ASLLVDDataset
 from .autsl import AUTSLDataset
+from .bosphorus22k import Bosphorus22kDataset
 from .csl import CSLDataset
 from .devisign import DeviSignDataset
 from .gsl import GSLDataset
 from .include import INCLUDEDataset
 from .lsa64 import LSA64Dataset
+from .msasl import MSASLDataset
+from .rwth_phoenix_weather_signer03_cutout import RWTH_Phoenix_Signer03_Dataset
 from .wlasl import WLASLDataset
 
 class ConcatDataset(BaseIsolatedDataset):

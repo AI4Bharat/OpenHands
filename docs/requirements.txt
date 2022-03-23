@@ -19,6 +19,7 @@ pandas
 Pillow>=8.3.2
 scikit_learn>=1.0
 beautifulsoup4
+lxml
 
 sphinx
 myst-parser
