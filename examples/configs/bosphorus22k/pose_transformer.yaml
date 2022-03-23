@@ -1,10 +1,8 @@
-# pretrained: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
-
 data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.bhosporus22k.Bhosporus22kDataset
+            _target_: openhands.datasets.isolated.bosphorus22k.Bosphorus22kDataset
             class_mappings_file_path: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
             root_dir: "/datadrive/BosphorusSign22k/PKL_POSES"
             splits: "train"
@@ -28,7 +26,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 64
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -36,7 +34,7 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.bhosporus22k.Bhosporus22kDataset
+            _target_: openhands.datasets.isolated.bosphorus22k.Bosphorus22kDataset
             class_mappings_file_path: "/datadrive/BosphorusSign22k/BosphorusSign22k.csv"
             root_dir: "/datadrive/BosphorusSign22k/PKL_POSES"
             splits: "test"
@@ -53,58 +51,34 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 32
             shuffle: false
-            num_workers: 2
+            num_workers: 6
             pin_memory: true
             drop_last: false
 
 model:
     encoder:
-        type: decoupled-gcn
+        type: pose-flattener
         params:
-            graph_args:
-                num_nodes: 27
-                inward_edges:
-                    [
-                        [2, 0],
-                        [1, 0],
-                        [0, 3],
-                        [0, 4],
-                        [3, 5],
-                        [4, 6],
-                        [5, 7],
-                        [6, 17],
-                        [7, 8],
-                        [7, 9],
-                        [9, 10],
-                        [7, 11],
-                        [11, 12],
-                        [7, 13],
-                        [13, 14],
-                        [7, 15],
-                        [15, 16],
-                        [17, 18],
-                        [17, 19],
-                        [19, 20],
-                        [17, 21],
-                        [21, 22],
-                        [17, 23],
-                        [23, 24],
-                        [17, 25],
-                        [25, 26],
-                    ]
+            num_points: 27
     decoder:
-        type: fc
+        type: bert
         params:
-            dropout_ratio: 0
+            max_position_embeddings: 256
+            layer_norm_eps: 1e-12
+            hidden_dropout_prob: 0.1
+            hidden_size: 128
+            num_attention_heads: 8
+            num_hidden_layers: 5
+            cls_token: true
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-3
+            lr: 1e-4
 
     scheduler:
         name: CosineAnnealingLR
@@ -114,8 +88,7 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 1000
-    # resume_from_checkpoint: "/home/gokulnc/openhands/outputs/2021-06-30/15-36-05/Decoupled GCN-INCLUDE/0/checkpoints/epoch=93-step=4417.ckpt"
+    max_epochs: 1500
 
 exp_manager:
     create_tensorboard_logger: true
@@ -129,11 +102,11 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/bhosphrous/decoupled_gcn/"
+        dirpath: "experiments/bhosphrous/pose_transformer/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 200
+        patience: 100
         verbose: true
         mode: "max"

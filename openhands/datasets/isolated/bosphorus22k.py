@@ -2,9 +2,9 @@ import os
 import pandas as pd
 from .base import BaseIsolatedDataset
 
-class Bhosporus22kDataset(BaseIsolatedDataset):
+class Bosphorus22kDataset(BaseIsolatedDataset):
     """
-    Turkish Isolated Sign language dataset(Bhosporus22k) from the paper:
+    Turkish Isolated Sign language dataset(Bosphorus22k) from the paper:
     Link to paper: https://arxiv.org/pdf/2004.01283.pdf
     """
 
