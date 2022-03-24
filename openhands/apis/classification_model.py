@@ -101,4 +101,7 @@ class ClassificationModel(InferenceModel):
         """
         Method to be called to start the training.
         """
+        if self.trainer.gpus and self.trainer.gpus == 1:
+            # Currently, bolts does not ignore if it's CPU
+            self.datamodule.async_load = True
         self.trainer.fit(self, self.datamodule)
