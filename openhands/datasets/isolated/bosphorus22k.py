@@ -34,7 +34,7 @@ class Bosphorus22kDataset(BaseIsolatedDataset):
             gloss_cat = self.gloss_to_id[gloss.strip(' \n\t')]
             if (
                 ((signer_id) !=4 and "train" in self.splits)
-                or (signer_id == 4 and "test" in self.splits)
+                or (signer_id == 4 and ("test" in self.splits or "val" in self.splits))
             ):
                 instance_entry = file_name, gloss_cat
                 self.data.append(instance_entry)

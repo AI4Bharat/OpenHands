@@ -136,7 +136,7 @@ data:
                     normalized_class_mappings_file: "openhands/datasets/assets/devisign_metadata/normalized_glosses.csv"
                     # only_metadata: True
                 GSLDataset:
-                    split_file: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/test_greek_iso.csv"
+                    split_file: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/val_greek_iso.csv"
                     root_dir: "/home/gokulnc/data-disk/datasets/Greek/Greek_isolated/GSL_pose"
                     class_mappings_file_path: "openhands/datasets/assets/gsl_metadata/GSL_split/GSL_isolated/iso_classes.csv"
                     normalized_class_mappings_file: "openhands/datasets/assets/gsl_metadata/normalized_glosses.csv"
@@ -169,7 +169,7 @@ data:
                     normalized_class_mappings_file: "openhands/datasets/assets/wlasl_metadata/normalized_glosses.csv"
                     # only_metadata: True
             modality: "pose"
-            splits: "test"
+            splits: "val"
 
         transforms:
             - TemporalSample:

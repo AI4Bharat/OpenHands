@@ -62,7 +62,7 @@ class DeviSignDataset(BaseIsolatedDataset):
                 signer_id = int(naming_parts[0].replace("P", ""))
 
                 if (signer_id <= 4 and "train" in self.splits) or (
-                    signer_id > 4 and "test" in self.splits
+                    signer_id > 4 and ("test" in self.splits or "val" in self.splits)
                 ):
                     instance_entry = video_file, gloss_id
                     self.data.append(instance_entry)

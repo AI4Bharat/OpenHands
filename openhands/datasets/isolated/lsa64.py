@@ -21,8 +21,13 @@ class LSA64Dataset(BaseIsolatedDataset):
         """
         Dataset includes 3200 videos where 10 non-expert subjects executed 5 repetitions of 64 different types of signs.
 
+        Signer-independent splits:
         For train-set, we use signers 1-8.
         Val-set & Test-set: Signer-9 & Signer-10
+
+        Signer-dependent splits:
+        In the original paper, they split randomly, and do not open-source the splits.
+        Hence we only follow the signer-based splits we have come-up with (as mentioned above)
         """
 
         file_format = ".pkl" if "pose" in self.modality else ".mp4"

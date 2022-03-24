@@ -68,7 +68,7 @@ class CSLDataset(BaseIsolatedDataset):
                 signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
 
                 if (signer_id <= 35 and "train" in self.splits) or (
-                    signer_id > 35 and "test" in self.splits
+                    signer_id > 35 and ("test" in self.splits or "val" in self.splits)
                 ):
                     instance_entry = video_file, gloss_id
                     self.data.append(instance_entry)
