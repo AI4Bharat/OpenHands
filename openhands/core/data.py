@@ -1,5 +1,4 @@
 import pytorch_lightning as pl
-from pl_bolts.datamodules.async_dataloader import AsynchronousLoader
 from omegaconf import OmegaConf
 from pytorchvideo.transforms import transforms as ptv_transforms
 import albumentations as A
@@ -17,10 +16,9 @@ def create_pose_transforms(transforms_cfg):
     return pose_transforms.Compose(all_transforms)
 
 class DataModule(pl.LightningDataModule):
-    def __init__(self, data_cfg, async_load=False):
+    def __init__(self, data_cfg):
         super().__init__()
         self.data_cfg = data_cfg
-        self.async_load = async_load
 
     def setup(self, stage=None):
         if stage == "fit":
@@ -47,7 +45,7 @@ class DataModule(pl.LightningDataModule):
             dataset=self.train_dataset,
             collate_fn=self.train_dataset.collate_fn,
         )
-        return AsynchronousLoader(dataloader) if self.async_load else dataloader
+        return dataloader
 
     def val_dataloader(self):
         dataloader = hydra.utils.instantiate(
@@ -55,7 +53,7 @@ class DataModule(pl.LightningDataModule):
             dataset=self.valid_dataset,
             collate_fn=self.valid_dataset.collate_fn,
         )
-        return AsynchronousLoader(dataloader) if self.async_load else dataloader
+        return dataloader
     
     def test_dataloader(self):
         dataloader = hydra.utils.instantiate(
@@ -63,7 +61,7 @@ class DataModule(pl.LightningDataModule):
             dataset=self.test_dataset,
             collate_fn=self.test_dataset.collate_fn,
         )
-        return AsynchronousLoader(dataloader) if self.async_load else dataloader
+        return dataloader
 
     def create_video_transforms(self, transforms_cfg):
         albumentation_transforms = A.Compose(

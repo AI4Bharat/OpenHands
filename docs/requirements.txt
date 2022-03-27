@@ -4,7 +4,6 @@ tqdm
 PyYAML>=5.4.1,<6.1
 omegaconf>=2.1.0
 pytorch-lightning>=1.5.0
-lightning-bolts
 pytorchvideo>=0.1.1
 hydra_core>=1.1.0
 torch

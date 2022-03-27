@@ -220,8 +220,6 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         }
         """
         pose_data = pickle.load(open(path, "rb"))
-        # Temporary fix: Some pkl seems to have float64 instead of float32
-        pose_data["keypoints"] = pose_data["keypoints"].view('float32')
         return pose_data
 
     def read_video_data(self, index):
@@ -265,12 +263,13 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             ]
 
         frames = torch.stack(frames, dim=0)
-        labels = torch.tensor([x["label"] for i, x in enumerate(batch_list)]) # , dtype=torch.long
-        # labels = torch.stack(labels, dim=0)
+        labels = [x["label"] for i, x in enumerate(batch_list)]
+        labels = torch.stack(labels, dim=0)
 
         return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list], dataset_names=[x["dataset_name"] for x in batch_list])
 
     def read_pose_data(self, index):
+        label = self.data[index][1]
         if self.inference_mode:
             pose_path = self.data[index][0]
         else:
@@ -283,13 +282,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
                 video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
             )
             pose_path = pose_path + ".pkl"
-        
         pose_data = self.load_pose_from_path(pose_path)
-
-        label = self.data[index][1]
-        # pose_data["label"] = torch.tensor(label, dtype=torch.long)
-        pose_data["label"] = label
-
+        pose_data["label"] = torch.tensor(label, dtype=torch.long)
         if self.multilingual:
             # if `ConcatDataset` is used, it has extra entries for following:
             pose_data["lang_code"] = self.data[index][2]
@@ -306,16 +300,17 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         data, path = self.read_pose_data(index)
         # imgs shape: (T, V, C)
         kps = data["keypoints"]
+        scores = data["confidences"]
 
         if not self.pose_use_z_axis:
             kps = kps[:, :, :2]
 
         if self.pose_use_confidence_scores:
-            scores = data["confidences"]
             kps = np.concatenate([kps, np.expand_dims(scores, axis=-1)], axis=-1)
 
+        kps = np.asarray(kps, dtype=np.float32)
         data = {
-            "frames": torch.from_numpy(kps).permute(2, 0, 1),  # (T, V, C) -> (C, T, V)
+            "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
             "file": path,
             "lang_code": data["lang_code"] if self.multilingual else None, # Required for lang_token prepend
