@@ -9,6 +9,7 @@ from .msasl import MSASLDataset
 from .bosphorus22k import Bosphorus22kDataset
 from .asllvd import ASLLVDDataset
 from .rwth_phoenix_weather_signer03_cutout import RWTH_Phoenix_Signer03_Dataset
+from .fingerspelling import FingerSpellingDataset
 
 from .concat import ConcatDataset
 
@@ -25,5 +26,6 @@ __all__ = [
     "ASLLVDDataset",
     "RWTH_Phoenix_Signer03_Dataset",
     
-    "ConcatDataset"
+    "ConcatDataset",
+    "FingerSpellingDataset"
 ]
