@@ -107,8 +107,8 @@ class WindowedDatasetHDF5(torch.utils.data.DataLoader):
     def get_weights_for_balanced_sampling(self):
         max_frames = 1*60*60*25 # Assuming 1hr at 25fps
         weights = [0] * len(self.data_list)
-        for i in len(self.data_list):
-            num_frames = load_pose_from_h5(i).shape[0]
+        for i in range(len(self.data_list)):
+            num_frames = self.load_pose_from_h5(i).shape[0]
             weights[i] = min(num_frames / max_frames, 1.0)
         return torch.DoubleTensor(weights)
 
