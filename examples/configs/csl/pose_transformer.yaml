@@ -3,7 +3,8 @@ data:
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
+            split_file: "openhands/datasets/assets/csl_metadata/split.train.csv"
+            class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "train"
             modality: "pose"
@@ -37,7 +38,8 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.CSLDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/gloss_label.txt"
+            split_file: "openhands/datasets/assets/csl_metadata/split.test.csv"
+            class_mappings_file_path: "openhands/datasets/assets/csl_metadata/CSL/gloss_label.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/CSL/word/pose_mediapipe/"
             splits: "test"
             modality: "pose"

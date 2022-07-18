@@ -1,0 +1,3889 @@
+<?xml version="1.0" encoding="utf-8"?>
+<corpus name="RWTH-PHOENIX-Weather-Signer03-cutout">
+  <speaker-description name="Signer03">
+    <gender>
+      female
+    </gender>
+  </speaker-description>
+  <!-- created with corpus.py -->
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-0" video="01May_2010_Saturday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-1" video="01May_2010_Saturday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-2" video="01May_2010_Saturday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWOELF
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-3" video="01May_2010_Saturday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-4" video="01May_2010_Saturday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BAYERN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-5" video="01May_2010_Saturday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-6" video="01May_2010_Saturday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MAXIMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-7" video="01May_2010_Saturday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWANZIG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-8" video="01May_2010_Saturday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEMPERATUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-9" video="01May_2010_Saturday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-10" video="01May_2010_Saturday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-11" video="01May_2010_Saturday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-12" video="01May_2010_Saturday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-13" video="01May_2010_Saturday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-14" video="01May_2010_Saturday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-15" video="01May_2010_Saturday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UEBERWIEGEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-16" video="01May_2010_Saturday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-17" video="01May_2010_Saturday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UEBERWIEGEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="01May_2010_Saturday_tagesschau_default_wort-18" video="01May_2010_Saturday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-0" video="02December_2009_Wednesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-1" video="02December_2009_Wednesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-2" video="02December_2009_Wednesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIE-AUSSEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-3" video="02December_2009_Wednesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-4" video="02December_2009_Wednesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DONNERSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-5" video="02December_2009_Wednesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DRITTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-6" video="02December_2009_Wednesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DEZEMBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-7" video="02December_2009_Wednesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-8" video="02December_2009_Wednesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-9" video="02December_2009_Wednesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUEDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-10" video="02December_2009_Wednesday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UEBERWIEGEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-11" video="02December_2009_Wednesday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-12" video="02December_2009_Wednesday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-13" video="02December_2009_Wednesday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-14" video="02December_2009_Wednesday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="02December_2009_Wednesday_tagesschau_default_wort-15" video="02December_2009_Wednesday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-0" video="03February_2010_Wednesday_heute_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-1" video="03February_2010_Wednesday_heute_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DABEI
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-2" video="03February_2010_Wednesday_heute_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-3" video="03February_2010_Wednesday_heute_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-4" video="03February_2010_Wednesday_heute_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-5" video="03February_2010_Wednesday_heute_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-6" video="03February_2010_Wednesday_heute_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-7" video="03February_2010_Wednesday_heute_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-8" video="03February_2010_Wednesday_heute_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-9" video="03February_2010_Wednesday_heute_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-10" video="03February_2010_Wednesday_heute_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-11" video="03February_2010_Wednesday_heute_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-12" video="03February_2010_Wednesday_heute_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-13" video="03February_2010_Wednesday_heute_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-14" video="03February_2010_Wednesday_heute_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SAMSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-15" video="03February_2010_Wednesday_heute_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-16" video="03February_2010_Wednesday_heute_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESSER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-17" video="03February_2010_Wednesday_heute_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESSER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-18" video="03February_2010_Wednesday_heute_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESSER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-19" video="03February_2010_Wednesday_heute_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-20" video="03February_2010_Wednesday_heute_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DANN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-21" video="03February_2010_Wednesday_heute_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-22" video="03February_2010_Wednesday_heute_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-23" video="03February_2010_Wednesday_heute_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-24" video="03February_2010_Wednesday_heute_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-25" video="03February_2010_Wednesday_heute_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-26" video="03February_2010_Wednesday_heute_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHOEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-27" video="03February_2010_Wednesday_heute_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-28" video="03February_2010_Wednesday_heute_default_wort-28/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUSRICHTEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_heute_default_wort-29" video="03February_2010_Wednesday_heute_default_wort-29/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-0" video="03February_2010_Wednesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-1" video="03February_2010_Wednesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DEUTSCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-2" video="03February_2010_Wednesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-3" video="03February_2010_Wednesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-4" video="03February_2010_Wednesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DRUCK
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-5" video="03February_2010_Wednesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-6" video="03February_2010_Wednesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-7" video="03February_2010_Wednesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-8" video="03February_2010_Wednesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VERLAUF
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-9" video="03February_2010_Wednesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-10" video="03February_2010_Wednesday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-11" video="03February_2010_Wednesday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-12" video="03February_2010_Wednesday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-13" video="03February_2010_Wednesday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-14" video="03February_2010_Wednesday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-15" video="03February_2010_Wednesday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-16" video="03February_2010_Wednesday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-17" video="03February_2010_Wednesday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-18" video="03February_2010_Wednesday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ODER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-19" video="03February_2010_Wednesday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHON
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-20" video="03February_2010_Wednesday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-21" video="03February_2010_Wednesday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-22" video="03February_2010_Wednesday_tagesschau_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-23" video="03February_2010_Wednesday_tagesschau_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-24" video="03February_2010_Wednesday_tagesschau_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WEST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-25" video="03February_2010_Wednesday_tagesschau_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-26" video="03February_2010_Wednesday_tagesschau_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-27" video="03February_2010_Wednesday_tagesschau_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-28" video="03February_2010_Wednesday_tagesschau_default_wort-28/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-29" video="03February_2010_Wednesday_tagesschau_default_wort-29/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-30" video="03February_2010_Wednesday_tagesschau_default_wort-30/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-31" video="03February_2010_Wednesday_tagesschau_default_wort-31/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-32" video="03February_2010_Wednesday_tagesschau_default_wort-32/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-33" video="03February_2010_Wednesday_tagesschau_default_wort-33/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MIT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-34" video="03February_2010_Wednesday_tagesschau_default_wort-34/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-35" video="03February_2010_Wednesday_tagesschau_default_wort-35/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-36" video="03February_2010_Wednesday_tagesschau_default_wort-36/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-37" video="03February_2010_Wednesday_tagesschau_default_wort-37/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-38" video="03February_2010_Wednesday_tagesschau_default_wort-38/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHWACH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-39" video="03February_2010_Wednesday_tagesschau_default_wort-39/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MASS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-40" video="03February_2010_Wednesday_tagesschau_default_wort-40/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TIEF
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-41" video="03February_2010_Wednesday_tagesschau_default_wort-41/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-42" video="03February_2010_Wednesday_tagesschau_default_wort-42/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-43" video="03February_2010_Wednesday_tagesschau_default_wort-43/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-44" video="03February_2010_Wednesday_tagesschau_default_wort-44/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-45" video="03February_2010_Wednesday_tagesschau_default_wort-45/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-46" video="03February_2010_Wednesday_tagesschau_default_wort-46/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-47" video="03February_2010_Wednesday_tagesschau_default_wort-47/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-48" video="03February_2010_Wednesday_tagesschau_default_wort-48/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SIEBEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-49" video="03February_2010_Wednesday_tagesschau_default_wort-49/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FLUSS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-50" video="03February_2010_Wednesday_tagesschau_default_wort-50/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-51" video="03February_2010_Wednesday_tagesschau_default_wort-51/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-52" video="03February_2010_Wednesday_tagesschau_default_wort-52/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MINUS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-53" video="03February_2010_Wednesday_tagesschau_default_wort-53/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        EINS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03February_2010_Wednesday_tagesschau_default_wort-54" video="03February_2010_Wednesday_tagesschau_default_wort-54/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-0" video="03June_2010_Thursday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-2" video="03June_2010_Thursday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-3" video="03June_2010_Thursday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DEUTSCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-4" video="03June_2010_Thursday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-5" video="03June_2010_Thursday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-6" video="03June_2010_Thursday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-7" video="03June_2010_Thursday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SAMSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-8" video="03June_2010_Thursday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-9" video="03June_2010_Thursday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VIEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-10" video="03June_2010_Thursday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-11" video="03June_2010_Thursday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DANN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-12" video="03June_2010_Thursday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEMPERATUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="03June_2010_Thursday_tagesschau_default_wort-13" video="03June_2010_Thursday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-0" video="04June_2010_Friday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-1" video="04June_2010_Friday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-2" video="04June_2010_Friday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MANCHMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-3" video="04June_2010_Friday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-4" video="04June_2010_Friday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-5" video="04June_2010_Friday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESONDERS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-6" video="04June_2010_Friday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-7" video="04June_2010_Friday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-8" video="04June_2010_Friday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="04June_2010_Friday_tagesschau_default_wort-9" video="04June_2010_Friday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-0" video="05June_2010_Saturday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-1" video="05June_2010_Saturday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-2" video="05June_2010_Saturday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-3" video="05June_2010_Saturday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-4" video="05June_2010_Saturday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-5" video="05June_2010_Saturday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HIMMEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-6" video="05June_2010_Saturday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KLAR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-7" video="05June_2010_Saturday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DIENSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-8" video="05June_2010_Saturday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESONDERS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-9" video="05June_2010_Saturday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        OST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-10" video="05June_2010_Saturday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-11" video="05June_2010_Saturday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREUNDLICH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-12" video="05June_2010_Saturday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        LANG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-13" video="05June_2010_Saturday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-14" video="05June_2010_Saturday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-15" video="05June_2010_Saturday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DABEI
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-16" video="05June_2010_Saturday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="05June_2010_Saturday_tagesschau_default_wort-17" video="05June_2010_Saturday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-0" video="06July_2010_Tuesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-1" video="06July_2010_Tuesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-2" video="06July_2010_Tuesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHWACH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-3" video="06July_2010_Tuesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UNTERSCHIEDLICH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-4" video="06July_2010_Tuesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-5" video="06July_2010_Tuesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-6" video="06July_2010_Tuesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-7" video="06July_2010_Tuesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-8" video="06July_2010_Tuesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FRISCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-9" video="06July_2010_Tuesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-10" video="06July_2010_Tuesday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-11" video="06July_2010_Tuesday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="06July_2010_Tuesday_tagesschau_default_wort-12" video="06July_2010_Tuesday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-0" video="08April_2010_Thursday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MUESSEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-1" video="08April_2010_Thursday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-2" video="08April_2010_Thursday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-3" video="08April_2010_Thursday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-4" video="08April_2010_Thursday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WENIG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-5" video="08April_2010_Thursday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-6" video="08April_2010_Thursday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-7" video="08April_2010_Thursday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NEUN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-8" video="08April_2010_Thursday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEMPERATUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-9" video="08April_2010_Thursday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-10" video="08April_2010_Thursday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MAXIMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-11" video="08April_2010_Thursday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SIEBZEHN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-12" video="08April_2010_Thursday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEMPERATUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-13" video="08April_2010_Thursday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-14" video="08April_2010_Thursday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-15" video="08April_2010_Thursday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ANFANG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-16" video="08April_2010_Thursday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AB
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-17" video="08April_2010_Thursday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        LOS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-18" video="08April_2010_Thursday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-19" video="08April_2010_Thursday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="08April_2010_Thursday_tagesschau_default_wort-20" video="08April_2010_Thursday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-0" video="11September_2009_Friday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-1" video="11September_2009_Friday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-2" video="11September_2009_Friday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WETTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-3" video="11September_2009_Friday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-4" video="11September_2009_Friday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SAMSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-5" video="11September_2009_Friday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWOELF
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-6" video="11September_2009_Friday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SEPTEMBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-7" video="11September_2009_Friday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-8" video="11September_2009_Friday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-9" video="11September_2009_Friday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHON
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-10" video="11September_2009_Friday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-11" video="11September_2009_Friday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-12" video="11September_2009_Friday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-13" video="11September_2009_Friday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-14" video="11September_2009_Friday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-15" video="11September_2009_Friday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-16" video="11September_2009_Friday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHWACH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-17" video="11September_2009_Friday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MASS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-18" video="11September_2009_Friday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KUESTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-19" video="11September_2009_Friday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BERG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-20" video="11September_2009_Friday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-21" video="11September_2009_Friday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FRISCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-22" video="11September_2009_Friday_tagesschau_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-23" video="11September_2009_Friday_tagesschau_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-24" video="11September_2009_Friday_tagesschau_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-25" video="11September_2009_Friday_tagesschau_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VIERZEHN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-26" video="11September_2009_Friday_tagesschau_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="11September_2009_Friday_tagesschau_default_wort-27" video="11September_2009_Friday_tagesschau_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SIEBEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-0" video="13August_2009_Thursday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-1" video="13August_2009_Thursday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-2" video="13August_2009_Thursday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-3" video="13August_2009_Thursday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-4" video="13August_2009_Thursday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-5" video="13August_2009_Thursday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ORT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-6" video="13August_2009_Thursday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        STARK
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-7" video="13August_2009_Thursday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-8" video="13August_2009_Thursday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-9" video="13August_2009_Thursday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-10" video="13August_2009_Thursday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-11" video="13August_2009_Thursday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [PU]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13August_2009_Thursday_tagesschau_default_wort-12" video="13August_2009_Thursday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13July_2009_Monday_tagesschau_default_wort-0" video="13July_2009_Monday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13July_2009_Monday_tagesschau_default_wort-1" video="13July_2009_Monday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13July_2009_Monday_tagesschau_default_wort-2" video="13July_2009_Monday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13July_2009_Monday_tagesschau_default_wort-3" video="13July_2009_Monday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHWACH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="13July_2009_Monday_tagesschau_default_wort-4" video="13July_2009_Monday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-0" video="14August_2009_Friday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-1" video="14August_2009_Friday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DANN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-2" video="14August_2009_Friday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDWEST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-3" video="14August_2009_Friday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-4" video="14August_2009_Friday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-5" video="14August_2009_Friday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-6" video="14August_2009_Friday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-7" video="14August_2009_Friday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-8" video="14August_2009_Friday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DABEI
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-9" video="14August_2009_Friday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-10" video="14August_2009_Friday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-11" video="14August_2009_Friday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MANCHMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-12" video="14August_2009_Friday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-13" video="14August_2009_Friday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14August_2009_Friday_tagesschau_default_wort-14" video="14August_2009_Friday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        STARK
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-0" video="14December_2009_Monday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-1" video="14December_2009_Monday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        LUFT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-2" video="14December_2009_Monday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BLEIBEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-3" video="14December_2009_Monday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BIS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-4" video="14December_2009_Monday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREITAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-5" video="14December_2009_Monday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MINUS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-6" video="14December_2009_Monday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MINUS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14December_2009_Monday_tagesschau_default_wort-7" video="14December_2009_Monday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MINUS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-0" video="14July_2009_Tuesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-1" video="14July_2009_Tuesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-2" video="14July_2009_Tuesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KLAR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-3" video="14July_2009_Tuesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-4" video="14July_2009_Tuesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUEDWEST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-5" video="14July_2009_Tuesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        RECHNEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-6" video="14July_2009_Tuesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-7" video="14July_2009_Tuesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-8" video="14July_2009_Tuesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UEBERWIEGEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-9" video="14July_2009_Tuesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-10" video="14July_2009_Tuesday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-11" video="14July_2009_Tuesday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-12" video="14July_2009_Tuesday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-13" video="14July_2009_Tuesday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DREIZEHN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-14" video="14July_2009_Tuesday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-15" video="14July_2009_Tuesday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ACHTZEHN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-16" video="14July_2009_Tuesday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEMPERATUR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-17" video="14July_2009_Tuesday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHWUEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-18" video="14July_2009_Tuesday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-19" video="14July_2009_Tuesday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DONNERSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-20" video="14July_2009_Tuesday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        IN-KOMMENDEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-21" video="14July_2009_Tuesday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ERSTMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-22" video="14July_2009_Tuesday_tagesschau_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-23" video="14July_2009_Tuesday_tagesschau_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BESONDERS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-24" video="14July_2009_Tuesday_tagesschau_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-25" video="14July_2009_Tuesday_tagesschau_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BERG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-26" video="14July_2009_Tuesday_tagesschau_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WARM
+      </orth>
+    </segment>
+  </recording>
+  <recording name="14July_2009_Tuesday_tagesschau_default_wort-27" video="14July_2009_Tuesday_tagesschau_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        GEWITTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-0" video="15December_2009_Tuesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUEDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-1" video="15December_2009_Tuesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-2" video="15December_2009_Tuesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-3" video="15December_2009_Tuesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VIEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-4" video="15December_2009_Tuesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-5" video="15December_2009_Tuesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-6" video="15December_2009_Tuesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SCHNEE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-7" video="15December_2009_Tuesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="15December_2009_Tuesday_tagesschau_default_wort-8" video="15December_2009_Tuesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-0" video="16December_2009_Wednesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-1" video="16December_2009_Wednesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        JETZT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-2" video="16December_2009_Wednesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WETTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-3" video="16December_2009_Wednesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-4" video="16December_2009_Wednesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DONNERSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-5" video="16December_2009_Wednesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SIEBZEHN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-6" video="16December_2009_Wednesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DEZEMBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="16December_2009_Wednesday_tagesschau_default_wort-7" video="16December_2009_Wednesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-0" video="19November_2009_Thursday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-1" video="19November_2009_Thursday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-2" video="19November_2009_Thursday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-3" video="19November_2009_Thursday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [PU]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-4" video="19November_2009_Thursday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WETTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-5" video="19November_2009_Thursday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-6" video="19November_2009_Thursday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREITAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-7" video="19November_2009_Thursday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWANZIG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-8" video="19November_2009_Thursday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NOVEMBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="19November_2009_Thursday_tagesschau_default_wort-9" video="19November_2009_Thursday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-0" video="20November_2009_Friday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-1" video="20November_2009_Friday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        JETZT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-2" video="20November_2009_Friday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WETTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-3" video="20November_2009_Friday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-4" video="20November_2009_Friday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-5" video="20November_2009_Friday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SAMSTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-6" video="20November_2009_Friday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        EINS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-7" video="20November_2009_Friday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWANZIG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-8" video="20November_2009_Friday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NOVEMBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-9" video="20November_2009_Friday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-10" video="20November_2009_Friday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-11" video="20November_2009_Friday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-12" video="20November_2009_Friday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-13" video="20November_2009_Friday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-KOMMEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-14" video="20November_2009_Friday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-15" video="20November_2009_Friday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-16" video="20November_2009_Friday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-17" video="20November_2009_Friday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-18" video="20November_2009_Friday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-19" video="20November_2009_Friday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DEUTSCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-20" video="20November_2009_Friday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-21" video="20November_2009_Friday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-22" video="20November_2009_Friday_tagesschau_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-23" video="20November_2009_Friday_tagesschau_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [PU]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-24" video="20November_2009_Friday_tagesschau_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-25" video="20November_2009_Friday_tagesschau_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-26" video="20November_2009_Friday_tagesschau_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-27" video="20November_2009_Friday_tagesschau_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREUNDLICH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-28" video="20November_2009_Friday_tagesschau_default_wort-28/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-29" video="20November_2009_Friday_tagesschau_default_wort-29/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-30" video="20November_2009_Friday_tagesschau_default_wort-30/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-31" video="20November_2009_Friday_tagesschau_default_wort-31/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-32" video="20November_2009_Friday_tagesschau_default_wort-32/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MANCHMAL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-33" video="20November_2009_Friday_tagesschau_default_wort-33/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-34" video="20November_2009_Friday_tagesschau_default_wort-34/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        LANG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-35" video="20November_2009_Friday_tagesschau_default_wort-35/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VERLAUF
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-36" video="20November_2009_Friday_tagesschau_default_wort-36/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-37" video="20November_2009_Friday_tagesschau_default_wort-37/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-38" video="20November_2009_Friday_tagesschau_default_wort-38/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-39" video="20November_2009_Friday_tagesschau_default_wort-39/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-40" video="20November_2009_Friday_tagesschau_default_wort-40/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NACH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-41" video="20November_2009_Friday_tagesschau_default_wort-41/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MITTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-42" video="20November_2009_Friday_tagesschau_default_wort-42/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-43" video="20November_2009_Friday_tagesschau_default_wort-43/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREUNDLICH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-44" video="20November_2009_Friday_tagesschau_default_wort-44/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-45" video="20November_2009_Friday_tagesschau_default_wort-45/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-46" video="20November_2009_Friday_tagesschau_default_wort-46/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TEIL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-47" video="20November_2009_Friday_tagesschau_default_wort-47/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-48" video="20November_2009_Friday_tagesschau_default_wort-48/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-49" video="20November_2009_Friday_tagesschau_default_wort-49/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-50" video="20November_2009_Friday_tagesschau_default_wort-50/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-51" video="20November_2009_Friday_tagesschau_default_wort-51/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-52" video="20November_2009_Friday_tagesschau_default_wort-52/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-53" video="20November_2009_Friday_tagesschau_default_wort-53/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [PU]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-54" video="20November_2009_Friday_tagesschau_default_wort-54/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HERBST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-55" video="20November_2009_Friday_tagesschau_default_wort-55/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="20November_2009_Friday_tagesschau_default_wort-56" video="20November_2009_Friday_tagesschau_default_wort-56/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-0" video="26October_2009_Monday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-1" video="26October_2009_Monday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-2" video="26October_2009_Monday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-3" video="26October_2009_Monday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-4" video="26October_2009_Monday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        FREITAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-5" video="26October_2009_Monday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WENN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-6" video="26October_2009_Monday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-7" video="26October_2009_Monday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-8" video="26October_2009_Monday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26October_2009_Monday_tagesschau_default_wort-9" video="26October_2009_Monday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-0" video="26September_2009_Saturday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-1" video="26September_2009_Saturday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-2" video="26September_2009_Saturday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-3" video="26September_2009_Saturday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-4" video="26September_2009_Saturday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KOENNEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-5" video="26September_2009_Saturday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-6" video="26September_2009_Saturday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WENN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-7" video="26September_2009_Saturday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-8" video="26September_2009_Saturday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-9" video="26September_2009_Saturday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-10" video="26September_2009_Saturday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-11" video="26September_2009_Saturday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-12" video="26September_2009_Saturday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BERG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-13" video="26September_2009_Saturday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-14" video="26September_2009_Saturday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-15" video="26September_2009_Saturday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-16" video="26September_2009_Saturday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="26September_2009_Saturday_tagesschau_default_wort-17" video="26September_2009_Saturday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-0" video="27October_2009_Tuesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-1" video="27October_2009_Tuesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-2" video="27October_2009_Tuesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WETTER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-3" video="27October_2009_Tuesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SEHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-4" video="27October_2009_Tuesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-5" video="27October_2009_Tuesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MITTWOCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-6" video="27October_2009_Tuesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ACHT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-7" video="27October_2009_Tuesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ZWANZIG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-8" video="27October_2009_Tuesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        OKTOBER
+      </orth>
+    </segment>
+  </recording>
+  <recording name="27October_2009_Tuesday_tagesschau_default_wort-9" video="27October_2009_Tuesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-0" video="28August_2009_Friday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-1" video="28August_2009_Friday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-2" video="28August_2009_Friday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MASS
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-3" video="28August_2009_Friday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-4" video="28August_2009_Friday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-5" video="28August_2009_Friday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-6" video="28August_2009_Friday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        STARK
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-7" video="28August_2009_Friday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-8" video="28August_2009_Friday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-9" video="28August_2009_Friday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-10" video="28August_2009_Friday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-11" video="28August_2009_Friday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-12" video="28August_2009_Friday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WIND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-13" video="28August_2009_Friday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-14" video="28August_2009_Friday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-15" video="28August_2009_Friday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-16" video="28August_2009_Friday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-17" video="28August_2009_Friday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-18" video="28August_2009_Friday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-19" video="28August_2009_Friday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-20" video="28August_2009_Friday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VIEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28August_2009_Friday_tagesschau_default_wort-21" video="28August_2009_Friday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-0" video="28October_2009_Wednesday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [ON]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-1" video="28October_2009_Wednesday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-2" video="28October_2009_Wednesday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-3" video="28October_2009_Wednesday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TATSAECHLICH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-4" video="28October_2009_Wednesday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-5" video="28October_2009_Wednesday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-6" video="28October_2009_Wednesday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        BISSCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-7" video="28October_2009_Wednesday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-8" video="28October_2009_Wednesday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-9" video="28October_2009_Wednesday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-REGION
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-10" video="28October_2009_Wednesday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HERBST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-11" video="28October_2009_Wednesday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MISCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-12" video="28October_2009_Wednesday_tagesschau_default_wort-12/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-13" video="28October_2009_Wednesday_tagesschau_default_wort-13/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-14" video="28October_2009_Wednesday_tagesschau_default_wort-14/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-15" video="28October_2009_Wednesday_tagesschau_default_wort-15/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-16" video="28October_2009_Wednesday_tagesschau_default_wort-16/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ABEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-17" video="28October_2009_Wednesday_tagesschau_default_wort-17/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORD
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-18" video="28October_2009_Wednesday_tagesschau_default_wort-18/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-19" video="28October_2009_Wednesday_tagesschau_default_wort-19/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        VIEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-20" video="28October_2009_Wednesday_tagesschau_default_wort-20/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-21" video="28October_2009_Wednesday_tagesschau_default_wort-21/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-22" video="28October_2009_Wednesday_tagesschau_default_wort-22/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-23" video="28October_2009_Wednesday_tagesschau_default_wort-23/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-24" video="28October_2009_Wednesday_tagesschau_default_wort-24/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MORGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-25" video="28October_2009_Wednesday_tagesschau_default_wort-25/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        UEBERWIEGEND
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-26" video="28October_2009_Wednesday_tagesschau_default_wort-26/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-27" video="28October_2009_Wednesday_tagesschau_default_wort-27/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-28" video="28October_2009_Wednesday_tagesschau_default_wort-28/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        AUCH
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-29" video="28October_2009_Wednesday_tagesschau_default_wort-29/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SUED
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-30" video="28October_2009_Wednesday_tagesschau_default_wort-30/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        HEUTE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-31" video="28October_2009_Wednesday_tagesschau_default_wort-31/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-32" video="28October_2009_Wednesday_tagesschau_default_wort-32/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        NORDOST
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-33" video="28October_2009_Wednesday_tagesschau_default_wort-33/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-34" video="28October_2009_Wednesday_tagesschau_default_wort-34/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        loc-IX
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-35" video="28October_2009_Wednesday_tagesschau_default_wort-35/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        REGEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="28October_2009_Wednesday_tagesschau_default_wort-36" video="28October_2009_Wednesday_tagesschau_default_wort-36/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-0" video="29October_2009_Thursday_tagesschau_default_wort-0/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MISCHEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-1" video="29October_2009_Thursday_tagesschau_default_wort-1/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-2" video="29October_2009_Thursday_tagesschau_default_wort-2/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        TROCKEN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-3" video="29October_2009_Thursday_tagesschau_default_wort-3/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        DANN
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-4" video="29October_2009_Thursday_tagesschau_default_wort-4/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        cl-WOLKE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-5" video="29October_2009_Thursday_tagesschau_default_wort-5/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        SONNE
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-6" video="29October_2009_Thursday_tagesschau_default_wort-6/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MONTAG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-7" video="29October_2009_Thursday_tagesschau_default_wort-7/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        ANFANG
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-8" video="29October_2009_Thursday_tagesschau_default_wort-8/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        WECHSEL
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-9" video="29October_2009_Thursday_tagesschau_default_wort-9/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        MEHR
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-10" video="29October_2009_Thursday_tagesschau_default_wort-10/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        KALT
+      </orth>
+    </segment>
+  </recording>
+  <recording name="29October_2009_Thursday_tagesschau_default_wort-11" video="29October_2009_Thursday_tagesschau_default_wort-11/*.png">
+    <segment name="1">
+      <speaker name="Signer03"/>
+      <orth>
+        [OFF]
+      </orth>
+    </segment>
+  </recording>
+</corpus>

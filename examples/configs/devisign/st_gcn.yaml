@@ -3,7 +3,8 @@ data:
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            split_file: "openhands/datasets/assets/devisign_metadata/split.train.csv"
+            class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             modality: "pose"
             splits: "train"
@@ -29,7 +30,8 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.DeviSignDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            split_file: "openhands/datasets/assets/devisign_metadata/split.test.csv"
+            class_mappings_file_path: "openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
             root_dir: "/home/gokulnc/data-disk/datasets/Chinese/DEVISIGN/poses_pickled"
             modality: "pose"
             splits: "test"

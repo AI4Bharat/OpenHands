@@ -133,6 +133,40 @@ class PoseSelect:
         return data
 
 
+class PrependLangCodeOHE:
+    """
+    Prepend a one-hot encoded vector based on the language of the input video.
+    Ideally, it should be used finally after all other normalizations/augmentations.
+
+    Args:
+        lang_codes: List of sign language codes.
+    """
+
+    def __init__(self, lang_codes: list):
+        self.lang_codes = lang_codes
+        self.lang_code_to_index = {lang_code: i for i, lang_code in enumerate(lang_codes)}
+    
+    def __call__(self, data: dict):
+        """
+        Preprend lang_code OHE dynamically.
+
+        Args:
+            data (dict): input data
+
+        Returns:
+            dict : transformed data
+        """
+        lang_index = self.lang_code_to_index[data["lang_code"]]
+        x = data["frames"]
+        x = x.permute(1, 2, 0) #CTV->TVC
+
+        ohe = torch.zeros(1, x.shape[1], x.shape[2])
+        ohe[0][lang_index] = 1
+
+        x = torch.cat([ohe, x])
+        data["frames"] = x.permute(2, 0, 1) #TVC->CTV
+        return data
+
 # Adopted from: https://github.com/AmitMY/pose-format/
 class ShearTransform:
     """
@@ -415,19 +449,21 @@ class PoseTemporalSubsample:
 class PoseUniformSubsampling:
     """
     Uniformly subsamples num_frames indices from the temporal dimension of the sequence of keypoints.
-    If the num_frames if larger than the length of the sequence, then the remaining frames will be padded with zeros.
+    If the num_frames is larger than the length of the sequence, then the remaining frames will be padded with zeros.
         
     Args:
         num_frames (int): Number of frames to subsample.
-        temporal_dim(int): dimension of temporal to perform temporal subsample.
+        randomize_start_index (int): While performing interleaved subsampling, select `start_index` from randint(0, step_size)
+        temporal_dim (int): dimension of temporal to perform temporal subsample.
     """
-    def __init__(self, num_frames, temporal_dim=1):
+    def __init__(self, num_frames, randomize_start_index=False, temporal_dim=1):
         self.num_frames = num_frames
+        self.randomize_start_index = randomize_start_index
         self.temporal_dim = temporal_dim
 
     def __call__(self, data):
         """
-        performs uniform subsampling based on the number of frames needed.
+        Performs uniform subsampling based on the number of frames needed.
 
         Args:
             data (dict): input data
@@ -438,8 +474,16 @@ class PoseUniformSubsampling:
         x = data["frames"]
         C, T, V = x.shape
         t = x.shape[self.temporal_dim]
-        indices = torch.linspace(0, t - 1, self.num_frames)
-        indices = torch.clamp(indices, 0, t - 1).long()
+
+        # Randomize start_index
+        step_size = t / self.num_frames
+        if self.randomize_start_index and step_size > 1:
+            start_index = random.randint(0, int(step_size))
+        else:
+            start_index = 0
+
+        indices = torch.linspace(start_index, t - 1, self.num_frames)
+        indices = torch.clamp(indices, start_index, t - 1).long()
         x = torch.index_select(x, self.temporal_dim, indices)
         if x.shape[self.temporal_dim] < self.num_frames:
             # Pad
@@ -467,7 +511,7 @@ class TemporalSample:
         self.subsample_mode = subsample_mode
         self.num_frames = num_frames
 
-        self.uniform_sampler = PoseUniformSubsampling(num_frames)
+        self.uniform_sampler = PoseUniformSubsampling(num_frames, randomize_start_index=subsample_mode==2)
         self.random_sampler = PoseTemporalSubsample(num_frames)
 
     def __call__(self, data):
@@ -485,8 +529,7 @@ class TemporalSample:
         elif self.subsample_mode == 1:
             return self.random_sampler(data)
         elif self.subsample_mode == 2:
-            rand_prob = random.random()
-            if rand_prob > 0.5:
+            if random.random() > 0.5:
                 return self.uniform_sampler(data)
             else:
                 return self.random_sampler(data)

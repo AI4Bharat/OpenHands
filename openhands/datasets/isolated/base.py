@@ -3,8 +3,8 @@ import torch.nn.functional as F
 import torchvision
 import pickle
 import albumentations as A
-from sklearn.preprocessing import LabelEncoder
 import numpy as np
+import pandas as pd
 import os, warnings
 from ..video_transforms import *
 from ..data_readers import *
@@ -26,6 +26,7 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         root_dir,
         split_file=None,
         class_mappings_file_path=None,
+        normalized_class_mappings_file=None,
         splits=["train"],
         modality="rgb",
         transforms="default",
@@ -33,10 +34,14 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         pose_use_confidence_scores=False,
         pose_use_z_axis=False,
         inference_mode=False,
-
+        only_metadata=False, # Does not load data files if `True`
+        multilingual=False,
+        languages=None,
+        language_set=None,
+        
         # Windowing
-        seq_len=1,
-        num_seq=1,
+        seq_len=1, # No. of frames per window
+        num_seq=1, # No. of windows
     ):
         super().__init__()
 
@@ -45,26 +50,40 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.class_mappings_file_path = class_mappings_file_path
         self.splits = splits
         self.modality = modality
+        self.multilingual = multilingual
         self.seq_len = seq_len
         self.num_seq = num_seq
+        self.languages=languages
+        self.language_set=language_set
+
+        self.normalized_class_mappings_file = normalized_class_mappings_file
+        if normalized_class_mappings_file:
+            df = pd.read_csv(normalized_class_mappings_file, na_filter=False) # In German, "null" means "zero"
+            self.normalized_class_mappings = {df["actual_gloss"][i]: df["normalized_gloss"][i] for i in range(len(df))}
+            # TODO: Also store reverse mapping for inference in original lang
         
         self.glosses = []
         self.read_glosses()
         if not self.glosses:
             raise RuntimeError("Unable to read glosses list")
-        self.label_encoder = LabelEncoder()
-        self.label_encoder.fit(self.glosses)
         print(f"Found {len(self.glosses)} classes in {splits} splits")
 
-        self.data = []
+        self.gloss_to_id = {gloss: i for i, gloss in enumerate(self.glosses)}
+        self.id_to_gloss = {i: gloss for i, gloss in enumerate(self.glosses)}
+
         self.inference_mode = inference_mode
-        if inference_mode:
-            # Will have null labels
-            self.enumerate_data_files(self.root_dir)
-        else:
-            self.read_original_dataset()
-        if not self.data:
-            raise RuntimeError("No data found")
+        self.only_metadata = only_metadata
+
+        if not only_metadata:
+            self.data = []
+            
+            if inference_mode:
+                # Will have null labels
+                self.enumerate_data_files(self.root_dir)
+            else:
+                self.read_original_dataset()
+            if not self.data:
+                raise RuntimeError("No data found")
 
         self.cv_resize_dims = cv_resize_dims
         self.pose_use_confidence_scores = pose_use_confidence_scores
@@ -211,7 +230,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         """
         Extend this method for dataset-specific formats
         """
-        video_path, label = self.data[index]
+        video_path = self.data[index][0]
+        label = self.data[index][1]
         imgs = load_frames_from_video(video_path)
         return imgs, label, video_name
 
@@ -250,22 +270,32 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         labels = [x["label"] for i, x in enumerate(batch_list)]
         labels = torch.stack(labels, dim=0)
 
-        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list])
+        return dict(frames=frames, labels=labels, files=[x["file"] for x in batch_list], dataset_names=[x["dataset_name"] for x in batch_list])
 
     def read_pose_data(self, index):
+        label = self.data[index][1]
         if self.inference_mode:
-            pose_path, label = self.data[index]
+            pose_path = self.data[index][0]
         else:
-            video_name, label = self.data[index]
+            video_name = self.data[index][0]
+            
             video_path = os.path.join(self.root_dir, video_name)
+            # print("--------------279",self.root_dir)
+            # print("---------280",video_name)
             # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
             # Otherwise, just remove the video extension
             pose_path = (
                 video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
             )
             pose_path = pose_path + ".pkl"
+        #print(pose_path)
         pose_data = self.load_pose_from_path(pose_path)
+
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
+        if self.multilingual:
+            # if `ConcatDataset` is used, it has extra entries for following:
+            pose_data["lang_code"] = self.data[index][2]
+            pose_data["dataset_name"] = self.data[index][3]
         return pose_data, pose_path
 
     def __getitem_pose(self, index):
@@ -291,6 +321,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             "frames": torch.tensor(kps).permute(2, 0, 1),  # (C, T, V)
             "label": data["label"],
             "file": path,
+            "lang_code": data["lang_code"] if self.multilingual else None, # Required for lang_token prepend
+            "dataset_name": data["dataset_name"] if self.multilingual else None, # Required to calc dataset-wise accuracy
         }
 
         if self.transforms is not None:
