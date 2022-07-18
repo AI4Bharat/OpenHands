@@ -1,21 +1,24 @@
 import os
 import pandas as pd
 from .base import BaseIsolatedDataset
+import yaml
+
 
 class FingerSpellingDataset(BaseIsolatedDataset):
     """
-    All fingerspelling dataset ("aed","ase","csl","gsg","gss","ins","tsm")
+    Fingerspelling datasets :  'Argentine', 'American', 'Chinese', 'Indian', 'German', 'Greek', 'Turkish'
     """
-    dataset_lang_codes = ["ase"]
-    
+
 
     def read_glosses(self):
         all_glosses=[]
-        for lang_code in FingerSpellingDataset.dataset_lang_codes:
+        for lang_code in self.language_set:
             df = pd.read_csv(self.root_dir+"/"+lang_code+"/"+"glosses.csv", header = None)
-            lang_glosses = [df.iloc[i][0] for i in range(len(df))]
-            all_glosses.extend(lang_glosses)
+            lang_glosses = [df.iloc[i][0].lower() for i in range(len(df))]
+            all_glosses.extend(lang_glosses)         
+
         self.glosses = sorted(set(all_glosses))
+        print(self.glosses)
         
     
     def read_original_dataset(self):
@@ -24,7 +27,7 @@ class FingerSpellingDataset(BaseIsolatedDataset):
         
         """
 
-        for lang_code in FingerSpellingDataset.dataset_lang_codes:
+        for lang_code in self.languages:
             df = pd.read_csv(self.root_dir+"/"+lang_code+"/"+"glosses.csv", header = None)
             
             for i in range(df.shape[0]):
@@ -32,7 +35,7 @@ class FingerSpellingDataset(BaseIsolatedDataset):
                 for name in os.listdir(directory):
                     filename = name.split(".")[0]
                     f = directory + "/" + filename
-                    gloss = df.iloc[i][0]
+                    gloss = df.iloc[i][0].lower()
                     gloss_cat = self.gloss_to_id[gloss.strip(' \n\t')]
                     instance_entry = f, gloss_cat
                     self.data.append(instance_entry)

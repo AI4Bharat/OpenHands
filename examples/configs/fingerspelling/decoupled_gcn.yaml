@@ -5,9 +5,11 @@ data:
     train_pipeline:
         dataset:
           _target_: openhands.datasets.isolated.fingerspelling.FingerSpellingDataset
-          root_dir: "/datadrive/fingerspelling_dataset"
+          root_dir: "/home/iitm/fingerspelling_dataset"
           splits: "train"
           modality: "pose"
+          language_set: ['Argentine', 'American', 'Chinese', 'Indian', 'German', 'Greek', 'Turkish']   # Put languages for glosse set
+          languages: ['Argentine', 'American', 'Chinese', 'Indian', 'German', 'Greek', 'Turkish']      # Put languages for training dataset
 
         transforms:
             - PoseSelect:
@@ -36,9 +38,11 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.fingerspelling.FingerSpellingDataset
-            root_dir: "/datadrive/fingerspelling_dataset"
+            root_dir: "/home/iitm/fingerspelling_dataset"
             splits: "test"
             modality: "pose"
+            language_set: ['Argentine', 'American', 'Chinese', 'Indian', 'German', 'Greek', 'Turkish']  # Put languages for glosse set
+            languages: ['Argentine']    # Put languages for testing dataset
 
         transforms:
             - PoseSelect:
@@ -119,7 +123,7 @@ exp_manager:
     create_tensorboard_logger: true
     create_wandb_logger: false
     wandb_logger_kwargs:
-        name: "decoupledgcn_ase"
+        name: "decoupledgcn_argentine"
         project: "fingerspelling"
 
     create_checkpoint_callback: true
@@ -127,7 +131,7 @@ exp_manager:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/fingerspelling_aed/decoupled_gcn/"
+        dirpath: "experiments/fingerspelling_argentine/decoupled_gcn/"
 
     early_stopping_callback: true
     early_stopping_params:

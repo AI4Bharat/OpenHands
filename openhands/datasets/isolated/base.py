@@ -36,7 +36,9 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         inference_mode=False,
         only_metadata=False, # Does not load data files if `True`
         multilingual=False,
-
+        languages=None,
+        language_set=None,
+        
         # Windowing
         seq_len=1, # No. of frames per window
         num_seq=1, # No. of windows
@@ -51,6 +53,8 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
         self.multilingual = multilingual
         self.seq_len = seq_len
         self.num_seq = num_seq
+        self.languages=languages
+        self.language_set=language_set
 
         self.normalized_class_mappings_file = normalized_class_mappings_file
         if normalized_class_mappings_file:
@@ -276,13 +280,17 @@ class BaseIsolatedDataset(torch.utils.data.Dataset):
             video_name = self.data[index][0]
             
             video_path = os.path.join(self.root_dir, video_name)
+            # print("--------------279",self.root_dir)
+            # print("---------280",video_name)
             # If `video_path` is folder of frames from which pose was dumped, keep it as it is.
             # Otherwise, just remove the video extension
             pose_path = (
                 video_path if os.path.isdir(video_path) else os.path.splitext(video_path)[0]
             )
             pose_path = pose_path + ".pkl"
+        #print(pose_path)
         pose_data = self.load_pose_from_path(pose_path)
+
         pose_data["label"] = torch.tensor(label, dtype=torch.long)
         if self.multilingual:
             # if `ConcatDataset` is used, it has extra entries for following:
