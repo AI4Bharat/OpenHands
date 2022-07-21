@@ -13,7 +13,7 @@ class MSASLDataset(BaseIsolatedDataset):
     lang_code = "ase"
 
     def read_glosses(self):
-        self.glosses = sorted(set(gloss['text'] for gloss in json.load(open(self.class_mappings_file_path))))
+        self.glosses = set(gloss['text'] for gloss in json.load(open(self.class_mappings_file_path)))
 
     def read_original_dataset(self):
         for m in json.load(open(self.split_file)):
