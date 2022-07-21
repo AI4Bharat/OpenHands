@@ -17,17 +17,14 @@ class RWTH_Phoenix_Signer03_Dataset(BaseIsolatedDataset):
 
     def read_glosses(self):
         s = set()
-        for path in [self.split_file, self.class_mappings_file_path]:
-
-            with open(path , 'r') as f:
-                data = f.read()
-                Bs_data = BeautifulSoup(data, "xml")
-                glosses = Bs_data.find_all('orth')
-
-                for gloss in glosses:
-                    s.add(gloss.text.strip(' \n\t'))
-
-        self.glosses = sorted(s)
+        with open(self.class_mappings_file_path , 'r') as f:
+            data = f.read()
+            # Bs_data = BeautifulSoup(data, "xml")
+            Bs_data = BeautifulSoup(data, "lxml")
+            glosses = Bs_data.find_all('orth')
+            for gloss in glosses:
+                s.add(gloss.text.strip(' \n\t'))
+        self.glosses = s
 
 
     def read_original_dataset(self):
