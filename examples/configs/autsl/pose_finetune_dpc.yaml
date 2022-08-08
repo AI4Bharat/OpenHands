@@ -2,9 +2,10 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.AUTSLDataset
+            split_file: "AUTSL/train_labels.csv"
+            root_dir: "AUTSL/train_poses/"
+            class_mappings_file_path: "AUTSL/SignList_ClassId_TR_EN.csv"
             splits: "train"
             modality: "pose"
             seq_len: 10
@@ -22,7 +23,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 16
+            batch_size: 32
             shuffle: true
             num_workers: 6
             pin_memory: true
@@ -30,9 +31,10 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.AUTSLDataset
+            split_file: "AUTSL/validation_labels.csv"
+            root_dir: "AUTSL/val_poses/"
+            class_mappings_file_path: "AUTSL/SignList_ClassId_TR_EN.csv"
             splits: "test"
             modality: "pose"
             seq_len: 10
@@ -59,8 +61,7 @@ model:
         # cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_dpc.yaml
         #ckpt: /home/iitm/pretrainedCheckpoint/epoch=239-step=377279.ckpt #STGCN750 
         # ckpt: /home/iitm/pretrainedCheckpoint/epoch=257-step=405575.ckpt
-        # ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt             
-        ckpt: /home/iitm/pretrainedCheckpoint/averaged.pth
+        ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt          
       params:
         pred_steps: 3
         graph_args:
@@ -95,12 +96,13 @@ model:
                     [25, 26],
                 ]
 
+
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-5
+            lr: 1e-4
 
     scheduler:
         name: CosineAnnealingLR
@@ -110,26 +112,26 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 30
-    resume_from_checkpoint: /home/iitm/experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/epoch=19-step=4339.ckpt
+    max_epochs: 1000
+    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
 
 exp_manager:
     create_tensorboard_logger: true
     create_wandb_logger: true
     wandb_logger_kwargs:
-        name: "finetuneDecoupledGCN_lr_1e-5_avgd"
-        project: "INCLUDE_With_Pretraining"
+        name: "finetuneWithDecoupledGCN_lr_4_epoch698"
+        project: "AUTSL_With_Pretraining"
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/"
+        dirpath: "experiments/AUTSL/finetuneWithDecoupledGCN_lr_4_epoch698/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 200
+        patience: 100
         verbose: true
         mode: "max"

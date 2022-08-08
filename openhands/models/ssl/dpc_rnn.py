@@ -2,12 +2,14 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from .st_gcn import STModel
+from ..encoder.graph.decoupled_gcn import DecoupledGCN
 
 # Adopted from: https://github.com/TengdaHan/DPC
 
 def load_weights_from_pretrained(model, pretrained_model_path):
     ckpt = torch.load(pretrained_model_path)
-    ckpt_dict = ckpt["state_dict"].items()
+    print(pretrained_model_path)
+    ckpt_dict = ckpt.items()
     pretrained_dict = {k.replace("model.", ""): v for k, v in ckpt_dict}
 
     model_dict = model.state_dict()
@@ -63,16 +65,21 @@ class DPC_RNN_Pretrainer(nn.Module):
         
         self.pred_steps = pred_steps
 
-        self.conv_encoder = STModel(
+        # self.conv_encoder = STModel(
+        #     in_channels=in_channels,
+        #     hidden_channels=hidden_channels,
+        #     hidden_dim=hidden_dim,
+        #     dropout=dropout,
+        #     graph_args=graph_args,
+        #     edge_importance_weighting=edge_importance_weighting,
+        #     **kwargs
+        # )
+        self.conv_encoder = DecoupledGCN(
             in_channels=in_channels,
-            hidden_channels=hidden_channels,
-            hidden_dim=hidden_dim,
-            dropout=dropout,
             graph_args=graph_args,
-            edge_importance_weighting=edge_importance_weighting,
-            **kwargs
+            n_out_features=hidden_dim
         )
-
+        #print("DecoupledGcN------------------->80")
         self.feature_size = hidden_dim
         self.agg = nn.GRU(hidden_dim, self.feature_size, batch_first=True)
         self.network_pred = nn.Sequential(
@@ -201,14 +208,19 @@ class DPC_RNN_Finetuner(nn.Module):
 
         self.pred_steps = pred_steps
         self.num_class = num_class
-        self.conv_encoder = STModel(
+        # self.conv_encoder = STModel(
+        #     in_channels=in_channels,
+        #     hidden_channels=hidden_channels,
+        #     hidden_dim=hidden_dim,
+        #     dropout=dropout,
+        #     graph_args=graph_args,
+        #     edge_importance_weighting=edge_importance_weighting,
+        #     **kwargs
+        # )
+        self.conv_encoder = DecoupledGCN(
             in_channels=in_channels,
-            hidden_channels=hidden_channels,
-            hidden_dim=hidden_dim,
-            dropout=dropout,
             graph_args=graph_args,
-            edge_importance_weighting=edge_importance_weighting,
-            **kwargs
+            n_out_features=hidden_dim
         )
 
         self.feature_size = hidden_dim

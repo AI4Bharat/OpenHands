@@ -8,7 +8,7 @@ from pathlib import Path
 
 from functools import partial
 from ..datasets.ssl.dpc_dataset import *
-from ..models.ssl.dpc_rnn import DPC_RNN_Pretrainer
+from ..models.ssl.dpc_rnn import DPC_RNN_Pretrainer,load_weights_from_pretrained
 
 
 def calc_topk_accuracy(output, target, topk=(1,)):
@@ -71,7 +71,10 @@ class PretrainingModelDPC(pl.LightningModule):
         super().__init__()
         self.cfg = cfg
         self.model = DPC_RNN_Pretrainer(**cfg.model)
-
+        
+        if "pretrained" in self.cfg:
+            self.model = load_weights_from_pretrained(self.model, self.cfg.pretrained)
+        
         if create_model_only:
             return None
 
@@ -81,7 +84,6 @@ class PretrainingModelDPC(pl.LightningModule):
         else:
             self.train_dataset = WindowedDatasetPickle(**cfg.data.train_dataset)
         
-        # TODO: Generalize the below weighted-sampler
         weights = self.train_dataset.get_weights_for_balanced_sampling()
         self.weighted_sampler = torch.utils.data.sampler.WeightedRandomSampler(
             weights, len(weights)
@@ -105,8 +107,10 @@ class PretrainingModelDPC(pl.LightningModule):
         self.loss_fn = nn.CrossEntropyLoss()
 
         self.checkpoint_callback = pl.callbacks.ModelCheckpoint(
-            dirpath=self.output_path, every_n_epochs=1
+            dirpath=self.output_path, every_n_epochs=1,save_last=True,save_top_k=5,monitor="valid_loss",
         )
+        self.resume_from_checkpoint = params.get("resume_from_checkpoint",None)
+        #print("111--->",self.resume_from_checkpoint)
 
     def training_step(self, batch, batch_idx):
         """
@@ -114,6 +118,8 @@ class PretrainingModelDPC(pl.LightningModule):
         passed in as `batch` and calculates the loss and the accuracy.
         """
         input_seq = batch
+        #print("Training---------")
+        #print(input_seq)
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
 
@@ -138,6 +144,8 @@ class PretrainingModelDPC(pl.LightningModule):
         passed in as `batch` and calculates the loss and the accuracy.
         """
         input_seq = batch
+        # print("Validation--------------")
+        # print(input_seq.shape)
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
 
@@ -182,6 +190,7 @@ class PretrainingModelDPC(pl.LightningModule):
             num_workers=self.num_workers,
             drop_last=True,
             pin_memory=True,
+            collate_fn=partial(collate_without_none, dataset=self.valid_dataset),
         )
 
     def configure_optimizers(self):
@@ -202,11 +211,12 @@ class PretrainingModelDPC(pl.LightningModule):
         """
         self.trainer = pl.Trainer(
             gpus=1,
-            precision=16,
+            #precision=16,
             max_epochs=self.max_epochs,
             default_root_dir=self.output_path,
             logger=pl.loggers.WandbLogger(),
             gradient_clip_val=self.hparams.get("gradient_clip_val", 1),
             callbacks=[self.checkpoint_callback],
+            resume_from_checkpoint=self.resume_from_checkpoint,
         )
         self.trainer.fit(self)
