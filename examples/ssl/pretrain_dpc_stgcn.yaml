@@ -33,6 +33,15 @@ data:
 
 model:
   pred_steps: 3
+  encoder:
+    type: st-gcn
+    params:
+      hidden_channels: 64
+      dropout: 0.5
+      edge_importance_weighting: true
+      graph_args:
+        layout: mediapipe-27
+        strategy: spatial
 
 params:
   lr: 1e-4

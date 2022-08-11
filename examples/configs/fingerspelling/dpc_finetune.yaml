@@ -2,17 +2,18 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
-            splits: "train"
-            modality: "pose"
-            seq_len: 10
-            num_seq: 6
+          _target_: openhands.datasets.isolated.fingerspelling.FingerSpellingDataset
+          root_dir: "/datadrive/fingerspelling_dataset"
+          splits: "train"
+          modality: "pose"
+          seq_len: 10
+          num_seq: 6
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
+            - PoseUniformSubsampling:
+                num_frames: 60
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
             - ShearTransform:
@@ -30,17 +31,18 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
-            splits: "test"
-            modality: "pose"
-            seq_len: 10
-            num_seq: 6
+              _target_: openhands.datasets.isolated.fingerspelling.FingerSpellingDataset
+              root_dir: "/datadrive/fingerspelling_dataset"
+              splits: "test"
+              modality: "pose"
+              seq_len: 10
+              num_seq: 6
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
+            - PoseUniformSubsampling:
+                num_frames: 60
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
 
@@ -51,20 +53,20 @@ data:
             num_workers: 8
             pin_memory: true
             drop_last: false
-
+    
 model:
     pretrained:
       type: dpc
       load_from:
-        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_decoupled_gcn.yaml
-        ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt
+        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_stgcn.yaml
+        ckpt: /datadrive/PretrainedCheckpoints/epoch=499-step=308499.ckpt
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-5
+            lr: 1e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -74,26 +76,26 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 30
-    resume_from_checkpoint: /home/iitm/experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/epoch=19-step=4339.ckpt
+    max_epochs: 500
+    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
 
 exp_manager:
     create_tensorboard_logger: true
     create_wandb_logger: true
     wandb_logger_kwargs:
-        name: "finetuneDecoupledGCN_lr_1e-5_avgd"
-        project: "INCLUDE_With_Pretraining"
+        name: "finetune_raw_dpc_60Uniformsubsampling_ase"
+        project: "fingerspelling"
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/"
+        dirpath: "experiments/fingerspelling/pretraining/finetune_raw_dpc_60Uniformsubsampling_ase/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 200
+        patience: 100
         verbose: true
         mode: "max"

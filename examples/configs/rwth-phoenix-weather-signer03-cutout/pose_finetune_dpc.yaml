@@ -8,30 +8,26 @@ data:
             class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.data.corpus"
             splits: "train"
             modality: "pose"
+            seq_len: 10
+            num_seq: 6
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseTemporalSubsample:
-            #       num_frames: 32
-            # - RandomMove:
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
-                scale_factor: 1
             - ShearTransform:
                 shear_std: 0.1
             - RotatationTransform:
                 rotation_std: 0.1
-            # - ScaleTransform:
-            #     scale_std: 0.2
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 64
+            batch_size: 32
             shuffle: true
             num_workers: 6
             pin_memory: true
-            drop_last: true
+            # drop_last: true
 
     valid_pipeline:
         dataset:
@@ -41,74 +37,65 @@ data:
             class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/rwth_phoenix_weather_signer03_cutout_metadata/RWTH-PHOENIX-Weather-Signer03-cutout.data.corpus"
             splits: "test"
             modality: "pose"
+            seq_len: 10
+            num_seq: 6
 
         transforms:
             - PoseSelect:
                 preset: mediapipe_holistic_minimal_27
-            # - PoseTemporalSubsample:
-            #       num_frames: 32
             - CenterAndScaleNormalize:
                 reference_points_preset: shoulder_mediapipe_holistic_minimal_27
-                scale_factor: 1
 
         dataloader:
             _target_: torch.utils.data.DataLoader
             batch_size: 32
             shuffle: false
-            num_workers: 6
+            num_workers: 8
             pin_memory: true
             drop_last: false
 
 model:
-    encoder:
-        type: pose-flattener
-        params:
-            num_points: 27
-    decoder:
-        type: bert
-        params:
-            max_position_embeddings: 256
-            layer_norm_eps: 1e-12
-            hidden_dropout_prob: 0.1
-            hidden_size: 128
-            num_attention_heads: 8
-            num_hidden_layers: 3
-            cls_token: true
+    pretrained:
+      type: dpc
+      load_from:
+        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_decoupled_gcn.yaml
+        ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-4
+            lr: 1e-5
 
     scheduler:
         name: CosineAnnealingLR
         params:
             last_epoch: -1
-            T_max: 10
+            T_max: 20
 
 trainer:
-    gpus: 1
-    max_epochs: 1500
+    gpus: [1]
+    max_epochs: 1000
+    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
 
 exp_manager:
     create_tensorboard_logger: true
-    create_wandb_logger: false
+    create_wandb_logger: true
     wandb_logger_kwargs:
-        name: null
-        project: null
+        name: "finetuneWithdecoupledgcn_lr5_epoch698"
+        project: "rwth_With_Pretraining"
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/rwth-phoenix-weather-signer03-cutout/pose_transformer/"
+        dirpath: "experiments/rwth/finetuneWithdecoupledgcn_lr5_epoch698/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 100
+        patience: 200
         verbose: true
         mode: "max"

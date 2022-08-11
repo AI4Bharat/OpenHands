@@ -2,9 +2,9 @@ data:
     modality: "pose"
     train_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.bosphorus22k.Bosphorus22kDataset
+            class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/bosphorus22k_metadata/BosphorusSign22k.csv"
+            root_dir: "/home/iitm/data/BosphorusSign22k/PKL_POSES"
             splits: "train"
             modality: "pose"
             seq_len: 10
@@ -30,9 +30,9 @@ data:
 
     valid_pipeline:
         dataset:
-            _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/iitm/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
+            _target_: openhands.datasets.isolated.bosphorus22k.Bosphorus22kDataset
+            class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/bosphorus22k_metadata/BosphorusSign22k.csv"
+            root_dir: "/home/iitm/data/BosphorusSign22k/PKL_POSES"
             splits: "test"
             modality: "pose"
             seq_len: 10
@@ -46,7 +46,7 @@ data:
 
         dataloader:
             _target_: torch.utils.data.DataLoader
-            batch_size: 32
+            batch_size: 16
             shuffle: false
             num_workers: 8
             pin_memory: true
@@ -64,7 +64,7 @@ optim:
     optimizer:
         name: Adam
         params:
-            lr: 1e-5
+            lr: 1e-3
 
     scheduler:
         name: CosineAnnealingLR
@@ -74,26 +74,26 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 30
-    resume_from_checkpoint: /home/iitm/experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/epoch=19-step=4339.ckpt
+    max_epochs: 1000
+    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
 
 exp_manager:
     create_tensorboard_logger: true
     create_wandb_logger: true
     wandb_logger_kwargs:
-        name: "finetuneDecoupledGCN_lr_1e-5_avgd"
-        project: "INCLUDE_With_Pretraining"
+        name: "finetuneWithDeCoupledGCN_1e-3_bs16_epoch698"
+        project: "bosphorus_With_Pretraining"
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
-        dirpath: "experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/"
+        dirpath: "experiments/boshphorus/finetuneWithDeCoupledGCN_1e-3_bs16_epoch698/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 200
+        patience: 100
         verbose: true
         mode: "max"
