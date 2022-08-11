@@ -1,0 +1,52 @@
+data:
+  train_dataset:
+    root_dir: /home/gokulnc/data-disk/datasets/SSL/HDF5/
+    file_format: h5
+    num_channels: 2
+    seq_len: 10
+    num_seq: 7
+    downsample: 3
+    
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_minimal_27
+      - CenterAndScaleNormalize:
+          reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+      - ShearTransform:
+          shear_std: 0.1
+      - RotatationTransform:
+          rotation_std: 0.1
+  
+  val_dataset:
+    root_dir: /home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs/
+    file_format: pkl
+    num_channels: 2
+    seq_len: 10
+    num_seq: 6
+    downsample: 1
+
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_minimal_27
+      - CenterAndScaleNormalize:
+          reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+
+model:
+  pred_steps: 3
+  encoder:
+    type: st-gcn
+    params:
+      hidden_channels: 64
+      dropout: 0.5
+      edge_importance_weighting: true
+      graph_args:
+        layout: mediapipe-27
+        strategy: spatial
+
+params:
+  lr: 1e-4
+  max_epochs: 500
+  batch_size: 128
+  num_workers: 6
+  val_sanity_checks: 0
+  output_path: "model-outputs"

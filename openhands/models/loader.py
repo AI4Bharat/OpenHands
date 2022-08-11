@@ -84,10 +84,12 @@ def load_decoder(decoder_cfg, num_class, encoder):
 def load_ssl_backbone(cfg, in_channels, num_class):
     if cfg.type == 'dpc':
         from .ssl.dpc_rnn import DPC_RNN_Finetuner, load_weights_from_pretrained
+        # Load pretraining config
+        ssl_cfg = omegaconf.OmegaConf.load(cfg.load_from.cfg_file)
+        cfg.in_channels = in_channels
         # Create model
-        model = DPC_RNN_Finetuner(in_channels=in_channels, num_class=num_class, **cfg.params)
+        model = DPC_RNN_Finetuner(num_class=num_class, **cfg.model)
         # Load weights
-        # ssl_cfg = omegaconf.OmegaConf.load(cfg.load_from.cfg_file)
         model = load_weights_from_pretrained(model, cfg.load_from.ckpt)
         return model
     else:

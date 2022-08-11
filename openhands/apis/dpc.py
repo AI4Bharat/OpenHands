@@ -110,7 +110,6 @@ class PretrainingModelDPC(pl.LightningModule):
             dirpath=self.output_path, every_n_epochs=1,save_last=True,save_top_k=5,monitor="valid_loss",
         )
         self.resume_from_checkpoint = params.get("resume_from_checkpoint",None)
-        #print("111--->",self.resume_from_checkpoint)
 
     def training_step(self, batch, batch_idx):
         """
@@ -118,8 +117,6 @@ class PretrainingModelDPC(pl.LightningModule):
         passed in as `batch` and calculates the loss and the accuracy.
         """
         input_seq = batch
-        #print("Training---------")
-        #print(input_seq)
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
 
@@ -144,8 +141,6 @@ class PretrainingModelDPC(pl.LightningModule):
         passed in as `batch` and calculates the loss and the accuracy.
         """
         input_seq = batch
-        # print("Validation--------------")
-        # print(input_seq.shape)
         B = input_seq.size(0)
         [score_, mask_] = self.model(input_seq.float())
 

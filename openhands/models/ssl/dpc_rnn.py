@@ -8,7 +8,6 @@ from ..encoder.graph.decoupled_gcn import DecoupledGCN
 
 def load_weights_from_pretrained(model, pretrained_model_path):
     ckpt = torch.load(pretrained_model_path)
-    print(pretrained_model_path)
     ckpt_dict = ckpt.items()
     pretrained_dict = {k.replace("model.", ""): v for k, v in ckpt_dict}
 
@@ -54,32 +53,28 @@ class DPC_RNN_Pretrainer(nn.Module):
         self,
         pred_steps=3,
         in_channels=2,
-        hidden_channels=64,
         hidden_dim=256,
-        dropout=0.5,
-        graph_args={"layout": "mediapipe-27", "strategy": "spatial"},
-        edge_importance_weighting=True,
-        **kwargs
+        encoder,
     ):
         super().__init__()
         
         self.pred_steps = pred_steps
 
-        # self.conv_encoder = STModel(
-        #     in_channels=in_channels,
-        #     hidden_channels=hidden_channels,
-        #     hidden_dim=hidden_dim,
-        #     dropout=dropout,
-        #     graph_args=graph_args,
-        #     edge_importance_weighting=edge_importance_weighting,
-        #     **kwargs
-        # )
-        self.conv_encoder = DecoupledGCN(
-            in_channels=in_channels,
-            graph_args=graph_args,
-            n_out_features=hidden_dim
-        )
-        #print("DecoupledGcN------------------->80")
+        if encoder.type == "st-gcn":
+            self.conv_encoder = STModel(
+                in_channels=in_channels,
+                hidden_dim=hidden_dim,
+                **encoder.params
+            )
+        elif encoder.type == "decoupled-gcn":
+            self.conv_encoder = DecoupledGCN(
+                in_channels=in_channels,
+                n_out_features=hidden_dim,
+                **encoder.params
+            )
+        else:
+            raise NotImplementedError("Unknown encoder: "+ encoder.type)
+        
         self.feature_size = hidden_dim
         self.agg = nn.GRU(hidden_dim, self.feature_size, batch_first=True)
         self.network_pred = nn.Sequential(
@@ -197,31 +192,31 @@ class DPC_RNN_Finetuner(nn.Module):
         num_class=60,
         pred_steps=2,
         in_channels=2,
-        hidden_channels=64,
         hidden_dim=256,
-        dropout=0.5,
-        graph_args={"layout": "mediapipe-27", "strategy": "spatial"},
-        edge_importance_weighting=True,
-        **kwargs
+        encoder,
+        # graph_args={"layout": "mediapipe-27", "strategy": "spatial"},
     ):
         super().__init__()
 
+        # TODO: Build on top of `DPC_RNN_Pretrainer` instead of writing again
+
         self.pred_steps = pred_steps
         self.num_class = num_class
-        # self.conv_encoder = STModel(
-        #     in_channels=in_channels,
-        #     hidden_channels=hidden_channels,
-        #     hidden_dim=hidden_dim,
-        #     dropout=dropout,
-        #     graph_args=graph_args,
-        #     edge_importance_weighting=edge_importance_weighting,
-        #     **kwargs
-        # )
-        self.conv_encoder = DecoupledGCN(
-            in_channels=in_channels,
-            graph_args=graph_args,
-            n_out_features=hidden_dim
-        )
+
+        if encoder.type == "st-gcn":
+            self.conv_encoder = STModel(
+                in_channels=in_channels,
+                hidden_dim=hidden_dim,
+                **encoder.params
+            )
+        elif encoder.type == "decoupled-gcn":
+            self.conv_encoder = DecoupledGCN(
+                in_channels=in_channels,
+                n_out_features=hidden_dim,
+                **encoder.params
+            )
+        else:
+            raise NotImplementedError("Unknown encoder: "+ encoder.type)
 
         self.feature_size = hidden_dim
         self.agg = nn.GRU(hidden_dim, self.feature_size, batch_first=True)

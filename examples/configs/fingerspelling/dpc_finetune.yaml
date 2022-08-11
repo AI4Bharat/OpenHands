@@ -58,10 +58,8 @@ model:
     pretrained:
       type: dpc
       load_from:
-        # cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_dpc.yaml
+        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_stgcn.yaml
         ckpt: /datadrive/PretrainedCheckpoints/epoch=499-step=308499.ckpt
-      params:
-        pred_steps: 2
 
 optim:
     loss: 'CrossEntropyLoss'
