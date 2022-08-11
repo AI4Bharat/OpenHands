@@ -85,10 +85,10 @@ def load_ssl_backbone(cfg, in_channels, num_class):
     if cfg.type == 'dpc':
         from .ssl.dpc_rnn import DPC_RNN_Finetuner, load_weights_from_pretrained
         # Load pretraining config
-        ssl_cfg = omegaconf.OmegaConf.load(cfg.load_from.cfg_file)
-        cfg.in_channels = in_channels
+        pretraining_cfg = omegaconf.OmegaConf.load(cfg.load_from.cfg_file)
+        pretraining_cfg.in_channels = in_channels
         # Create model
-        model = DPC_RNN_Finetuner(num_class=num_class, **cfg.model)
+        model = DPC_RNN_Finetuner(num_class=num_class, **pretraining_cfg.model)
         # Load weights
         model = load_weights_from_pretrained(model, cfg.load_from.ckpt)
         return model
