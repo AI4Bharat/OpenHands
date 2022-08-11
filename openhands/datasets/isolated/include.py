@@ -1,4 +1,5 @@
 import os
+import re
 import pandas as pd
 from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
@@ -13,15 +14,19 @@ class INCLUDEDataset(BaseIsolatedDataset):
     lang_code = "ins"
 
     def read_glosses(self):
-        # TODO: Separate the classes into a separate file?
+        # TODO: Move the classes into a separate file inorder to avoid sorting
         df = pd.read_csv(self.split_file)
-        self.glosses = sorted({df["Word"][i].strip() for i in range(len(df))})
+        self.glosses = sorted({df["Word"][i] for i in range(len(df))})
+
+        # # Remove serial numbers from gloss names
+        # # We are removing it after sorting, because the models we released have classes in the above order
+        # self.glosses = [re.sub("\d+\.", '', gloss).strip().upper() for gloss in self.glosses]
+        # # Nevermind, this creates issue at `read_original_dataset()`
 
     def read_original_dataset(self):
         df = pd.read_csv(self.split_file)
         for i in range(len(df)):
-            gloss_cat = self.label_encoder.transform([df["Word"][i]])[0]
-            instance_entry = df["FilePath"][i], gloss_cat
+            instance_entry = df["FilePath"][i], self.gloss_to_id[df["Word"][i]]
 
             video_path = os.path.join(self.root_dir, df["FilePath"][i])
             # TODO: Replace extension with pkl for pose modality?
@@ -29,7 +34,7 @@ class INCLUDEDataset(BaseIsolatedDataset):
                 print(f"Video not found: {video_path}")
                 continue
             if "/Second (Number)/" in video_path:
-                print(f"WARNING: Skipping {video_path} assuming no present")
+                print(f"WARNING: Skipping {video_path} assuming not present")
                 continue
 
             self.data.append(instance_entry)

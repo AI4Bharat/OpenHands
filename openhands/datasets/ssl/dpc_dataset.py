@@ -45,14 +45,12 @@ class WindowedDatasetHDF5(torch.utils.data.DataLoader):
 
         h5_files = glob.glob(os.path.join(root_dir, "**", f"*.{file_format}"), recursive=True)
 
-        self.h5_indexes = []
         for h5_index, h5_file in enumerate(h5_files):
             hf = h5py.File(h5_file, "r")
             self.hdf5_files.append(hf)
 
             for data_name in list(hf["keypoints"].keys()):
                 self.data_list.append((h5_index, data_name))
-                self.h5_indexes.append(h5_index)
 
     def __len__(self):
         return len(self.data_list)
@@ -107,20 +105,11 @@ class WindowedDatasetHDF5(torch.utils.data.DataLoader):
         return t_seq
 
     def get_weights_for_balanced_sampling(self):
-        probs = {
-            "newshook": 0.6,
-            "sign_library_1_min": 0.2,
-            "sign_library_sub_based": 0.15,
-            "ish-sub": 0.15,
-            "ish-1_min": 0.2,
-            "nios": 0.2,
-            "mbm": 0.2,
-        }
-
-        keys_list = list(probs.values())
-        weights = [0] * len(self.h5_indexes)
-        for i, j in enumerate(self.h5_indexes):
-            weights[i] = keys_list[j]
+        max_frames = 1*60*60*25 # Assuming 1hr at 25fps
+        weights = [0] * len(self.data_list)
+        for i in range(len(self.data_list)):
+            num_frames = self.load_pose_from_h5(i).shape[0]
+            weights[i] = min(num_frames / max_frames, 1.0)
         return torch.DoubleTensor(weights)
 
 

@@ -3,8 +3,8 @@ data:
     train_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/train_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            split_file: "/home/iitm/INCLUDE/Train_Test_Split/train_include.csv"
+            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
             splits: "train"
             modality: "pose"
             seq_len: 10
@@ -31,8 +31,8 @@ data:
     valid_pipeline:
         dataset:
             _target_: openhands.datasets.isolated.INCLUDEDataset
-            split_file: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Train_Test_Split/test_include.csv"
-            root_dir: "/home/gokulnc/data-disk/datasets/Indian/INCLUDE/Pose_Signs"
+            split_file: "/home/iitm/INCLUDE/Train_Test_Split/test_include.csv"
+            root_dir: "/home/iitm/INCLUDE/Pose_Signs"
             splits: "test"
             modality: "pose"
             seq_len: 10
@@ -56,17 +56,15 @@ model:
     pretrained:
       type: dpc
       load_from:
-        # cfg_file: /home/gokulnc/SLR/examples/ssl/pretrain_dpc.yaml
-        ckpt: /home/gokulnc/openhands/outputs/DPC-outputs-augs-new-pred-4/epoch=114-step=70954.ckpt
-      params:
-        pred_steps: 2
+        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_decoupled_gcn.yaml
+        ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt
 
 optim:
     loss: 'CrossEntropyLoss'
     optimizer:
         name: Adam
         params:
-            lr: 1e-3
+            lr: 1e-5
 
     scheduler:
         name: CosineAnnealingLR
@@ -76,25 +74,26 @@ optim:
 
 trainer:
     gpus: 1
-    max_epochs: 500
-    # resume_from_checkpoint: /home/gokulnc/openhands/openhands_experiments/INCLUDE/BERT-Fine-tuned-full/epoch=1493-step=82169.ckpt
+    max_epochs: 30
+    resume_from_checkpoint: /home/iitm/experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/epoch=19-step=4339.ckpt
 
 exp_manager:
     create_tensorboard_logger: true
-    create_wandb_logger: false
+    create_wandb_logger: true
     wandb_logger_kwargs:
-        name: null
-        project: null
+        name: "finetuneDecoupledGCN_lr_1e-5_avgd"
+        project: "INCLUDE_With_Pretraining"
 
     create_checkpoint_callback: true
     checkpoint_callback_params:
         monitor: "val_acc"
         mode: "max"
         save_top_k: 3
+        dirpath: "experiments/INCLUDE/finetuneDecoupledGCN_lr_1e-4_avgd/"
 
     early_stopping_callback: true
     early_stopping_params:
         monitor: "val_acc"
-        patience: 100
+        patience: 200
         verbose: true
         mode: "max"

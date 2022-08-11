@@ -20,14 +20,12 @@ class WLASLDataset(BaseIsolatedDataset):
     def read_original_dataset(self):
         for gloss_entry in self.content:
             gloss, instances = gloss_entry["gloss"], gloss_entry["instances"]
-            gloss_cat = self.label_encoder.transform([gloss])[0]
 
             for instance in instances:
                 if instance["split"] not in self.splits:
                     continue
 
-                video_id = instance["video_id"]
-                instance_entry = video_id, gloss_cat
+                instance_entry = instance["video_id"], self.gloss_to_id[gloss]
                 self.data.append(instance_entry)
 
     def read_video_data(self, index):

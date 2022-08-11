@@ -1,0 +1,99 @@
+data:
+  train_dataset:
+    root_dir: /home/iitm/raw_datasets/
+    file_format: h5
+    num_channels: 2
+    seq_len: 10
+    num_seq: 7
+    downsample: 1
+    
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_minimal_27
+      - CenterAndScaleNormalize:
+          reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+      - ShearTransform:
+          shear_std: 0.1
+      - RotatationTransform:
+          rotation_std: 0.1
+  
+  val_dataset:
+    root_dir: /home/iitm/data/INCLUDE/Pose_Signs/
+    file_format: pkl
+    num_channels: 2
+    seq_len: 10
+    num_seq: 7
+    downsample: 1
+    
+    transforms:
+      - PoseSelect:
+          preset: mediapipe_holistic_minimal_27
+      # - CenterAndScaleNormalize:
+      #     reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+      - ShearTransform:
+          shear_std: 0.1
+      - RotatationTransform:
+          rotation_std: 0.1
+
+  # val_dataset:
+  #   root_dir: ../../data/WLASL/poses_pickle/
+  #   file_format: pkl
+  #   num_channels: 2
+  #   seq_len: 10
+  #   num_seq: 6
+  #   downsample: 1
+
+  #   transforms:
+  #     - PoseSelect:
+  #         preset: mediapipe_holistic_minimal_27
+  #     - CenterAndScaleNormalize:
+  #         reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+
+model:
+   pred_steps: 3
+   encoder:
+    type: decoupled-gcn
+    params:
+      graph_args:
+        num_nodes: 27
+        inward_edges:
+          [
+              [2, 0],
+              [1, 0],
+              [0, 3],
+              [0, 4],
+              [3, 5],
+              [4, 6],
+              [5, 7],
+              [6, 17],
+              [7, 8],
+              [7, 9],
+              [9, 10],
+              [7, 11],
+              [11, 12],
+              [7, 13],
+              [13, 14],
+              [7, 15],
+              [15, 16],
+              [17, 18],
+              [17, 19],
+              [19, 20],
+              [17, 21],
+              [21, 22],
+              [17, 23],
+              [23, 24],
+              [17, 25],
+              [25, 26],
+          ]
+
+params:
+  lr: 1e-4
+  max_epochs: 1500
+  batch_size: 128
+  num_workers: 6
+  val_sanity_checks: 0
+  output_path: "model-outputs_A100"
+  # resume_from_checkpoint : "/home/iitm/model-outputs_A100/last.ckpt"
+
+
+

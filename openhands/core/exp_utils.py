@@ -71,6 +71,10 @@ def configure_checkpointing(trainer, cfg):
     """
     Creates ModelCheckpoint callback and and attach it to the trainer.
     """
+
+    # Remove existing callback if any
+    trainer.callbacks = [callback for callback in trainer.callbacks if type(callback) is not ModelCheckpoint]
+    
     checkpoint_callback = ModelCheckpoint(**cfg)#, dirpath=trainer._default_root_dir)
     trainer.callbacks.append(checkpoint_callback)
 
@@ -79,5 +83,9 @@ def configure_early_stopping(trainer, cfg):
     """
     Creates EarlyStopping callback and and attach it to the trainer.
     """
+
+    # Remove existing callback if any
+    trainer.callbacks = [callback for callback in trainer.callbacks if type(callback) is not EarlyStopping]
+
     early_stopping_callback = EarlyStopping(**cfg)
     trainer.callbacks.append(early_stopping_callback)

@@ -86,6 +86,9 @@ class ClassificationModel(InferenceModel):
             params=self.model.parameters(), **optimizer_params
         )
 
+        if "scheduler" not in conf:
+            return [optimizer]
+
         scheduler_conf = conf["scheduler"]
         scheduler_name = scheduler_conf.get("name")
         scheduler_params = {}

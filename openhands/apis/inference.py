@@ -23,8 +23,9 @@ class InferenceModel(pl.LightningModule):
         self.datamodule.setup(stage=stage)
 
         self.model = self.create_model(cfg.model)
+        self._device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         if stage == "test":
-            self.model.to('cpu').eval()
+            self.model.to(self._device).eval()
     
     def create_model(self, cfg):
         """
@@ -61,11 +62,14 @@ class InferenceModel(pl.LightningModule):
 
         for batch in dataloader:
             start_time = time.time()
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
 
             class_indices = torch.argmax(y_hat, dim=-1)
-            class_labels = self.datamodule.test_dataset.label_encoder.inverse_transform(class_indices)
-            for filename, label in zip(batch["files"], class_labels):
+
+            for i, pred_index in enumerate(class_indices):
+                # label = self.datamodule.test_dataset.id_to_gloss[pred_index]
+                label = dataloader.dataset.id_to_gloss[pred_index]
+                filename = batch["files"][i]
                 print(f"{label}:\t{filename}")
             
             total_time_taken += time.time() - start_time
@@ -81,14 +85,33 @@ class InferenceModel(pl.LightningModule):
         assert not self.datamodule.test_dataset.inference_mode
         # TODO: Write output to a csv
         dataloader = self.datamodule.test_dataloader()
-        #print(len(dataloader.dataset))
-        scores = []
+        dataset_scores, class_scores = {}, {}
         for batch_idx, batch in tqdm(enumerate(dataloader), unit="batch"):
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
             class_indices = torch.argmax(y_hat, dim=-1)
-            for pred_index, gt_index in zip(class_indices, batch["labels"]):
-                scores.append(pred_index == gt_index)
-        print(f"Accuracy for {len(scores)} samples: {100*sum(scores)/len(scores)}%")
+            for i, (pred_index, gt_index) in enumerate(zip(class_indices, batch["labels"])):
+
+                dataset_name = batch["dataset_names"][i]
+                score = pred_index == gt_index
+                
+                if dataset_name not in dataset_scores:
+                    dataset_scores[dataset_name] = []
+                dataset_scores[dataset_name].append(score)
+
+                if gt_index not in class_scores:
+                    class_scores[gt_index] = []
+                class_scores[gt_index].append(score)
+        
+        
+        for dataset_name, score_array in dataset_scores.items():
+            dataset_accuracy = sum(score_array)/len(score_array)
+            print(f"Accuracy for {len(score_array)} samples in {dataset_name}: {dataset_accuracy*100}%")
+
+
+        classwise_accuracies = {class_index: sum(scores)/len(scores) for class_index, scores in class_scores.items()}
+        avg_classwise_accuracies = sum(classwise_accuracies.values()) / len(classwise_accuracies)
+
+        print(f"Average of class-wise accuracies: {avg_classwise_accuracies*100}%")
     
     def compute_test_avg_class_accuracy(self):
         """
@@ -102,15 +125,14 @@ class InferenceModel(pl.LightningModule):
         all_class_indices=[]
         all_batch_labels=[]
         for batch_idx, batch in tqdm(enumerate(dataloader),unit="batch"):
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
             class_indices = torch.argmax(y_hat, dim=-1)
 
-            #print(len(class_indices))
             for i in range(len(batch["labels"])):
                 all_batch_labels.append(batch["labels"][i])
                 all_class_indices.append(class_indices[i])
             for pred_index, gt_index in zip(class_indices, batch["labels"]):
                 scores.append(pred_index == gt_index)
-        cm = confusion_matrix(np.array(all_batch_labels),np.array(all_class_indices))
+        cm = confusion_matrix(np.array(all_batch_labels), np.array(all_class_indices))
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
         print(f"Average Class Accuracy for {len(all_batch_labels)} samples: {np.mean(cm.diagonal())*100}%")

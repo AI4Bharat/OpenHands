@@ -1,5 +1,6 @@
 import os
 from glob import glob
+import pandas as pd
 from .base import BaseIsolatedDataset
 from ..data_readers import load_frames_from_video
 
@@ -14,7 +15,7 @@ class CSLDataset(BaseIsolatedDataset):
 
     def read_glosses(self):
         self.glosses = []
-        with open(self.split_file, encoding="utf-8") as f:
+        with open(self.class_mappings_file_path, encoding="utf-8") as f:
             for i, line in enumerate(f):
                 self.glosses.append(line.strip())
 
@@ -39,20 +40,38 @@ class CSLDataset(BaseIsolatedDataset):
         else:
             raise ValueError("Unsupported modality: " + self.modality)
 
-        video_files_path = os.path.join(self.root_dir, "**", "*" + format)
-        video_files = glob(video_files_path, recursive=True)
-        if not video_files:
-            exit(f"No videos files found for: {video_files_path}")
+        if self.split_file:
+            df = pd.read_csv(self.split_file)
+            for i in range(len(df)):
+                video_path = df["video_path"][i]
+                video_file = os.path.join(self.root_dir, video_path)
 
-        for video_file in video_files:
-            gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
-            signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
+                if "pose" in self.modality:
+                    video_file = video_file.replace(".mp4", format)
 
-            if (signer_id <= 35 and "train" in self.splits) or (
-                signer_id > 35 and "test" in self.splits
-            ):
+                if not os.path.isfile(video_file):
+                    raise FileNotFoundError(video_file)
+
+                gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
+
                 instance_entry = video_file, gloss_id
                 self.data.append(instance_entry)
+        else:
+            # Dynamically enumerate from the given directory
+            video_files_path = os.path.join(self.root_dir, "**", "*" + format)
+            video_files = glob(video_files_path, recursive=True)
+            if not video_files:
+                exit(f"No videos files found for: {video_files_path}")
+
+            for video_file in video_files:
+                gloss_id = int(video_file.replace("\\", "/").split("/")[-2])
+                signer_id = int(os.path.basename(video_file).split("_")[0].replace("P", ""))
+
+                if (signer_id <= 35 and "train" in self.splits) or (
+                    signer_id > 35 and ("test" in self.splits or "val" in self.splits)
+                ):
+                    instance_entry = video_file, gloss_id
+                    self.data.append(instance_entry)
 
     def read_video_data(self, index):
         video_name, label = self.data[index]

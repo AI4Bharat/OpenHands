@@ -1,0 +1,102 @@
+data:
+    modality: "pose"
+    train_pipeline:
+        dataset:
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/iitm/OpenHands/openhands/datasets/assets/devisign_metadata/split.train.csv"
+            class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "DEVISIGN/poses_pickled"
+            splits: "train"
+            modality: "pose"
+            seq_len: 10
+            num_seq: 6
+
+        transforms:
+            - PoseSelect:
+                preset: mediapipe_holistic_minimal_27
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+            - ShearTransform:
+                shear_std: 0.1
+            - RotatationTransform:
+                rotation_std: 0.1
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 64
+            shuffle: true
+            num_workers: 6
+            pin_memory: true
+            # drop_last: true
+
+    valid_pipeline:
+        dataset:
+            _target_: openhands.datasets.isolated.DeviSignDataset
+            split_file: "/home/iitm/OpenHands/openhands/datasets/assets/devisign_metadata/split.test.csv"
+            class_mappings_file_path: "/home/iitm/OpenHands/openhands/datasets/assets/devisign_metadata/Documents/4414To2000(DEVISIGN_L)_ID&Meaning.txt"
+            root_dir: "DEVISIGN/poses_pickled"
+            splits: "test"
+            modality: "pose"
+            seq_len: 10
+            num_seq: 6
+
+        transforms:
+            - PoseSelect:
+                preset: mediapipe_holistic_minimal_27
+            - CenterAndScaleNormalize:
+                reference_points_preset: shoulder_mediapipe_holistic_minimal_27
+
+        dataloader:
+            _target_: torch.utils.data.DataLoader
+            batch_size: 64
+            shuffle: false
+            num_workers: 8
+            pin_memory: true
+            drop_last: false
+
+model:
+    pretrained:
+      type: dpc
+      load_from:
+        cfg_file: /home/iitm/OpenHands/examples/ssl/pretrain_dpc_decoupled_gcn.yaml
+        ckpt: /home/iitm/pretrainedCheckpoint/epoch=698-step=1098827.ckpt
+
+optim:
+    loss: 'CrossEntropyLoss'
+    optimizer:
+        name: Adam
+        params:
+            lr: 1e-4
+
+    scheduler:
+        name: ReduceLROnPlateau
+        # params:
+        #     mode: min
+        #     # last_epoch: -1
+        #     # T_max: 20
+    monitor: train_loss
+trainer:
+    gpus: 1
+    max_epochs: 1000
+    #resume_from_checkpoint: /home/iitm/experiments/DEVISIGN/checkpoints_for_varying_learning_rate/epoch=141-step=70999.ckpt 
+
+exp_manager:
+    create_tensorboard_logger: true
+    create_wandb_logger: true
+    wandb_logger_kwargs:
+        name: "multilingualpretrainingfinetuneDecoupledGCN_1e-4_bs_64_averaged_ReducedLR"
+        project: "DEVISIGN_With_Pretraining"
+
+    create_checkpoint_callback: true
+    checkpoint_callback_params:
+        monitor: "val_acc"
+        mode: "max"
+        save_top_k: 3
+        dirpath: "experiments/DEVISIGN/multilingualpretrainingfinetuneDecoupledGCN_1e-4_bs_64_averaged_ReducedLR/"
+
+    early_stopping_callback: true
+    early_stopping_params:
+        monitor: "val_acc"
+        patience: 100
+        verbose: true
+        mode: "max"
