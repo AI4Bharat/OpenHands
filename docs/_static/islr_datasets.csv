@@ -1,0 +1,12 @@
+Dataset,Sign Language,Download Pose Data
+:class:`~openhands.datasets.isolated.ASLLVDDataset`,`American <https://www.cin.ufpe.br/~cca5/asllvd-skeleton/>`_,`0.3GB <https://zenodo.org/record/6674324/files/ASLLVD-Skeleton.zip?download=1>`_
+:class:`~openhands.datasets.isolated.AUTSLDataset`,`Turkish <https://chalearnlap.cvc.uab.cat/dataset/40/description/>`_,`2.2GB <https://zenodo.org/record/6674324/files/AUTSL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.Bosphorus22kDataset`,`Turkish <https://www.cmpe.boun.edu.tr/pilab/BosphorusSign/home_en.html>`_,Not public
+:class:`~openhands.datasets.isolated.CSLDataset`,`Chinese <http://home.ustc.edu.cn/~pjh/openresources/cslr-dataset-2015/index.html>`_,Not public
+:class:`~openhands.datasets.isolated.DeviSignDataset`,`Chinese <http://vipl.ict.ac.cn/homepage/ksl/data.html>`_,Not public
+:class:`~openhands.datasets.isolated.GSLDataset`,`Greek <https://vcl.iti.gr/dataset/gsl/>`_,`0.7GB <https://zenodo.org/record/6674324/files/GSL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.INCLUDEDataset`,`Indian <https://sign-language.ai4bharat.org/#/INCLUDE>`_,`0.6GB <https://zenodo.org/record/6674324/files/INCLUDE.zip?download=1>`_
+:class:`~openhands.datasets.isolated.LSA64Dataset`,`Argentinian <http://facundoq.github.io/datasets/lsa64/>`_,`0.2GB <https://zenodo.org/record/6674324/files/LSA64_Cut.zip?download=1>`_
+:class:`~openhands.datasets.isolated.MSASLDataset`,`American <https://www.microsoft.com/en-us/research/project/ms-asl/downloads/>`_,`1.3GB <https://zenodo.org/record/6674324/files/MS-ASL.zip?download=1>`_
+:class:`~openhands.datasets.isolated.RWTH_Phoenix_Signer03_Dataset`,`German <https://www-i6.informatik.rwth-aachen.de/web/Software/Databases/Signlanguage/details/rwth-phoenix/index.php>`_,`0.03GB <https://zenodo.org/record/6674324/files/RWTH-PHOENIX-Weather-Signer03-cutout.zip?download=1>`_
+:class:`~openhands.datasets.isolated.WLASLDataset`,`American <https://dxli94.github.io/WLASL/>`_,`1GB <https://zenodo.org/record/6674324/files/WLASL.zip?download=1>`_

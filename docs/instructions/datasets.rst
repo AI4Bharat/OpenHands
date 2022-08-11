@@ -1,4 +1,4 @@
-Datasets
+ISLR Datasets
 ========
 
 This section describes the list of all supported pose-based ISLR datasets available for training, as well as instructions on how to add support for your own dataset for training.
@@ -9,7 +9,7 @@ Supported Datasets
 The following pose datasets are available out-of-the-box.
 
 .. csv-table::
-   :file: ../_static/datasets.csv
+   :file: ../_static/islr_datasets.csv
    :header-rows: 1
 
 Usage
@@ -47,3 +47,17 @@ To add support for your own dataset, create a class of the following structure:
 
 - For implementation examples, check `this folder in the source code <https://github.com/AI4Bharat/OpenHands/tree/main/openhands/datasets/isolated>`_
 - This class can now be referenced in your config file appropriately, and used for training or inference.
+
+Finger-spelling Datasets
+========
+
+This section describes the list of all supported pose-based finger-spelling datasets available.
+
+Supported Datasets
+------------------
+
+The following pose datasets are available out-of-the-box.
+
+.. csv-table::
+   :file: ../_static/fs_datasets.csv
+   :header-rows: 1
