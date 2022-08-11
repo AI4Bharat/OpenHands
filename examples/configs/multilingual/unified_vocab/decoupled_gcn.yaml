@@ -365,6 +365,7 @@ exp_manager:
         mode: "max"
         save_top_k: 3
         dirpath: "experiments/multilingual/unified_vocab/decoupled_gcn_7_langs/"
+        save_last: true
 
     early_stopping_callback: true
     early_stopping_params:

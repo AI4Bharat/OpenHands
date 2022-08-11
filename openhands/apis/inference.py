@@ -125,7 +125,7 @@ class InferenceModel(pl.LightningModule):
         all_class_indices=[]
         all_batch_labels=[]
         for batch_idx, batch in tqdm(enumerate(dataloader),unit="batch"):
-            y_hat = self.model(batch["frames"])
+            y_hat = self.model(batch["frames"].to(self._device)).cpu()
             class_indices = torch.argmax(y_hat, dim=-1)
 
             for i in range(len(batch["labels"])):
