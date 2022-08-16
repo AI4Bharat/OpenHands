@@ -30,7 +30,11 @@ The following are the checkpoints scraped for Indian SL for raw pretraining (as 
    :file: ../_static/indian_raw_datasets.csv
    :header-rows: 1
 
-For downloading data for the other 9 sign languages mentioned in our new work, please `use this Azure container link <https://ai4bharatsignlanguage.blob.core.windows.net/archives?sp=r&st=2022-08-02T13:51:42Z&se=2023-01-30T21:51:42Z&spr=https&sv=2021-06-08&sr=c&sig=7L6rwZdRz8lFhtxR4llamHUJzifJbLDzm0f9cEVZL%2BU%3D>`_.
+For downloading data for the other 9 sign languages mentioned in our new work, please use the links below:
+
+.. csv-table::
+   :file: ../_static/raw_datasets.csv
+   :header-rows: 1
 
 Pre-training
 ------------
