@@ -44,4 +44,14 @@ If you find our work useful in your research, please consider citing us:
       archivePrefix={arXiv},
       primaryClass={cs.CL}
 }
+
+@inproceedings{
+      nc2022addressing,
+      title={Addressing Resource Scarcity across Sign Languages with Multilingual Pretraining and Unified-Vocabulary Datasets},
+      author={Gokul NC and Manideep Ladi and Sumit Negi and Prem Selvaraj and Pratyush Kumar and Mitesh M Khapra},
+      booktitle={Thirty-sixth Conference on Neural Information Processing Systems Datasets and Benchmarks Track},
+      year={2022},
+      url={https://openreview.net/forum?id=zBBmV-i84Go}
+}
 ```
+
