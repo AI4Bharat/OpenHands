@@ -41,7 +41,7 @@ Pre-training
 
 Currently, the library supports pose-based pretraining based on the `dense predictive coding <https://www.robots.ox.ac.uk/~vgg/research/DPC/dpc.html>`_ (DPC) technique.
 
-- To perform pre-training, `download the config from here <https://github.com/AI4Bharat/OpenHands/blob/main/examples/ssl/pretrain_dpc.yaml>`_
+- To perform pre-training, `download the config from here <https://github.com/AI4Bharat/OpenHands/blob/main/examples/ssl/pretrain_dpc_stgcn.yaml>`_
 - Set the ``root_dir`` for train_dataset and val_dataset. Usually, HDF5 is used for training and a ISLR dataset like INCLUDE (from `Datasets` section) is used as validation set.
 
 Finally, run the following snippet to perform the pretraining:
