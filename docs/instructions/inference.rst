@@ -5,7 +5,7 @@ This section describes how to use the trained models for testing using a test se
 
 To test using our trained models, download the required checkpoint, config, and dataset metadata from the `Models` section.
 
-Computing accuacy using test set
+Computing accuracy using test set
 --------------------------------
 
 - Add a key called ``pretrained`` to the first line of the config, pointing to the ``.ckpt`` path
